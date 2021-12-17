@@ -1,0 +1,171 @@
+.right-content {
+    /* position: absolute; */
+    position: fixed;
+    top: 70px;
+    left: 200px;
+
+    width: calc(100% - 200px);
+    height: calc(100% - 70px);
+    background-color: #eee;
+}
+
+/* 默认显示学生列表 隐藏新增学生 */
+#stu-list {
+    /* display: none; */
+}
+
+#stu-add {
+    display: none;
+}
+
+/* #stu-list */
+#stu-list table {
+    width: 100%;
+    text-align: center;
+
+    line-height: 30px;
+}
+
+#stu-list table thead {
+    background-color: #e3e8ee;
+    color: #646987;
+}
+
+/* #stu-list table td {
+    background-color: #fff;
+} */
+#stu-list tbody {
+    background-color: #fff;
+}
+
+#stu-list tbody td:last-child button {
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+#stu-list tbody td:last-child button.edit {
+    background-color: #008c8c;
+}
+
+#stu-list tbody td:last-child button.remove {
+    background-color: #f40;
+}
+
+/* 翻页按钮区域 */
+.turn-page {
+    display: flex;
+    /* 若用户信息条数 仅需要一页即可显示 那么 .turn-page 得 隐藏 */
+    /* display: none; */
+    /* align-items 是否设置 效果都一样 因为子元素的高度 正好撑满父级 */
+    /* align-items: center; */
+    justify-content: center;
+
+    margin-top: 10px;
+    height: 36px;
+}
+
+.turn-page button,
+.turn-page .page-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+    margin-right: 6px;
+
+    height: 36px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.turn-page button {
+    width: 80px;
+}
+
+.turn-page .page-num {
+    width: 36px;
+}
+
+.turn-page button:hover,
+.turn-page .page-num:hover,
+.turn-page .page-num.active {
+    color: #fff;
+    background-color: #4e6ef2;
+}
+
+/* .modal 表单回填样式 */
+/* .modal 默认隐藏 */
+.modal {
+    display: none;
+}
+
+.modal {
+    /* 令 .modal 的尺寸 撑满整个浏览器窗口 */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.modal .modal-content {
+    /* 令 .modal-content 在 .modal 里居中显示 */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    border-radius: 5%;
+    padding: 20px;
+
+    width: 500px;
+    height: 400px;
+
+    background-color: #fff;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* 学生表单 (新增学生模块 共用样式) */
+.stu-form {
+    width: 400px;
+    margin: 20px auto 0 auto;
+}
+
+.stu-form p {
+    margin: 10px 0;
+}
+
+.stu-form p label {
+    /* label 默认值 display: inline; */
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.stu-form p label.sex {
+    width: auto;
+}
+
+.stu-form input[type='submit'],
+.stu-form input[type='reset'] {
+    outline: none;
+    padding: 5px 25px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}

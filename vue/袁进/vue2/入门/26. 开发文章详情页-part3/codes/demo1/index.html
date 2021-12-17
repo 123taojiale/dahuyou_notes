@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>form 表单</title>
+</head>
+
+<body>
+  <!-- 提交表单数据时，防止刷新页面； -->
+  <form id="app" @submit.prevent="handleSubmit">
+    用户名：<input type="text" name="username" v-model="formData.username">
+    密码：<input type="password" name="password" v-model="formData.pwd">
+    <p>
+      <!-- <button type="button">提交</button> -->
+      <!-- <button type="submit">提交</button> -->
+      <button :disabled="isSubmit">{{isSubmit ? "提交中" : "提交"}}</button>
+    </p>
+    <pre>{{formData}}</pre>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          formData: {
+            username: '',
+            pwd: '',
+          },
+          isSubmit: false, // 是否正在提交中
+        }
+      },
+      methods: {
+        handleSubmit() {
+          this.isSubmit = true; // 开始提交
+          console.log('提交中')
+          // 提交完成（简单模拟一下异步操作）
+          setTimeout(() => {
+            this.isSubmit = false; // 提交完成
+            this.formData.username = '';
+            this.formData.pwd = '';
+          }, 1000);
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

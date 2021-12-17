@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./index.css">
+    <title>perspective</title>
+</head>
+
+<body>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+
+    <script>
+        document.body.onmousemove = function (e) {
+            // console.log(e.clientX , e.pageX);
+            this.style.perspectiveOrigin = e.clientX + 'px ' + e.clientY + 'px';
+        }
+    </script>
+</body>
+
+</html>

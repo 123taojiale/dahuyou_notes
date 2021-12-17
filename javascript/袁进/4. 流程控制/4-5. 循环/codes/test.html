@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- 本节只介绍循环结构的语法知识 重难点在于循环的实际应用[下一小节讲解] -->
+
+
+  <!-- 输出100个 hello world -->
+
+  <!-- test1.html -->
+  <script>
+    var i = 0; //当前输出的次数，初始化
+    while (i < 100) {
+      console.log("hello world");
+      i++;
+    }
+  </script>
+
+  <script>
+    for (var i = 0; i < 100; i++) {
+      console.log("hello world");
+    }
+
+    console.log("循环结束", i);
+  </script>
+
+  <!-- test2.html -->
+  <script>
+    var i = 0; //当前输出的次数
+    do {
+      console.log("hello world");
+      i++;
+    } while (i < 100);
+    console.log("循环结束");
+  </script>
+
+
+  <!-- test3.html -->
+
+  <!-- 输出 100-1 的所有数字 -->
+  <script>
+    for (var i = 1; i <= 100; i++) {
+      // 在循环体中，i的值从1变化到100
+      console.log(i);
+    }
+  </script>
+
+  <script>
+    for (var i = 100; i >= 1; i--) {
+      console.log(i);
+    }
+  </script>
+
+  <!-- 输出 1-100 的所有奇数 - 1 -->
+  <script>
+    for (var i = 1; i <= 100; i++) {
+      // 判断i是不是奇数
+      if (i % 2 !== 0) {
+        console.log(i);
+      }
+    }
+  </script>
+
+  <!-- 输出 1-100 的所有奇数 - 2 -->
+  <script>
+    for (var i = 1; i <= 100; i += 2) {
+      console.log(i);
+    }
+  </script>
+
+  <!-- 循环控制语句中的关键字
+
+    break ==> 跳出循环
+    continue ==> 停止当前循环体，进入下一次循环。 -->
+
+  <!-- test4.html -->
+
+  <script>
+    var i = 0;
+    while (i < 10) {
+      if (i === 3) {
+        i++;
+        break; // 跳出循环
+      }
+      console.log(i); // 打印整数 0 1 2
+      i++;
+    }
+  </script>
+
+  <script>
+    for (var i = 0; i < 10; i++) {
+      if (i === 3) {
+        break; // 跳出循环
+      }
+      console.log(i); // 打印整数 0 1 2
+    }
+  </script>
+
+  <script>
+    var i = 0;
+    while (i < 10) {
+      if (i === 3) {
+        i++;
+        continue; // 停止当前循环体，进入下一次循环 ==> 一旦执行 continue 那么本轮循环不会再执行后续代码
+      }
+      console.log(i); // 打印整数 0 ~ 9 (不包括3)
+      i++;
+    }
+  </script>
+
+  <script>
+    for (var i = 0; i < 10; i++) {
+      if (i === 3) {
+        continue; // 停止当前循环体，进入下一次循环 ==> 一旦执行 continue 那么本轮循环不会再执行后续代码
+      }
+      console.log(i); // 打印整数 0 ~ 9 (不包括3)
+    }
+  </script>
+
+  <script>
+    for (var i = 0; i < 3; i++) {
+      for (var j = 0; j < 3; j++) {
+        console.log(i, j);
+        if (i + j >= 2) {
+          break;
+        }
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

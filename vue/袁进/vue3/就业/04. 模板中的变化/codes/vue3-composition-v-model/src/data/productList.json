@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "sell": true,
+    "name": "iphone12"
+  },
+  {
+    "id": 2,
+    "sell": false,
+    "name": "xiaomi"
+  },
+  {
+    "id": 3,
+    "sell": true,
+    "name": "huawei"
+  },
+  {
+    "id": 4,
+    "sell": true,
+    "name": "vivo"
+  }
+]

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对比表单元素的 input 事件和 change 事件</title>
+</head>
+
+<body>
+  <form action="#">
+    <div class="form-item">
+      <!-- 内容一旦发生变化，就会触发 input 事件 -->
+      账号：<input type="text" oninput="console.log('input')">
+    </div>
+    <div class="form-item">
+      <!-- 内容变化，并且失去焦点时，才会触发 change 事件 -->
+      密码：<input type="password" onchange="console.log('change')">
+    </div>
+  </form>
+</body>
+
+</html>

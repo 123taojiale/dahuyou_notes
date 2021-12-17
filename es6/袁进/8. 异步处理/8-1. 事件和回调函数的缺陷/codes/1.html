@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>回调地狱 - 1</title>
+</head>
+
+<body>
+  <!-- 需求描述:
+    页面中有 3 个 btn
+    当依次点击 btn1 btn2 btn3 时
+    才会弹出 hello world!!! -->
+  <button id="btn1">按钮1: 给按钮2注册点击事件</button>
+  <button id="btn2">按钮2: 给按钮3注册点击事件</button>
+  <button id="btn3">按钮3: 弹出 hello world</button>
+  <script>
+    const btn1 = document.getElementById('btn1'),
+      btn2 = document.getElementById('btn2'),
+      btn3 = document.getElementById('btn3');
+    btn1.addEventListener('click', function () {
+      btn2.addEventListener('click', function () {
+        btn3.addEventListener('click', function () {
+          alert('hello world');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

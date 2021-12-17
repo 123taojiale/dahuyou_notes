@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>overflow-x 模拟移动端水平滑动效果</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .title {
+            padding: 5px 0 5px 10px;
+            color: #008c8c;
+        }
+
+        .wrapper {
+            color: #666;
+            width: 300px;
+            overflow-x: auto;
+        }
+
+        .wrapper .content {
+            width: 500px;
+        }
+
+        .wrapper .content a {
+            float: left;
+        }
+
+        .wrapper .content a img {
+            box-sizing: border-box;
+            padding: 5px 10px 5px 0;
+
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="title">演员表 ></p>
+    <div class="wrapper">
+        <div class="content clearfix">
+            <a href="#">
+                <img src="./bys.jpg" alt="白岩松">
+                <p>白岩松</p>
+                <p>主持人</p>
+            </a>
+            <a href="#">
+                <img src="./bys.jpg" alt="白岩松">
+                <p>白岩松</p>
+                <p>主持人</p>
+            </a>
+            <a href="#">
+                <img src="./bys.jpg" alt="白岩松">
+                <p>白岩松</p>
+                <p>主持人</p>
+            </a>
+            <a href="#">
+                <img src="./bys.jpg" alt="白岩松">
+                <p>白岩松</p>
+                <p>主持人</p>
+            </a>
+            <a href="#">
+                <img src="./bys.jpg" alt="白岩松">
+                <p>白岩松</p>
+                <p>主持人</p>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月13日</title>
+</head>
+
+<body>
+
+  <!-- test1.html -->
+  <script>
+    // var a, b;
+    var a = 234;
+    var b = "234234";
+
+    function test() {
+      // var c, d;
+      var c = 2342;
+      var d = "345345345";
+    }
+
+    test();
+
+    console.log("a" in window); // true
+    console.log("b" in window); // true
+    console.log("c" in window); // false
+    console.log("d" in window); // false
+  </script>
+
+  <!-- test2.html -->
+  <script>
+    // 函数表达式 不会污染全局对象 window
+    (function test() {
+      var a = 1,
+        b = 2,
+        c = 3;
+      console.log(a, b, c);
+    });
+    // test(); // test in not defined at ...
+  </script>
+
+  <script>
+    // 立即执行函数
+    (function () {
+      var a = 1,
+        b = 2,
+        c = 3;
+      console.log(a, b, c);
+    }()); // () 可以放里面 也可以放外面
+  </script>
+
+  <script>
+    // 立即执行函数
+    (function () {
+      var a = 1,
+        b = 2,
+        c = 3;
+      console.log(a, b, c);
+    })(); // () 可以放里面 也可以放外面
+  </script>
+
+  <!-- test3.html -->
+  <script>
+    // 里面的可以拿到外面的 外面的无法拿到里面的
+    var g = "Abc";
+
+    function A() {
+      var a = 234;
+      console.log(a, g); // 234 Abc
+
+      function B() {
+        var b = 567;
+        console.log(b, a, g); // 567 234 Abc
+      }
+
+      B();
+    }
+
+    A();
+  </script>
+
+
+
+
+
+  <!-- test4.html -->
+  <!-- 函数内可嵌套函数 -->
+  <script>
+    (function () {
+
+      // 非常复杂，需要声明函数完成功能
+
+      function helper1() {
+
+      }
+
+      function helper2() {
+
+      }
+    })();
+  </script>
+
+  <!-- test5.html -->
+  <script>
+    // 函数内部声明的变量和外部冲突时，使用内部的。
+    // [这一块的内容比较复杂 在进阶课程会详细讲解]
+    var test = "Asdfasf";
+    var a = "abc";
+
+    function B() {
+      console.log('window');
+    }
+
+    function A() {
+      var a = 'bcd';
+      console.log(test); // "Asdfasf"
+      function B() {
+        console.log(a); // "bcd"
+      }
+      B();
+    }
+
+    A();
+  </script>
+
+  <script>
+    var a = 0;
+
+    function A() {
+      var a = 1;
+
+      function B() {
+        console.log(a); // 1
+        // 内部函数B 使用外部函数A 中的变量a
+      }
+      B();
+    }
+    A();
+  </script>
+</body>
+
+</html>

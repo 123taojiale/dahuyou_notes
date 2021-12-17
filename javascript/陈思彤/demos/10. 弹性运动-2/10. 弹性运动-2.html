@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性运动-2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        ul {
+            width: 800px;
+            height: 100px;
+            margin: 100px auto 0px;
+            position: relative;
+        }
+
+        ul li {
+            float: left;
+        }
+
+        .ele {
+            width: 200px;
+            height: 100px;
+            background: #008c8c;
+            line-height: 100px;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+
+        .bg {
+            width: 200px;
+            height: 100px;
+            background: #f40;
+            position: absolute;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="ele">item1</li>
+        <li class="ele">item2</li>
+        <li class="ele">item3</li>
+        <li class="ele">item4</li>
+        <li class="bg"></li>
+    </ul>
+    <script src="./script/index.js"></script>
+</body>
+
+</html>

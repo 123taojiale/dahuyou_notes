@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月15日</title>
+</head>
+
+<body>
+
+
+  <!-- 对象的基本操作 -->
+
+  <!-- 在变量中存放对象.html -->
+  <script>
+    var user = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18
+    };
+
+    // console.log(user, typeof user);
+    // 输出对象的账号
+    // console.log(user.account, typeof user.account);
+    // 输出对象的年龄
+    console.log(user.age, typeof user.age); // 18 "number"
+
+    console.log(user.sex, typeof user.sex); // undefined "undefined"
+
+    var user2;
+
+    console.log(user2.account); // 报错 Uncaught TypeError: Cannot read property 'account' of undefined
+  </script>
+
+
+
+  <!-- 在变量中存放对象.1.html -->
+  <script>
+    var user = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18
+    };
+    console.log(user.pwd); // "123456"
+    user.pwd = "654321"; // 将密码改为654321
+    console.log(user.pwd); // "654321"
+  </script>
+
+  <script>
+    var user = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18
+    };
+
+    user.tradePwd = "abcdfasdf"; // 相当于添加了属性tradePwd
+  </script>
+
+  <!-- 读取属性的对象不存在(undefined or null) ==> 报错 -->
+  <script>
+    var user = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18
+    };
+
+    var user2;
+    user2.account = "abcded"; // 报错，原始类型undefined中不可以有属性
+    // Uncaught TypeError: Cannot set property 'account' of undefined
+    console.log(user2); // 不会执行
+  </script>
+
+  <!-- 读取对象上不存在的属性 ==> 得到 undefined -->
+  <script>
+    var user = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18
+    };
+
+    console.log(user.name); // undefined
+  </script>
+
+
+
+  <!-- 在变量中存放对象.2.html -->
+  <!-- 对象里面可以继续嵌套对象 -->
+  <script>
+    var user = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18,
+      address: {
+        country: "中国",
+        city: "成都"
+      }
+    };
+    // 输出用户的所在城市
+    console.log(user.address);
+  </script>
+
+
+
+
+  <!-- 在变量中存放对象.3.html -->
+  <!-- 对象之间相互赋值 -->
+  <script>
+    var user1 = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18,
+      address: {
+        country: "中国",
+        city: "成都"
+      }
+    };
+
+    var user2 = {}; // user2 是一个空对象
+    user2.addr = user1.address; // 往 user2 这个空对象里面赋值
+
+    console.log(user2, user1);
+
+    /* 等价于:
+    var user2 = {
+        account: user1.account
+    };
+
+    console.log(user1.account, user2.account); */
+  </script>
+
+
+
+
+  <!-- 在变量中存放对象.4.html -->
+  <!-- 以属性表达式的形式来获取对象上的属性 -->
+  <script>
+    var user = {
+      account: "abc",
+      pwd: "123456",
+      gender: "男",
+      isVip: false,
+      age: 18,
+      address: {
+        country: "中国",
+        city: "成都"
+      }
+    };
+    //用属性表达式读取用户的性别属性
+    var prop = "account";
+    // console.log(user.gender);
+    console.log(user[prop]); // "abc"
+  </script>
+
+
+
+
+  <!-- 在变量中存放对象.5.html -->
+  <!-- 属性表达式中的属性 只能是字符串 -->
+  <script>
+    var obj = {};
+    obj[0] = "123"; // { "0": "123" } 宿主环境会自动将数字转换为字符串
+    obj["0"] = "234"; // { "0": "234" }
+
+    console.log(obj[0], obj["0"]); // "234" "234"
+  </script>
+
+
+
+
+  <!-- 全局对象.html -->
+
+  <script>
+    console.log("abc");
+    alert("abc");
+    document.write("abc");
+  </script>
+
+  <script>
+    window.console.log("abc");
+    window.alert("abc");
+    window.document.write("abc");
+    /*
+    console 和 document 是 window 下面的属性
+    alert 是 window 下面的方法 */
+  </script>
+
+  <script>
+    var a;
+    console.log(window); // 发现window里面新增了一个属性 a
+    console.log(a); // undefined
+    // 因为，window之前没有属性a，前一条声明语句 令a成为了window对象的属性 而读取一个对象中所不存在的属性时 返回 undefined (这就是为啥声明一个变量 而不赋值 它的默认值为 undefined 的原因了)
+  </script>
+
+  <script>
+    var console = undefined;
+    alert(window.console); // undefined
+    // 由于，console有赋值，因此，覆盖了window的属性console
+  </script>
+
+  <script>
+    var console;
+    console.log(console); // f() ...
+    // 由于，console没有赋值，因此，没有覆盖window的属性console
+  </script>
+
+  <script>
+    // why? 为什么输出的不是 undefined
+    var name;
+    console.log(name); // ""
+    // window对象下有一个name属性(默认值是空字符串) 所以window并不会新增name属性
+  </script>
+
+  <script>
+    var name = null; // name 属性比较特殊，赋值的任何内容，都会被转换为字符串
+    console.log(name); // "null"
+    console.log(typeof name); // "string"
+    console.log(window); // window.name 属性的值变成 "null"
+  </script>
+
+  <script>
+    console.log(typeof alert); // "function"
+    var alert = undefined;
+    console.log(typeof alert); // "undefined"
+  </script>
+
+</body>
+
+</html>

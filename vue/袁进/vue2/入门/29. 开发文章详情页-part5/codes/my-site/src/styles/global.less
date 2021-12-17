@@ -1,0 +1,37 @@
+@import url(./var.less);
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: @primary;
+  }
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+::selection {
+  background-color: rgba(34, 162, 201, .3);
+}
+
+input,
+textarea,
+button {
+  outline: none;
+  border: none;
+}

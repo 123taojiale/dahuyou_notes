@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function User(firstName, lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.fullName = this.firstName + " " + this.lastName;
+        }
+
+        User.abc = 123;//可以在函数里加属性，因为函数的本质就是对象
+        User.test = function () {
+            console.log("test");
+        }
+
+        User.test();
+
+        console.log(new User("w", "jf"));
+        console.log(User.abc);
+
+    </script>
+</body>
+
+</html>

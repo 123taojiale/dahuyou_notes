@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cssTabs</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: -5px;
+            width: 4px;
+            height: 16px;
+            border-radius: 5px;
+            background-color: #008c8c;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .cssTabs {
+            width: 400px;
+            height: 200px;
+            margin: 100px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .cssTabs .tab-titles {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cssTabs .tab-titles h4 {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            width: 25%;
+            text-align: center;
+        }
+
+        .cssTabs .tab-contents {
+            padding: 10px;
+        }
+
+        .cssTabs .tab-contents div {
+            display: none;
+        }
+
+        .cssTabs .tab-contents div:target {
+            display: block;
+            text-indent: 2em;
+            word-break: break-all;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cssTabs">
+        <!-- 选项卡的标题区 -->
+        <div class="tab-titles clearfix">
+            <h4>
+                <a href="#content1">content1</a>
+            </h4>
+            <h4>
+                <a href="#content2">content2</a>
+            </h4>
+            <h4>
+                <a href="#content3">content3</a>
+            </h4>
+            <h4>
+                <a href="#content4">content4</a>
+            </h4>
+        </div>
+        <!-- 选项卡的内容区 -->
+        <div class="tab-contents">
+            <div id="content1">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia a, sapiente, accusantium nostrum quod
+                ad quo hic dolor deserunt dolore iste unde nisi magni autem eum aperiam eos. Illum, praesentium!
+            </div>
+            <div id="content2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dignissimos corrupti illo sint
+                cupiditate totam, sapiente unde ratione soluta dolore ab aspernatur adipisci neque minus accusantium
+                beatae laudantium obcaecati quibusdam!
+            </div>
+            <div id="content3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quod, laborum explicabo rem quia atque
+                tenetur. Accusantium error laborum ea quod voluptatibus illo. Ex, itaque est commodi recusandae
+                necessitatibus voluptate!
+            </div>
+            <div id="content4">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, vero! Quo quia a saepe minus quasi
+                officia libero maxime dolore tempora consectetur quidem, nulla molestiae ea eius odit natus rerum!
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

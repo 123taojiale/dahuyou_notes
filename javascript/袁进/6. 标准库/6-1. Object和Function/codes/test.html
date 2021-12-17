@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月14日</title>
+</head>
+
+<body>
+
+
+  <!-- # 1. Object和Function
+
+    [toc]
+
+    ## 标准库（标准API）
+
+    - 库：liberary
+    - API：应用程序编程接口，Application Programing Interface
+    - 标准：ECMAScript标准
+
+
+    ## Object
+
+    ### 静态成员(成员 包括 属性 + 方法)
+
+    - keys(某个对象)，得到某个对象的所有属性名数组
+    - values(某个对象)，得到某个对象的所有属性值数组
+    - entries(某个对象)，得到某个对象的所有属性名和属性值的数组 -->
+
+
+
+  <!-- test1.html -->
+  <!-- 静态方法 通过构造函数来调用 -->
+  <script>
+    var obj = {
+      x: 123,
+      y: "Asdfaf",
+      z: true
+    };
+
+    var arr = Object.keys(obj);
+    console.log(arr); // (3) ["x", "y", "z"]
+  </script>
+
+  <script>
+    var obj = [234, 65, 2, 2, 3444, 111];
+
+    var arr = Object.values(obj);
+    console.log(arr); // (6) [234, 65, 2, 2, 3444, 111]
+  </script>
+
+  <script>
+    var obj = [234, 65, 2, 2, 3444, 111];
+
+    var arr = Object.entries(obj);
+    console.log(arr); // (6) [Array(2), Array(2), Array(2), Array(2), Array(2), Array(2)]
+  </script>
+
+
+
+
+
+
+  <!-- ### 实例成员
+
+    > 实例成员可以被重写
+
+    **所有对象，都拥有Object的所有实例成员**
+
+    - toString方法：得到某个对象的字符串格式
+
+    默认情况下，该方法返回"[object Object]"; -->
+
+
+
+  <!-- test2.html -->
+  <!-- 实例方法 通过构造函数所创建的实例对象来调用 -->
+  <!-- 通过实例对象来调用实例方法 -->
+  <script>
+    var obj = {
+      x: 1234,
+      y: 'abcd'
+    }
+
+    console.log(obj.toString()); // "[object Object]"
+  </script>
+
+  <!-- 实例对象重写实例方法 -->
+  <script>
+    var obj = {
+      x: 1234,
+      y: 'abcd'
+    }
+    obj.toString = function () {
+      return this.x + ',' + this.y;
+    }
+
+    console.log(obj.toString()); // "1234,abcd"
+  </script>
+
+  <!-- 所有对象，都拥有Object的所有实例成员 -->
+  <script>
+    var arr = [12, 3, 34, 2, 6, 245, 6];
+    // 数组本质上也是一个对象
+
+    console.log(arr.toString()); // "12,3,34,2,6,245,6"
+    // 发现数组里面的 toString 输出结果和 对象的不同 说明数组中的 toString 方法被重写了
+  </script>
+
+  <!-- 基本包装类中的 Number 里面的toString也被重写了 -->
+  <script>
+    var num = new Number(123);
+
+    console.log(num.toString()); // "123"
+  </script>
+
+
+  <!-- 模拟Number中的toString -->
+  <script>
+    function MyNumber(n) {
+      // ...
+      this.toSting = function () {
+        return "" + n;
+      };
+    }
+
+    var num = new MyNumber(234);
+    console.log(num.toSting()); // "234"
+  </script>
+
+  <!-- 函数也是对象 ==> 函数也拥有 toSting 方法 -->
+  <script>
+    function MyNumber(n) {
+      // ...
+      this.toSting = function () {
+        return "" + n;
+      };
+    }
+
+    console.log(MyNumber.toSting());
+    /*
+    function MyNumber(n) {
+        // ...
+        this.toSting = function () {
+            return "" + n;
+        };
+    }
+    */
+  </script>
+
+
+
+
+  <!-- - valueOf方法：得到某个对象的值
+
+    默认情况下，返回该对象本身
+
+    > 在JS中，当自动的进行类型转换时，如果要对一个对象进行转换，实际上是先调用对象的valueOf方法，然后调用返回结果的toString方法，将得到的结果进行进一步转换。 -->
+
+
+
+
+  <!-- test3.html -->
+  <script>
+    var obj = {
+      x: 13,
+      y: 34534,
+    }
+
+    console.log(obj.valueOf() === obj); // true
+  </script>
+
+  <!-- 模拟 Object 构造函数内部的 valueOf 方法 -->
+  <script>
+    var obj = {
+      x: 13,
+      y: 34534,
+    }
+
+    function Object() {
+      this.valueOf = function () {
+        return this;
+      }
+    }
+
+    console.log(obj.valueOf() === obj); // true
+  </script>
+
+
+  <!-- 在JS中，当自动的进行类型转换时，如果要对一个对象进行转换，
+        实际上是先调用对象的valueOf方法，
+        然后调用返回结果的toString方法，
+        将得到的结果进行进一步转换。 -->
+  <script>
+    var obj = {
+      x: 13,
+      y: 34534
+    }
+
+    console.log(obj + 1); // "[object Object]1"
+    // console.log(obj.valueOf().toString() + 1); // "[object Object]1"
+  </script>
+
+
+
+  <script>
+    var obj = {
+      x: 13,
+      y: 34534,
+      toString() {
+        return "hello";
+      }
+    }
+
+    console.log(obj + 1); // "hello1"
+    // 如果调用了valueOf已经得到了原始类型，则不再调用toString
+    console.log(obj.valueOf().toString() + 1); // "hello1"
+  </script>
+
+  <!-- 面试题 -->
+  <script>
+    var obj = {
+      x: 13,
+      y: 34534,
+      valueOf() {
+        return 123;
+      }
+    }
+
+    console.log(obj + 1); // 124
+    // 知识点: 如果调用了valueOf已经得到了原始类型，则不再调用toString
+    console.log(obj.valueOf().toString() + 1); // "1231"
+  </script>
+
+
+
+
+
+  <!-- ## Function
+
+    **所有函数都具有Function中的实例成员**
+
+    **语法：arguments：在函数中使用，获取该函数调用时，传递的所有参数**
+
+    **arguments是一个类数组（也称为伪数组：没有通过Array构造函数创建的类似于数组结构的对象），伪数组会缺少大量的数组实例方法**
+
+    **arguments数组中的值，会与对应的形参映射 [有传参 则有映射 否则没有映射]**
+
+    ### 实例成员
+
+    - length属性，得到函数形参数量
+    - apply方法：调用函数，同时指定函数中的this指向，参数以数组传递
+    - call方法：调用函数，同时指定函数中的this指向，参数以列表传递
+    - bind方法：得到一个新函数，该函数中的this始终指向指定的值。
+
+    通常，可以利用apply、call方法，将某个伪数组转换伪真数组。 -->
+
+
+
+
+  <!-- test4.html -->
+  <!-- 有传参 -->
+  <script>
+    var test = function abc(a, b) {
+      arguments[0] = "abc";
+      b = 123;
+
+      console.log(a, b); // "abc" 123
+      console.log(arguments); // Arguments(2) ["abc", 123, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+    }
+
+    test(1, 2);
+  </script>
+
+  <!-- 不传参 -->
+  <script>
+    var test = function abc(a, b) {
+      arguments[0] = "abc";
+      b = 123;
+
+      console.log(a, b); // undefined 123
+      console.log(arguments); // Arguments [0: "abc", callee: ƒ, Symbol(Symbol.iterator): ƒ]
+    }
+
+    test();
+  </script>
+
+  <!-- 有传参 -->
+  <script>
+    var test = function abc(a, b) {
+      arguments[0] = "abc";
+      b = 123;
+
+      console.log(a, b); // "abc" 123
+      console.log(arguments); // Arguments(2) ["abc", 123, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+    }
+
+    test(undefined, 2);
+  </script>
+
+  <!-- length属性，得到函数形参数量 -->
+  <script>
+    var test = function abc(a, b) {}
+    console.log(test.length); // 2
+  </script>
+
+
+  <!-- 改变this指向.html -->
+  <script>
+    function sayHello(a, b) {
+      console.log(this.name, this.age);
+    }
+
+    var user1 = {
+      name: "asfd",
+      age: 123
+    };
+    /* 要求打印user1中的name和age */
+
+    sayHello(); // 因为 this ==> window 所以不行
+    user1.sayHello(); // 因为 user1里面没有sayHello这个函数 所以不行
+  </script>
+
+
+
+
+  <!-- apply方法 ：调用函数，同时指定函数中的this指向，参数以数组传递 -->
+  <!-- call方法：调用函数，同时指定函数中的this指向，参数以列表传递 -->
+  <script>
+    function sayHello(a, b) {
+      console.log(this.name, this.age);
+    }
+
+    var user1 = {
+      name: "asfd",
+      age: 123
+    };
+
+    var user2 = {
+      name: "546345",
+      age: 11
+    };
+
+    sayHello.apply(user1); // "asfd" 123
+    sayHello.call(user2); // "546345" 11
+  </script>
+
+
+  <script>
+    function sayHello(a, b) {
+      console.log(this.name, this.age);
+      console.log(a, b);
+    }
+
+    var user1 = {
+      name: "asfd",
+      age: 123
+    };
+
+    var user2 = {
+      name: "546345",
+      age: 11
+    };
+
+    sayHello.apply(user1, [1, 2]);
+    sayHello.call(user2, 1, 2);
+  </script>
+
+
+  <!-- bind方法：得到一个新函数，该函数中的this始终指向指定的值。 -->
+  <script>
+    function sayHello(a, b) {
+      console.log(this.name, this.age);
+      console.log(a, b);
+    }
+
+    var user1 = {
+      name: "asfd",
+      age: 123
+    };
+
+    var user2 = {
+      name: "546345",
+      age: 11
+    };
+
+    var newFunc = sayHello.bind(user1, 1, 2);
+    newFunc();
+    // "asfd" 123
+    // 1 2
+    var newFunc2 = sayHello.bind(user1);
+    newFunc2(1, 2);
+    // "asfd" 123
+    // 1 2
+  </script>
+
+  <!-- test5.html -->
+  <!-- 通常，可以利用apply、call方法，将某个伪数组转换伪真数组。 -->
+  <script>
+    function test() {
+      console.log(arguments);
+      //将arguments转换为真数组
+      var newArr = [].slice.call(arguments)
+      console.log(newArr);
+    }
+
+    test(23, 5, 6, 2, 233, 5, 6, 7);
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匀速运动案例</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            opacity: .3;
+        }
+
+        div#demo1 {
+            background-color: #008c8c;
+        }
+
+        div#demo2 {
+            background-color: #f40;
+            left: 600px;
+        }
+
+        span.line {
+            width: 1px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+            left: 300px;
+            top: 0px;
+        }
+
+        button {
+            margin-top: 150px;
+        }
+
+        .btn2 {
+            margin-left: 570px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo1"></div>
+    <button class="btn1">run</button>
+
+    <span class="line"></span>
+
+    <div id="demo2"></div>
+    <button class="btn2">run</button>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

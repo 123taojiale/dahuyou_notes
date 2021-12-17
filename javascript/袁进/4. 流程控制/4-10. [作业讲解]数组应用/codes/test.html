@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- 1. 提示用户输入数组的长度，以及数组每一项的值，然后输出该数组 -->
+  <!-- 本题的目的: 我们需要知道 大多数情况下 数组中的值不是我们自己确定的 而是用户输入的值 -->
+  <script>
+    var len = +prompt("请输入数组的长度: "),
+      arr = [];
+    for (var i = 0; i < len; i++) {
+      item = +prompt(`请输入第${i+1}项: `); // bug ==> 输入的数据不一定都是数字
+      arr.push(item);
+    }
+    console.log(arr);
+  </script>
+
+  <!-- 袁老师 -->
+  <script>
+    var len = +prompt("请输入数组的长度");
+    if (isNaN(len) || len < 0) {
+      console.log("输入有误");
+    } else {
+      //输入正确
+      var arr = []; // var arr = new Array(len);
+      for (var i = 0; i < len; i++) {
+        // 提示用户输入数组的这一项的值
+        arr[i] = prompt("请输入数组第" + (i + 1) + "项的值"); // 若 i + 1 不加括号 那么会先拼接 i 再拼接 1
+      }
+      console.log(arr);
+    }
+  </script>
+
+  <!-- 2. 初始化一个数字数组，然后求该数组所有项之和 -->
+  <script>
+    var arr = [1, 2, 3, 3, 3, 2, 1],
+      sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+
+    console.log(sum); // 15
+  </script>
+
+  <!-- 3. 初始化一个数字数组，然后输出数组中所有的奇数 -->
+  <script>
+    var arr = [1, 2, 3, 4, 5, 6, 7],
+      oddArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 === 1) {
+        oddArr.push(arr[i]);
+      }
+    }
+    console.log(oddArr); // (4) [1, 3, 5, 7]
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var arr = [234, 6, 23, 211, 23];
+    for (var index in arr) {
+      if (arr[index] % 2 !== 0) {
+        console.log(arr[index]);
+      }
+    }
+  </script>
+
+  <!-- 4. 初始化一个数字数组，然后输出数组中所有的素数 -->
+  <script>
+    var arr = [], // 存放 1-100所有整数
+      newArr = []; // newArr 存放素数
+    var record = 0;
+    // 初始化 arr
+    for (var i = 0; i < 100; i++) {
+      arr.push(i + 1);
+    }
+
+    for (var i = 0; i < arr.length; i++) {
+      record = 0;
+      for (var j = 1; j <= arr[i]; j++) {
+        if (arr[i] % j == 0) {
+          record++;
+        }
+      }
+      if (record === 2) {
+        newArr.push(arr[i]);
+      }
+    }
+    console.log(
+      newArr
+    ); // (25) [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var arr = [234, 2, 6, 23, 211, 23];
+    for (var index in arr) {
+      // 判断arr[index]是不是素数
+      var isFind = false;
+      for (var i = 2; i < arr[index] - 1; i++) {
+        if (arr[index] % i === 0) {
+          isFind = true;
+          break;
+        }
+      }
+      if (!isFind && arr[index] >= 2) {
+        console.log(arr[index]);
+      }
+    }
+  </script>
+
+  <!-- 5. 斐波拉契数列是这样一种数列：1 1 2 3 5 8 13 ......
+    数列前两位为1，第n位=第n-1位+第n-2位
+    让用户输入斐波拉契数列的长度，在控制台中打印该长度的斐波拉契数列 -->
+  <script>
+    var len = +prompt("请输入斐波拉契数列的长度: "),
+      arr = [];
+    for (var i = 0; i < len; i++) {
+      if (i === 0 || i === 1) {
+        arr.push(1);
+      } else {
+        arr.push(arr[i - 1] + arr[i - 2]);
+      }
+    }
+    console.log(arr); // (7) [1, 1, 2, 3, 5, 8, 13]
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var len = +prompt("请输入斐波拉契数列的长度");
+    if (isNaN(len) || len < 0) {
+      console.log("输入有误");
+    } else {
+      //输入正确
+      var arr = [];
+      for (var i = 0; i < len; i++) {
+        if (i === 0 || i === 1) {
+          arr[i] = 1;
+        } else {
+          arr[i] = arr[i - 1] + arr[i - 2];
+        }
+      }
+
+      console.log(arr);
+    }
+  </script>
+
+  <!-- 6. 定义一个用户数组，数组的每一项是一个用户对象，用户对象中包含账号和密码，随意初始化一些对象放入数组中。
+        然后提示用户输入账号和密码，判断是否登录成功 -->
+  <script>
+    var uerArr = [{
+        name: 'A',
+        age: 18,
+        count: '111',
+        pwd: '222'
+      },
+      {
+        name: 'B',
+        age: 19,
+        count: '222',
+        pwd: '333'
+      },
+      {
+        name: 'C',
+        age: 20,
+        count: '333',
+        pwd: '444'
+      },
+    ];
+    var inputCount = prompt("请输入账号: ");
+    var inputpwd = prompt("请输入密码: ");
+    for (var i = 0; i < uerArr.length; i++) {
+      if (inputCount === uerArr[i].count && inputpwd === uerArr[i].pwd) {
+        console.log("登录成功");
+        break;
+      } else if (i === uerArr.length - 1) {
+        console.log("登录失败");
+      }
+    }
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var users = [{
+        loginId: "abc",
+        loginPwd: "123"
+      },
+      {
+        loginId: "abc1",
+        loginPwd: "1234"
+      },
+      {
+        loginId: "abc2",
+        loginPwd: "1235"
+      },
+      {
+        loginId: "abc3",
+        loginPwd: "1236"
+      }
+    ];
+
+    // 不能使用 indexOf() 来查找
+    // var index = user.indexOf({ // 返回值永远都是 -1
+    //     loginId,
+    //     loginPwd
+    // })
+    // indexOf() 比较时用的是严格相等 对象之间的比较比较的是地址 它们之间的地址是不可能相等的
+    // 查找对象不能使用 indexOf() 但是基本类型可以 比如 数字 字符串 ...
+
+    var loginId = prompt("请输入账号");
+    var loginPwd = prompt("请输入密码");
+
+    // 查找问题
+    var isFind = false;
+    for (var i = 0; i < users.length; i++) {
+      var u = users[i];
+      if (u.loginId === loginId && u.loginPwd === loginPwd) {
+        isFind = true;
+        break;
+      }
+    }
+
+    if (isFind) {
+      console.log("登录成功");
+    } else {
+      console.log("登录失败");
+    }
+  </script>
+
+  <!-- 7. 初始化一个5*5的二维数组，数组每一项是一个数字，计算对角线[两条]之和 -->
+  <script>
+    // Two-dimensional array 二维数组
+    var tdArr = [
+      [1, 2, 3, 4, 5],
+      [1, 2, 3, 4, 5],
+      [1, 2, 103, 4, 5],
+      [1, 2, 3, 4, 5],
+      [1, 2, 3, 4, 5]
+    ];
+    var sum = 0;
+    for (var r = 0; r < tdArr.length; r++) {
+      for (var c = 0; c < tdArr[r].length; c++) {
+        if (r === c || r + c === tdArr.length - 1) {
+          sum += tdArr[r][c];
+        }
+
+      }
+    }
+
+    console.log(sum); // 230
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var arr = [
+      [5, 2, 3, 1, 7],
+      [8, 0, 6, 7, 8],
+      [4, 0, 6, 2, 0],
+      [3, 0, 6, 8, 1],
+      [2, 0, 4, 5, 9]
+    ];
+
+    // 对角线之和
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      // arr[i] 是一个数组
+      for (var j = 0; j < arr[i].length; j++) {
+        // arr[i][j]
+        if (i === j || i + j === arr.length - 1) {
+          sum += arr[i][j];
+        }
+      }
+    }
+
+    console.log(sum);
+  </script>
+
+  <!-- 8. 初始化一个数字数组（数据随意），对该数组进行升序排序，然后输出结果
+
+    思路提示：
+
+    数组的排序有多种算法可以完成，这里介绍其中一种：冒泡排序算法
+
+    冒泡排序算法的原理如下：
+    - 比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+    - 对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+    - 针对所有的元素重复以上的步骤，除了已排好序的元素。 -->
+  <script>
+    // 升序 ==> 从头到尾 越来越大
+    var arr = [93, 27, 84, 34, 75, 63];
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = 0; j < arr.length - 1 - i; j++) {
+        if (arr[j] > arr[j + 1]) {
+          var temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        }
+      }
+    }
+    console.log(arr); // (6) [27, 34, 63, 75, 84, 93]
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var nums = [23, 2, -34, 3563, 111, 44, 5, 8, 1];
+
+    for (var i = 1; i < nums.length; i++) {
+      // 第i次排序
+      for (var j = 0; j < nums.length - i; j++) {
+        // 比较 j 和 j+1 两个位置的数字
+        if (nums[j] > nums[j + 1]) {
+          //交换
+          var temp = nums[j];
+          nums[j] = nums[j + 1];
+          nums[j + 1] = temp;
+        }
+      }
+    }
+
+    console.log(nums);
+
+    /*
+        第1次：排了5次，比较的位置从0~4
+        2，23，44，5，8，1
+        2，23，44，5，8，1
+        2，23，5，44，8，1
+        2，23，5，8，44，1
+        2，23，5，8，1，44
+    */
+
+    /*
+        第2次：排了4次，比较的位置从0~3
+        2，23，5，8，1，44
+        2，5，23，8，1，44
+        2，5，8，23，1，44
+        2，5，8，1，23，44
+    */
+
+    /*
+        第3次：排了3次，比较的位置从0~2
+        2，5，8，1，23，44
+        2，5，8，1，23，44
+        2，5，1，8，23，44
+    */
+
+    /*
+        第4次：排了2次，比较的位置从0~1
+        2，5，1，8，23，44
+        2，1，5，8，23，44
+    */
+
+    /*
+        第5次：排了1次，比较的位置从0~0
+        1，2，5，8，23，44
+    */
+  </script>
+
+  <!-- 9. 有一个数组，存放了一些数字，找出出现频率最高的数字 [面试题考过很多次] -->
+  <script>
+    var arr = [1, 2, 3, 3, 2, 2, 4, 4, 4, 4, 2, 2, 2],
+      maxRateNum,
+      newArr = []; // 去重后的新数组
+
+    // 数组去重
+    for (var i = 0; i < arr.length; i++) {
+      var item = arr[i];
+      for (var j = 0; j < newArr.length || newArr.length === 0; j++) {
+        if (item === newArr[j]) {
+          break;
+        } else if (j === newArr.length - 1 || newArr.length === 0) {
+          newArr.push(item);
+          break;
+        }
+      }
+    }
+    // console.log(newArr);
+    var count = 0,
+      maxCount = 0;
+    for (var j = 0; j < newArr.length; j++) {
+      count = 0;
+      // console.log(newArr[j]);
+      for (var i = 0; i < arr.length; i++) {
+        if (newArr[j] === arr[i]) {
+          count++;
+        }
+      }
+      if (count > maxCount) {
+        maxRateNum = newArr[j];
+        maxCount = count;
+      }
+    }
+    console.log(maxRateNum);
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var nums = [2, 3, 4, 5, 234, 5, 5, 5, 5, 5, 5, 5, 5, 2, 2, 2, 2, 3, 3, 3, 5];
+
+    // 输出：2出现频率最高，出现5次
+    // 得到记录对象
+
+    var record = {}; //记录对象
+    for (var i = 0; i < nums.length; i++) {
+      var n = nums[i];
+      if (record[n]) {
+        record[n]++;
+      } else {
+        record[n] = 1;
+      }
+    }
+
+    var result; //结果对象
+    for (var prop in record) {
+      if (!result || record[prop] > result.frequency) {
+        result = {
+          number: prop,
+          frequency: record[prop]
+        }
+      }
+    }
+
+    console.log(`${result.number}出现频率最高，出现${result.frequency}次`); // 5出现频率最高，出现10次
+  </script>
+
+  <!-- 补充作业: 初始化一个数组 , 求数组中的最大值 -->
+  <script>
+    var arr = [11, 75, 36, 92, 36, 54];
+    var max = arr[0];
+    for (var i = 1; i <= arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i];
+      }
+    }
+    console.log(max); // 92
+  </script>
+  <!-- 袁老师 -->
+  <script>
+    var nums = [23, 6, 1, 1, 666, 324];
+    // 求最大值
+    var max = nums[0];
+    for (var i = 1; i < nums.length; i++) {
+      if (nums[i] > max) {
+        max = nums[i];
+      }
+    }
+
+    console.log(max); // 666
+  </script>
+</body>
+
+</html>

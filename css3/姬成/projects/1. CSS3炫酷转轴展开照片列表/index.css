@@ -1,0 +1,199 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    /* 令 .wrapper 居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    background-color: #000;
+}
+
+.wrapper {
+    /* 令 .item 按照 space-between 排列 */
+    display: flex;
+    justify-content: space-between;
+
+    width: 80%;
+    height: 80%;
+}
+
+.wrapper .item {
+    /* 给 item::after 蒙层提供参照 */
+    position: relative;
+
+    width: 16%;
+    height: 100%;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: width .5s linear,
+        height .5s .5s linear;
+}
+
+.wrapper .item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+
+    opacity: .5;
+    transition: opacity .3s;
+}
+
+.wrapper .item:hover::after {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.inner {
+    position: relative;
+    /* 令 h1 居中显示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+    height: 100%;
+    background-size: cover;
+    color: #fff;
+
+    /* 初始时令 .inner 位于 .item 的下方 */
+    transform: translateY(100%);
+    animation: show 0.5s forwards linear;
+}
+
+@keyframes show {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+.wrapper .item:nth-of-type(1) .inner {
+    background-image: url(./images/1.jpg);
+    background-position: 33%;
+    animation-delay: .1s;
+}
+
+.wrapper .item:nth-of-type(2) .inner {
+    background-image: url(./images/5.jpg);
+    background-position: 41%;
+    animation-delay: .2s;
+}
+
+.wrapper .item:nth-of-type(3) .inner {
+    background-image: url(./images/3.jpg);
+    background-position: 54%;
+    animation-delay: .3s;
+}
+
+.wrapper .item:nth-of-type(4) .inner {
+    background-image: url(./images/6.jpg);
+    background-position: 54%;
+    animation-delay: .4s;
+}
+
+.wrapper .item:nth-of-type(5) .inner {
+    background-image: url(./images/7.jpg);
+    background-position: 45%;
+    animation-delay: .5s;
+}
+
+.wrapper .item:nth-of-type(6) .inner {
+    background-image: url(./images/8.jpg);
+    background-position: 50%;
+    animation-delay: .6s;
+}
+
+.inner h1 {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.inner .des {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.inner .des .name {
+    position: absolute;
+    top: 0;
+    left: 50px;
+    font-weight: bold;
+}
+
+/* 关闭按钮 */
+.inner .des .close {
+    position: absolute;
+    top: 0;
+    right: 50px;
+
+    width: 30px;
+    height: 30px;
+    /* background-color: #ddd; */
+}
+
+.inner .des .close::after,
+.inner .des .close::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -2.5px;
+    width: 5px;
+    height: 100%;
+    background-color: #ddd;
+}
+
+.inner .des .close::after {
+    transform: rotate(45deg);
+}
+
+.inner .des .close::before {
+    transform: rotate(-45deg);
+}
+
+/* 点击后的 .item 样式切换 */
+.activeWrapper .item.active {
+    width: 100%;
+    transition: height .5s linear,
+        width .5s .5s linear;
+}
+
+.activeWrapper .item:not(.active) {
+    width: 0%;
+    height: 0%;
+}
+
+.activeWrapper .item.active h1 {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* 取消蒙层 无法点击到 .close */
+.activeWrapper .item.active::after {
+    display: none;
+}
+
+.activeWrapper .item.active .des {
+    opacity: 1;
+    transition: opacity 1s .5s;
+}

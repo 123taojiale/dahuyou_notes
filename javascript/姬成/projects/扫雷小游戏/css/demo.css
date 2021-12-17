@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+
+#mine {
+    margin-top: 50px;
+}
+
+.level {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 0px;
+}
+
+.level button {
+    padding: 5px 15px;
+    border-radius: 5%;
+    background-color: #02a4ad;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.level button+button {
+    margin-left: 10px;
+}
+
+.level button.active {
+    background-color: #00abff;
+}
+
+/* .game-box{
+    height: 300px;
+    width: 300px;
+    background-color: #ddd;
+    margin: 0 auto;
+} */
+
+.game-box table {
+    border-spacing: 1px;
+    background-color: #929196;
+    margin: 0 auto;
+}
+
+.game-box table td {
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-color: #fff #a1a1a1 #a1a1a1 #fff;
+    background-color: #ccc;
+
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.game-box table td.zero,
+.game-box table td.one,
+.game-box table td.two,
+.game-box table td.three,
+.game-box table td.four,
+.game-box table td.five,
+.game-box table td.six,
+.game-box table td.seven,
+.game-box table td.eight {
+    border-color: #d9d9d9;
+    background: #d9d9d9;
+}
+
+td.one {
+    color: #0332fe;
+}
+
+td.two {
+    color: #019f02;
+}
+
+td.three {
+    color: #ff2600;
+}
+
+td.four {
+    color: #93208f;
+}
+
+td.five {
+    color: #ff7f29;
+}
+
+td.six {
+    color: #ff3fff;
+}
+
+td.seven {
+    color: #3fffbf;
+}
+
+td.eight {
+    color: #22ee0f;
+}
+
+.info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mine{
+    background: #d9d9d9 url(../images/mine.png) no-repeat center;
+    background-size: cover;
+}
+.flag{
+    background: #ccc url(../images/flag.png) no-repeat center;
+    background-size: cover;
+}

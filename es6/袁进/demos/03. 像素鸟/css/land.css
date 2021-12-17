@@ -1,0 +1,11 @@
+/* 大地 */
+.land {
+    position: absolute;
+    left: 0;
+    top: 488px;
+
+    width: 200%;
+    height: 112px;
+    background: url('../img/land.png');
+    /* opacity: .3; */
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text-shadow</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        div {
+            position: absolute;
+            left: calc(50% - 250px);
+            top: calc(50% - 50px);
+
+            width: 500px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+
+            color: #ddd;
+            font-size: 80px;
+
+            text-shadow: 0 0 10px #0f0,
+                0 0 20px #0f0,
+                0 0 30px #0f0,
+                0 0 40px #0f0;
+
+            transition: all 2s;
+        }
+
+        div:hover {
+            text-shadow: 0 0 10px #f00,
+                0 0 20px #f20,
+                0 0 30px #f30,
+                0 0 40px #f40;
+            /* text-shadow: 0 0 10px #f00,
+                0 0 20px #f20,
+                0 0 30px #f30,
+                0 0 40px #f40,
+                0 -10px 10px #f10,
+                0 -20px 20px #f20,
+                0 -30px 30px #f30; */
+        }
+
+        div::before {
+            content: "NO ";
+
+            text-shadow: 0 0 10px #f00,
+                0 0 20px #f20,
+                0 0 30px #f30,
+                0 0 40px #f40,
+                0 -10px 10px #f10,
+                0 -20px 20px #f20,
+                0 -30px 30px #f30;
+            opacity: 0;
+            transition: all 2s;
+        }
+
+        div:hover::before {
+            opacity: 1;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>ACCESS</div>
+</body>
+
+</html>

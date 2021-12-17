@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2020年9月15日</title>
+</head>
+
+<body>
+  <!-- 引用类型赋值问题 -->
+  <!-- test1.html -->
+  <script>
+    var a = "123";
+    var b = a;
+    b = "456";
+    console.log(a, b); // "123" "456"
+    //obj1 指向 xx 对象
+    //obj1 持有 xx 对象的引用
+    var obj1 = {
+      name: "123",
+      age: 10
+    }; // 出现对象字面量的位置，会新开辟一块内存空间，用于存放对象的内容
+
+    // obj2 和 obj1 指向同一个对象
+    // obj2 和 obj1 持有相同的引用
+    var obj2 = obj1;
+    obj2.name = "456";
+    console.log(obj1.name, obj2.name); // "456" "456"
+  </script>
+
+
+
+
+  <!-- 凡是出现对象字面量的位置 都一定在内存中创建了一个新对象 -->
+  <!-- test2.html -->
+  <script>
+    var obj1 = {
+      name: "123",
+      age: 10
+    };
+    var obj2 = obj1;
+    obj2 = {
+      name: "456"
+    };
+    console.log(obj1.name, obj2.name); // "123" "456"
+  </script>
+
+
+
+
+  <!-- test3.html -->
+  <script>
+    var user1 = {
+      name: "u1",
+      address: {
+        country: "中国",
+        city: "哈尔滨"
+      }
+    };
+
+    var user2 = {
+      name: "u2",
+      address: user1.address
+    };
+    user2.name = "user2";
+    user2.address.city = "成都";
+    console.log(user1.name, user2.name); // "u1" "user2"
+    console.log(user1.address.city, user2.address.city); // "成都" "成都"
+  </script>
+
+
+
+
+  <!-- test4.html -->
+  <script>
+    var obj1 = {
+      a: "123",
+      b: "456",
+      sub: {
+        s1: "abc",
+        s2: "bcd"
+      }
+    };
+    var temp = obj1.sub;
+    var obj2 = obj1;
+    obj2.sub = {
+      s1: "s",
+      s2: "ddd"
+    };
+
+    console.log(obj1.sub.s1, obj2.sub.s1, temp.s1); // "s" "s" "abc"
+  </script>
+
+
+
+  <!-- 垃圾回收问题 -->
+  <!-- test5.html -->
+  <script>
+    var obj = {
+      a: "123",
+      b: "456",
+      sub: {
+        s: "asdf"
+      }
+    };
+
+    var temp = obj.sub;
+
+    obj = {
+      a: "abc",
+      b: "bcd"
+    };
+  </script>
+
+
+
+
+  <!-- test6.html -->
+  <script>
+    // 补充：在JS中，变量在使用时可以不写var
+    // 不写var直接赋值，相当于给window的某个属性直接赋值
+
+    a = 1;
+    console.log(a, window.a); // 1 1
+    console.log(window.a === a); // true
+  </script>
+
+</body>
+
+</html>

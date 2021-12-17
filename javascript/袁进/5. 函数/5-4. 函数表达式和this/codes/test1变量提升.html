@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建一个函数，将其赋值给变量a
+        var a = function () { //不会提升全局变量
+            console.log("asdf");
+        };
+
+        function a() { //会提升全局变量
+            console.log("123");
+        }
+
+        a();
+    </script>
+</body>
+
+</html>

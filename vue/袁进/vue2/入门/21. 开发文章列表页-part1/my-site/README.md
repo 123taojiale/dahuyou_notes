@@ -1,0 +1,3 @@
+# my-site
+
+- RightList.vue

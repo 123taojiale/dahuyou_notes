@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-model 语法糖</title>
+  <style>
+    #app {
+      display: flex;
+    }
+
+    input {
+      display: block;
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="input-box">
+      <!-- 双向同时变化 -->
+      formData1：（v-model等效写法）<input type="text" :value="formData1" @input="formData1 = $event.target.value;">
+      formData2：（v-model）<input type="text" v-model="formData2">
+      formData3：（单向绑定1）<input type="text" @input="formData3 = $event.target.value;">
+      formData4：（单向绑定2）<input type="text" :value="formData4">
+      <!-- formData 变为 reset -->
+      <button @click="formData1 = formData2 = formData3 = formData4 = 'reset'">reset</button>
+    </div>
+    <pre>{{$data}}</pre>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    const vm = new Vue({
+      data: {
+        formData1: '',
+        formData2: '',
+        formData3: '',
+        formData4: ''
+      }
+    }).$mount("#app");
+  </script>
+</body>
+
+</html>

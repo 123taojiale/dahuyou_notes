@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root,
+body {
+    height: 100%;
+}
+
+body {
+    perspective: 800px;
+}
+
+div {
+    position: absolute;
+    top: 100px;
+
+    width: 100px;
+    height: 100px;
+    background-image: url(../../resources/images/dahuyou.jpg);
+    background-size: cover;
+
+    transform: rotateY(45deg);
+}
+
+.box1 {
+    left: 100px;
+}
+
+.box2 {
+    left: 200px;
+}
+
+.box3 {
+    left: 300px;
+}
+
+.box4 {
+    left: 400px;
+}
+
+.box5 {
+    left: 500px;
+}

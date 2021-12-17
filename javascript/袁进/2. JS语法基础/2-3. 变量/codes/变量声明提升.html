@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>2020年9月15日</title>
+</head>
+
+<body>
+  <script>
+    console.log(a, b); // Uncaught ReferenceError：a is not defined
+  </script>
+  <script>
+    /* console.log(a, b); // undefined undefined
+    var a = 1;
+    var b = 3; */
+    // 等效于
+    var a;
+    var b;
+    console.log(a, b); // undefined undefined
+    a = 1;
+    b = 3;
+  </script>
+  <script>
+    console.log(a, b); // 1 3
+  </script>
+</body>
+
+</html>

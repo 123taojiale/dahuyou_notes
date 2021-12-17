@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>button 元素的 disabled 属性</title>
+</head>
+
+<body>
+  <button id="btn1" disabled>this is a button</button>
+  <button id="btn2">this is a button</button>
+  <script>
+    // 若 button 元素加上了布尔属性 disabled，那么，点击事件将失效。
+    // 当按钮被点击后，btn1 将不会触发点击事件
+    btn1.onclick = function () {
+      console.log("button1 clicked");
+    }
+    // 当按钮被点击后，btn2 会触发点击事件
+    btn2.onclick = function () {
+      console.log("button2 clicked");
+    }
+  </script>
+</body>
+
+</html>

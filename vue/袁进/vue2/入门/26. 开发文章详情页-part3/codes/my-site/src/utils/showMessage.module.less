@@ -1,0 +1,42 @@
+@import url(~@/styles/var.less);
+@import url(~@/styles/mixin.less);
+
+.icon {
+  font-size: 20px;
+  margin-right: 7px;
+}
+
+.message {
+  display: flex;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #fff;
+
+  // 消息在容器中居中显示
+  .self-center();
+
+  // 过渡 位置：下->上 透明度：0->1
+  transform: translate(-50%, -50%) translateY(25px);
+  opacity: 0;
+  transition: .3s;
+
+  // 正常信息的背景色
+  &-info {
+    background-color: @primary;
+  }
+
+  // 警告信息的背景色
+  &-warn {
+    background-color: @warn;
+  }
+
+  // 错误信息的背景色
+  &-error {
+    background-color: @danger;
+  }
+
+  // 正确（成功）信息的背景色
+  &-success {
+    background-color: @success;
+  }
+}

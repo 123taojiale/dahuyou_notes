@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2020年9月13日</title>
+</head>
+
+<body>
+  <!-- Mr. Yuan -->
+  <!-- 英雄打怪兽的小游戏
+
+    英雄和怪兽都具有攻击力、防御力、生命值、暴击几率（暴击时伤害翻倍）
+
+    攻击伤害 = 攻击力 - 防御力
+
+    伤害最少为1.
+
+    创建一个英雄和一个怪兽，让它们互相攻击，直到一方死亡，输出整个攻击过程。 -->
+  <!-- <script src="./作业.js"></script> -->
+
+
+  <!-- Mr. Tao -->
+  <script>
+    console.log("============游戏开始===========");
+
+    function Charactor(name, attack, defence, hp, critRate) {
+      this.name = name;
+      this.attack = attack;
+      this.defence = defence;
+      this.hp = hp;
+      this.critRate = critRate;
+
+      this.print = function () {
+        console.log(
+          `姓名: ${this.name} 攻击力: ${this.attack} 防御力: ${this.defence} 剩余生命值: ${this.hp} 暴击率: ${this.critRate}`
+        );
+      }
+
+      this.hit = function (target) {
+        var damage = this.attack - target.defence;
+
+        // 判断是否有暴击
+        var isCrit = this.critRate > Math.random();
+        if (isCrit) {
+          damage *= 2;
+        }
+
+        // damage 最小是1
+        if (damage < 1) {
+          damage = 1;
+        }
+
+        target.hp -= damage;
+
+        if (target.hp < 0) {
+          target.hp = 0;
+        }
+
+        console.log(
+          `${isCrit ? "暴击！" : ""}【${this.name}】攻击【${target.name}】，造成【${damage}】点伤害，对方当前血量为【${target.hp}】`
+        );
+
+        return target.hp === 0;
+      }
+
+    }
+
+    var hero = new Charactor('hero', 100, 50, 1000, 0.5);
+    hero.print();
+    var monster = new Charactor('monster', 80, 70, 1100, 0.4);
+    monster.print();
+
+    while (1) {
+      if (hero.hit(monster) || monster.hit(hero)) {
+        break;
+      }
+    }
+
+    hero.print();
+    monster.print();
+
+    console.log("============游戏结束===========");
+  </script>
+</body>
+
+</html>

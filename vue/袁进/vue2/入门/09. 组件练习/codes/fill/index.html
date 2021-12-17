@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>铺满视口</title>
+  <style>
+    .wrapper {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 1px solid #f40;
+    }
+
+    .box {
+      background-color: #ddd;
+
+      position: absolute;
+      /* z-index: -1; */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="box"></div>
+  </div>
+</body>
+
+</html>

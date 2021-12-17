@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+
+
+  <!-- test1.html -->
+  <script>
+    console.log(5 > 3 && 3 > 2); // true
+    console.log(5 > 3 && 100); // 100
+    console.log(0 && 2); // 0
+  </script>
+
+  <script>
+    var x = 1;
+    console.log(x > 2 && x++ > 0); // false
+    console.log(x); // 1
+  </script>
+
+  <script>
+    console.log(1 && 2 && 3 && 4 && 0 && 5 && 6 && 7); // 0
+  </script>
+
+  <script>
+    var age = -10;
+    // 如果年龄为负数，则将其设置为0
+    age < 0 && (age = 0); // 难以阅读和理解
+    console.log(age); // 0
+  </script>
+
+  <script>
+    var x = 1;
+    console.log(x++ >= 1 && x++ >= 2 && x++ >= 4 && x++ >= 4); // false
+    console.log(x); // 4
+  </script>
+
+
+  <!-- test2.html -->
+  <script>
+    // || 找值为 true 的表达式
+    console.log(1 > 3 || 10); // 10
+    console.log(undefined || 'abc'); // 'abc'
+    console.log(0 || null || undefined || 1 || null || NaN); // 1
+  </script>
+
+  <script>
+    var obj = {
+      name: "xxx",
+      gender: "男"
+    };
+    // 对象中如果没有年龄，则将年龄赋值为18
+    obj.age = obj.age === undefined && 18;
+    console.log(obj.age); // 18
+  </script>
+
+  <script>
+    var obj = {
+      name: "xxx",
+      gender: "男"
+    };
+    // 对象中如果没有年龄，则将年龄赋值为18
+    obj.age = obj.age || 18;
+    console.log(obj.age); // 18
+  </script>
+
+
+  <!-- test3.html -->
+  <script>
+    console.log(!true); // false
+    console.log(!undefined); // true
+    console.log(!2 + 1); // 1
+  </script>
+
+  <!-- 6个视作 false 的值 -->
+  <script>
+    console.log(!!false);
+    console.log(!!0);
+    console.log(!!null);
+    console.log(!!undefined);
+    console.log(!!'');
+    console.log(!!NaN);
+  </script>
+
+
+  <!-- test4.html -->
+  <!-- 优先级
+        && > ||
+    -->
+  <script>
+    // 在变量中存放年份
+    var year = 2004;
+
+    // 用逻辑运算，判断该年是否是闰年
+    // 闰年规则：4年一闰，百年不闰；400年一闰
+    var result = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+    // 如果是闰年，则输出闰年，否则，输出平年
+    result && console.log("闰年");
+    result || console.log("平年");
+  </script>
+
+
+</body>
+
+</html>

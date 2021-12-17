@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- 1. 用一个变量保存成绩，输出该成绩是否及格（true 或 false） -->
+  <script>
+    var score = 50;
+    console.log(score >= 60);
+  </script>
+
+
+  <!-- 2. 用一个变量保存年份，得到该年份2月的天数 -->
+  <script>
+    var year = 2001;
+    //是否是闰年
+    var isLeap = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+
+    isLeap && console.log(29 + "天");
+    isLeap || console.log(28 + "天");
+  </script>
+
+  <!-- 3. 利息计算器
+
+    设置变量，分别存放本金、月数、年利率，计算利息
+
+    如果本金存放量超过了10万，年利率上浮20%（比如，年利率为4%，上浮后的年利率 4% * 1.2） -->
+  <script>
+    var money = 200000,
+      month = 12,
+      rate = 4;
+    money > 100000 && (rate = rate * 1.2);
+    var lixi = money * rate / 100 / 12 * month;
+    console.log("利息：" + lixi);
+  </script>
+</body>
+
+</html>

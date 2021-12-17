@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- 预备知识 -->
+
+  <!-- test1.html -->
+  <!--  -->
+  <script>
+    var arr1 = [3, 5, 7, 8, 2]; // arr1中存放的是地址
+    var arr2 = arr1; // arr2中存放的是地址
+    arr2[0] = 5;
+    console.log(arr1 === arr2); // true
+    console.log(arr1[0], arr2[0]); // 5 5
+  </script>
+
+  <!-- 如何复制（克隆，产生一个全新的对象） -->
+  <script>
+    var arr1 = [3, 5, 7, 8, 2];
+    var arr2 = arr1.slice();
+    arr2[0] = 5;
+    console.log(arr1 === arr2); // false
+    console.log(arr1[0], arr2[0]); // 3 5
+  </script>
+
+  <!-- test2.html -->
+  <!-- 对数组求和 -->
+  <script>
+    var arr = [3, 7, 6, 4, 5];
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    console.log(sum); // 25
+  </script>
+
+  <!-- test3.html -->
+  <!-- 二维数组：数组中的每一项是一个数组 -->
+  <script>
+    // 3*3的二维数组
+    var arr = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ];
+
+    // 输出二维数组的每一项
+    for (var i = 0; i < arr.length; i++) {
+
+      for (var j = 0; j < arr[i].length; j++) {
+        console.log(arr[i][j]);
+      }
+
+    }
+
+    // 对二维数组求和
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      for (var j = 0; j < arr[i].length; j++) {
+        sum += arr[i][j];
+      }
+    }
+    console.log(sum); // 45
+  </script>
+
+  <!-- test4.html -->
+  <!-- 将数组的每一项进行字符串拼接 -->
+  <script>
+    var arr = [3, 4, 6, 1, 3];
+
+    // 输出：3, 4, 6, 1, 3
+    var str = "";
+    for (var i = 0; i < arr.length; i++) {
+      str += arr[i];
+      if (i < arr.length - 1) {
+        str += ",";
+      }
+    }
+    console.log(str); // "3,4,6,1,3"
+  </script>
+
+  <script>
+    var arr = [3, 4, 6, 1, 3];
+    // 数组.join(分隔符)，该函数返回一个字符串
+    var str = arr.join(",");
+    console.log(str); // "3,4,6,1,3"
+  </script>
+
+  <!-- test5.html -->
+  <!-- 数组 与 数组 拼接 -->
+  <script>
+    var arr1 = [34, 5, 2, 1];
+    var arr2 = ["abc", "bcd"];
+    // 数组1.concat(数组2)
+    // 将数组2的所有元素 拼接到 数组1 的末尾，产生一个新数组返回，该表达式不会对原数组造成任何影响
+    var arr3 = arr1.concat(arr2);
+    console.log(arr1); // (4) [34, 5, 2, 1]
+    console.log(arr2); // (2) ["abc", "bcd"]
+    console.log(arr3); // (6) [34, 5, 2, 1, "abc", "bcd"]
+  </script>
+
+
+</body>
+
+</html>

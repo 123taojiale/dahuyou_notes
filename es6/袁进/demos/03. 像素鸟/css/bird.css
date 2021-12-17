@@ -1,0 +1,23 @@
+/* 小鸟 */
+.bird {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+
+    width: 33px;
+    height: 26px;
+    background: url('../img/bird.png');
+}
+
+/* 小鸟翅膀煽动的 3 个状态 */
+.bird.swing0 {
+    background-position: -8px -10px;
+}
+
+.bird.swing1 {
+    background-position: -60px -10px;
+}
+
+.bird.swing2 {
+    background-position: -113px -10px;
+}

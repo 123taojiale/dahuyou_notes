@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>默认参数的应用</title>
+  <style>
+    div {
+      color: #f40;
+    }
+
+    p {
+      color: #008c8c;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    /**
+     * 向指定容器中添加元素
+     * 并且可以 设置添加的元素的内容
+     * @param {String} name 元素的名字
+     * @param {HTMLElement} container 元素的父元素
+     * @param {String} content 元素的内容
+     */
+    function createElement(name = 'div', container = document.body, content) {
+      const ele = document.createElement(name);
+      if (content) { // 防止内容默认为 undefined
+        ele.innerHTML = content;
+      }
+      container.appendChild(ele);
+    }
+
+    createElement(undefined, undefined, 'dahuyou');
+    createElement('p', undefined, 'xiaohuyou');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+@import url(~@/styles/var.less);
+@import url(~@/styles/mixin.less);
+
+.message {
+  display: flex;
+  flex-wrap: nowrap;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 5px;
+
+  // 居中
+  .self-center();
+  opacity: 0;
+  transform: translate(-50%, -50%) translateY(25px);
+  transition: .4s;
+
+  // 正常消息
+  &-info {
+    background-color: @primary;
+  }
+
+  // 正确消息
+  &-correct {
+    background-color: @success;
+  }
+
+  // 警告消息
+  &-warn {
+    background-color: @warn;
+  }
+
+  // 错误消息
+  &-error {
+    background-color: @danger;
+  }
+}
+
+.icon {
+  font-size: 1.2em;
+  margin-right: 7px;
+}

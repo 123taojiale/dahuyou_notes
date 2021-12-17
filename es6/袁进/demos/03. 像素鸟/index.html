@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>像素鸟小游戏</title>
+</head>
+
+<body>
+    <div class="game">
+        <div class="sky"></div>
+        <div class="land"></div>
+        <!-- <div class="pipe up"></div> -->
+        <!-- <div class="pipe down"></div> -->
+        <!-- <div class="bird"></div> -->
+        <div class="bird swing0"></div>
+        <!-- <div class="bird swing1"></div> -->
+        <!-- <div class="bird swing2"></div> -->
+        <div class="over">游戏结束</div>
+    </div>
+    <div class="info">回车键开始/暂停，空格键跳跃。</div>
+
+    <script src="./js/Rectangle.js"></script>
+    <script src="./js/Sky.js"></script>
+    <script src="./js/Land.js"></script>
+    <script src="./js/Bird.js"></script>
+    <script src="./js/Pipe.js"></script>
+    <script src="./js/Game.js"></script>
+
+    <script>
+        const g = new Game();
+        g.regEvent();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex 实现 圣杯布局</title>
+    <style>
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            /* 注意 align-items: stretch;
+            align-items 属性的默认值是 stretch
+            即: 若我们不给弹性盒子设置交叉轴的高度值 那么它默认会撑满父级 */
+            margin: 100px auto;
+            border: 1px solid #999;
+
+            height: 500px;
+            height: 300px;
+
+            color: #666;
+            text-align: center;
+
+            resize: both;
+            overflow: hidden;
+        }
+
+        .wrapper .header,
+        .wrapper .footer {
+            flex: 0 0 20%;
+            background-color: #ddd;
+        }
+
+        .wrapper .content {
+            flex: 1 1 auto;
+            display: flex;
+        }
+
+        .wrapper .content .center {
+            flex: 1 1 auto;
+
+        }
+
+        .wrapper .content .left,
+        .wrapper .content .right {
+            flex: 0 0 20%;
+            background-color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">header</div>
+        <div class="content">
+            <div class="left">left</div>
+            <div class="center">center</div>
+            <div class="right">right</div>
+        </div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+
+</html>

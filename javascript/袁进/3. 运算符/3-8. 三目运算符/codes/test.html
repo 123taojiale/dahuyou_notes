@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- test1.html -->
+  <!-- 根据年份 返回这一年二月份的天数 -->
+  <script>
+    var year = 2000;
+    //是否是闰年
+    var isLeap = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+    //得到该年份二月的天数
+    var days = isLeap ? 29 : 28;
+    console.log("二月的天数为：" + days);
+  </script>
+
+  <!-- test2.html -->
+  <script>
+    var x = 1;
+    x = x++ >= 1 ? x++ * x++ : ++x * ++x;
+    console.log(x); // 6
+  </script>
+
+</body>
+
+</html>

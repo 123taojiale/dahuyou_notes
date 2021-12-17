@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "lib": [
+      "es2017"
+    ],
+    "outDir": "./dist",
+    "strictNullChecks": true
+  },
+  "include": [
+    "./src"
+  ],
+}

@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* 光标闪烁 */
+@keyframes cursor {
+    0% {
+        border-left-color: rgba(0, 0, 0, 1);
+    }
+
+    50% {
+        border-left-color: rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        border-left-color: rgba(0, 0, 0, 1);
+    }
+}
+
+/*  */
+@keyframes move {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+div {
+    position: relative;
+
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 40px;
+    font-family: monospace;
+    /* 每个字体与字体之间的间隙相同 */
+}
+
+div::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    border-left: 1px solid rgba(0, 0, 0, 1);
+
+    width: 100%;
+    height: 45px;
+
+    background-color: #fff;
+    animation: cursor 1s steps(1, end) infinite,
+        move 26s steps(26, end) infinite;
+}

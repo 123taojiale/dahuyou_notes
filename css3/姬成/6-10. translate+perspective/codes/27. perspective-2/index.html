@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./index.css">
+    <title>照片旋转效果</title>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+    <script>
+        const box = document.querySelector('.box');
+        let deg = 0;
+        setInterval(() => {
+            box.style.transform = `rotateY(${deg++}deg)`;
+        }, 16);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>防止用户恶意输入</title>
+  <style>
+    .addArea {
+      width: 200px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <textarea class="addArea"></textarea>
+    <button class="addBtn">添加</button>
+  </div>
+  <div class="container"></div>
+  <script>
+    const addBtn = document.querySelector(".addBtn"),
+      addArea = document.querySelector(".addArea"),
+      container = document.querySelector(".container");
+    addBtn.onclick = function () {
+      const value = addArea.value;
+      const pre = document.createElement("pre");
+      pre.innerText = value;
+      container.appendChild(pre);
+      addArea.value = "";
+    }
+  </script>
+</body>
+
+</html>

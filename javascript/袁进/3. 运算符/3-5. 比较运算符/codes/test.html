@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2020年9月16日</title>
+</head>
+
+<body>
+    <!-- test1.html -->
+    <script>
+        var a = 5,
+            b = 4;
+        console.log(2 + 3 >= 5); // true
+        console.log('AB' > 'AC'); // false
+        console.log("11" > "1"); // true
+        console.log(a > b); // true
+    </script>
+
+
+
+    <!-- test2.html -->
+    <script>
+        console.log('1' >= 10); // false
+        console.log('2' > true); // true
+        // NaN与任何数字比较，得到的结果都是false
+        console.log(NaN > 0); // false
+        console.log(3 > {}); // false
+        console.log(null > -1); // true null 转化为数字是0
+        console.log(undefined > -1); // false undefined 转化为数字是NaN
+    </script>
+
+
+
+    <!-- test3.html -->
+    <script>
+        var a = {};
+        var b = {};
+        console.log(1 == 1); // true
+        console.log(1 != 1); // false
+        console.log("abc" === "abc"); // true
+        console.log("abc " !== "abc"); // true
+        // 引用类型 比较的是地址
+        console.log(a == b); // false
+
+        console.log(null == undefined); // true
+        console.log(null != undefined); // false
+        console.log(null == 0); // false
+        console.log(undefined == 0); //false
+
+        console.log('1' == 1); // true
+        console.log(true == 1); //true
+        console.log(true == 2); //false
+        console.log(true == '1'); // true
+
+        console.log({} == 0); // false
+    </script>
+
+    <!-- null的大小比较 和 null的相等比较 -->
+    <script>
+        console.log(null > -1); // true
+        console.log(null == 0); // false
+    </script>
+
+
+    <!-- test4.html -->
+    <script>
+        console.log(1 === true); // false
+    </script>
+
+
+
+</body>
+
+</html>

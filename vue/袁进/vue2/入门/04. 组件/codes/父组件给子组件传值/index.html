@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>应该保证每个组件的数据是相互独立的</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <ul>
+      <todo-item v-for="item in groceryList" :todo="item" :key="item.id" />
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    // 组件的本质，其实就是一个对象（根据 Vue 规定的配置规则来定义的一个配置对象）
+    const TodoItem = { // 创建 TodeItem 组件
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    }
+
+    // 虽然，可以在子组件中修改父组件传递过来的属性值，但是最好不要这样做。
+    /* const TodoItem = {
+      props: ['todo'],
+      template: '<li @click="todo.text=123">{{ todo.text }}</li>'
+    } */
+
+    new Vue({
+      el: '#app',
+      data: {
+        groceryList: [{
+          id: 0,
+          text: '蔬菜'
+        }, {
+          id: 1,
+          text: '奶酪'
+        }, {
+          id: 2,
+          text: '随便其它什么人吃的东西'
+        }]
+      },
+      components: { // 将 TodeItem 组件局部注册到 Vue 实例中
+        TodoItem
+      }
+    });
+
+    // 组件其实也是一个 vue 实例，但是要等到组件被使用时，它才会实例化。
+  </script>
+</body>
+
+</html>

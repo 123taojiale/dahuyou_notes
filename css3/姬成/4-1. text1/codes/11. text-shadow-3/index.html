@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text-shadow</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        div {
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 200px);
+
+            border: 1px solid #ddd;
+
+            width: 400px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+
+            font-size: 80px;
+            font-weight: bold;
+
+            background-image: url(../../resources/images/bz.jpg);
+            background-repeat: no-repeat;
+            background-position: 0 100px;
+
+            /* 注意: 设置完下面这两条属性之后 文字就变成了背景的一部分
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-shadow 是文字阴影 (文字会覆盖阴影 阴影位于文字下方显示) 它算是内容的一部分 内容通常会位于背景上方显示
+            但是 在这个案例中 我们会发现 text-shadow 会在文字上面显示 就是因为此时文字已经算作背景了 */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            transition: all 2s;
+
+            /* 若 text-shadow 的阴影颜色不加上透明度的话 那么背景(文字)压根看不见 */
+            /* text-shadow: 3px 3px 0 #ff0; */
+
+            /* 添加上透明度 让背景可见 模拟以下 text-shadow 位于背景下方的感觉 */
+            text-shadow: 5px 5px 10px rgba(255, 0, 255, 0.1),
+                -5px -5px 10px rgba(0, 255, 255, .2);
+
+            /* 若把 text-shadow 声明给注释掉 会发现页面上的文本内容也没了
+            因为我们给背景设置了定位 0 100px 此时文本已成为背景的一部分
+            它也跟着背景图片定位走了 */
+        }
+
+        div:hover {
+            background-position: -700px -270px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>兵长砍猴</div>
+</body>
+
+</html>

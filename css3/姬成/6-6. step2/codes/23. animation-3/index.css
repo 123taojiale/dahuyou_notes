@@ -1,0 +1,84 @@
+@keyframes secondrun {
+    0% {
+        /* 开始 默认指向 12 */
+        transform: rotate(180deg);
+    }
+
+    100% {
+        /* 一次运动结束后 旋转一圈 180 + 360 依旧指向 12 */
+        transform: rotate(540deg);
+    }
+}
+
+@keyframes minuterun {
+    0% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(540deg);
+    }
+}
+
+div.clock {
+    position: relative;
+    width: 512px;
+    height: 512px;
+    background-image: url(../../resources/images/clock.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.second {
+    position: absolute;
+    /* left 和 top 通过控制台微调获取 */
+    left: 247px;
+    top: 180px;
+    /* width 和 height 是图片 second.png 的尺寸 */
+    width: 16px;
+    height: 278px;
+    background-image: url(../../resources/images/second.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* 设置旋转轴的中心 (76px 是美工量出来的) */
+    transform-origin: center 76px;
+    /* 让秒针一开始默认指向 12 */
+    transform: rotate(180deg);
+    /* 秒针在最上面显示 时针在最下面显示 */
+    z-index: 3;
+    /* 10倍速 */
+    animation: secondrun 6s steps(60, end) infinite;
+    /* 正常倍速 */
+    /* animation: secondrun 60s steps(60, end) infinite; */
+}
+
+div.minute {
+    position: absolute;
+    transform-origin: center 16px;
+    left: 238px;
+    top: 240px;
+    width: 32px;
+    height: 218px;
+    background-image: url(../../resources/images/minute.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* 让分针一开始默认指向 12 */
+    transform: rotate(180deg);
+    z-index: 2;
+    /* 10倍速 */
+    animation: minuterun 360s steps(60, end);
+    /* animation: minuterun 3600s steps(60, end); */
+}
+
+div.hour {
+    position: absolute;
+    transform-origin: center 16px;
+    left: 238px;
+    top: 240px;
+    width: 32px;
+    height: 148px;
+    background-image: url(../../resources/images/hour.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}

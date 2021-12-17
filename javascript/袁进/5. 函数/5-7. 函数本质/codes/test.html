@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月17日</title>
+</head>
+
+<body>
+
+  <!-- test1.html -->
+  <script>
+    function sum(a, b) {
+      return a + b;
+    }
+
+    console.log(typeof sum); // "function"
+    console.log(sum(3, 5)); // 8
+  </script>
+
+  <script>
+    var sum = new Function("a", "b", "return a+b");
+
+    console.log(typeof sum); // "function"
+    console.log(sum(3, 5)); // 8
+  </script>
+
+
+  <!-- test2.html -->
+  <script>
+    function User(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.fullName = this.firstName + " " + this.lastName;
+    }
+
+    console.log(new User("袁", "进")); // User {firstName: "袁", lastName: "进", fullName: "袁 进"}
+  </script>
+
+
+  <!-- test3.html -->
+  <script>
+    function User(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.fullName = this.firstName + " " + this.lastName;
+    }
+
+    User.abc = 123;
+    console.log(User.abc); // 123
+
+
+    User.test = function () {
+      console.log(this.abc);
+    }
+    User.test(); // 123
+  </script>
+
+
+</body>
+
+</html>

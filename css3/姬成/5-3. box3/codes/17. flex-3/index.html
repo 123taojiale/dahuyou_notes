@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex 实现 3 栏布局 中间固定 两边自适应</title>
+    <style>
+        .wrapper {
+            display: flex;
+            margin: 100px auto;
+            border: 1px solid #999;
+
+            width: 400px;
+            height: 200px;
+
+            resize: both;
+            overflow: hidden;
+        }
+
+        .wrapper div {
+            flex: 1 1 auto;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            color: #666;
+        }
+
+        .wrapper .center {
+            flex: 0 0 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="left">left</div>
+        <div class="center">center</div>
+        <div class="right">right</div>
+    </div>
+</body>
+
+</html>

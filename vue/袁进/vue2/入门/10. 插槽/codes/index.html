@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>layout</title>
+  <style>
+    .test-container {
+      width: 1000px;
+      height: 500px;
+      border: 1px solid #ddd;
+      margin: 2em auto;
+    }
+
+    .layout-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    /* .left-1 {
+      height: 200px;
+    }
+
+    .main-1 {
+      height: 50%;
+    }
+
+    .right-1 {
+      height: auto;
+    }
+
+    .right-1,
+    .left-1 {
+      flex: 0 0 auto;
+    }
+
+    .main-1 {
+      flex: 1 1 auto;
+    } */
+
+    .left-2,
+    .right-2,
+    .main-2 {
+      height: 100%;
+    }
+
+    .left-2 {
+      width: 250px;
+      background-color: aquamarine;
+    }
+
+    .right-2 {
+      width: 150px;
+      background-color: lightblue;
+    }
+
+    .main-2 {
+      width: 100%;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test-container">
+    <div class="layout-container">
+      <div class="left-1">
+        <div class="left-2">左边栏区域，宽度适应内容，溢出隐藏。</div>
+      </div>
+      <div class="main-1">
+        <div class="main-2">主区域，宽度撑满剩余空间，溢出隐藏。</div>
+      </div>
+      <div class="right-1">
+        <div class="right-2">右边栏区域，宽度适应内容，溢出隐藏。</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

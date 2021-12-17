@@ -1,0 +1,949 @@
+<!DOCTYPE html><html><head>
+      <title>9. FetchApi</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600");
+*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}.markdown-preview code{border-radius:2px;color:#e96900;font-size:12.8px;font-size:.8rem;margin:0 2px;padding:3px 5px;white-space:pre-wrap}.markdown-preview code,.markdown-preview pre{background-color:#f8f8f8;font-family:Roboto Mono,Monaco,courier,monospace}.markdown-preview pre{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;line-height:24px;line-height:1.5rem;margin:1.2em 0;overflow:auto;padding:0 22.4px;padding:0 1.4rem;position:relative;word-wrap:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8e908c}.token.namespace{opacity:.7}.token.boolean,.token.number{color:#c76b29}.token.punctuation{color:#525252}.token.property{color:#c08b30}.token.tag{color:#2973b7}.token.string{color:#42b983;color:var(--theme-color, #42b983)}.token.selector{color:#6679cc}.token.attr-name{color:#2973b7}.language-css .token.string,.style .token.string,.token.entity,.token.url{color:#22a2c9}.token.attr-value,.token.control,.token.directive,.token.unit{color:#42b983;color:var(--theme-color, #42b983)}.token.keyword{color:#e96900}.token.atrule,.token.regex,.token.statement{color:#22a2c9}.token.placeholder,.token.variable{color:#3d8fd1}.token.deleted{text-decoration:line-through}.token.inserted{border-bottom:1px dotted #202746;text-decoration:none}.token.italic{font-style:italic}.token.bold,.token.important{font-weight:700}.token.important{color:#c94922}.token.entity{cursor:help}.markdown-preview pre>code,.markdown-preview pre[class*="language"]{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;background-color:#f8f8f8;border-radius:2px;color:#525252;display:block;font-family:Roboto Mono,Monaco,courier,monospace;font-size:12.8px;font-size:.8rem;line-height:2em;max-width:inherit;overflow:inherit;padding:.8em 1.4em;white-space:pre}.markdown-preview pre>code{padding-left:0;padding-right:0}.markdown-preview code:after,.markdown-preview code:before{letter-spacing:.8px;letter-spacing:.05rem}code .token{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;min-height:24px;min-height:1.5rem}pre:after{color:#ccc;content:attr(data-lang);font-size:9.6px;font-size:.6rem;font-weight:600;height:15px;line-height:15px;padding:5px 10px 0;position:absolute;right:0;text-align:right;top:0}pre[data-line]{position:relative;padding:1em 0 1em 3em !important}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;src:local('Roboto Mono'),local('RobotoMono-Regular'),url(https://fonts.gstatic.com/s/robotomono/v7/L0x5DF4xlVMF-BfR8bXMIjhLq3o.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:300;src:local('Source Sans Pro Light'),local('SourceSansPro-Light'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;src:local('Source Sans Pro Regular'),local('SourceSansPro-Regular'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:600;src:local('Source Sans Pro SemiBold'),local('SourceSansPro-SemiBold'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype')}*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}body:not(.ready){overflow:hidden}body:not(.ready) .app-nav,body:not(.ready)>nav,body:not(.ready) [data-cloak]{display:none}div#app{font-size:30px;font-weight:lighter;margin:40vh auto;text-align:center}div#app:empty:before{content:"Loading..."}.emoji{height:19.2px;height:1.2rem;vertical-align:middle}.progress{background-color:#42b983;background-color:var(--theme-color, #42b983);height:2px;left:0;position:fixed;right:0;top:0;transition:width .2s,opacity .4s;width:0;z-index:5}.search .search-keyword,.search a:hover{color:#42b983;color:var(--theme-color, #42b983)}.search .search-keyword{font-style:normal;font-weight:700}body,html{height:100%}body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:#34495e;font-family:Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:15px;letter-spacing:0;margin:0;overflow-x:hidden}img{max-width:100%}a[disabled]{cursor:not-allowed;opacity:.6}kbd{color:#34495e;border:1px solid #ccc;border-radius:3px;display:inline-block;font-size:12px !important;line-height:12px;margin-bottom:3px;padding:3px 5px;vertical-align:middle}.task-list-item{list-style-type:none}li input[type=checkbox]{margin:0 .2em .25em -1.6em;vertical-align:middle}.app-nav{left:0;margin:25px 60px 0 0;position:absolute;right:0;text-align:right;z-index:2}.app-nav p{margin:0}.app-nav>a{margin:0 16px;margin:0 1rem;padding:5px 0}.app-nav li,.app-nav ul{display:inline-block;list-style:none;margin:0}.app-nav a{color:inherit;font-size:16px;text-decoration:none;transition:color .3s}.app-nav a.active,.app-nav a:hover{color:#42b983;color:var(--theme-color, #42b983)}.app-nav a.active{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983)}.app-nav li{display:inline-block;margin:0 16px;margin:0 1rem;padding:5px 0;position:relative}.app-nav li ul{background-color:#fff;border:1px solid #ddd;border-bottom-color:#ccc;border-radius:4px;box-sizing:border-box;display:none;max-height:calc(100vh - 61px);overflow-y:scroll;padding:10px 0;position:absolute;right:-15px;text-align:left;top:100%;white-space:nowrap}.app-nav li ul li{display:block;font-size:14px;line-height:16px;line-height:1rem;margin:0;margin:8px 14px;white-space:nowrap}.app-nav li ul a{display:block;font-size:inherit;margin:0;padding:0}.app-nav li ul a.active{border-bottom:0}.app-nav li:hover ul{display:block}.app-nav.no-badge{margin-right:25px}.github-corner{border-bottom:0;position:fixed;right:0;text-decoration:none;top:0;z-index:1}.github-corner svg{color:#fff;fill:#42b983;fill:var(--theme-color, #42b983);height:80px;width:80px}.github-corner:hover .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}main{display:block;position:relative;width:100vw;height:100%;z-index:0}.anchor{display:inline-block;text-decoration:none;transition:all .3s}.anchor span{color:#34495e}.anchor:hover{text-decoration:underline}.sidebar{border-right:1px solid rgba(0,0,0,0.07);overflow-y:auto;padding:40px 0 0;top:0;bottom:0;left:0;position:absolute;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out;width:300px;z-index:3}.sidebar>h1{margin:0 auto 16px;margin:0 auto 1rem;font-size:24px;font-size:1.5rem;font-weight:300;text-align:center}.sidebar>h1 a{color:inherit;text-decoration:none}.sidebar>h1 .app-nav{display:block;position:static}.sidebar .sidebar-nav{line-height:2em;padding-bottom:40px}.sidebar ul{margin:0;padding:0}.sidebar li>p{font-weight:700;margin:0}.sidebar ul,.sidebar ul li{list-style:none}.sidebar ul li a{border-bottom:none;display:block}.sidebar ul li ul{padding-left:20px}.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:transparent;border-radius:4px}.sidebar:hover::-webkit-scrollbar-thumb{background:hsla(0,0%,53%,0.4)}.sidebar:hover::-webkit-scrollbar-track{background:hsla(0,0%,53%,0.1)}.sidebar-toggle{background-color:transparent;background-color:hsla(0,0%,100%,0.8);border:0;outline:none;padding:10px;bottom:0;left:0;position:absolute;text-align:center;transition:opacity .3s;width:30px;width:284px;z-index:4}.sidebar-toggle .sidebar-toggle-button:hover{opacity:.4}.sidebar-toggle span{background-color:#42b983;background-color:var(--theme-color, #42b983);display:block;margin-bottom:4px;width:16px;height:2px}body.sticky .sidebar,body.sticky .sidebar-toggle{position:fixed}.content{padding-top:60px;top:0;right:0;bottom:0;left:300px;position:absolute;transition:left .25s ease}.markdown-preview>*{box-sizing:border-box;font-size:inherit}.markdown-preview>:first-child{margin-top:0 !important}.markdown-preview hr{border:none;border-bottom:1px solid #eee;margin:2em 0}.markdown-preview table{border-collapse:collapse;border-spacing:0;display:block;margin-bottom:16px;margin-bottom:1rem;overflow:auto;width:100%}.markdown-preview th{font-weight:700}.markdown-preview td,.markdown-preview th{border:1px solid #ddd;padding:6px 13px}.markdown-preview tr{border-top:1px solid #ccc}.markdown-preview p.tip,.markdown-preview tr:nth-child(2n){background-color:#f8f8f8}.markdown-preview p.tip{border-bottom-right-radius:2px;border-left:4px solid #f66;border-top-right-radius:2px;margin:2em 0;padding:12px 24px 12px 30px;position:relative}.markdown-preview p.tip code{background-color:#efefef}.markdown-preview p.tip em{color:#34495e}.markdown-preview p.tip:before{background-color:#f66;border-radius:100%;color:#fff;content:"!";font-family:Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:14px;font-weight:700;left:-12px;line-height:20px;position:absolute;width:20px;height:20px;text-align:center;top:14px}.markdown-preview p.warn{background:rgba(66,185,131,0.1);border-radius:2px;padding:16px;padding:1rem}body.close .sidebar{-webkit-transform:translateX(-300px);transform:translateX(-300px)}body.close .sidebar-toggle{width:auto}body.close .content{left:0}@media print{.app-nav,.github-corner,.sidebar,.sidebar-toggle{display:none}}@media screen and (max-width:768px){.github-corner,.sidebar,.sidebar-toggle{position:fixed}.app-nav{margin-top:16px}.app-nav li ul{top:30px}main{height:auto;overflow-x:hidden}.sidebar{left:-300px;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.content{left:0;max-width:100vw;position:static;padding-top:20px;transition:-webkit-transform .25s ease;transition:transform .25s ease;transition:transform .25s ease,-webkit-transform .25s ease}.app-nav,.github-corner{transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.sidebar-toggle{background-color:transparent;width:auto;padding:30px 30px 10px 10px}body.close .sidebar{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .sidebar-toggle{background-color:hsla(0,0%,100%,0.8);transition:background-color 1s;width:284px;padding:10px}body.close .content{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .app-nav,body.close .github-corner{display:none}.github-corner .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}.github-corner:hover .octo-arm{-webkit-animation:none;animation:none}}@-webkit-keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}@keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}section.cover{-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-position:50%;background-repeat:no-repeat;background-size:cover;height:100vh;display:none}section.cover .cover-main{-webkit-box-flex:1;-ms-flex:1;flex:1;margin:-20px 16px 0;text-align:center;z-index:1}section.cover a{color:inherit}section.cover a,section.cover a:hover{text-decoration:none}section.cover p{line-height:24px;line-height:1.5rem;margin:1em 0}section.cover h1{color:inherit;font-size:40px;font-size:2.5rem;font-weight:300;margin:10px 0 40px;margin:.625rem 0 2.5rem;position:relative;text-align:center}section.cover h1 a{display:block}section.cover h1 small{bottom:-7px;bottom:-0.4375rem;font-size:16px;font-size:1rem;position:absolute}section.cover blockquote{font-size:24px;font-size:1.5rem;text-align:center}section.cover ul{line-height:1.8;list-style-type:none;margin:1em auto;max-width:500px;padding:0}section.cover .cover-main>p:last-child a{border-color:#42b983;border:1px solid var(--theme-color, #42b983);border-radius:2rem;box-sizing:border-box;color:#42b983;color:var(--theme-color, #42b983);display:inline-block;font-size:16.8px;font-size:1.05rem;letter-spacing:1.6px;letter-spacing:.1rem;margin-right:16px;margin-right:1rem;padding:.75em 32px;padding:.75em 2rem;text-decoration:none;transition:all .15s ease}section.cover .cover-main>p:last-child a:last-child{background-color:#42b983;background-color:var(--theme-color, #42b983);color:#fff;margin-right:0}section.cover .cover-main>p:last-child a:last-child:hover{color:inherit;opacity:.8}section.cover .cover-main>p:last-child a:hover{color:inherit}section.cover blockquote>p>a{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983);transition:color .3s}section.cover blockquote>p>a:hover{color:#42b983;color:var(--theme-color, #42b983)}section.cover.show{display:-webkit-box;display:-ms-flexbox;display:flex}section.cover.has-mask .mask{background-color:#fff;opacity:.8;position:absolute;width:100%;height:100%}.sidebar,body{background-color:#fff}.sidebar{color:#364149}.sidebar li{margin:6px 0 6px 15px}.sidebar ul li a{color:#505d6b;font-size:14px;font-weight:400;overflow:hidden;text-decoration:none;text-overflow:ellipsis;white-space:nowrap}.sidebar ul li a:hover{text-decoration:underline}.sidebar ul li ul{padding:0}.sidebar ul li.active>a{border-right:2px solid;color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.app-sub-sidebar li:before{content:"-";padding-right:4px;float:left}.markdown-preview h1,.markdown-preview h2,.markdown-preview h3,.markdown-preview h4,.markdown-preview strong{color:#2c3e50;font-weight:600}.markdown-preview a{color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.md-sidebar-toc a{color:#42b983;font-weight:600}.markdown-preview h1{font-size:32px;font-size:2rem;margin:0 0 16px;margin:0 0 1rem}.markdown-preview h2{font-size:28px;font-size:1.75rem;margin:45px 0 12.8px;margin:45px 0 .8rem}.markdown-preview h3{font-size:24px;font-size:1.5rem;margin:40px 0 9.6px;margin:40px 0 .6rem}.markdown-preview h4{font-size:20px;font-size:1.25rem}.markdown-preview h5,.markdown-preview h6{font-size:16px;font-size:1rem}.markdown-preview h6{color:#777}.markdown-preview figure,.markdown-preview p{margin:1.2em 0}.markdown-preview ol,.markdown-preview p,.markdown-preview ul{line-height:25.6px;line-height:1.6rem;word-spacing:.8px;word-spacing:.05rem}.markdown-preview ol,.markdown-preview ul{padding-left:24px;padding-left:1.5rem}.markdown-preview blockquote{border-left:4px solid #42b983;border-left:4px solid var(--theme-color, #42b983);color:#858585;background-color:#f0f0f0;margin:2em 0;padding-left:20px}.markdown-preview blockquote p{font-weight:600;margin-left:0}.markdown-preview iframe{margin:1em 0}.markdown-preview em{color:#7f8c8d}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  /* 设置页面中的所有图片的样式 */
+}
+.markdown-preview.markdown-preview body {
+  font-family: Consolas, 'Courier New', 'Dengxian';
+}
+.markdown-preview.markdown-preview h2 {
+  text-align: center;
+}
+.markdown-preview.markdown-preview h4 {
+  color: #7b7b7b;
+}
+.markdown-preview.markdown-preview img {
+  zoom: 50%;
+  box-shadow: 0 6px 15px #aaa;
+}
+.markdown-preview.markdown-preview a {
+  text-decoration: none;
+  font-weight: normal;
+}
+.markdown-preview.markdown-preview .mume > ul {
+  list-style: none;
+  background-color: #8c8c8c;
+}
+.markdown-preview.markdown-preview table {
+  display: block !important;
+  width: 100%;
+  /* border: 1px solid #bbb;
+          border-radius: 5%; */
+}
+.markdown-preview.markdown-preview [data-role="codeBlock"] {
+  overflow-x: auto;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <div><h1 class="mume-header undefined" id="9-fetchapi">9. FetchApi</h1>
+
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</a></li>
+<li><a href="#91-fetch-api-%E6%A6%82%E8%BF%B0">9.1 Fetch Api &#x6982;&#x8FF0;</a></li>
+<li><a href="#92-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">9.2 &#x57FA;&#x672C;&#x4F7F;&#x7528;</a>
+<ul>
+<li><a href="#%E5%8F%82%E6%95%B0">&#x53C2;&#x6570;</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC">&#x8FD4;&#x56DE;&#x503C;</a></li>
+</ul>
+</li>
+<li><a href="#93-request%E5%AF%B9%E8%B1%A1">9.3 Request&#x5BF9;&#x8C61;</a></li>
+<li><a href="#94-response%E5%AF%B9%E8%B1%A1">9.4 Response&#x5BF9;&#x8C61;</a></li>
+<li><a href="#95-headers%E5%AF%B9%E8%B1%A1">9.5 Headers&#x5BF9;&#x8C61;</a></li>
+<li><a href="#96-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0">9.6 &#x6587;&#x4EF6;&#x4E0A;&#x4F20;</a></li>
+</ul>
+<h2 class="mume-header" id="%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</h2>
+
+<p>&#x53C2;&#x8003;&#x8D44;&#x6599;: <a href="http://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html">Fetch API &#x6559;&#x7A0B; &#x962E;&#x4E00;&#x5CF0;&#x7684;&#x7F51;&#x7EDC;&#x65E5;&#x5FD7;</a></p>
+<p><code>9. FetchApi [&#x8BFE;&#x7A0B;&#x89C4;&#x5212;&#x4E0E;&#x6307;&#x5BFC;]</code></p>
+<table>
+<thead>
+<tr>
+<th>&#x77E5;&#x8BC6;&#x70B9;</th>
+<th>&#x96BE;&#x5EA6;</th>
+<th>&#x91CD;&#x8981;&#x6027;</th>
+<th>&#x5B66;&#x4E60;&#x89C6;&#x9891;</th>
+<th>&#x89C6;&#x9891;&#x65F6;&#x957F;(min)</th>
+<th>&#x5B66;&#x4E60;&#x6B21;&#x6570;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>es6</td>
+<td>2</td>
+<td>3</td>
+<td>1. Fetch Api &#x6982;&#x8FF0;</td>
+<td>14</td>
+<td>3/1</td>
+</tr>
+<tr>
+<td>es6</td>
+<td>2</td>
+<td>4</td>
+<td>2. &#x57FA;&#x672C;&#x4F7F;&#x7528;</td>
+<td>28</td>
+<td>2/1</td>
+</tr>
+<tr>
+<td>es6</td>
+<td>2</td>
+<td>3</td>
+<td>3. Request&#x5BF9;&#x8C61;</td>
+<td>9</td>
+<td>2/1</td>
+</tr>
+<tr>
+<td>es6</td>
+<td>2</td>
+<td>3</td>
+<td>4. Response&#x5BF9;&#x8C61;</td>
+<td>6</td>
+<td>2/1</td>
+</tr>
+<tr>
+<td>es6</td>
+<td>2</td>
+<td>3</td>
+<td>5. Headers&#x5BF9;&#x8C61;</td>
+<td>13</td>
+<td>2/1</td>
+</tr>
+<tr>
+<td>es6</td>
+<td>4</td>
+<td>3</td>
+<td>6. &#x6587;&#x4EF6;&#x4E0A;&#x4F20;</td>
+<td>25</td>
+<td>2/1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>&#x5B66;&#x4E60;&#x65F6;&#x95F4;</th>
+<th>&#x8FBE;&#x6210;&#x6548;&#x679C;</th>
+<th>&#x8001;&#x5E08;&#x5EFA;&#x8BAE;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5&#x5929;</td>
+<td>&#x5B66;&#x4F1A;&#x4F7F;&#x7528;fetch api&#x5B8C;&#x6210;ajax&#x529F;&#x80FD;</td>
+<td>&#x91CD;&#x70B9;&#x5728;fetch&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF0C;&#x867D;&#x7136;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x8981;&#x591A;&#x7EC3;&#x51E0;&#x904D;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5404;&#x79CD;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#x4E0B;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x505A;&#x5230;&#x719F;&#x7EC3;&#x8FD0;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x4E4B;&#x540E;&#x57FA;&#x672C;&#x5C31;&#x544A;&#x522B;xhr&#x6216;jquery&#x7684;&#x65B9;&#x5F0F;&#x4E86;</td>
+</tr>
+</tbody>
+</table>
+<pre data-role="codeBlock" data-info class="language-"><code>PS: Fetch Api &#x5E76;&#x975E; ES6 &#x4E2D;&#x7684;&#x77E5;&#x8BC6;, &#x5B83;&#x662F; H5 &#x7684;&#x4E00;&#x4E2A; api, &#x4F46;&#x7531;&#x4E8E; &#x5B83;&#x7528;&#x5230;&#x4E86; ES6 &#x4E2D;&#x7684; promise &#x800C;&#x6211;&#x4EEC;&#x521A;&#x5B66;&#x5B8C; promise &#x6240;&#x4EE5;&#x5C31;&#x63D0;&#x5230;&#x8FD9;&#x91CC;&#x8BB2;&#x4E86;
+</code></pre><table>
+<thead>
+<tr>
+<th>CN</th>
+<th>EN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5F02;&#x6B65;&#x7684; JavaScript &#x548C; XML</td>
+<td><code>ajax</code> Asynchronous JavaScript and XML</td>
+</tr>
+<tr>
+<td>&#x62FF;&#x6765;</td>
+<td>fetch</td>
+</tr>
+<tr>
+<td>&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;</td>
+<td>Query String Parameters</td>
+</tr>
+<tr>
+<td>&#x5934;&#x50CF;, &#x5316;&#x8EAB;</td>
+<td>avatar</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="91-fetch-api-%E6%A6%82%E8%BF%B0">9.1 Fetch Api &#x6982;&#x8FF0;</h2>
+
+<p><strong>XMLHttpRequest&#x7684;&#x95EE;&#x9898;</strong></p>
+<ol>
+<li>&#x6240;&#x6709;&#x7684;&#x529F;&#x80FD;&#x5168;&#x90E8;&#x96C6;&#x4E2D;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x5BB9;&#x6613;&#x4E66;&#x5199;&#x51FA;&#x6DF7;&#x4E71;&#x4E0D;&#x6613;&#x7EF4;&#x62A4;&#x7684;&#x4EE3;&#x7801;</li>
+<li>&#x91C7;&#x7528;&#x4F20;&#x7EDF;&#x7684;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x6A21;&#x5F0F;&#xFF0C;&#x65E0;&#x6CD5;&#x9002;&#x914D;&#x65B0;&#x7684; Promise Api</li>
+</ol>
+<p><strong>Fetch Api &#x7684;&#x7279;&#x70B9;</strong></p>
+<ol>
+<li>&#x5E76;&#x975E;&#x53D6;&#x4EE3; AJAX&#xFF0C;&#x800C;&#x662F;&#x5BF9; AJAX &#x4F20;&#x7EDF; API &#x7684;&#x6539;&#x8FDB;</li>
+<li>&#x7CBE;&#x7EC6;&#x7684;&#x529F;&#x80FD;&#x5206;&#x5272;&#xFF1A;&#x5934;&#x90E8;&#x4FE1;&#x606F;&#x3001;&#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#x3001;&#x54CD;&#x5E94;&#x4FE1;&#x606F;&#x7B49;&#x5747;&#x5206;&#x5E03;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x66F4;&#x5229;&#x4E8E;&#x5904;&#x7406;&#x5404;&#x79CD;&#x590D;&#x6742;&#x7684; AJAX &#x573A;&#x666F;</li>
+<li>&#x4F7F;&#x7528; Promise Api&#xFF0C;&#x66F4;&#x5229;&#x4E8E;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7684;&#x4E66;&#x5199;</li>
+<li>Fetch Api &#x5E76;&#x975E; ES6 &#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5C5E;&#x4E8E; HTML5 &#x65B0;&#x589E;&#x7684; Web Api</li>
+<li>&#x9700;&#x8981;&#x638C;&#x63E1;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x7684;&#x77E5;&#x8BC6;</li>
+</ol>
+<h2 class="mume-header" id="92-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">9.2 &#x57FA;&#x672C;&#x4F7F;&#x7528;</h2>
+
+<p><a href="https://www.jianshu.com/p/9a68281a3c84">HTTP&#x8BF7;&#x6C42;&#x5934;&#x548C;&#x54CD;&#x5E94;&#x5934;&#x8BE6;&#x89E3; &#x7B80;&#x4E66;</a></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x77E5;&#x9053; http &#x8BF7;&#x6C42;&#x7684; &#x8BF7;&#x6C42;&#x5934;&#x548C;&#x8BF7;&#x6C42;&#x4F53; &#x5206;&#x522B;&#x662F;&#x54EA;&#x4E00;&#x90E8;&#x5206;</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/5cf82f092201">&#x7B80;&#x4E66; http&#x8DE8;&#x57DF;&#x65F6;&#x7684;options&#x8BF7;&#x6C42;</a></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x77E5;&#x9053; &#x4EC0;&#x4E48;&#x662F; &#x9884;&#x68C0;</li>
+</ul>
+<blockquote>
+<p>&#x8BF7;&#x6C42;&#x6D4B;&#x8BD5;&#x5730;&#x5740;&#xFF1A;<a href="http://101.132.72.36:5100/api/local">http://101.132.72.36:5100/api/local</a></p>
+</blockquote>
+<p>&#x4F7F;&#x7528; <code>fetch</code> &#x51FD;&#x6570;&#x5373;&#x53EF;&#x7ACB;&#x5373;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;</p>
+<h3 class="mume-header" id="%E5%8F%82%E6%95%B0">&#x53C2;&#x6570;</h3>
+
+<p>&#x8BE5;&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p>
+<ol>
+<li>&#x5FC5;&#x586B;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8BF7;&#x6C42;&#x5730;&#x5740;</li>
+<li>&#x9009;&#x586B;&#xFF0C;&#x5BF9;&#x8C61;&#xFF0C;&#x8BF7;&#x6C42;&#x914D;&#x7F6E;</li>
+</ol>
+<p><strong>&#x8BF7;&#x6C42;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;</strong></p>
+<ul>
+<li><strong>method</strong>&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;GET</li>
+<li><strong>headers</strong>&#xFF1A;&#x5BF9;&#x8C61;&#xFF0C;&#x8BF7;&#x6C42;&#x5934;&#x4FE1;&#x606F;</li>
+<li><strong>body</strong>: &#x8BF7;&#x6C42;&#x4F53;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5FC5;&#x987B;&#x5339;&#x914D;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x7684; Content-Type</li>
+<li>mode&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8BF7;&#x6C42;&#x6A21;&#x5F0F;
+<ul>
+<li>cors&#xFF1A;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x914D;&#x7F6E;&#x4E3A;&#x8BE5;&#x503C;&#xFF0C;&#x4F1A;&#x5728;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x52A0;&#x5165; origin &#x548C; referer</li>
+<li>no-cors&#xFF1A;&#x914D;&#x7F6E;&#x4E3A;&#x8BE5;&#x503C;&#xFF0C;&#x4E0D;&#x4F1A;&#x5728;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x52A0;&#x5165; origin &#x548C; referer&#xFF0C;&#x8DE8;&#x57DF;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;</li>
+<li>same-origin&#xFF1A;&#x6307;&#x793A;&#x8BF7;&#x6C42;&#x5FC5;&#x987B;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x57DF;&#x4E2D;&#x53D1;&#x751F;&#xFF0C;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x5176;&#x4ED6;&#x57DF;&#xFF0C;&#x5219;&#x4F1A;&#x62A5;&#x9519;</li>
+</ul>
+</li>
+<li>credentials: &#x5982;&#x4F55;&#x643A;&#x5E26;&#x51ED;&#x636E;&#xFF08;cookie&#xFF09;<code>cookie &#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x4E0D;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x4E86; &#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5982;&#x679C;&#x4F7F;&#x7528; cookie &#x4E00;&#x822C;&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4E00;&#x4E9B;&#x517C;&#x5BB9;&#x6027;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6240;&#x4EE5;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E00;&#x5757;&#x548C;cookie&#x76F8;&#x5173;&#x7684;&#x77E5;&#x8BC6;&#x53EA;&#x8981;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x5373;&#x53EF;&#x3002;</code>
+<ul>
+<li>omit&#xFF1A;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x4E0D;&#x643A;&#x5E26;cookie</li>
+<li>same-origin&#xFF1A;&#x8BF7;&#x6C42;&#x540C;&#x6E90;&#x5730;&#x5740;&#x65F6;&#x643A;&#x5E26;cookie</li>
+<li>include&#xFF1A;&#x8BF7;&#x6C42;&#x4EFB;&#x4F55;&#x5730;&#x5740;&#x90FD;&#x643A;&#x5E26;cookie</li>
+</ul>
+</li>
+<li>cache&#xFF1A;&#x914D;&#x7F6E;&#x7F13;&#x5B58;&#x6A21;&#x5F0F;
+<ul>
+<li>default: &#x8868;&#x793A;fetch&#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x5C06;&#x68C0;&#x67E5;&#x4E0B;http&#x7684;&#x7F13;&#x5B58;.</li>
+<li>no-store: &#x8868;&#x793A;fetch&#x8BF7;&#x6C42;&#x5C06;&#x5B8C;&#x5168;&#x5FFD;&#x7565;http&#x7F13;&#x5B58;&#x7684;&#x5B58;&#x5728;. &#x8FD9;&#x610F;&#x5473;&#x7740;&#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x5C06;&#x4E0D;&#x518D;&#x68C0;&#x67E5;&#x4E0B;http&#x7684;&#x7F13;&#x5B58;, &#x62FF;&#x5230;&#x54CD;&#x5E94;&#x540E;, &#x5B83;&#x4E5F;&#x4E0D;&#x4F1A;&#x66F4;&#x65B0;http&#x7F13;&#x5B58;.</li>
+<li>no-cache: &#x5982;&#x679C;&#x5B58;&#x5728;&#x7F13;&#x5B58;, &#x90A3;&#x4E48;fetch&#x5C06;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x67E5;&#x8BE2;request&#x548C;&#x4E00;&#x4E2A;&#x6B63;&#x5E38;&#x7684;request, &#x62FF;&#x5230;&#x54CD;&#x5E94;&#x540E;, &#x5B83;&#x4F1A;&#x66F4;&#x65B0;http&#x7F13;&#x5B58;.</li>
+<li>reload: &#x8868;&#x793A;fetch&#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x5C06;&#x5FFD;&#x7565;http&#x7F13;&#x5B58;&#x7684;&#x5B58;&#x5728;, &#x4F46;&#x662F;&#x8BF7;&#x6C42;&#x62FF;&#x5230;&#x54CD;&#x5E94;&#x540E;, &#x5B83;&#x5C06;&#x4E3B;&#x52A8;&#x66F4;&#x65B0;http&#x7F13;&#x5B58;.</li>
+<li>force-cache: &#x8868;&#x793A;fetch&#x8BF7;&#x6C42;&#x4E0D;&#x987E;&#x4E00;&#x5207;&#x7684;&#x4F9D;&#x8D56;&#x7F13;&#x5B58;, &#x5373;&#x4F7F;&#x7F13;&#x5B58;&#x8FC7;&#x671F;&#x4E86;, &#x5B83;&#x4F9D;&#x7136;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x8BFB;&#x53D6;. &#x9664;&#x975E;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x7F13;&#x5B58;, &#x90A3;&#x4E48;&#x5B83;&#x5C06;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x6B63;&#x5E38;&#x7684;request.</li>
+<li>only-if-cached: &#x8868;&#x793A;fetch&#x8BF7;&#x6C42;&#x4E0D;&#x987E;&#x4E00;&#x5207;&#x7684;&#x4F9D;&#x8D56;&#x7F13;&#x5B58;, &#x5373;&#x4F7F;&#x7F13;&#x5B58;&#x8FC7;&#x671F;&#x4E86;, &#x5B83;&#x4F9D;&#x7136;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x8BFB;&#x53D6;. &#x5982;&#x679C;&#x6CA1;&#x6709;&#x7F13;&#x5B58;, &#x5B83;&#x5C06;&#x629B;&#x51FA;&#x7F51;&#x7EDC;&#x9519;&#x8BEF;(&#x8BE5;&#x8BBE;&#x7F6E;&#x53EA;&#x5728;mode&#x4E3A;&#x201D;same-origin&#x201D;&#x65F6;&#x6709;&#x6548;).</li>
+</ul>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>[&#x91CD;&#x70B9;] method headers body
+</code></pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x4F7F;&#x7528; fetch &#x53D1;&#x9001;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x5F97;&#x5230;&#x6240;&#x6709;&#x7684;&#x7701;&#x4EFD;&#x6570;&#x636E;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getProvince</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;http://101.132.72.36:5100/api/local&apos;</span><span class="token punctuation">;</span> <span class="token comment">// &#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x63A5;&#x53E3;&#x8C8C;&#x4F3C;&#x4E0D;&#x597D;&#x4F7F;&#x4E86;</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getProvince</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x4F7F;&#x7528;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x7684;&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x5B66;&#x751F;&#x7684;&#x63A5;&#x53E3;&#x5B8C;&#x6210;&#x6D4B;&#x8BD5;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x7684;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllStuInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61; &#x5176;&#x72B6;&#x6001;&#x6570;&#x636E;[[PromiseResult]]&#x662F; Response &#x5BF9;&#x8C61;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x6253;&#x5370;&#x51FA; Response &#x5BF9;&#x8C61; &#x770B;&#x770B;&#x5B83;&#x8EAB;&#x4E0A;&#x90FD;&#x6709;&#x4E9B;&#x5565;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x8C03;&#x7528; Response &#x5BF9;&#x8C61;&#x8EAB;&#x4E0A;&#x7684; json &#x65B9;&#x6CD5; &#x5C06;&#x8BF7;&#x6C42;&#x5230;&#x7684;&#x6570;&#x636E;&#x8F6C;&#x5316;&#x4E3A; JavaScript &#x5BF9;&#x8C61;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllStuInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210515181401.png" alt="20210515181401"></p>
+<h3 class="mume-header" id="%E8%BF%94%E5%9B%9E%E5%80%BC">&#x8FD4;&#x56DE;&#x503C;</h3>
+
+<p>fetch &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Promise &#x5BF9;&#x8C61;</p>
+<ul>
+<li>&#x5F53;&#x6536;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x540E;&#xFF0C;Promise &#x8FDB;&#x5165;resolved&#x72B6;&#x6001;&#xFF0C;&#x72B6;&#x6001;&#x6570;&#x636E;&#x4E3A; Response &#x5BF9;&#x8C61;</li>
+<li>&#x5F53;&#x7F51;&#x7EDC;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#xFF08;&#x6216;&#x5176;&#x4ED6;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x4EA4;&#x4E92;&#x7684;&#x9519;&#x8BEF;&#xFF09;&#x65F6;&#xFF0C;Promise &#x8FDB;&#x5165; rejected &#x72B6;&#x6001;&#xFF0C;&#x72B6;&#x6001;&#x6570;&#x636E;&#x4E3A;&#x9519;&#x8BEF;&#x4FE1;&#x606F;</li>
+</ul>
+<p><strong>Response&#x5BF9;&#x8C61;</strong></p>
+<ul>
+<li>ok&#xFF1A;boolean&#xFF0C;&#x5F53;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x7801;&#x5728;200~299&#x4E4B;&#x95F4;&#x65F6;&#x4E3A;true&#xFF0C;&#x5176;&#x4ED6;&#x4E3A;false<code>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x5224;&#x65AD;&#x670D;&#x52A1;&#x5668;&#x662F;&#x5426;&#x7ED9;&#x6211;&#x4EEC;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;&#x6B63;&#x5E38;&#x7684;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x5230; Response &#x5BF9;&#x8C61;&#x8EAB;&#x4E0A;&#x7684; ok &#x5C5E;&#x6027;&#x4E2D;&#x67E5;&#x770B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x770B;&#x8FD4;&#x56DE;&#x7684; Promise &#x5BF9;&#x8C61;&#x662F;&#x5426;&#x662F; rejected &#x72B6;&#x6001;&#xFF0C;&#x53EA;&#x8981;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x4E86;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x7BA1;&#x8BE5;&#x6570;&#x636E;&#x662F;&#x5426;&#x6B63;&#x5E38;&#xFF0C;Promise &#x7684;&#x72B6;&#x6001;&#x90FD;&#x5C06;&#x662F; resolved &#x72B6;&#x6001;&#x3002;</code></li>
+<li>status&#xFF1A;number&#xFF0C;&#x54CD;&#x5E94;&#x7684;&#x72B6;&#x6001;&#x7801;</li>
+<li>text()&#xFF1A;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x7684; Ajax &#x54CD;&#x5E94;&#x3002;&#x5B83;&#x4ECE;&#x54CD;&#x5E94;&#x4E2D;&#x83B7;&#x53D6;&#x6587;&#x672C;&#x6D41;&#xFF0C;&#x5C06;&#x5176;&#x8BFB;&#x5B8C;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x88AB;&#x89E3;&#x6790;&#x4E3A; string &#x5BF9;&#x8C61;&#x7684; Promise&#x3002;</li>
+<li>blob()&#xFF1A;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#xFF08;&#x6BD4;&#x5982;&#x56FE;&#x7247;&#x6216;&#x8005;&#x7535;&#x5B50;&#x8868;&#x683C;&#xFF09;&#x7684; Ajax &#x54CD;&#x5E94;&#x3002;&#x5B83;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x4E00;&#x65E6;&#x8BFB;&#x53D6;&#x5B8C;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5C31;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x88AB;&#x89E3;&#x51B3;&#x4E3A; blob &#x5BF9;&#x8C61;&#x7684; Promise&#x3002;</li>
+<li>json()&#xFF1A;&#x7528;&#x4E8E;&#x5904;&#x7406; JSON &#x683C;&#x5F0F;&#x7684; Ajax &#x7684;&#x54CD;&#x5E94;&#x3002;&#x5B83;&#x5C06; JSON &#x6570;&#x636E;&#x6D41;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;&#x88AB;&#x89E3;&#x51B3;&#x4E3A; JavaScript &#x5BF9;&#x8C61;&#x7684;promise&#x3002;</li>
+<li>redirect()&#xFF1A;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x53E6;&#x4E00;&#x4E2A; URL&#x3002;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise&#xFF0C;&#x4EE5;&#x89E3;&#x51B3;&#x6765;&#x81EA;&#x91CD;&#x5B9A;&#x5411;&#x7684; URL &#x7684;&#x54CD;&#x5E94;&#x3002;</li>
+</ul>
+<h2 class="mume-header" id="93-request%E5%AF%B9%E8%B1%A1">9.3 Request&#x5BF9;&#x8C61;</h2>
+
+<p>&#x9664;&#x4E86;&#x4F7F;&#x7528;&#x57FA;&#x672C;&#x7684; fetch &#x65B9;&#x6CD5;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Request &#x5BF9;&#x8C61;&#x6765;&#x5B8C;&#x6210;&#x8BF7;&#x6C42;&#xFF08;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;fetch&#x7684;&#x5185;&#x90E8;&#x4F1A;&#x5E2E;&#x4F60;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Request&#x5BF9;&#x8C61;&#xFF09;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url&#x5730;&#x5740;<span class="token punctuation">,</span> &#x914D;&#x7F6E;<span class="token punctuation">)</span>
+</pre><p>&#x6CE8;&#x610F;&#x70B9;&#xFF1A;</p>
+<p>&#x5C3D;&#x91CF;&#x4FDD;&#x8BC1;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Request&#x5BF9;&#x8C61;</p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> resp <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> resp<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210505161202.png" alt="20210505161202"></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x4F20;&#x5165; Request &#x5BF9;&#x8C61;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">function</span> <span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword control-flow">return</span> req<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> resp <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> resp<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x786E;&#x4FDD;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684; Request &#x5BF9;&#x8C61;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Request<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">let</span> req<span class="token punctuation">;</span>
+
+        <span class="token keyword">function</span> <span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>req<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+                req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword control-flow">return</span> req<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow">return</span> req<span class="token punctuation">.</span><span class="token method function property-access">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x514B;&#x9686;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684; Request &#x5BF9;&#x8C61;, &#x914D;&#x7F6E;&#x4E0D;&#x53D8;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><pre data-role="codeBlock" data-info class="language-"><code>&#x8FD9;&#x4E48;&#x505A;&#x7684;&#x76EE;&#x7684;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9; POST &#x8BF7;&#x6C42;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x7684;&#x95EE;&#x9898; ==&gt; ... &#x6CA1;&#x542C;&#x61C2; (&#x597D;&#x50CF;&#x662F;&#x5173;&#x4E8E;&#x4E0D;&#x540C;&#x8BF7;&#x6C42;&#x4E4B;&#x524D; &#x6570;&#x636E;&#x7684;&#x4F20;&#x8F93;&#x8FDB;&#x5EA6;&#x95EE;&#x9898;)
+</code></pre><h2 class="mume-header" id="94-response%E5%AF%B9%E8%B1%A1">9.4 Response&#x5BF9;&#x8C61;</h2>
+
+<p><strong>Response &#x5BF9;&#x8C61;&#x8EAB;&#x4E0A;&#x7684;&#x6210;&#x5458;</strong></p>
+<p><code>&#x5728; 9.2 &#x57FA;&#x672C;&#x4F7F;&#x7528; &#x4E2D;&#x6709;&#x5DF2;&#x7ECF;&#x8BB2;&#x89E3;&#x8FC7;&#x4E86;</code></p>
+<ul>
+<li>
+<p>ok&#xFF1A;boolean&#xFF0C;&#x5F53;&#x54CD;&#x5E94;&#x6D88;&#x606F;&#x7801;&#x5728;200~299&#x4E4B;&#x95F4;&#x65F6;&#x4E3A;true&#xFF0C;&#x5176;&#x4ED6;&#x4E3A;false</p>
+</li>
+<li>
+<p>status&#xFF1A;number&#xFF0C;&#x54CD;&#x5E94;&#x7684;&#x72B6;&#x6001;&#x7801;</p>
+</li>
+<li>
+<p>text()&#xFF1A;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x7684; Ajax &#x54CD;&#x5E94;&#x3002;&#x5B83;&#x4ECE;&#x54CD;&#x5E94;&#x4E2D;&#x83B7;&#x53D6;&#x6587;&#x672C;&#x6D41;&#xFF0C;&#x5C06;&#x5176;&#x8BFB;&#x5B8C;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x88AB;&#x89E3;&#x6790;&#x4E3A; string &#x5BF9;&#x8C61;&#x7684; Promise&#x3002;</p>
+</li>
+<li>
+<p>blob()&#xFF1A;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#xFF08;&#x6BD4;&#x5982;&#x56FE;&#x7247;&#x6216;&#x8005;&#x7535;&#x5B50;&#x8868;&#x683C;&#xFF09;&#x7684; Ajax &#x54CD;&#x5E94;&#x3002;&#x5B83;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x539F;&#x59CB;&#x6570;&#x636E;&#xFF0C;&#x4E00;&#x65E6;&#x8BFB;&#x53D6;&#x5B8C;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5C31;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x88AB;&#x89E3;&#x51B3;&#x4E3A; blob &#x5BF9;&#x8C61;&#x7684; Promise&#x3002;</p>
+</li>
+<li>
+<p>json()&#xFF1A;&#x7528;&#x4E8E;&#x5904;&#x7406; JSON &#x683C;&#x5F0F;&#x7684; Ajax &#x7684;&#x54CD;&#x5E94;&#x3002;&#x5B83;&#x5C06; JSON &#x6570;&#x636E;&#x6D41;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;&#x88AB;&#x89E3;&#x51B3;&#x4E3A; JavaScript &#x5BF9;&#x8C61;&#x7684;promise&#x3002;</p>
+</li>
+<li>
+<p>redirect()&#xFF1A;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x53E6;&#x4E00;&#x4E2A; URL&#x3002;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise&#xFF0C;&#x4EE5;&#x89E3;&#x51B3;&#x6765;&#x81EA;&#x91CD;&#x5B9A;&#x5411;&#x7684; URL &#x7684;&#x54CD;&#x5E94;&#x3002;</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox" checked> demo</p>
+</li>
+</ul>
+<p><code>&#x5C06;&#x6240;&#x6709;&#x5BF9; Response &#x5BF9;&#x8C61;&#x7684;&#x5904;&#x7406; &#x62BD;&#x79BB;&#x51FA;&#x6765; &#x5C01;&#x88C5;&#x5230;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">function</span> <span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword control-flow">return</span> req<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// const result = await response.json();</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">getJSON</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// &#x5355;&#x72EC;&#x62BD;&#x79BB;&#x51FA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x5904;&#x7406; Response &#x5BF9;&#x8C61;</span>
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getJSON</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword control-flow">await</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x5728;&#x540E;&#x7AEF;&#x5C1A;&#x672A;&#x5B8C;&#x6210;&#x65F6;, &#x81EA;&#x5B9A;&#x4E49; Response &#x5BF9;&#x8C61;, &#x6A21;&#x62DF;&#x4E00;&#x4E9B;&#x63A5;&#x53E3;&#x6570;&#x636E;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">function</span> <span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword control-flow">return</span> req<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// const response = await fetch(getRequestInfo());</span>
+            <span class="token comment">// &#x6A21;&#x62DF;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7684;&#x76F8;&#x5E94;&#x7ED3;&#x679C;</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[
+                {&quot;address&quot;: &quot;&#x5FFD;&#x60A0;&#x5927;&#x8857;200&#x53F7;&quot;, &quot;birth&quot;: &quot;2000&quot;},
+                {&quot;address&quot;: &quot;&#x5FFD;&#x60A0;&#x5927;&#x8857;250&#x53F7;&quot;, &quot;birth&quot;: &quot;1999&quot;}
+            ]</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                ok<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+                status<span class="token operator">:</span> <span class="token number">200</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">getJSON</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// &#x5355;&#x72EC;&#x62BD;&#x79BB;&#x51FA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x5904;&#x7406; Response &#x5BF9;&#x8C61;</span>
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getJSON</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword control-flow">await</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210515190811.png" alt="20210515190811"></p>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x5E93; Mock.js &#x6765;&#x5B9E;&#x73B0;
+</code></pre><h2 class="mume-header" id="95-headers%E5%AF%B9%E8%B1%A1">9.5 Headers&#x5BF9;&#x8C61;</h2>
+
+<p>&#x5728;Request&#x548C;Response&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#xFF0C;&#x4F1A;&#x5C06;&#x4F20;&#x9012;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x5BF9;&#x8C61;&#xFF0C;&#x8F6C;&#x6362;&#x4E3A;Headers</p>
+<p>Headers&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ul>
+<li>
+<p>has(key)&#xFF1A;&#x68C0;&#x67E5;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6307;&#x5B9A;&#x7684;key&#x503C; <code>&#x5B58;&#x5728; ==&gt; true; &#x4E0D;&#x5B58;&#x5728; ==&gt; false;</code></p>
+</li>
+<li>
+<p>get(key): &#x5F97;&#x5230;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x5BF9;&#x5E94;&#x7684;key&#x503C; <code>&#x8BFB;&#x53D6;&#x6307;&#x5B9A;&#x5B57;&#x6BB5;&#x7684;&#x5C5E;&#x6027;&#x503C;, &#x82E5;&#x8BFB;&#x53D6;&#x7684;&#x90A3;&#x4E2A;&#x5B57;&#x6BB5;&#x4E0D;&#x5B58;&#x5728;, &#x90A3;&#x4E48;&#x8BFB;&#x53D6;&#x5230;&#x7684;&#x5C06;&#x4F1A;&#x662F; null</code></p>
+</li>
+<li>
+<p>set(key, value)&#xFF1A;&#x4FEE;&#x6539;&#x5BF9;&#x5E94;&#x7684;&#x952E;&#x503C;&#x5BF9; <code>&#x82E5;&#x4FEE;&#x6539;&#x7684;&#x662F;&#x5B58;&#x5728;&#x7684;&#x5B57;&#x6BB5;, &#x90A3;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x662F;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;, &#x4F1A;&#x5229;&#x7528;&#x65B0;&#x7684;&#x503C;&#x8986;&#x76D6;&#x65E7;&#x7684;&#x503C;; &#x82E5;&#x4FEE;&#x6539;&#x7684;&#x5B57;&#x6BB5;&#x4E0D;&#x5B58;&#x5728;, &#x90A3;&#x4E48;&#x76F8;&#x5F53;&#x4E8E;&#x65B0;&#x589E;&#x64CD;&#x4F5C;, &#x4F1A;&#x5411;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;</code></p>
+</li>
+<li>
+<p>append(key, value)&#xFF1A;&#x6DFB;&#x52A0;&#x5BF9;&#x5E94;&#x7684;&#x952E;&#x503C;&#x5BF9; <code>&#x548C; set &#x7C7B;&#x4F3C;, &#x533A;&#x522B;&#x5728;&#x4E8E;, &#x82E5;&#x6DFB;&#x52A0;&#x7684;&#x5B57;&#x6BB5;&#x662F;&#x5DF2;&#x5B58;&#x5728;&#x7684;, &#x90A3;&#x4E48;&#x5E76;&#x4E0D;&#x4F1A;&#x8986;&#x76D6;&#x65E7;&#x7684;&#x503C;, &#x800C;&#x662F;&#x5728;&#x65E7;&#x7684;&#x503C;&#x540E;&#x9762;&#x65B0;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x503C;; [&#x4F8B;] &#x5DF2;&#x5B58;&#x5728; a: 1 &#x6267;&#x884C; append(&apos;a&apos;, 2) &#x4E4B;&#x540E; a &#x7684;&#x503C;&#x4E3A; 1, 2</code></p>
+</li>
+<li>
+<p>keys(): &#x5F97;&#x5230;&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x952E;&#x7684;&#x96C6;&#x5408; <code>&#x6548;&#x679C;&#x7C7B;&#x4F3C;&#x4E8E;: Object.keys()</code></p>
+</li>
+<li>
+<p>values(): &#x5F97;&#x5230;&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x7684;&#x503C;&#x7684;&#x96C6;&#x5408; <code>&#x6548;&#x679C;&#x7C7B;&#x4F3C;&#x4E8E;: Object.values()</code></p>
+</li>
+<li>
+<p>entries(): &#x5F97;&#x5230;&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x96C6;&#x5408; <code>&#x6548;&#x679C;&#x7C7B;&#x4F3C;&#x4E8E;: Object.entries()</code></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox" checked> demo</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">let</span> req<span class="token punctuation">;</span>
+
+        <span class="token keyword">function</span> <span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>req<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+                <span class="token comment">// const req = new Request(url, {}); // &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F; &#x8BF7;&#x6C42;&#x914D;&#x7F6E;&#x7684;&#x5BF9;&#x8C61; &#x5728;&#x8FD9;&#x91CC;&#x9762;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x5934;&#x7684;&#x4FE1;&#x606F;</span>
+                <span class="token keyword">const</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                    headers<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// &#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x5934;&#x4FE1;&#x606F; (&#x5185;&#x90E8;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x5934;&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x4E3A; Headers &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;)</span>
+                        <span class="token maybe-class-name">Host</span><span class="token operator">:</span> <span class="token string">&apos;open.duyiedu.com&apos;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword control-flow">return</span> req<span class="token punctuation">.</span><span class="token method function property-access">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow">return</span> req<span class="token punctuation">.</span><span class="token method function property-access">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x514B;&#x9686;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684; Request &#x5BF9;&#x8C61;, &#x914D;&#x7F6E;&#x4E0D;&#x53D8;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">getJSON</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// &#x5355;&#x72EC;&#x62BD;&#x79BB;&#x51FA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x5904;&#x7406; Response &#x5BF9;&#x8C61;</span>
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getJSON</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword control-flow">await</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    headers<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// &#x5728;&#x5185;&#x90E8;&#x4F1A;&#x81EA;&#x52A8;&#x8F6C;&#x5316;&#x4E3A; Headers &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;</span>
+        <span class="token maybe-class-name">Host</span><span class="token operator">:</span> <span class="token string">&apos;open.duyiedu.com&apos;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p><code>&#x7B49;&#x6548;&#x5199;&#x6CD5;</code></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> headers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Headers</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token maybe-class-name">Host</span><span class="token operator">:</span> <span class="token string">&apos;open.duyiedu.com&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    headers
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>fetch api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x5B66;&#x751F;&#x4FE1;&#x606F;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">let</span> req<span class="token punctuation">;</span>
+
+        <span class="token keyword">function</span> <span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>req<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;https://open.duyiedu.com/api/student/findAll?appkey=_abc123_1606358542486&apos;</span><span class="token punctuation">;</span>
+                <span class="token comment">// &#x7B49;&#x6548;&#x5199;&#x6CD5;</span>
+                <span class="token keyword">const</span> headers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Headers</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    <span class="token maybe-class-name">Host</span><span class="token operator">:</span> <span class="token string">&apos;open.duyiedu.com&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">const</span> req <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Request</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                    headers
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword control-flow">return</span> req<span class="token punctuation">.</span><span class="token method function property-access">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword control-flow">return</span> req<span class="token punctuation">.</span><span class="token method function property-access">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token function">getRequestInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">getJSON</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getJSON</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">return</span> <span class="token keyword control-flow">await</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> button <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        button<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">getAllstusInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210515202620.png" alt="20210515202620"></p>
+<pre data-role="codeBlock" data-info class="language-"><code>9.5 Headers &#x5BF9;&#x8C61;
+&#x65E0;&#x6CD5;&#x6D4B;&#x8BD5;..
+1. &#x8001;&#x5E08;&#x7684;&#x63A5;&#x53E3;&#x6CA1;&#x6CD5;&#x7528;
+2. &#x82E5;&#x4F7F;&#x7528;&#x5B66;&#x751F;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x7684;&#x90A3;&#x4E2A;&#x63A5;&#x53E3;, &#x5982;&#x679C;&#x548C;&#x89C6;&#x9891;&#x4E2D;&#x4E00;&#x6837;, &#x914D;&#x7F6E;&#x4E86;&#x8BF7;&#x6C42;&#x5934;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;, &#x6BD4;&#x5982;&#x52A0;&#x4E0A; {a: 1, b: 2}
+   &#x8FD9;&#x4E48;&#x505A;&#x7684;&#x8BDD;, &#x4F1A;&#x62A5;&#x9519; (&#x8DE8;&#x57DF;)
+   &#x5982;&#x679C;&#x914D;&#x7F6E; Host &#x5B57;&#x6BB5;, &#x867D;&#x7136;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;, &#x8C03;&#x7528; keys &#x83B7;&#x53D6;&#x5230;&#x7684;&#x4F9D;&#x65E7;&#x662F;&#x7A7A;... &#x800C;&#x4E14;&#x6253;&#x5F00;&#x63A7;&#x5236;&#x53F0;&#x67E5;&#x770B; Host &#x5B57;&#x6BB5;&#x7684;&#x5185;&#x5BB9;, &#x5982;&#x679C;&#x6211;&#x4EEC;&#x914D;&#x7F6E;&#x7684;&#x503C;&#x4E0D;&#x662F; open.duyiedu.dom &#x90A3;&#x4E48;&#x663E;&#x793A;&#x7684;&#x4E5F;&#x4F9D;&#x65E7;&#x662F; open.duyiedu.com
+PS: &#x53EF;&#x4EE5;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528; Response.headers &#x6765;&#x6D4B;&#x8BD5;&#x4E0A;&#x8FF0;&#x7684;&#x51E0;&#x4E2A; api
+</code></pre><h2 class="mume-header" id="96-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0">9.6 &#x6587;&#x4EF6;&#x4E0A;&#x4F20;</h2>
+
+<pre data-role="codeBlock" data-info class="language-"><code>&#x4F7F;&#x7528; ajax &#x5B9E;&#x73B0;&#x65E0;&#x5237;&#x65B0;&#x9875;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;
+</code></pre><p>&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ol>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x5C06;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;</li>
+<li>&#x670D;&#x52A1;&#x5668;&#x4FDD;&#x5B58;&#x4E0A;&#x4F20;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7AEF;</li>
+<li>&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x8BBF;&#x95EE;&#x5730;&#x5740;</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x6211;&#x4EEC;&#x73B0;&#x9636;&#x6BB5;&#x53EA;&#x8981;&#x6C42;&#x638C;&#x63E1;&#x7B2C;&#x4E00;&#x6B65;, &#x5373;: &#x5982;&#x4F55;&#x5C06;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x53D1;&#x9001;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7AEF;; &#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;:
+- &#x5148;&#x83B7;&#x53D6;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684; &#x5730;&#x5740; ==&gt; http://101.132.72.36:5100/api/upload (PS: &#x8BE5;&#x63A5;&#x53E3;&#x4EC5;&#x80FD;&#x4E0A;&#x4F20;&#x56FE;&#x7247;&#x6587;&#x4EF6;)
+- &#x5C06;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x8BBE;&#x7F6E;&#x4E3A; POST (&#x82E5;&#x4F20;&#x8F93;&#x7684;&#x662F;&#x6587;&#x4EF6;&#x7684;&#x8BDD;, &#x4E00;&#x822C;&#x6570;&#x636E;&#x91CF;&#x90FD;&#x6BD4;&#x8F83;&#x5927;, &#x901A;&#x5E38;&#x91C7;&#x7528;&#x7684;&#x662F; POST &#x8BF7;&#x6C42;&#x65B9;&#x5F0F;)
+- &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x8868;&#x5355;&#x7684;&#x683C;&#x5F0F; multipart/form-data (&#x82E5;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4F20;&#x7EDF;&#x7684;&#x65B9;&#x5F0F;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;, &#x90A3;&#x4E48;&#x9700;&#x8981;&#x501F;&#x52A9; form &#x8868;&#x5355;, &#x901A;&#x5E38;&#x9700;&#x8981;&#x7ED9; form&#x8868;&#x5355; &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5; enctype &#x5E76;&#x4E14;&#x8BE5;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#x4E3A; multipart/form-data(&#x4E00;&#x822C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8981;&#x6C42;&#x8BBE;&#x7F6E;&#x4E3A; multipart/form-data); &#x4E0D;&#x8FC7;&#x82E5;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684;&#x662F; ajax &#x6765;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x7684;&#x4E0A;&#x4F20;, &#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x4E0D;&#x501F;&#x52A9; form &#x8868;&#x5355;&#x6765;&#x5B9E;&#x73B0;, &#x6240;&#x4EE5;&#x4E5F;&#x5C31;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8BBE;&#x7F6E;&#x5B83;)
+- &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x4F53; (&#x8BBE;&#x7F6E; &#x952E;&#x503C;&#x5BF9;, &#x5176;&#x4E2D; &#x952E;&#x540D; &#x9700;&#x8981;&#x548C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6C9F;&#x901A;&#x597D;, &#x5373;: &#x952E;&#x540D;(&#x4E5F;&#x53EB;&quot;&#x8868;&#x5355;&#x57DF;&#x540D;&#x79F0;&quot;)&#x7531;&#x670D;&#x52A1;&#x5668;&#x6765;&#x5B9A; (&#x8881;&#x8001;&#x63D0;&#x4F9B;&#x7684;&#x662F; imagefile ))
+</code></pre><blockquote>
+<p>&#x6D4B;&#x8BD5;&#x5730;&#x5740;&#xFF1A;<a href="http://101.132.72.36:5100/api/upload">http://101.132.72.36:5100/api/upload</a><br>
+&#x952E;&#x7684;&#x540D;&#x79F0;&#xFF08;&#x8868;&#x5355;&#x57DF;&#x540D;&#x79F0;&#xFF09;&#xFF1A;imagefile</p>
+</blockquote>
+<p>&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF1A;<code>POST</code><br>
+&#x8BF7;&#x6C42;&#x7684;&#x8868;&#x5355;&#x683C;&#x5F0F;&#xFF1A;<code>multipart/form-data</code><br>
+&#x8BF7;&#x6C42;&#x4F53;&#x4E2D;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x952E;&#x7684;&#x540D;&#x79F0;&#x662F;&#x670D;&#x52A1;&#x5668;&#x8981;&#x6C42;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x503C;&#x662F;&#x6587;&#x4EF6;&#x6570;&#x636E;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x82E5;&#x4F7F;&#x7528;&#x4EE5;&#x524D;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;, &#x867D;&#x7136;&#x501F;&#x52A9;&#x4E00;&#x4E9B;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;(&#x5229;&#x7528; flash &#x6765;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x7684;&#x4E0A;&#x4F20;), &#x4F46;&#x662F;, &#x62FF;&#x4E0D;&#x5230;&#x6587;&#x4EF6;&#x6570;&#x636E;, &#x56E0;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x8BA4;&#x4E3A;, &#x6587;&#x4EF6;&#x6570;&#x636E;&#x5C5E;&#x4E8E;&#x7528;&#x6237;&#x7684;&#x9690;&#x79C1;, &#x4E0D;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5728; &#x8FD0;&#x884C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684;JS&#x4E2D;&#x83B7;&#x53D6; &#x6587;&#x4EF6;&#x6570;&#x636E;, &#x62C5;&#x5FC3;&#x7528;&#x6237;&#x7684;&#x9690;&#x79C1;&#x88AB;&#x4FB5;&#x72AF;, &#x968F;&#x540E;, &#x5728;H5&#x4E2D;&#x505A;&#x4E86;&#x6539;&#x8FDB;, &#x867D;&#x7136;&#x6211;&#x4EEC;&#x4F9D;&#x65E7;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7684; JS &#x968F;&#x610F;&#x5730;&#x83B7;&#x53D6;&#x7528;&#x6237;&#x672C;&#x5730;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x636E;, &#x4F46;&#x662F;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x83B7;&#x53D6; &#x7528;&#x6237;&#x901A;&#x8FC7; input:file &#x5143;&#x7D20;&#x9009;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x636E;
+</code></pre><pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>multipart/form-data<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+</pre><pre data-role="codeBlock" data-info class="language-"><code>&#x82E5;&#x4F7F;&#x7528;&#x4F20;&#x7EDF;&#x7684;&#x65B9;&#x5F0F;&#x4E0A;&#x4F20;, &#x90A3;&#x4E48;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4E00;&#x4E0B; enctype=&quot;multipart/form-data&quot; (&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B; &#x670D;&#x52A1;&#x5668;&#x4F1A;&#x8981;&#x6C42;&#x6211;&#x4EEC;&#x8FD9;&#x4E48;&#x914D;&#x7F6E;)
+&#x82E5;&#x4F7F;&#x7528;ajax&#x6765;&#x5B9E;&#x73B0;, &#x90A3;&#x4E48;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x5199; enctype=&quot;multipart/form-data&quot; &#x7684;
+</code></pre><blockquote>
+<p>HTML5&#x4E2D;&#xFF0C;JS&#x4ECD;&#x7136;&#x65E0;&#x6CD5;&#x968F;&#x610F;&#x7684;&#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;input&#x5143;&#x7D20;&#x4E2D;&#xFF0C;&#x88AB;&#x7528;&#x6237;&#x9009;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x636E;<br>
+&#x53EF;&#x4EE5;&#x5229;&#x7528;HTML5&#x63D0;&#x4F9B;&#x7684;FormData&#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x8BF7;&#x6C42;&#x4F53;</p>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x8BA4;&#x8BC6; input.files</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>avatar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> inp <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#avatar&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>inp<span class="token punctuation">.</span><span class="token property-access">files</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x82E5; input &#x5143;&#x7D20;&#x7684; type &#x662F; file &#x7684;&#x8BDD;, &#x90A3;&#x4E48;&#x8FD9;&#x4E2A; input &#x5143;&#x7D20;&#x8EAB;&#x4E0A;&#x4F1A;&#x6709;&#x4E00;&#x4E2A; files &#x5C5E;&#x6027;</span>
+            <span class="token comment">// files &#x5C5E;&#x6027;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x662F;&#x7528;&#x6237;&#x9009;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x76F8;&#x5173;&#x6570;&#x636E;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210515230448.png" alt="20210515230448"></p>
+<pre data-role="codeBlock" data-info class="language-"><code>inp.files &#x5305;&#x542B;&#x7684;&#x6587;&#x4EF6;&#x4FE1;&#x606F;&#x4E2D;, &#x8FD8;&#x5305;&#x62EC;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E; (&#x65E0;&#x6CD5;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x663E;&#x793A;&#x51FA;&#x6765;, &#x6570;&#x636E;&#x91CF;&#x592A;&#x5927;)
+</code></pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x5C5E;&#x6027; multiple &#x5B9E;&#x73B0;&#x540C;&#x65F6;&#x9009;&#x4E2D;&#x591A;&#x4E2A;&#x6587;&#x4EF6; (PS: &#x6D4B;&#x8BD5;&#x7684;&#x63A5;&#x53E3;&#x4EC5;&#x5141;&#x8BB8;&#x4E00;&#x6B21;&#x4E0A;&#x4F20;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;)</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- &#x6DFB;&#x52A0;&#x4E0A; multiple &#x4E4B;&#x540E;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x9009;&#x4E2D;&#x591A;&#x4E2A;&#x6587;&#x4EF6; --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">multiple</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>avatar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> inp <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#avatar&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>inp<span class="token punctuation">.</span><span class="token property-access">files</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x4F2A;&#x6570;&#x7EC4;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210515230714.png" alt="20210515230714"></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> demo</li>
+</ul>
+<p><code>&#x5229;&#x7528;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x76F8;&#x5173;&#x6570;&#x636E; input.files &#x6765;&#x6784;&#x5EFA;&#x8BF7;&#x6C42;&#x4F53;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- &#x6D4B;&#x8BD5;&#x4E0D;&#x4E86;, &#x56DE;&#x770B;&#x89C6;&#x9891; 12min - 16min --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>POST<span class="token punctuation">&quot;</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>multipart/form-data<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>abc<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>avatar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>bcd<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x63D0;&#x4EA4;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+</pre><pre data-role="codeBlock" data-info class="language-"><code>[&#x6CE8;] &#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x77E5;&#x9053; multipart/form-data &#x8BF7;&#x6C42;&#x4F53;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x683C;&#x5F0F;&#x6BD4;&#x8F83;&#x7279;&#x6B8A;; &#x82E5;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x624B;&#x52A8;&#x6784;&#x5EFA;&#x51FA;&#x6765;, &#x90A3;&#x4E48;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x683C;&#x5F0F;&#x7684;&#x76F8;&#x5173;&#x7EC6;&#x8282;, &#x6784;&#x5EFA;&#x8D77;&#x6765;&#x76F8;&#x5BF9;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;, &#x4E5F;&#x53EF;&#x4EE5;&#x6784;&#x5EFA;&#x51FA;&#x7B26;&#x5408;&#x89C4;&#x8303;&#x7684;&#x8BF7;&#x6C42;&#x4F53;; &#x4F46;&#x662F;, &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;, &#x6211;&#x4EEC;&#x4E0A;&#x4F20;&#x6587;&#x4EF6;&#x7684;&#x65F6;&#x5019;, &#x8BF7;&#x6C42;&#x4F53;&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x53BB;&#x624B;&#x52A8;&#x6784;&#x5EFA;, &#x4E00;&#x822C;&#x4F1A;&#x5229;&#x7528; H5 &#x63D0;&#x4F9B;&#x7684; FormData &#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x521B;&#x5EFA;&#x8BF7;&#x6C42;&#x4F53;
+</code></pre><pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>POST<span class="token punctuation">&quot;</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>multipart/form-data<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>abc<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>avatar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>bcd<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x63D0;&#x4EA4;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> inp <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#avatar&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x6784;&#x5EFA;&#x8BF7;&#x6C42;&#x4F53; (&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x4E00;&#x4E2A; form &#x8868;&#x5355;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;&#x53C2;&#x6570; &#x5B83;&#x4F1A;&#x628A;&#x6307;&#x5B9A;&#x8868;&#x5355;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#x6DFB;&#x52A0;&#x5230;&#x8BF7;&#x6C42;&#x4F53;&#x4E2D;&#x8FD4;&#x56DE;)</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> demo</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>&#x4E0A;&#x4F20;&#x6587;&#x4EF6;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- &#x82E5;&#x6211;&#x4EEC;&#x91C7;&#x7528;&#x7684;&#x662F; ajax &#x6765;&#x5B9E;&#x73B0;&#x7684;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;, form &#x8868;&#x5355;&#x4E5F;&#x5C31;&#x4E0D;&#x662F;&#x5FC5;&#x8981;&#x7684;&#x4E86; --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>abc<span class="token punctuation">&quot;</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>avatar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> inp <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;#avatar&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">/* &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x4F53; */</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>inp<span class="token punctuation">.</span><span class="token property-access">files</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// &#x7528;&#x6237;&#x6CA1;&#x6709;&#x9009;&#x4E2D;&#x6587;&#x4EF6;</span>
+                <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&#x9700;&#x8981;&#x4E0A;&#x4F20;&#x7684;&#x6587;&#x4EF6;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">const</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x8BF7;&#x6C42;&#x4F53;</span>
+            formData<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token string">&apos;imagefile&apos;</span><span class="token punctuation">,</span> inp<span class="token punctuation">.</span><span class="token property-access">files</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x5F80;&#x8BF7;&#x6C42;&#x4F53;&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E; (&#x952E;&#x540D;: imagefile &#x952E;&#x503C;: &#x7528;&#x6237;&#x9009;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x7684;&#x6587;&#x4EF6;&#x6570;&#x636E;)</span>
+            <span class="token comment">// formData.append(&apos;loginId&apos;, &apos;dahuyou&apos;); // &#x4E5F;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x4E0A;&#x4F20;&#x591A;&#x4E2A;&#x6570;&#x636E;, &#x53EA;&#x8981;&#x7EE7;&#x7EED; append &#x5373;&#x53EF;</span>
+
+            <span class="token comment">/* &#x83B7;&#x53D6;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x7684;&#x5730;&#x5740; */</span>
+            <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&apos;http://101.132.72.36:5100/api/upload&apos;</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                method<span class="token operator">:</span> <span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span> <span class="token comment">// &#x5C06;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x8BBE;&#x7F6E;&#x4E3A; POST</span>
+                <span class="token comment">/* headers: {
+                    &apos;Content-Type&apos;: &apos;multipart/form-data&apos; // &#x5728;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x914D;&#x7F6E;&#x8868;&#x5355;&#x683C;&#x5F0F;
+                } */</span>
+                body<span class="token operator">:</span> formData <span class="token comment">// &#x914D;&#x7F6E;&#x8BF7;&#x6C42;&#x4F53;, &#x8FD9;&#x4E48;&#x914D;&#x7F6E;&#x540E;, &#x5185;&#x90E8;&#x4F1A;&#x81EA;&#x52A8;&#x5E2E;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x8BF7;&#x6C42;&#x5934;, &#x6240;&#x4EE5; headers &#x4E2D;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x8868;&#x5355;&#x683C;&#x5F0F; &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x914D;&#x7F6E;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><p><code>&#x968F;&#x4FBF;&#x9009;&#x62E9;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x4E0A;&#x4F20;, &#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210516104935.png" alt="20210516104935"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210516104943.png" alt="20210516104943"></p>
+<pre data-role="codeBlock" data-info class="language-"><code>&#x56FE;&#x7247;&#x7684;&#x8BBF;&#x95EE;&#x94FE;&#x63A5;: http://images.yuanjin.tech/Fi6Md2Wb8-CeDzDIiO4u9HqfFStv
+&#x4E0D;&#x5B9A;&#x671F;&#x4F1A;&#x5931;&#x6548;
+</code></pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210516105144.png" alt="20210516105144"></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> demo</li>
+</ul>
+<p><code>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x6848;&#x4F8B;</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>X-UA-Compatible<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>IE=edge<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>&#x6587;&#x4EF6;&#x4E0A;&#x4F20;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>wrapper<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>avatar<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>&#x4E0A;&#x4F20;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">const</span> inp <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;input&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            img <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;img&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            btn <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">&apos;button&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            url <span class="token operator">=</span> <span class="token string">&apos;http://101.132.72.36:5100/api/upload&apos;</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">upLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword control-flow">if</span> <span class="token punctuation">(</span>inp<span class="token punctuation">.</span><span class="token property-access">files</span><span class="token punctuation">.</span><span class="token property-access">length</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">&apos;&#x8BF7;&#x9009;&#x62E9;&#x6587;&#x4EF6;&#x540E;&#x518D;&#x70B9;&#x51FB;&#x4E0A;&#x4F20;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword control-flow">else</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 1. &#x83B7;&#x53D6;&#x6587;&#x4EF6;&#x6570;&#x636E;</span>
+                <span class="token keyword">const</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                formData<span class="token punctuation">.</span><span class="token method function property-access">append</span><span class="token punctuation">(</span><span class="token string">&apos;imagefile&apos;</span><span class="token punctuation">,</span> inp<span class="token punctuation">.</span><span class="token property-access">files</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 2. &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;&#x548C;&#x8BF7;&#x6C42;&#x5934; &#x5E76;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;</span>
+                <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                    method<span class="token operator">:</span> <span class="token string">&apos;POST&apos;</span><span class="token punctuation">,</span>
+                    body<span class="token operator">:</span> formData
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// 3. &#x5C06;&#x670D;&#x52A1;&#x5668;&#x7684;&#x54CD;&#x5E94;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;</span>
+                <span class="token keyword control-flow">return</span> <span class="token keyword control-flow">await</span> response<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        btn<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword control-flow">await</span> <span class="token function">upLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            img<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> result<span class="token punctuation">.</span><span class="token property-access">path</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</pre><pre data-role="codeBlock" data-info class="language-"><code>[bug] upload&#x51FD;&#x6570;&#x4E2D;&#x6700;&#x540E;&#x7684;&#x8FD4;&#x56DE;&#x8BED;&#x53E5; return await response.json() &#x5982;&#x679C;&#x5199;&#x6210; return await response.json().path &#x4F1A;&#x62A5;&#x9519;
+</code></pre></div>
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</a></li>
+<li><a href="#91-fetch-api-%E6%A6%82%E8%BF%B0">9.1 Fetch Api &#x6982;&#x8FF0;</a></li>
+<li><a href="#92-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">9.2 &#x57FA;&#x672C;&#x4F7F;&#x7528;</a>
+<ul>
+<li><a href="#%E5%8F%82%E6%95%B0">&#x53C2;&#x6570;</a></li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E5%80%BC">&#x8FD4;&#x56DE;&#x503C;</a></li>
+</ul>
+</li>
+<li><a href="#93-request%E5%AF%B9%E8%B1%A1">9.3 Request&#x5BF9;&#x8C61;</a></li>
+<li><a href="#94-response%E5%AF%B9%E8%B1%A1">9.4 Response&#x5BF9;&#x8C61;</a></li>
+<li><a href="#95-headers%E5%AF%B9%E8%B1%A1">9.5 Headers&#x5BF9;&#x8C61;</a></li>
+<li><a href="#96-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0">9.6 &#x6587;&#x4EF6;&#x4E0A;&#x4F20;</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

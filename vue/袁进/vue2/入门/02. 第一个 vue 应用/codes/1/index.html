@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一个 vue 应用</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>标题：商品管理系统</h1>
+    <ul>
+      <li v-for="(item, i) in products">
+        商品名称：{{item.name}}，库存：
+        <button @click="changeStock(item, item.stock - 1)">-</button>
+        {{item.stock === 0 ? "无货" : item.stock}}
+        <button @click="changeStock(item, item.stock + 1)">+</button>
+        <button @click="removeItem(i)">remove</button>
+      </li>
+    </ul>
+    <p>
+      总库存：{{total}}
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    const vm = new Vue({
+      el: "#app", // 表示 vue 控制了页面的哪个区域
+      data: {
+        products: [{
+            name: "huawei",
+            stock: 10
+          },
+          {
+            name: "iphone",
+            stock: 9
+          },
+          {
+            name: "xiaomi",
+            stock: 8
+          }
+        ]
+      },
+      computed: {
+        total() {
+          return this.products.reduce((sum, item) => sum + item.stock, 0);
+        }
+      },
+      methods: {
+        changeStock(item, newStock) {
+          if (newStock < 0) {
+            return;
+          }
+          item.stock = newStock;
+        },
+        removeItem(i) {
+          this.products.splice(i, 1);
+        }
+      }
+    });
+    // 数据响应式：数据变化 -> 模板重新渲染
+    /*
+    在 控制台 执行输入下面这几条语句：
+    vm.products.push({name: "vivo", stock: 20});
+    vm.products[0].stock++;
+    查看页面的变化。
+    */
+  </script>
+</body>
+
+</html>

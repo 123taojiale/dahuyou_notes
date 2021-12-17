@@ -1,0 +1,257 @@
+/* reset */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* #header */
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 10vw;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+
+    width: 100vw;
+    height: 80px;
+}
+
+/* .logo */
+#header .logo img {
+    height: 50px;
+}
+
+/* .nav */
+#header .nav {
+    display: flex;
+    align-self: flex-start;
+
+    color: #777;
+}
+
+#header .nav ul {
+    display: flex;
+}
+
+#header .nav ul li {
+    position: relative;
+
+    padding: 0 1.2vw;
+
+    height: 80px;
+    line-height: 80px;
+}
+
+#header .nav ul li::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+
+    height: 2px;
+    width: 0%;
+    background-color: #777;
+
+    transition: width .5s;
+}
+
+#header .nav ul li:hover::after {
+    width: 100%;
+    transition: width .5s;
+}
+
+#header .nav button {
+    display: none;
+    margin-top: 15px;
+    width: 50px;
+    height: 50px;
+    background: url(./images/btn.png) transparent no-repeat center;
+    cursor: pointer;
+}
+
+/* @media (max-width: 576px) { */
+@media (max-width: 800px) {
+    #header .nav ul {
+        position: relative;
+        top: 80px;
+
+        flex-wrap: wrap;
+        /* height: 200px; */
+        height: 0;
+        overflow: hidden;
+
+        transition: all .5s;
+    }
+
+    #header .nav ul.extend {
+        height: 200px;
+    }
+
+    #header .nav ul li {
+        border-bottom: 1px solid #ddd;
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        background-color: #eee;
+
+        text-align: center;
+    }
+
+    #header .nav button {
+        display: block;
+    }
+}
+
+/* #banner */
+#banner {
+    position: relative;
+    margin-top: 80px;
+    width: 100%;
+    height: 36vw;
+    overflow: hidden;
+}
+
+#banner ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    width: 300vw;
+    /* width: 400vw; */
+
+    transition: .5s;
+}
+
+#banner ul li {
+    width: 100vw;
+}
+
+#banner ul li img {
+    width: 100%;
+}
+
+/* #products */
+#products {
+    margin: 50px 0;
+}
+
+#products .title {
+    text-align: center;
+    font-weight: bold;
+    color: #bbb;
+}
+
+#products .list {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#products .list li {
+    margin: 15px 0;
+    padding: 20px 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+#products .list li img {
+    width: 90%;
+    border-radius: 10px;
+    transition: all .5s;
+}
+
+#products .list li img:hover {
+    transform: scale(1.1);
+
+}
+
+/* 当窗口尺寸在 1200px 以上时 商品显示 4 列 */
+@media (min-width: 1200px) {
+    #products .list {
+        width: 1190px;
+    }
+
+    #products .list li {
+        width: 23%;
+    }
+}
+
+/* 当窗口尺寸在 992px 以上 1200 以下时 商品显示 3 列 */
+@media (min-width: 992px) and (max-width: 1200px) {
+    #products .list {
+        width: 980px;
+    }
+
+    #products .list li {
+        width: 33%;
+    }
+}
+
+/* 当窗口尺寸在 768px 以上 992px 以下时 商品显示 2 列 */
+@media (min-width: 768px) and (max-width: 992px) {
+    #products .list {
+        width: 720px;
+    }
+
+    #products .list li {
+        width: 45%;
+    }
+}
+
+/* #footer */
+#footer {
+    height: 500px;
+    background-image: url('./images/bottom.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+/* 蒙层 */
+#footer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    transition: all 0.5s;
+}
+
+#footer:hover::after {
+    background-color: rgba(0, 0, 0, 0.2);
+}

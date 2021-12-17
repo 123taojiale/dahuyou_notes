@@ -1,0 +1,1531 @@
+<!doctype html>
+<html style='font-size:16px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<link rel="shortcut icon" href="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/favicon.ico" type="image/x-icon">
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print { 
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) { 
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) { 
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print { 
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+/*Chinese*/
+@font-face{
+    font-family: 'HYZhengYuan';
+    src: local('HYZhengYuan'),
+    url('file:///Users/huyouda/Library/Application%20Support/abnerworks.Typora/themes/drake/HYZhengYuan-75W.ttf') format('truetype');
+    font-display: swap;
+    font-weight: bold;
+    font-style: normal;
+}/*
+ * Copyright (C) 2018 Drake, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ @import url();
+
+ :root {
+     --monospace: "JetBrains Mono", HYZhengYuan, "Fira Code", Menlo, "Ubuntu Mono", Consolas;
+     /*code font*/
+     --text-font: Consolas;
+     /*default font*/
+     --title-font: var(--monospace);
+     /*title font*/
+
+     --text-color: #304455;
+     --bg-color: #ffffff;
+     --control-text-color: var(--text-color);
+     --meta-content-color: var(--text-color);
+     --active-file-border-color: var(--drake-accent);
+     --rawblock-edit-panel-bd: var(--code-block-bg-color);
+     --item-hover-bg-color: #E5E5E596;
+     --active-file-bg-color: var(--item-hover-bg-color);
+
+     --blur-text-color: rgba(48, 68, 85, 0.5);
+     --drake-accent: #31a062;
+     --drake-highlight: #d63200;
+     --a-color: var(--drake-accent);
+     --variable-color: var(--drake-highlight);
+     --outline-active-color: var(--a-color);
+     --code-block-bg-color: #f8f8f8;
+     --code-block-color: #525252;
+     --title-color: #273849;
+     --blockquote-border-color: #f66;
+     --blockquote-color: var(--text-color);
+     --blockquote-bg-color: #f8f8f8;
+     --strong-color: var(--title-color);
+     --h2-underline-color: var(--title-color);
+     --horizontal-divider-color: var(--title-color);
+     --height-light-color: var(--drake-highlight);
+     --height-light-border-color: var(--drake-highlight);
+     --yaml-color: #777777;
+     --yaml-bg-color: #f7f7f7;
+     --footnotes-bg-color: #3c3d3e;
+     --footnotes-highlight: #FFD760;
+     --table-border-color: #dfe2e5;
+     --table-header-bg-color: #f8f8f8;
+     --table-bg-color: var(--bg-color);
+     --table-n2-bg-color: #f8f8f8;
+     --input-bg-color: #f2f2f2;
+     --btn-hover-bg-color: #f2f2f2;
+     --checkbox-checked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M425.984 726.016l384-384-59.99-61.995-324.01 324.011-152.021-152.021L213.973 512zm384-598.016q36.01 0 61.013 25.984T896 213.974v596.01q0 34.005-25.003 59.99t-61.013 25.983h-596.01q-36.011 0-61.014-25.984t-25.003-59.989v-596.01q0-34.006 25.003-59.99T213.973 128h596.011z' fill='%2365b73b'/%3E%3C/svg%3E");
+     --checkbox-unchecked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M810.667 213.333v597.334H213.333V213.333h597.334m0-85.333H213.333C166.4 128 128 166.4 128 213.333v597.334C128 857.6 166.4 896 213.333 896h597.334C857.6 896 896 857.6 896 810.667V213.333C896 166.4 857.6 128 810.667 128z' fill='%23333333'/%3E%3C/svg%3E");
+ }
+
+ html {
+     font-size: 12px;
+ }
+
+ body {
+     font-family: var(--text-font) !important;
+     color: var(--text-color);
+     -webkit-font-feature-settings: "liga"on, "calt"on;
+     -webkit-font-smoothing: subpixel-antialiased;
+     text-rendering: optimizeLegibility;
+     letter-spacing: 0;
+     margin: 0;
+     overflow-x: hidden;
+     line-height: 1.8rem;
+ }
+
+ /*code block*/
+ .md-fences {
+     font-size: 1rem;
+     padding: 0.5rem !important;
+     border-radius: 2px;
+     word-wrap: normal;
+     background-color: var(--code-block-bg-color);
+     color: var(--code-block-color);
+     border: none;
+ }
+
+ /*mermaid*/
+ .md-diagram-panel-preview text.actor>tspan {
+     /*方块文字*/
+     fill: var(--code-block-color) !important;
+     stroke: none !important;
+     font-family: var(--text-font) !important;
+     font-size: 1rem !important;
+ }
+
+ .md-diagram-panel-preview .actor {
+     /*方块*/
+     stroke: var(--table-border-color) !important;
+     fill: var(--code-block-bg-color) !important;
+ }
+
+ .md-diagram-panel-preview .actor-line {
+     /*竖线*/
+     stroke: var(--text-color) !important;
+     stroke-width: 1px;
+ }
+
+ .md-diagram-panel-preview .messageLine0 {
+     /*横线*/
+     stroke-width: 1.5;
+     stroke-dasharray: none;
+     stroke: var(--text-color) !important;
+ }
+
+ .md-diagram-panel-preview .messageLine1 {
+     /*虚线*/
+     stroke-width: 1.5 !important;
+     stroke-dasharray: 2, 2 !important;
+     stroke: var(--text-color) !important;
+ }
+
+ .md-diagram-panel-preview .messageText {
+     /*描述文字*/
+     fill: var(--text-color) !important;
+     font-family: var(--text-font) !important;
+     font-size: 1rem !important;
+ }
+
+ .md-diagram-panel-preview .activation0 {
+     /*长方形*/
+     fill: rgba(141, 141, 141, 0.22) !important;
+     stroke: var(--text-color) !important;
+ }
+
+ .md-diagram-panel-preview .labelText,
+ .md-diagram-panel-preview .labelText>tspan {
+     /*循环标记*/
+     fill: var(--code-block-color) !important;
+     font-family: var(--text-font) !important;
+     font-size: 1rem !important;
+     dominant-baseline: unset;
+     alignment-baseline: unset;
+ }
+
+ .md-diagram-panel-preview .labelBox {
+     /*循环标记背景*/
+     stroke: var(--table-border-color) !important;
+     fill: var(--code-block-bg-color) !important;
+ }
+
+ .md-diagram-panel-preview .loopLine {
+     /*循环标记虚线*/
+     stroke: var(--text-color) !important;
+ }
+
+ .md-diagram-panel-preview .loopText,
+ .md-diagram-panel-preview .loopText>tspan {
+     /*循环名称*/
+     fill: var(--text-color) !important;
+     font-size: 1rem !important;
+ }
+
+ .md-diagram-panel-preview .sequenceNumber {
+     /*序号*/
+     fill: var(--bg-color) !important;
+ }
+
+ pre.md-fences-advanced.md-focus .md-fences-adv-panel {
+     border: none;
+ }
+
+ /*code snippet*/
+ #write code,
+ tt {
+     margin: 0 2px;
+     color: var(--drake-highlight);
+ }
+
+ /*variable*/
+ var {
+     color: var(--variable-color);
+     font-weight: bold;
+ }
+
+ /*raw block*/
+ .md-rawblock-control:not(.md-rawblock-tooltip) {
+     border-radius: 2px 0 2px 2px;
+     padding: 0.2rem !important;
+ }
+
+ .md-rawblock:hover>.md-rawblock-container {
+     background: none;
+ }
+
+ .md-rawblock-input {
+     font-size: 1rem;
+ }
+
+ .md-rawblock-tooltip-btn:hover {
+     background: none;
+ }
+
+ .md-rawblock:hover>.md-rawblock-tooltip {
+     border-radius: 2px 2px 0 0;
+     margin-bottom: 2px !important;
+ }
+
+ .md-rawblock-tooltip.md-rawblock-control {
+     border-radius: 2px 2px 0 0;
+     color: var(--code-block-color);
+ }
+
+ .md-rawblock-tooltip-name {
+     color: var(--code-block-color);
+     opacity: 1;
+ }
+
+ /*quote block*/
+ blockquote:before {
+     display: block;
+     position: absolute;
+     content: '';
+     width: 4px;
+     left: 0;
+     top: 0;
+     height: 100%;
+     background-color: var(--blockquote-border-color);
+     border-radius: 2px;
+ }
+
+ blockquote {
+     color: var(--blockquote-color);
+     border-radius: 2px;
+     padding: 10px 16px;
+     background-color: var(--blockquote-bg-color);
+     position: relative;
+     border-left: none;
+ }
+
+ #write strong {
+     color: var(--strong-color);
+     font-weight: bold;
+ }
+
+ #write blockquote strong {
+     color: var(--blockquote-color);
+ }
+
+ /*link*/
+ #write a {
+     color: var(--a-color);
+     text-decoration: none;
+ }
+
+ .on-focus-mode #write a .md-plain,
+ .on-focus-mode .md-htmlblock-container a:hover {
+     border-bottom: .1rem solid var(--blur-text-color);
+ }
+
+ #write a .md-plain,
+ .md-htmlblock-container a:hover,
+ .on-focus-mode #write .md-focus a .md-plain,
+ .md-focus .md-htmlblock-container a:hover {
+     border-bottom: .1rem solid var(--a-color);
+ }
+
+ /* 去掉下划线 */
+ #write a .md-plain {
+    border-bottom: none !important;
+ }
+
+ [md-inline=link] a {
+     margin: 0 .2rem;
+ }
+
+ a:any-link {
+     color: var(--a-color);
+ }
+
+ img {
+     border-left: none;
+     border-right: none;
+     vertical-align: baseline;
+     border-radius: 2px;
+     /* 给 img 添加阴影 */
+     box-shadow: 0px 20px 40px 1px rgba(0,0,0,.3);
+     /* mac 下截取的图片，默认会带有一丢丢的圆角，加上一个圆角边框，去掉 4 个边角的背景。 */
+     display: inline !important;
+     border-radius: 15px;
+ }
+
+ #write {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 20px 30px 100px;
+ }
+
+ #typora-source .CodeMirror-lines {
+     max-width: 1200px;
+ }
+
+ #write p {
+     word-spacing: .05rem;
+ }
+
+ #write>ul:first-child,
+ #write>ol:first-child {
+     margin-top: 30px;
+ }
+
+ body>*:first-child {
+     margin-top: 0 !important;
+ }
+
+ body>*:last-child {
+     margin-bottom: 0 !important;
+ }
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+     font-family: var(--title-font);
+     position: relative;
+     margin-top: 2rem;
+     margin-bottom: 1rem;
+     font-weight: bold;
+     cursor: text;
+     color: var(--title-color);
+ }
+
+ h3.md-focus:before,
+ h4.md-focus:before,
+ h5.md-focus:before,
+ h6.md-focus:before {
+     visibility: hidden;
+ }
+
+ h1 {
+     font-size: 2rem;
+     text-align: center;
+     margin-top: 0;
+ }
+
+ h2.md-end-block.md-heading {
+     font-size: 1.6rem;
+     display: inline-block;
+ }
+
+ h2.md-end-block.md-heading:after {
+     display: block;
+     content: '';
+     height: 2px;
+     margin-top: 4px;
+     background-color: var(--h2-underline-color);
+     border-radius: 2px;
+ }
+
+ .on-focus-mode h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
+     background-color: var(--blur-text-color) !important;
+ }
+
+ h3 {
+     font-size: 1.4rem;
+ }
+
+ h4 {
+     font-size: 1.2rem;
+ }
+
+ h5 {
+     font-size: 1rem;
+ }
+
+ h6 {
+     font-size: 1rem;
+ }
+
+ h1:hover a.anchor,
+ h2:hover a.anchor,
+ h3:hover a.anchor,
+ h4:hover a.anchor,
+ h5:hover a.anchor,
+ h6:hover a.anchor {
+     text-decoration: none;
+ }
+
+ h1 tt,
+ h1 code {
+     font-size: inherit !important;
+ }
+
+ h2 tt,
+ h2 code {
+     font-size: inherit !important;
+ }
+
+ h3 tt,
+ h3 code {
+     font-size: inherit !important;
+ }
+
+ h4 tt,
+ h4 code {
+     font-size: inherit !important;
+ }
+
+ h5 tt,
+ h5 code {
+     font-size: inherit !important;
+ }
+
+ h6 tt,
+ h6 code {
+     font-size: inherit !important;
+ }
+
+ blockquote,
+ ul,
+ ol,
+ dl,
+ table {
+     margin: 0.8em 0;
+ }
+
+ p {
+     margin: 0;
+ }
+
+ li>ol,
+ li>ul {
+     margin: 0 0;
+ }
+
+ hr {
+     height: 2px;
+     padding: 0;
+     margin: 16px 0;
+     background-color: var(--horizontal-divider-color);
+     border: 0 none;
+     overflow: hidden;
+     box-sizing: content-box;
+ }
+
+ body>h2:first-child {
+     margin-top: 0;
+     padding-top: 0;
+ }
+
+ body>h1:first-child {
+     margin-top: 0;
+     padding-top: 0;
+ }
+
+ body>h1:first-child+h2 {
+     margin-top: 0;
+     padding-top: 0;
+ }
+
+ body>h3:first-child,
+ body>h4:first-child,
+ body>h5:first-child,
+ body>h6:first-child {
+     margin-top: 0;
+     padding-top: 0;
+ }
+
+ a:first-child h1,
+ a:first-child h2,
+ a:first-child h3,
+ a:first-child h4,
+ a:first-child h5,
+ a:first-child h6 {
+     margin-top: 0;
+     padding-top: 0;
+ }
+
+ h1 p,
+ h2 p,
+ h3 p,
+ h4 p,
+ h5 p,
+ h6 p {
+     margin-top: 0;
+ }
+
+ li p.first {
+     display: inline-block;
+ }
+
+ ul,
+ ol {
+     padding-inline-start: 2em;
+ }
+
+ ul:first-child,
+ ol:first-child {
+     margin-top: 0;
+ }
+
+ ul:last-child,
+ ol:last-child {
+     margin-bottom: 0;
+ }
+
+ table {
+     padding: 0;
+     word-break: initial;
+     background-color: var(--table-bg-color);
+ }
+
+ table tr {
+     border-top: .1em solid var(--table-border-color);
+     margin: 0;
+     padding: 0;
+ }
+
+ table th {
+     font-weight: bold;
+     border: .1em solid var(--table-border-color);
+     border-bottom: 0;
+     margin: 0;
+     padding: 6px 13px;
+ }
+
+ table td {
+     border: .1em solid var(--table-border-color);
+     margin: 0;
+     padding: 6px 13px;
+ }
+
+ table thead {
+     background-color: var(--table-header-bg-color);
+ }
+
+ table tr:nth-child(2n) {
+     background-color: var(--table-n2-bg-color);
+ }
+
+ table tr th:first-child,
+ table tr td:first-child {
+     margin-top: 0;
+ }
+
+ table tr th:last-child,
+ table tr td:last-child {
+     margin-bottom: 0;
+ }
+
+ #write em {
+     padding: 0 5px 0 2px;
+ }
+
+ #write table thead th {
+     background-color: var(--table-header-bg-color);
+ }
+
+ /* height light */
+ #write mark {
+     border: .1em solid var(--height-light-border-color);
+     color: var(--height-light-color);
+     background-color: transparent;
+     padding: .1rem .5rem;
+     border-radius: 2rem;
+     margin: 0 .2rem;
+     font-size: .95rem;
+ }
+
+ /*shortcut*/
+ kbd {
+     border: .1em solid #5b5b5e;
+     background: transparent;
+     color: var(--text-color);
+     margin: 0 .4rem;
+     font-size: .95rem;
+     padding: .3em .4em;
+     border-radius: .4em;
+     vertical-align: top;
+     box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
+ }
+
+ #write del {
+     padding: 1px 2px;
+ }
+
+ .md-task-list-item>input {
+     margin-left: -1.3em;
+ }
+
+ @media print {
+     html {
+         font-size: 12px;
+     }
+
+     table,
+     pre {
+         page-break-inside: avoid;
+     }
+
+     pre {
+         word-wrap: break-word;
+     }
+ }
+
+ /*YAML*/
+ #write pre.md-meta-block {
+     padding: 1rem;
+     font-size: 1rem;
+     background-color: var(--yaml-bg-color);
+     border: 0;
+     border-radius: 2px;
+     color: var(--yaml-color);
+     margin-top: 0 !important;
+ }
+
+ .mathjax-block>.code-tooltip {
+     bottom: .375rem;
+ }
+
+ #write>h3.md-focus:before {
+     left: -1.5625rem;
+     top: .375rem;
+ }
+
+ #write>h4.md-focus:before {
+     left: -1.5625rem;
+     top: .285714286rem;
+ }
+
+ #write>h5.md-focus:before {
+     left: -1.5625rem;
+     top: .285714286rem;
+ }
+
+ #write>h6.md-focus:before {
+     left: -1.5625rem;
+     top: .285714286rem;
+ }
+
+ .md-image>.md-meta {
+     border-radius: 2px;
+     font-family: initial;
+     padding: 2px 0 0 4px;
+     color: inherit;
+ }
+
+ .md-tag {
+     color: inherit;
+ }
+
+ .md-toc {
+     margin-top: 20px;
+     padding-bottom: 20px;
+ }
+
+ .typora-quick-open-item {
+     font-size: 1rem !important;
+     height: 50px;
+     padding-left: 8px;
+     padding-top: 4px;
+     padding-bottom: 4px;
+ }
+
+ #typora-quick-open {
+     box-shadow: 0 0 8px #00000045;
+     padding: 0;
+ }
+
+ .ty-quick-open-category.ty-has-prev .ty-quick-open-category-title {
+     border-top: none;
+ }
+
+ #typora-quick-open-input {
+     margin: 8px;
+     box-shadow: none;
+     border-radius: 2px;
+ }
+
+ #typora-quick-open-input input {
+     font-size: 1rem;
+     box-shadow: none;
+     padding-top: 2px;
+     padding-left: 10px;
+     padding-right: 10px;
+     line-height: 32px;
+     max-height: 32px;
+     border: none;
+ }
+
+ .modal-dialog#typora-quick-open {
+     border-radius: 8px;
+ }
+
+ .ty-quick-open-category-title {
+     padding-left: 8px;
+     color: #BEBEBE;
+     font-size: 0.8rem;
+     margin-bottom: 4px;
+ }
+
+ .typora-quick-open-item-path {
+     font-size: 0.8rem;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     margin-top: 1px;
+ }
+
+ /*search input*/
+ .form-control {
+     border: none;
+     border-radius: 2px;
+     box-shadow: none;
+ }
+
+ #md-searchpanel .btn {
+     border-radius: 2px;
+ }
+
+ #search-panel-replaceall-btn {
+     padding-right: 5px !important;
+     text-align: center !important;
+ }
+
+ #search-panel-replace-btn {
+     text-align: center !important;
+ }
+
+ #md-searchpanel input {
+     background: var(--input-bg-color);
+     border-radius: 2px;
+ }
+
+ .searchpanel-search-option-btn {
+     border-radius: 2px;
+     border: none;
+     background: transparent;
+     color: var(--text-color);
+ }
+
+ .searchpanel-search-option-btn.active {
+     background: var(--text-color);
+     color: var(--bg-color);
+ }
+
+ .form-control:focus {
+     box-shadow: none;
+ }
+
+ #md-notification:before {
+     top: 10px;
+ }
+
+ /** focus mode */
+ .on-focus-mode blockquote {
+     border-left-color: rgba(85, 85, 85, 0.12);
+ }
+
+ header,
+ .context-menu,
+ .megamenu-content,
+ footer {
+     font-family: initial;
+ }
+
+ /*sidebar*/
+ .file-node-content:hover .file-node-icon,
+ .file-node-content:hover .file-node-open-state {
+     visibility: visible;
+ }
+
+ #typora-sidebar {
+     /* 左侧的导航，字体有点偏大了。 */
+     /* font-size: 1.1rem; */
+ }
+
+ .sidebar-tabs {
+     border-bottom: none;
+ }
+
+ .file-list-item-summary,
+ .file-list-item-parent-loc,
+ .file-list-item-time,
+ .file-list-item-summary {
+     font-size: 0.9rem !important;
+     font-family: var(--text-font);
+ }
+
+ .file-list-item-file-ext-part {
+     display: none;
+ }
+
+ .outline-item {
+     font-size: 1rem;
+ }
+
+ /*footnotes mark*/
+ #write .md-footnote {
+     background-color: inherit;
+     color: var(--drake-highlight);
+     font-size: 0.9rem;
+     border-radius: 0.9rem;
+     padding-left: 0;
+ }
+
+ #write .md-footnote:before {
+     content: "[";
+ }
+
+ #write .md-footnote:after {
+     content: "]";
+ }
+
+ /*footnotes content*/
+ .md-hover-tip .code-tooltip-content {
+     border-radius: 2px;
+ }
+
+ /*footnotes title*/
+ span.md-def-name {
+     padding-right: 3ch;
+     padding-left: 0;
+     position: relative;
+     font-weight: normal;
+ }
+
+ /*footnotes desc*/
+ .footnotes {
+     font-size: 1rem;
+     font-weight: normal;
+     color: var(--text-color);
+     position: relative;
+ }
+
+ /*footnotes tooltip text*/
+ .code-tooltip-content .md-plain {
+     font-size: 0.9rem;
+     font-family: inherit;
+ }
+
+ .code-tooltip-content code {
+     padding: 0 2px;
+     font-family: inherit;
+     color: var(--footnotes-highlight);
+     background-color: inherit;
+ }
+
+ .code-tooltip-content a {
+     color: var(--footnotes-highlight);
+ }
+
+ div.code-tooltip-content {
+     box-shadow: 0 0 8px #00000045;
+     background: var(--footnotes-bg-color);
+ }
+
+ .footnotes {
+     opacity: 1;
+ }
+
+ .md-def-name:after {
+     content: ". ^";
+     color: var(--text-color);
+ }
+
+ .md-def-footnote .md-def-name:before {
+     content: "";
+     color: var(--text-color);
+     position: absolute;
+ }
+
+ .md-def-name:before {
+     content: "";
+     color: var(--text-color);
+     position: absolute;
+ }
+
+ .md-content.md-url,
+ .md-def-content.md-def-url.md-auto-disp {
+     text-decoration: none;
+     border-bottom: .1rem solid var(--text-color);
+ }
+
+ .CodeMirror-scroll::-webkit-scrollbar {
+     display: none;
+ }
+
+ .file-list-item-summary {
+     font-size: 1em;
+ }
+
+ .pin-outline #outline-content .outline-active strong,
+ .pin-outline .outline-active {
+     font-weight: 500;
+     color: var(--outline-active-color);
+ }
+
+ .file-list-item.active {
+     border-left: 4px solid var(--drake-accent);
+ }
+
+ #md-searchpanel .btn:not(.close-btn):hover {
+     box-shadow: none;
+     background: var(--btn-hover-bg-color);
+ }
+
+ /*checkbox*/
+ #write input[type=checkbox] {
+     opacity: 0;
+     height: 1.6rem;
+     width: 1.6rem;
+     margin-left: -2em;
+     margin-top: 0;
+     top: 0;
+ }
+
+ #write .ul-list li.md-task-list-item.task-list-done::before {
+     content: "";
+     background: var(--checkbox-checked) 0 0 no-repeat;
+     background-size: 100%;
+     display: inline-block;
+     position: absolute;
+     height: 1.6rem;
+     width: 1.6rem;
+     margin-left: -2em;
+ }
+
+ #write .ul-list li.md-task-list-item.task-list-not-done::before {
+     content: "";
+     background: var(--checkbox-unchecked) 0 0 no-repeat;
+     background-size: 100%;
+     display: inline-block;
+     position: absolute;
+     height: 1.6rem;
+     width: 1.6rem;
+     margin-left: -2em;
+ }
+
+ /*insert table*/
+ .btn {
+     border-radius: 2px;
+ }
+
+ .modal-content {
+     border-radius: 8px;
+ }
+
+ .btn-primary:hover,
+ .btn-primary:active {
+     background-color: var(--btn-hover-bg-color);
+     color: var(--drake-highlight);
+ }
+
+ .btn-primary {
+     background-color: transparent;
+     color: var(--drake-highlight);
+ }
+
+ .btn-default {
+     background-color: transparent;
+ }
+
+ .btn:active {
+     box-shadow: none;
+     border-color: transparent;
+ }
+
+ .modal-footer {
+     border-top: none;
+ }
+
+ #table-insert-col,
+ #table-insert-row {
+     background: var(--input-bg-color);
+     border-radius: 2px;
+ }
+
+ /*preference panel*/
+ #megamenu-content {
+     background-image: none !important;
+     background-color: var(--bg-color);
+ }
+
+ #top-titlebar {
+     height: inherit;
+     background-color: var(--bg-color);
+ }
+
+ #megamenu-menu-sidebar {
+     background-color: var(--bg-color);
+     color: var(--text-color);
+ }
+
+ .long-btn {
+     width: inherit;
+     min-width: 300px;
+     border: 1px solid var(--text-color);
+     border-radius: 6px;
+ }
+
+ .megamenu-menu-panel h1 {
+     margin-bottom: 3rem;
+     text-align: left;
+ }
+
+ .megamenu-menu-panel h1,
+ .megamenu-menu-panel h2 {
+     font-weight: normal;
+ }
+
+ #recent-file-panel-search-input {
+     height: 45px;
+     border: none;
+     border-bottom: 1px solid var(--text-color);
+     padding-left: 8px;
+ }
+
+ #recent-file-panel-search-input::placeholder {
+     color: var(--text-color);
+     opacity: .5;
+ }
+
+ .megamenu-menu-header {
+     border-bottom: none;
+ }
+
+ #recent-file-panel-action-btn {
+     background: none;
+     border: none;
+ }
+
+ #recent-file-panel-action-btn-container {
+     float: none;
+     display: inline-block;
+ }
+
+ #top-titlebar .toolbar-icon.btn.hover,
+ #top-titlebar .toolbar-icon.btn:hover {
+     background-color: var(--btn-hover-bg-color);
+     color: var(--text-color);
+ }
+
+ .megamenu-menu-panel .btn:hover {
+     background-color: var(--btn-hover-bg-color) !important;
+     color: var(--text-color);
+ }
+
+ #recent-file-panel tbody tr:nth-child(2n-1),
+ .megamenu-menu-panel table thead,
+ .megamenu-menu-panel table tr {
+     background-color: transparent;
+ }
+
+ .megamenu-menu-panel table {
+     font-weight: normal;
+ }
+
+ #megamenu-back-btn {
+     color: var(--text-color);
+     border: 1px solid var(--text-color);
+ }
+
+ .megamenu-menu-header #megamenu-menu-header-title {
+     color: var(--text-color);
+ }
+
+ header,
+ .context-menu,
+ .megamenu-content,
+ footer {
+     font-family: var(--text-font);
+ }
+
+ .ty-preferences select {
+     padding-left: 2px;
+ }
+
+ .preference-item-hint {
+     font-size: 14px;
+ }
+
+ a.ty-link {
+     color: var(--a-color);
+     margin: 0 .2rem;
+ }
+
+ /**
+     code render
+     Name: IntelliJ IDEA light theme
+     From IntelliJ IDEA by JetBrains
+  */
+ .cm-s-inner span.cm-number {
+     color: #a32eff;
+ }
+
+ .cm-s-inner span.cm-atom {
+     color: #a32eff;
+ }
+
+ .cm-s-inner span.cm-def {
+     color: var(--code-block-color);
+ }
+
+ .cm-s-inner span.cm-variable {
+     color: var(--code-block-color);
+ }
+
+ .cm-s-inner span.cm-variable-2 {
+     color: #00627A;
+ }
+
+ .cm-s-inner span.cm-variable-3,
+ .cm-s-inner span.cm-type {
+     color: #00627A;
+ }
+
+ .cm-s-inner span.cm-property {
+     color: var(--code-block-color);
+ }
+
+ .cm-s-inner span.cm-keyword {
+     color: #d63200;
+ }
+
+ .cm-s-inner span.cm-operator {
+     color: var(--code-block-color);
+ }
+
+ .cm-s-inner span.cm-comment {
+     color: #787878;
+ }
+
+ .cm-s-inner span.cm-string {
+     color: #31a062;
+ }
+
+ .cm-s-inner span.cm-string-2 {
+     color: #31a062;
+ }
+
+ .cm-s-inner span.cm-qualifier {
+     color: var(--code-block-color);
+ }
+
+ .cm-s-inner span.cm-error {
+     color: red;
+ }
+
+ .cm-s-inner span.cm-attribute {
+     color: #2973b7;
+ }
+
+ .cm-s-inner span.cm-tag {
+     color: #2973b7;
+ }
+
+ .cm-s-inner span.cm-link {
+     color: #4A86E8;
+ }
+
+ .cm-s-inner span.cm-builtin {
+     color: var(--code-block-color);
+ }
+
+ .cm-s-inner span.cm-bracket {
+     color: #2973b7;
+ }
+
+ .cm-s-inner .CodeMirror-gutters {
+     border-right: 1px solid rgba(120, 120, 120, 0.3);
+ }
+
+ .cm-s-inner .CodeMirror-linenumber {
+     color: #787878;
+ }
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>back_tracking</title>
+</head>
+<body class='typora-export typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#回溯算法">回溯算法</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前言">前言</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#概念">概念</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#wiki">wiki</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#百度百科">百度百科</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#套路">套路</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#术语">术语</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#模板">模板</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#核心">核心</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#全排列问题">全排列问题</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#排列组合">排列组合</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#术语解释">术语解释</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#树的遍历">树的遍历</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#回溯算法核心逻辑">回溯算法核心逻辑</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#参考答案">参考答案</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#n-皇后问题">N 皇后问题</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='回溯算法'><span>回溯算法</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2"><a class="md-toc-inner" href="#回溯算法">回溯算法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n3"><a class="md-toc-inner" href="#前言">前言</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n20"><a class="md-toc-inner" href="#概念">概念</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n21"><a class="md-toc-inner" href="#wiki">wiki</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n32"><a class="md-toc-inner" href="#百度百科">百度百科</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n37"><a class="md-toc-inner" href="#套路">套路</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n38"><a class="md-toc-inner" href="#术语">术语</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n50"><a class="md-toc-inner" href="#模板">模板</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n63"><a class="md-toc-inner" href="#核心">核心</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n65"><a class="md-toc-inner" href="#全排列问题">全排列问题</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n66"><a class="md-toc-inner" href="#排列组合">排列组合</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n70"><a class="md-toc-inner" href="#术语解释">术语解释</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n82"><a class="md-toc-inner" href="#树的遍历">树的遍历</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n96"><a class="md-toc-inner" href="#回溯算法核心逻辑">回溯算法核心逻辑</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n106"><a class="md-toc-inner" href="#参考答案">参考答案</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n137"><a class="md-toc-inner" href="#n-皇后问题">N 皇后问题</a></span></p></div><h2 id='前言'><span>前言</span></h2><p><span>以下笔记内容主要是参考以下文章：</span></p><ul><li><a href='https://zhuanlan.zhihu.com/p/93530380'><span>知乎 回溯算法套路详解</span></a></li></ul><ul><li><a href='https://zh.wikipedia.org/wiki/回溯法'><span>wiki 回溯法</span></a></li><li><a href='https://baike.baidu.com/item/回溯算法/9258495'><span>百度百科 回溯算法</span></a></li><li><a href='https://leetcode-cn.com/problems/permutations/'><span>leetcode 全排列</span></a></li><li><a href='https://leetcode-cn.com/problems/n-queens/'><span>leetcode N 皇后</span></a></li></ul><blockquote><p><span>该笔记的主要内容是知乎上的文章。</span></p><p><span>回溯经典问题 —— leetcode，直接上 leetcode 上刷。</span></p></blockquote><h2 id='概念'><span>概念</span></h2><h3 id='wiki'><span>wiki</span></h3><p><strong><span>回溯法</span></strong><span>（英语：backtracking）是</span><a href='https://zh.wikipedia.org/wiki/暴力搜尋法'><span>暴力搜索法</span></a><span>中的一种。</span></p><p>&nbsp;</p><p><span>对于某些计算问题而言，回溯法是一种可以找出所有（或一部分）解的一般性算法，尤其适用于</span><a href='https://zh.wikipedia.org/wiki/约束补偿问题'><span>约束补偿问题</span></a><span>（在解决约束满足问题时，我们逐步构造更多的候选解，并且在确定某一部分候选解不可能补全成正确解之后放弃继续搜索这个部分候选解本身及其可以拓展出的子候选解，转而测试其他的部分候选解）。</span></p><p><span>在经典的教科书中，</span><strong><a href='https://zh.wikipedia.org/wiki/八皇后问题'><span>八皇后问题</span></a></strong><span>展示了回溯法的用例。（八皇后问题是在标准国际象棋棋盘中寻找八个皇后的所有分布，使得没有一个皇后能攻击到另外一个。）</span></p><p>&nbsp;</p><p><span>回溯法采用</span><a href='https://zh.wikipedia.org/wiki/试错'><span>试错</span></a><span>的思想，它尝试</span><strong><span>分步的去解决一个问题</span></strong><span>。在分步解决问题的过程中，当它通过尝试发现，现有的分步答案不能得到有效的正确的解答的时候，它将取消上一步甚至是上几步的计算，再通过其它的可能的分步解答再次尝试寻找问题的答案。回溯法通常用最简单的</span><a href='https://zh.wikipedia.org/wiki/递归'><span>递归</span></a><span>方法来实现，在反复重复上述的步骤后可能出现两种情况：</span></p><ul><li><span>找到一个可能存在的正确的答案</span></li><li><span>在尝试了所有可能的分步方法后宣告该问题没有答案</span></li></ul><p><span>在最坏的情况下，回溯法会导致一次</span><a href='https://zh.wikipedia.org/wiki/计算复杂性理论'><span>复杂度</span></a><span>为</span><a href='https://zh.wikipedia.org/wiki/指數時間'><span>指数时间</span></a><span>的计算。</span></p><h3 id='百度百科'><span>百度百科</span></h3><p><span>回溯算法实际上</span><strong><span>是一个类似枚举的搜索尝试过程</span></strong><span>，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优</span><a href='https://baike.baidu.com/item/搜索/2791632'><span>搜索</span></a><span>法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种</span><strong><span>走不通就退回再走的技术为回溯法</span></strong><span>，而满足回溯条件的某个状态的点称为“</span><strong><span>回溯点</span></strong><span>”。许多复杂的，规模较大的问题都可以使用回溯法，有“通用解题方法”的美称。</span></p><blockquote><p><span>关键词：枚举、搜索、暴力搜索、约束、尝试、试错、回溯、递归、回溯点。</span></p></blockquote><p><span> </span></p><h2 id='套路'><span>套路</span></h2><h3 id='术语'><span>术语</span></h3><ul><li><span>路径：已经做出的选择。</span></li></ul><ul><li><span>选择列表：当前可以做的选择。</span></li></ul><ul><li><span>结束条件：到达决策树底层，无法再做选择的条件。</span></li></ul><blockquote><p><span>可以结合下面的「全排列」问题来理解这些术语。</span></p></blockquote><h3 id='模板'><span>模板</span></h3><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">ans</span> <span class="cm-operator">=</span> [];</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">backtrack</span>(<span class="cm-def">路径</span>, <span class="cm-def">选择列表</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">满足结束条件</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ans</span>.<span class="cm-property">push</span>(<span class="cm-variable-2">路径</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">选择</span> <span class="cm-keyword">of</span> <span class="cm-variable-2">选择列表</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">做选择</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">backtrack</span>(<span class="cm-variable-2">路径</span>, <span class="cm-variable-2">选择列表</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">撤销选择</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 336px;"></div><div class="CodeMirror-gutters" style="display: none; height: 336px;"></div></div></div></pre><h3 id='核心'><span>核心</span></h3><p><span>解决一个回溯问题，实际上就是一个</span><a href='https://www.zhihu.com/search?q=决策树&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A93530380}'><span>决策树</span></a><span>的遍历过程，就是 for 循环里面的递归，</span><strong><span>在递归调用之前「做选择」，在递归调用之后「撤销选择」</span></strong><span>。</span></p><h2 id='全排列问题'><span>全排列问题</span></h2><h3 id='排列组合'><span>排列组合</span></h3><p><span>我们在高中的时候就做过排列组合的数学题，我们也知道 </span><code>n</code><span> 个不重复的数，全排列共有 n! 个。那么我们当时是怎么穷举全排列的呢？比方说给三个数 </span><code>[1,2,3]</code><span>，你肯定不会无规律地乱穷举，一般是这样：先固定第一位为 1，然后第二位可以是 2，那么第三位只能是 3；然后可以把第二位变成 3，第三位就只能是 2 了；然后就只能变化第一位，变成 2，然后再穷举后两位……其实这就是回溯算法，我们高中无师自通就会用，或者有的同学直接画出如下这棵「回溯树」。</span></p><p>&nbsp;</p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211210142105565.png" alt="image-20211210142105565" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>只要从根遍历这棵树，记录路径上的数字，其实就是所有的全排列。</span><strong><span>我们不妨把这棵树称为回溯算法的「决策树」</span></strong><span>。为啥说这是决策树呢，因为你在每个节点上其实都在做决策。比如说你站在红色节点上做决策，可以选择 1 那条树枝，也可以选择 3 那条树枝。为啥只能在 1 和 3 之中选择呢？因为 2 这个树枝在你身后，这个选择你之前做过了，而全排列是不允许重复使用数字的。</span></p><h3 id='术语解释'><span>术语解释</span></h3><ul><li><code>[2]</code><span> 就是「路径」，记录你已经做过的选择；</span></li><li><code>[1,3]</code><span> 就是「选择列表」，表示你当前可以做出的选择；</span></li><li><span>「结束条件」就是遍历到树的底层，在这里就是选择列表为空的时候；</span></li></ul><p><span> </span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211210143427291.png" alt="image-20211210143427291" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>「路径」和「选择列表」就好比上图中每个节点的属性，而我们定义的 </span><code>backtrack</code><span> 函数其实就像一个指针，在这棵树上游走，同时要正确维护每个节点的属性，每当走到树的底层，其「路径」就是一个全排列。</span></p><p><span> </span></p><h3 id='树的遍历'><span>树的遍历</span></h3><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211212185019948.png" referrerpolicy="no-referrer" alt="image-20211212185019948"></p><p>&nbsp;</p><p><span>使用递归 recursion，可以遍历一棵树。那么，前序遍历和后序遍历在代码中如何实现呢？</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">traverse</span>(<span class="cm-def">root</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">for</span> (<span class="cm-variable">child</span> <span class="cm-keyword">of</span> <span class="cm-variable-2">root</span>.<span class="cm-property">children</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 前序遍历需要的操作</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">traverse</span>(<span class="cm-variable">child</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 后序遍历需要的操作</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 196px;"></div><div class="CodeMirror-gutters" style="display: none; height: 196px;"></div></div></div></pre><p><span> </span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211210143635606.png" alt="image-20211210143635606" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>所谓的前序遍历和后序遍历，它们只是两个很有用的时间点。</span><strong><span>前序遍历的代码在进入某一个节点之前的那个时间点执行，后序遍历代码在离开某个节点之后的那个时间点执行。</span></strong></p><p>&nbsp;</p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211210143748108.png" alt="image-20211210143748108" style="zoom: 50%;" /></p><p><span> </span></p><p><span>回想我们刚才说的，「路径」和「选择列表」是每个节点的属性， </span><code>backtrack</code><span> 函数在树上游走要正确维护节点的属性，那么就要在这两个特殊时间点搞点动作。我们只要在前序遍历时做选择，在后序遍历时撤销选择，就能正确得到每个节点的选择列表和路径。</span></p><h3 id='回溯算法核心逻辑'><span>回溯算法核心逻辑</span></h3><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> (<span class="cm-variable">选择</span> <span class="cm-keyword">of</span> <span class="cm-variable">选择列表</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 做选择</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">将该选择从选择列表中移除</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">路径</span>.<span class="cm-property">push</span>(<span class="cm-variable">选择</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">backtrack</span>(<span class="cm-variable">路径</span>, <span class="cm-variable">选择列表</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 撤销选择</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">路径</span>.<span class="cm-property">pop</span>(<span class="cm-variable">选择</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">将该选择再次加入选择列表</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 252px;"></div><div class="CodeMirror-gutters" style="display: none; height: 252px;"></div></div></div></pre><blockquote><p><span>想要理解回溯算法的核心逻辑，必须充分理解上面提到的树的前序遍历和后序遍历。</span></p></blockquote><h3 id='参考答案'><span>参考答案</span></h3><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">permute</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">nums</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">ans</span> <span class="cm-operator">=</span> []; <span class="cm-comment">// 存放全排列</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">path</span> <span class="cm-operator">=</span> []; <span class="cm-comment">// 存放路径（已作出的选择）</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">backtracking</span> <span class="cm-operator">=</span> (<span class="cm-def">nums</span>, <span class="cm-def">path</span>) <span class="cm-operator">=&gt;</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">path</span>.<span class="cm-property">length</span> <span class="cm-operator">==</span> <span class="cm-variable-2">nums</span>.<span class="cm-property">length</span>) { <span class="cm-comment">// 结束条件</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">ans</span>.<span class="cm-property">push</span>(<span class="cm-variable-2">path</span>.<span class="cm-property">slice</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable-2">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable-2">nums</span>.<span class="cm-property">length</span>; <span class="cm-variable-2">i</span><span class="cm-operator">++</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">path</span>.<span class="cm-property">indexOf</span>(<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>]) <span class="cm-operator">!==</span> <span class="cm-operator">-</span><span class="cm-number">1</span>) <span class="cm-keyword">continue</span>; <span class="cm-comment">// 排除不合法的选择</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">path</span>.<span class="cm-property">push</span>(<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>]); <span class="cm-comment">// 做选择</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">backtracking</span>(<span class="cm-variable-2">nums</span>, <span class="cm-variable-2">path</span>); <span class="cm-comment">// 进入下层决策树</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">path</span>.<span class="cm-property">pop</span>(); <span class="cm-comment">// 取消选择</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">backtracking</span>(<span class="cm-variable-2">nums</span>, <span class="cm-variable-2">path</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">ans</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/*</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">路径：记录在 path 中</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">选择列表：nums 中那些不存在于 path 中的元素</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">结束条件：nums 中的元素全都 path 中出现</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">*/</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 700px;"></div><div class="CodeMirror-gutters" style="display: none; height: 700px;"></div></div></div></pre><p>&nbsp;</p><p><span>我们这里稍微做了些变通，没有显式记录「选择列表」，而是通过 </span><code>nums</code><span> 和 </span><code>track</code><span> 推导出当前的选择列表：</span></p><p>&nbsp;</p><p><img src="https://pic1.zhimg.com/80/v2-225cacafaca5b664b43d6e30be5a8440_1440w.jpg" alt="img" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>至此，我们就通过全排列问题详解了回溯算法的底层原理。当然，这个算法解决全排列不是很高效，应为对链表使用 </span><code>contains</code><span> 方法需要 O(N) 的时间复杂度。有更好的方法通过交换元素达到目的，但是难理解一些，这里就不写了，有兴趣可以自行搜索一下。</span></p><p>&nbsp;</p><p><span>但是必须说明的是，不管怎么优化，都符合</span><a href='https://www.zhihu.com/search?q=回溯框架&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A93530380}'><span>回溯框架</span></a><span>，而且时间复杂度都不可能低于 O(N!)，因为穷举整棵决策树是无法避免的。</span><strong><span>这也是回溯算法的一个特点，不像</span><a href='https://www.zhihu.com/search?q=动态规划&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra={&quot;sourceType&quot;%3A&quot;article&quot;%2C&quot;sourceId&quot;%3A93530380}'><span>动态规划</span></a><span>存在重叠子问题可以优化，回溯算法就是纯暴力穷举，复杂度一般都很高</span></strong><span>。</span></p><h2 id='n-皇后问题'><span>N 皇后问题</span></h2><p><span> 明白了全排列问题，就可以直接套回溯算法框架了，下面简单看看 N 皇后问题。</span></p><p>&nbsp;</p><p><span> </span></p><p><span> </span></p><p><span> </span></p><p><span> </span></p></div></div>
+
+<script>(function (){var t=document.body.parentElement,e=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(t,e,n){document.addEventListener(t,function(t){if(!t.defaultPrevented)for(var i=t.target;i&&i!=this;i=i.parentNode)if(i.matches(e)){!1===n.call(i,t)&&(t.preventDefault(),t.stopPropagation());break}},!1)};function o(){return t.scrollTop}r("click",".outline-expander",function(t){var e=this.closest(".outline-item-wrapper").classList;return e.contains("outline-item-open")?e.remove("outline-item-open"):e.add("outline-item-open"),c(),!1}),r("click",".outline-item",function(t){var e=this.querySelector(".outline-label");if(location.hash="#"+e.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),l(),n.add("outline-item-active")}});var a,s,u=function(){var t=o();n=null;for(var i=0;i<e.length&&e[i][1]-t<60;i++)n=e[i]},l=function(){document.querySelectorAll(".outline-item-active").forEach(t=>t.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(t=>t.classList.remove("outline-item-open"))},c=function(){if(n){l();var t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(t)if(i){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var r=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(t=r).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(t){a&&clearTimeout(a),a=setTimeout(function(){u(),c()},300)});var f=function(){s=setTimeout(function(){!function(){e=[];var t=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");e.push([i,t+n.getBoundingClientRect().y])})}(),u(),c()},300)};window.addEventListener("resize",function(t){s&&clearTimeout(s),f()}),f()})();</script><script>
+// 媒体查询 - 默认情况下，侧边的目录在 800px 以上时出现，但是，手机上横屏展示时，宽度在 800px 以上，会展示出侧边的目录，但是，若展示出来的话，那么内容的空间就很小了。所以不希望它展示出来，下面这段脚本的作用就是将其媒体查询的值改为 1000px
+function myFunction(x) {
+    if (x.matches) { // 媒体查询
+        sidebar.style.display = "none";
+    } else {
+        sidebar.style.display = "block";
+        sidebar.style.width = "240px";
+    }
+}
+const sidebar = document.querySelector('.typora-export-sidebar');
+var x = window.matchMedia("(max-width: 1000px)")
+myFunction(x) // 执行时调用的监听函数
+x.addListener(myFunction) // 状态改变时添加监听器
+// 左下角的展开菜单
+const showCatalog = document.createElement("div");
+showCatalog.style.position = "fixed";
+showCatalog.style.bottom = '1rem';
+showCatalog.style.left = '1rem';
+showCatalog.style.backgroundColor = 'rgba(0, 140, 140, 0.4)';
+showCatalog.style.width = '1.5rem';
+showCatalog.style.height = '1.5rem';
+showCatalog.style.borderRadius = '50%';
+showCatalog.onclick = () => {
+  if (sidebar.style.display === "block") {
+    sidebar.style.display = "none";
+  } else {
+    sidebar.style.display = "block";
+  }
+}
+// 右下角的回到顶部
+const toTop = document.createElement("div");
+toTop.style.position = "fixed";
+toTop.style.bottom = '1rem';
+toTop.style.right = '1rem';
+toTop.style.backgroundColor = 'rgba(140, 0, 140, 0.4)';
+toTop.style.width = '1.5rem';
+toTop.style.height = '1.5rem';
+toTop.style.borderRadius = '50%';
+toTop.onclick = () => {
+  document.documentElement.style.scrollBehavior = "smooth";
+  document.documentElement.scrollTop = 0;
+}
+
+document.body.appendChild(showCatalog);
+document.body.appendChild(toTop);
+</script></body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //no1、no2、no3分别为第一、二、三根柱子，n为几层
+        function hannuo(no1, no2, no3, n) {
+            if (n === 1) {
+                console.log(`${no1}->${no3}`);
+            } else {
+                hannuo(no1, no3, no2, n - 1);   //第一个参数和第三个参数为从哪移到哪，
+                console.log(`${no1}->${no3}`);  //n-1为把那几层除了最下面的一层其他层看为一个整体移动
+                hannuo(no2, no1, no3, n - 1);
+            }
+        }
+
+        hannuo('A', 'B', 'C', 3);
+    </script>
+</body>
+
+</html>

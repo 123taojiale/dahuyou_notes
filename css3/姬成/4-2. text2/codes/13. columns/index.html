@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>columns 小说阅读翻页效果</title>
+    <style>
+        .wrapper {
+            position: absolute;
+            top: calc(50% - 300px);
+            left: calc(50% - 150px);
+
+
+            width: 300px;
+            height: 600px;
+            border: 1px solid #ddd;
+            padding-bottom: 30px;
+
+            overflow: hidden;
+        }
+
+        /* 翻页按钮 */
+        button {
+            position: absolute;
+            bottom: 0;
+
+            width: 50%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #999;
+            background-color: rgba(0, 0, 0, .1);
+
+            cursor: pointer;
+            border: 1px solid #666;
+            outline: none;
+        }
+
+        /* 上一页 */
+        .preview-btn {
+            left: 0;
+        }
+
+        /* 下一页 */
+        .next-btn {
+            right: 0;
+        }
+
+
+
+        .content {
+            width: 300px;
+            height: 600px;
+
+            column-width: 300px;
+            column-gap: 20px;
+
+            transition: all .5s;
+        }
+
+        /* .wrapper:hover .content {
+            transform: translateX(-320px);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <button class="preview-btn">
+            < 上一页</button> <button class="next-btn">下一页 >
+        </button>
+        <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab minus repellat praesentium id
+            quibusdam eius
+            mollitia aliquam tempora ipsum cupiditate! Explicabo fugiat debitis dolorum repellendus perferendis repellat
+            ea
+            officiis vitae iure quibusdam deleniti, maxime architecto eum beatae itaque ipsa natus consequuntur nostrum
+            quia
+            minus ipsam aliquam velit. Quo natus ex odio ratione, enim ut provident id voluptatibus tempora sequi dolore
+            optio saepe aliquid nulla rem nostrum dolores est debitis dolorem repellendus numquam quos fugiat. Quidem
+            minima
+            tempora illo maxime nulla maiores magni molestiae exercitationem ex tenetur placeat facilis dolore beatae
+            possimus incidunt quam ea, a repellendus atque eligendi accusantium. A, autem. Aperiam commodi sint quidem
+            quaerat odit quibusdam neque repellendus autem! Ipsum adipisci ad quos odio, a ut tempora culpa voluptatum?
+            Architecto, provident quibusdam iure sequi facere asperiores itaque, fuga error tempora nam ut! A magnam
+            libero
+            quos laborum esse porro architecto veniam id eaque voluptatem nulla animi perferendis quo tenetur eligendi
+            aliquid et, in ut assumenda, dolores officia. Repellendus consequuntur eaque consequatur adipisci est illum
+            molestias voluptas minus deleniti et dolorem neque recusandae pariatur at assumenda numquam ullam unde dolor
+            temporibus, saepe enim. Id, quisquam iure? Fugit debitis consequuntur ullam nisi deleniti inventore
+            laudantium?
+            Sequi culpa quidem aliquid voluptatibus suscipit ullam repudiandae voluptate soluta. Optio, cum tenetur
+            beatae
+            ducimus nisi ipsum delectus aut dolorum adipisci quod architecto! Illo hic, quidem voluptas accusantium,
+            voluptatum libero odio ea natus incidunt magnam reiciendis? Voluptates sit, quas deserunt neque aspernatur
+            quis
+            provident debitis officiis quam, dignissimos, dolorem in! Alias magni quas soluta sit modi minus atque
+            reprehenderit eos quidem corporis nisi repellendus aliquid illum aliquam porro impedit mollitia, voluptas
+            incidunt. Quae nisi quasi dolorum consequuntur quisquam, voluptate perferendis a. Aut repellendus et facilis
+            eum, eius ratione, explicabo officiis corrupti pariatur iusto esse? Sequi cum cupiditate nemo architecto
+            temporibus at soluta tempora aliquid qui repellendus molestiae totam itaque perspiciatis quod animi, velit
+            sint
+            facere atque harum autem sed eum rem. Molestias recusandae soluta deleniti, voluptates mollitia tempore
+            aperiam
+            consequatur officia illum maiores quisquam vel iste similique possimus, magnam iusto vero aliquam laborum.
+            Doloribus voluptatibus vero fuga reiciendis sunt natus, unde deserunt ad dolorum tempora praesentium odit
+            maiores ipsum, neque assumenda ex porro dolor. Quae distinctio inventore aliquam at reprehenderit, cumque
+            doloribus aperiam in maxime, voluptas eius! Temporibus obcaecati facere quidem atque ad similique totam
+            praesentium magni explicabo? Molestias, ad libero quibusdam nisi quidem laudantium architecto voluptatibus
+            accusantium consequatur aliquid error eum voluptatum quod vel, obcaecati nobis alias fugiat at? Praesentium
+            sed
+            rerum quam illum! Iste cumque sed sit mollitia. Dolor ex assumenda hic harum beatae perspiciatis quos nihil
+            perferendis velit. Laboriosam eum quis architecto nesciunt ut, quae eligendi non impedit, alias rerum nemo
+            quam
+            consequatur asperiores officiis eveniet distinctio nam recusandae. Iure porro totam reiciendis dolorum
+            dignissimos, incidunt libero ullam itaque, repudiandae id excepturi commodi iste animi similique esse
+            tempore,
+            maxime laborum. Officia, veniam similique? Iste ullam nihil recusandae libero molestiae, voluptas cumque
+            enim
+            reprehenderit molestias cum eveniet similique id dolorum, quod necessitatibus ut! Nisi rem eos earum
+            perferendis
+            vel delectus odio voluptatibus quia. Aliquam iure velit quis cupiditate itaque minima, vel quos nihil
+            corrupti.
+            Cupiditate quas quidem accusantium doloremque inventore blanditiis ipsa eveniet itaque esse quasi numquam
+            aliquam, totam placeat modi dolorem expedita similique tenetur non saepe! Vero, alias temporibus. Corrupti
+            sed
+            voluptatum iure animi ratione odit voluptatibus nemo laboriosam voluptatem excepturi laborum, quo quasi
+            deleniti
+            accusamus sequi quisquam quia enim asperiores? Incidunt rerum quos exercitationem ratione molestiae
+            doloribus
+            error quasi illum delectus corporis magni sit, pariatur aspernatur adipisci, distinctio tenetur architecto.
+            Corporis, consequatur eum soluta vitae velit necessitatibus dolores suscipit maiores, nemo harum officia
+            facilis
+            tenetur maxime quidem nihil natus id sapiente corrupti voluptatem unde! Harum ad, incidunt voluptate esse
+            autem
+            quis asperiores minus quisquam vero similique ab. Maxime ut earum, hic cupiditate, aspernatur nulla dolorem
+            velit voluptatem incidunt reiciendis atque praesentium possimus blanditiis excepturi rem perspiciatis quod
+            ad
+            quae nemo eaque est. Dolor minus sint nam in tempore veniam maxime ad? Veritatis nostrum facilis pariatur.
+            Laudantium, dolor. Adipisci eos id tempora hic optio saepe necessitatibus ut excepturi deleniti vitae quasi
+            ipsum dolorum ratione pariatur, magni inventore, laborum itaque rem dolor earum maxime, asperiores a labore
+            dicta. Minus officia rem voluptate iusto doloremque esse dolore saepe error rerum unde? Cumque unde
+            blanditiis
+            dicta, commodi aspernatur totam minus et! Illo rem architecto illum rerum, pariatur incidunt ea hic animi
+            tempore delectus voluptate, velit quas saepe maxime quis fugiat non fugit, numquam doloremque? Beatae
+            explicabo
+            quasi, sunt fuga provident illo enim architecto unde alias consequatur dolore repellat esse iste assumenda
+            earum
+            placeat numquam animi ipsam repudiandae adipisci et nesciunt? Porro dolorum velit nulla commodi aspernatur
+            saepe
+            ad, doloribus quidem. Mollitia, quia quae odio totam nam soluta sint a cum et accusamus eius architecto
+            eveniet
+            itaque sequi! Consequatur perspiciatis accusantium tenetur distinctio ipsum in nesciunt ullam rem quisquam
+            repudiandae tempore exercitationem expedita neque rerum corporis, nemo quod et optio. Delectus nam veritatis
+            nesciunt aut saepe perspiciatis numquam eveniet laudantium beatae quibusdam magnam, ut praesentium neque
+            eaque
+            eligendi labore corporis quae, velit soluta cupiditate quos totam vel. Alias quisquam ut ipsum nesciunt
+            nihil
+            harum cumque architecto, culpa rem nobis eius, sit ea molestias necessitatibus blanditiis voluptatum. Optio,
+            quo
+            enim! Odit, doloribus cum. Aspernatur ratione vitae natus nulla consequatur numquam obcaecati exercitationem
+            quasi facilis, harum ea atque recusandae eos deleniti nisi dolore molestias in! Aspernatur facere inventore
+            assumenda maiores autem quisquam a eius officia blanditiis ad nemo maxime ullam, cupiditate commodi. Id,
+            reprehenderit voluptatibus! Culpa laborum velit maxime quasi delectus fuga ratione doloribus nemo quibusdam
+            perferendis, iure consequuntur tempore, id nam. A, excepturi necessitatibus nobis magnam eum odit iste
+            voluptate, sapiente nulla quo quod, dicta dolorum. Non alias corporis praesentium dolore? Veniam recusandae
+            aut
+            magnam facere cum perferendis corrupti nulla, a omnis aspernatur animi eligendi necessitatibus fugit quos
+            dolorum vero natus cupiditate alias velit repellendus temporibus. Vel voluptate tenetur facilis officiis
+            natus
+            blanditiis non rerum. Tempora optio reprehenderit quae modi nostrum laborum. Deleniti quasi libero
+            praesentium
+            ex aperiam esse, cum animi consequatur sit blanditiis perferendis cumque suscipit illo dolor veritatis,
+            soluta,
+            inventore voluptatem! Dicta alias illum ipsum?</div>
+    </div>
+
+    <script>
+        const contentWrapper = document.querySelector(".wrapper .content"), // 包含内容的 div 容器
+            style = getComputedStyle(contentWrapper),
+            distance = parseInt(style.columnWidth) + parseInt(style.columnGap), // 每次切换所需要变动的距离
+            preBtn = document.querySelector(".preview-btn"), // 上一页按钮
+            nextBtn = document.querySelector('.next-btn'); // 下一页按钮
+
+        let pageNow = 0; // 当前的页数
+
+        nextBtn.onclick = function () {
+            pageNow++;
+            // bug 不知道如何获取最大页数 上界无法判断
+            contentWrapper.style.transform = `translateX(${-pageNow * distance}px)`;
+        }
+
+        preBtn.onclick = function () {
+            if(pageNow === 0){
+                return;
+            }
+            pageNow--;
+            contentWrapper.style.transform = `translateX(${-pageNow * distance}px)`;
+        }
+    </script>
+
+</body>
+
+</html>

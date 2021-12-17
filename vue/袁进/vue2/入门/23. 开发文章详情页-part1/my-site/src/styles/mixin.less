@@ -1,0 +1,18 @@
+// 混合样式
+
+// 居中
+.self-center (@pos: absolute) {
+  position: @pos;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 撑满
+.self-fill(@pos: absolute) {
+  position: @pos;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

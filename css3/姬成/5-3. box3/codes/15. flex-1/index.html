@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex 实现居中效果</title>
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 100px auto;
+            border: 1px solid #999;
+
+            width: 200px;
+            height: 200px;
+
+            resize: both;
+            overflow: hidden;
+        }
+
+        .wrapper .box {
+            border: 1px solid #333;
+            width: 100px;
+            height: 100px;
+
+            color: #a1a1a1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box">无论外层盒子的尺寸怎么变 该盒子始终居中显示</div>
+    </div>
+</body>
+
+</html>

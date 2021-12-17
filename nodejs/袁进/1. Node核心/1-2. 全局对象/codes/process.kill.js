@@ -1,0 +1,1 @@
+process.kill(); // 传入对应进程的 id 即可 kill 该进程。

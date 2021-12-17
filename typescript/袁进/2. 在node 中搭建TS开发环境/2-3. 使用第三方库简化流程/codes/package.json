@@ -1,0 +1,13 @@
+{
+  "name": "ts-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nodemon --watch src -e ts --exec ts-node ./src/index.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}

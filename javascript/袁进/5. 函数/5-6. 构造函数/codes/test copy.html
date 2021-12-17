@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建一个用户
+        function CreateUser(name, age, gender) {
+            return {
+                name: name,          //name,(属性名与属性值一致时,可简写为name)
+                age: age,           //age,
+                gender: gender,     //gender,
+                sayHello: function () {
+                    console.log(`我叫${this.name},年龄${this.age}岁，性别${this.gender}`)
+                }
+            };
+        }
+
+        var u1 = CreateUser("张三",18,"男");
+        u1.sayHello();
+        var u2 = CreateUser("姬成",20,"男");
+        u2.sayHello();
+        console.log(u1 === u2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月13日</title>
+</head>
+
+<body>
+  <!-- 2. 写一个函数，为数组排序 要考虑到这个数组的所有可能 ==> sort -->
+  <script>
+    var MyFunctions = {
+      sort: function (arr, compare) {
+        // 若没有自定义的比较规则 则使用如下默认规则
+        if (!compare) {
+          compare = function (a, b) {
+            if (a > b) {
+              return 1;
+            } else if (a === b) {
+              return 0;
+            } else {
+              return -1;
+            }
+            // return  a - b;
+          }
+        }
+        for (var i = 1; i < arr.length; i++) {
+          for (var j = 0; j < arr.length - i; j++) {
+            if (compare(arr[j], arr[j + 1]) > 0) {
+              var temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+            }
+          }
+        }
+      }
+    }
+
+    var arr = [{
+        name: 'b',
+        age: 18,
+        weight: 66
+      },
+      {
+        name: 'a',
+        age: 21,
+        weight: 70
+      },
+      {
+        name: 'd',
+        age: 20,
+        weight: 59
+      },
+    ];
+    // console.log(arr);
+
+    // 按体重升序
+    MyFunctions.sort(arr, function (a, b) {
+      return a.weight - b.weight;
+    })
+
+    // 按年龄升序
+    MyFunctions.sort(arr, function (a, b) {
+      return a.age - b.age;
+    })
+
+    // 按姓名的字符编码 升序
+    MyFunctions.sort(arr, function (a, b) {
+      if (a.name > b.name) {
+        return 1;
+      } else if (a.name === b.name) {
+        return 0;
+      } else {
+        return -1;
+      }
+    })
+
+    /* 比较规则的多样性 */
+    MyFunctions.sort(arr, function (a, b) {
+      return (a.age + a.weight) - (b.age + b.weight);
+    })
+  </script>
+
+  <!-- 3. 写一个函数，按照指定的条件对某个数组进行筛选 ==> filter -->
+  <script>
+    var MyFunctions = {
+      filter: function (arr, callback) {
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (callback(arr[i], i)) {
+            newArr.push(arr[i]);
+          }
+        }
+        return newArr;
+      }
+    }
+
+    // 返回是奇数的项
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357]
+    var newArr = MyFunctions.filter(arr, function (item) {
+      return item % 2 !== 0;
+    });
+
+    // 返回下标为奇数的项
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357]
+    var newArr = MyFunctions.filter(arr, function (item, index) {
+      return index % 2 !== 0;
+    });
+
+    // 返回是素数的数
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357];
+    var newArr = MyFunctions.filter(arr, MyFunctions.isPrime);
+
+
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357]
+    var newArr = MyFunctions.filter(arr, this.Prime);
+  </script>
+
+  <!-- 4. 写一个函数，按照指定的条件，得到某个数组中第一个满足条件的元素 ==> find -->
+  <script>
+    var MyFunctions = {
+      find: function (arr, callback) {
+        for (var i = 0; i < arr.length; i++) {
+          if (callback(arr[i], i)) {
+            return arr[i];
+          }
+        }
+      }
+    };
+
+    // 查找数组中第一个能被15整除的项
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357];
+    var elm = MyFunctions.find(arr, function (item) {
+      return item % 15 === 0;
+    });
+
+    // 查找数组中第一个素数
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357];
+    var elm = MyFunctions.find(arr, function (num) {
+      if (num === 1) {
+        return false;
+      }
+      if (num === 2) {
+        return true;
+      }
+      for (var i = 2; i < num; i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    });
+
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357];
+    var elm = MyFunctions.find(arr, MyFunctions.isPrime);
+  </script>
+
+  <!-- 5. 写一个函数，按照指定的条件，得到某个数组中满足条件的元素数量 ==> count -->
+  <script>
+    var MyFunctions = {
+      count: function (arr, callback) {
+        var num = 0;
+        for (var i = 0; i < arr.length; i++) {
+          if (callback(arr[i], i)) {
+            num++;
+          }
+        }
+        return num;
+      }
+    };
+
+    // 统计数组中素数的个数
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357];
+    var num = MyFunctions.count(arr, function (num) {
+      if (num === 1) {
+        return false;
+      }
+      if (num === 2) {
+        return true;
+      }
+      for (var i = 2; i < num; i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    });
+
+    var arr = [13, 452, 656, 34546, 32, 345, 143, 547, 357];
+    var num = MyFunctions.find(arr, MyFunctions.isPrime);
+  </script>
+</body>
+
+</html>

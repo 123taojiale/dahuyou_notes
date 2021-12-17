@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- 累计.html -->
+  <!-- 1-100 数字相加 -->
+  <script>
+    var sum = 0; //最终的和
+    for (var i = 1; i <= 100; i++) {
+      sum += i;
+    }
+    console.log(sum); // 5050
+  </script>
+
+  <!-- 1-10 数字相乘 -->
+  <script>
+    var sum = 1;
+    for (var i = 1; i <= 10; i++) {
+      sum *= i;
+    }
+    console.log(sum); // 3628800
+  </script>
+
+  <!-- 1-100 所有奇数相加 -->
+  <script>
+    var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+      if (i % 2 !== 0) {
+        sum += i;
+      }
+    }
+    console.log(sum); // 2500
+  </script>
+
+
+  <!-- 查找.html -->
+
+  <!-- 135-145 之间是否存在 能整除26的数字 -->
+  <script>
+    // 注意这种编程思想 不要把打印语句写在循环体内部 可以先定义一个变量 来记录状态
+    var isFind = false; // 是否找到
+    var min = 135,
+      max = 145;
+    for (var i = min; i <= max; i++) {
+      if (i % 26 === 0) {
+        isFind = true;
+        break;
+      }
+    }
+    if (isFind) {
+      console.log("存在");
+    } else {
+      console.log("不存在");
+    }
+  </script>
+
+  <!-- 打印135-185之间所有能整除26的数字 -->
+  <script>
+    for (var i = 135; i <= 185; i++) {
+      if (i % 26 === 0) {
+        console.log(i);
+      }
+    }
+  </script>
+
+  <!-- 打印135-185之间第一个能整除26的数字，如果不存在，输出不存在 -->
+  <script>
+    var isFind = false;
+    for (var i = 135; i <= 185; i++) {
+      if (i % 26 === 0) {
+        console.log(i);
+        isFind = true;
+        break;
+      }
+    }
+    if (!isFind) {
+      console.log("不存在");
+    }
+  </script>
+
+  <!--
+        判断一个数是不是素数（质数）
+        素数：一个大于1的整数，只能被1和自身整除
+        比如：2是一个素数
+        比如：4不是一个素数
+        思路：从1循环到这个数，记录有多少个数字能整除它
+     -->
+  <!-- 法1 -->
+  <script>
+    var num = 11;
+    var record = 0; //记录整除数量
+    for (var i = 1; i <= num; i++) {
+      if (num % i === 0) {
+        record++;
+      }
+    }
+    if (record === 2) {
+      console.log("是素数")
+    } else {
+      console.log("不是素数");
+    }
+  </script>
+
+  <!-- 法2 -->
+  <script>
+    var num = 11;
+    var isFind = false; // 没有找到
+    for (var i = 2; i < num - 1; i++) { // 这里应该写 i <= num - 1 不过写成 < 也不影响结果...
+      if (num % i === 0) {
+        isFind = true;
+        break;
+      }
+    }
+    if (num <= 1 || isFind) {
+      console.log("不是素数");
+    } else {
+      console.log("是素数");
+    }
+  </script>
+
+
+  <!-- 嵌套的循环.html -->
+  <!-- 打印1-100的所有素数 -->
+  <script>
+    for (var i = 1; i <= 100; i++) {
+      // 判断i是不是素数
+      var isFind = false; //没有找到 (从2到i-1 没有找到任何一个数能被i整除)
+      for (var j = 2; j < i - 1; j++) {
+        if (i % j === 0) {
+          isFind = true;
+          break;
+        }
+      }
+      if (i > 1 && !isFind) {
+        console.log(i);
+      }
+    }
+  </script>
+</body>
+
+</html>

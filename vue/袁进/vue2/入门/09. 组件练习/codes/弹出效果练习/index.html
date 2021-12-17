@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>弹出效果练习</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      position: relative;
+      width: 100px;
+      border: 1px solid #ddd;
+      margin: 500px auto 0;
+      text-align: center;
+    }
+
+    .pop {
+      position: absolute;
+      left: 0;
+      bottom: 2em;
+
+      width: 100px;
+      height: 200px;
+      background-color: lightblue;
+
+      /* 过渡效果 */
+      transform: scaleY(0);
+      transform-origin: center bottom;
+      transition: .3s;
+    }
+
+    /* 过渡效果 */
+    .container li:hover .pop {
+      transform: scaleY(1);
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="container">
+    <li>
+      <a href="">
+        <span>dahuyou</span>
+        <div class="pop"></div>
+      </a>
+    </li>
+  </ul>
+</body>
+
+</html>

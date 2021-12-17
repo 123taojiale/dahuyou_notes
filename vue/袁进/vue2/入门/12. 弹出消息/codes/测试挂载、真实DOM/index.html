@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试挂载、真实DOM</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>test test test</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    const vm = new Vue().$mount('#app');
+    console.log(vm);
+    console.log(vm.$el);
+    console.log(vm.$el.outerHTML, typeof vm.$el.outerHTML);
+    const div = document.createElement('div');
+    div.innerHTML = '==> copy a new div element' + vm.$el.outerHTML;
+    document.body.appendChild(div);
+  </script>
+</body>
+
+</html>

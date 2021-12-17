@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>点击后回到顶部效果</title>
+  <style>
+    .container {
+      height: 300px;
+      width: 100px;
+      border: 2px dashed #ddd;
+      overflow-y: auto;
+      /* 实现平滑滚动 */
+      scroll-behavior: smooth;
+    }
+
+    .buttom {
+      position: relative;
+      width: 100px;
+      height: 1000px;
+    }
+
+    .btn {
+      position: absolute;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>点击按钮，回到顶部</h1>
+  <div class="container">
+    <div class="buttom">
+      <button class="btn" onclick='document.querySelector(".container").scrollTop = 0'>回到顶部</button>
+    </div>
+  </div>
+</body>
+
+</html>

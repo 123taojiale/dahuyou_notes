@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>flex</title>
+  <style>
+    .test-container {
+      width: 500px;
+      height: 1000px;
+      border: 1px solid red;
+    }
+
+    .flex-container {
+      /* 若 .flex-container 不是弹性盒
+      那么 .child 的高度将无法撑满 .item
+      在 .flex-container 不是弹性盒的情况下
+      可以给 .item 的高度设置为 100% 让 .child 高度撑满 */
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* .item {
+      height: 100%;
+    } */
+
+    .child {
+      width: 500px;
+      height: 100%;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test-container">
+    <div class="flex-container">
+      <div class="item">
+        <div class="child"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

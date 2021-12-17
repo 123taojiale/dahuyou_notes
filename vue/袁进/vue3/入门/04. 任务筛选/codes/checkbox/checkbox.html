@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>checkbox</title>
+  <style>
+    .form-item {
+      height: 60px;
+      line-height: 60px;
+      /* width: 20%; */
+      display: inline-block;
+      position: relative;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+
+    .toggle {
+      width: 40px;
+
+      position: absolute;
+      /* 下面这些 写 or 不写，影响不大。*/
+      /*
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      border: none; */
+
+      /* 隐藏 checkbox 的默认样式 */
+      appearance: none;
+      opacity: 0;
+    }
+
+    label {
+      cursor: pointer;
+      padding: 15px 15px 15px 60px;
+    }
+
+    /* checkbox 样式切换 */
+    .form-item .toggle+label {
+      background: url(./unchecked.svg) no-repeat left center;
+    }
+
+    .form-item .toggle:checked+label {
+      color: rgb(205, 205, 205);
+      text-decoration: line-through;
+      background: url(./checked.svg) no-repeat left center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-item">
+    <input type="checkbox" id="item" class="toggle">
+    <label for="item">todo</label>
+  </div>
+  <!--
+    实现逻辑：
+    本质上是一个 checkbox （但是我们将它隐藏了）
+    结合 label 标签和表单元素 input 标签一起使用，当 label 标签被点击时，改变 checkbox 的状态。
+    点击区域的面积，虽然 checkbox 的点击面积很小，但是，我们可以设置 label，让 label 的面积大一些。
+    当 checkbox 被选中时，样式 :ckecked 生效，我们只需要将选中时的样式定义在 :checked 选择器中即可。
+   -->
+</body>
+
+</html>

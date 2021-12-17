@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取最值</title>
+  <style>
+    .wrapper {
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    .wrapper>input {
+      width: 100%;
+    }
+
+    .btn {
+      border: none;
+      outline: none;
+
+      padding: 10px 20px;
+      background-color: #008c8c;
+      color: #fff;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- (p>input:number[value='0'])*10 -->
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <p><input type="number" name="" id="" value="0"></p>
+    <button class="btn">获取最新的最值</button>
+    <h3>
+      最大值: <span class="maxNum"></span>
+    </h3>
+    <h3>
+      最小值: <span class="minNum"></span>
+    </h3>
+  </div>
+  <script>
+    const maxNumContainer = document.querySelector('.maxNum');
+    const minNumContainer = document.querySelector('.minNum');
+    const inps = document.querySelectorAll('input[type="number"]');
+    const btn = document.querySelector('.btn');
+
+    function getRandom(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
+    function setValues() {
+      inps.forEach(inp => {
+        inp.value = getRandom(1, 100);
+      });
+    }
+    setValues(); // 初始化每一个 input 的值
+
+    /**
+     * 获取页面中所有数字文本框中的数值组成的数组
+     */
+    function getValues() {
+      const arr = [];
+      inps.forEach(inp => {
+        arr.push(inp.value);
+      });
+      return arr;
+    }
+
+    btn.onclick = function () {
+      const values = getValues();
+      maxNumContainer.innerHTML = Math.max(...values);
+      minNumContainer.innerHTML = Math.min(...values);
+    }
+  </script>
+</body>
+
+</html>

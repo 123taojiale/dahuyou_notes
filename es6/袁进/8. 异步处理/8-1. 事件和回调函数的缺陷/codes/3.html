@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>回调地狱 - 3</title>
+</head>
+
+<body>
+  <script src="./utils/ajax.js"></script>
+  <script>
+    /*
+    需求描述：获取李华所在班级的老师信息。
+    */
+    ajax({
+      // url: './data/students.json?name=李华', // 参数的传递仅仅是用来模拟的，传or不传，效果都一样。
+      url: './data/students.json',
+      success(data) {
+        for (let i = 0; i < data.length; i++) {
+          const stu = data[i];
+          if (stu.name === '李华') {
+            const cid = stu.classId; // 获取到班级id
+            console.log(`获取到李华所在的班级id: ${cid}`);
+            ajax({
+              url: './data/classes.json?classId=' + cid,
+              success(data) {
+                for (let i = 0; i < data.length; i++) {
+                  const cl = data[i];
+                  if (cl.id === cid) {
+                    const tid = cl.teacherId;
+                    console.log(`获取到班级id为: ${cid} 的老师id: ${tid}`);
+                    ajax({
+                      url: './data/teachers.json?teacherId=' + tid,
+                      success(data) {
+                        for (let i = 0; i < data.length; i++) {
+                          const t = data[i];
+                          if (t.id === tid) {
+                            console.log(`获取到id为: ${tid} 的老师信息`, t);
+                          }
+                        }
+                      }
+                    });
+                  }
+                }
+              }
+            });
+          }
+        }
+      }
+    });
+    /* 逻辑：
+    第一次请求，查询所有学生的信息，从所有学生中找到李华的信息，并获取到李华所在的班级 id；（获取李华所在班级的 id）
+    第二次请求，通过第一次请求得到的班级 id 去查询指定的班级信息，指定班级的信息中包含该班级的老师的 id；（获取该班级的老师的 id）
+    第三次请求，通过老师的 id 去查询指定的老师信息；
+    实现思路其实很简单 但是代码看起来... 很乱
+     */
+  </script>
+</body>
+
+</html>

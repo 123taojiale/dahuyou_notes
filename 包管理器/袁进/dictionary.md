@@ -1,0 +1,12 @@
+- `registry` 入口
+- `node package manager` npm node 的包管理器
+- `command-line interface` 命令行接口
+- `Homepage` 主页
+- `License` 证书，许可证
+- `Registry` git仓库
+- `Issues` 解决的问题
+- `Last publish` 最近一次的发布时间
+- `dependencies` 依赖（主动）
+- `dependents` 依赖（被动）
+- `subfloder` 子文件夹
+- `production` 生产环境

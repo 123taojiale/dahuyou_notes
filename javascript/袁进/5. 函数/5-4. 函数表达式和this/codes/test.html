@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月13日</title>
+</head>
+
+<body>
+  <!-- test1.html -->
+  <!-- 函数表达式 -->
+  <script>
+    var a; // 只提升了变量
+    a(); // 函数声明不会提升 ==> 不可以在函数字面量之前调用函数 ==> a is not a function
+    console.log(a); // undefined
+
+    var a = function () { // 创建一个函数，将其赋值给变量a
+      console.log("asdasdf");
+    }
+  </script>
+
+  <script>
+    var a = function () {
+      console.log("asdasdf");
+    }
+    var b = a;
+    console.log(a === b); // true
+    b(); // asdasdf
+  </script>
+
+  <!-- 函数字面量 -->
+  <script>
+    a(); // 函数声明会提升 ==> 可以在函数字面量之前调用函数
+    function a() {
+      console.log("asdasdf");
+    }
+  </script>
+
+  <script>
+    function a() {
+      console.log("asdasdf");
+    }
+    var b = a;
+    console.log(a === b); // true
+    b(); // asdasdf
+  </script>
+
+
+  <!-- test2.html -->
+  <script>
+    var obj = {
+      a: "asfd",
+      b: 234,
+      c: function () {
+        console.log("ccccc");
+      },
+      d: function () {
+        console.log("dddd");
+      }
+    };
+
+    console.log(obj.c, typeof obj.c); // f () {...} "function"
+
+    var b = obj.c;
+    b(); // ccccc
+    obj.d(); // dddd
+    // console.log ==> console 是一个对象 log 是该对象里面的一个属性 该属性的值是一个函数表达式
+  </script>
+
+
+  <!-- test3.html -->
+  <script>
+    var arr = [34, 45454, "Asdf", {}, function () {
+      console.log("数组中的函数");
+    }];
+
+    var func = arr[4];
+    func(); // "数组中的函数"
+  </script>
+
+
+  <!-- test4.html -->
+  <!-- 回调函数 -->
+  <script>
+    function test(callback1, callback2) {
+      console.log("test运行");
+      callback1();
+      callback2();
+    }
+
+
+    test(function () {
+      console.log("1");
+    }, function () {
+      console.log("2");
+    });
+    // test(参数1,参数2);
+    // 此时 参数1 和 参数2 都是函数表达式
+    // 表达式的值就是函数本身
+    // 就好比
+    // var callback1 = function () {console.log("1");}
+    // var callback2 = function () {console.log("2");}
+  </script>
+
+  <script>
+    function test(obj) {
+      obj.func1();
+      obj.func2();
+    }
+
+    test({
+      func1: function () {
+        console.log("func1");
+      },
+      func2: function () {
+        console.log("func2");
+      }
+    });
+  </script>
+
+
+  <!-- test5.html -->
+  <!-- 在全局直接调用函数 -->
+  <script>
+    function test() {
+      console.log(this);
+    }
+
+    var b = test;
+
+    b(); // window
+  </script>
+
+  <!-- test6.html -->
+  <!-- 通过对象的属性调用 -->
+  <script>
+    function test() {
+      console.log(this);
+    }
+
+    var b = test;
+    var arr = [b, test];
+    arr[0](); // (2) [f, f]
+    // this 指向数组 arr
+  </script>
+
+  <!-- [注意]在函数未被调用之前 this 的指向是未知的 this 的指向是在函数被调用的时候才确定的 -->
+  <script>
+    var obj = {
+      a: function () {
+        console.log(this);
+      },
+      b: {
+        x: 2342,
+        func: function () {
+          console.log(this);
+        }
+      }
+    };
+
+    obj.a(); // this ==> obj
+    obj.b.func(); // this ==> obj.b
+    var b = obj.a;
+    b(); // this ==> window
+  </script>
+
+
+  <!-- test7.html -->
+  <!-- 对象里面的函数建议不要拿出来放在全局中再调用 -->
+  <script>
+    var obj = {
+      firstName: "袁",
+      lastName: "进",
+      age: 18,
+      sayHello: function () {
+        console.log(`我叫${this.firstName}${this.lastName}，今年${this.age}岁了`);
+      }
+    };
+    var b = obj.sayHello;
+    b(); // 我叫undefinedundefined，今年undefined岁了
+  </script>
+
+  <script>
+    var obj = {
+      firstName: "袁",
+      lastName: "进",
+      age: 18,
+      sayHello: function () {
+        console.log(`我叫${this.firstName}${this.lastName}，今年${this.age}岁了`);
+      }
+    };
+
+    obj.sayHello(); // 我叫袁进，今年18岁了
+
+    obj.firstName = "姬";
+    obj.lastName = "成";
+    obj.age = 108;
+    obj.sayHello(); // 我叫姬成，今年108岁了
+  </script>
+
+  <!-- 写 this.firstName 而不直接写 obj.firstName 的原因 -->
+  <script>
+    var obj = {
+      firstName: "袁",
+      lastName: "进",
+      age: 18,
+      sayHello: function () {
+        console.log(`我叫${this.firstName}${this.lastName}，今年${this.age}岁了`);
+      }
+    };
+
+    // 将变量保存一下 然后将它的值重新改变 这样的操作在开发中很常见
+    var obj2 = obj;
+    obj = 234;
+
+    obj.sayHello(); // Uncaught TypeError: obj.sayHello is not a function
+
+    obj2.sayHello(); // 我叫袁进，今年18岁了
+  </script>
+
+  <script>
+    var obj = {
+      firstName: "袁",
+      lastName: "进",
+      age: 18,
+      sayHello: function () {
+        console.log(`我叫${obj.firstName}${obj.lastName}，今年${obj.age}岁了`);
+      }
+    };
+
+    var obj2 = obj;
+    obj = 234;
+
+    obj2.firstName = "姬";
+    obj2.lastName = "成";
+    obj2.age = 108;
+    obj2.sayHello(); // 我叫undefinedundefined，今年undefined岁了
+  </script>
+</body>
+
+</html>

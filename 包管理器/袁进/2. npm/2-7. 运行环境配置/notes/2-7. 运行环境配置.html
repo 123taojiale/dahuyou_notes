@@ -1,0 +1,522 @@
+<!DOCTYPE html><html><head>
+      <title>2-7. &#x8FD0;&#x884C;&#x73AF;&#x5883;&#x914D;&#x7F6E;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  /* 设置页面中的所有图片的样式 */
+  /* 以下是旧版的样式 */
+  /* 英文单词样式 */
+  /* p {
+          text-indent: 2em;
+        } */
+  /* 设置 code chunk 的结果样式 */
+  /* [class='language-text'] {
+          background-color: #ddd;
+        } */
+  /*  ---> 黑色主题 end <---  */
+  color: inherit;
+  /* 以下样式主要用于 clipboard.js 效果 */
+}
+.markdown-preview.markdown-preview img {
+  zoom: 50%;
+  box-shadow: 0 6px 15px #aaa;
+}
+.markdown-preview.markdown-preview code {
+  color: #e96900;
+}
+.markdown-preview.markdown-preview p,
+.markdown-preview.markdown-preview ul,
+.markdown-preview.markdown-preview ol {
+  font-size: 14px;
+  color: #666;
+}
+.markdown-preview.markdown-preview [class='language-'] code {
+  color: #333;
+}
+.markdown-preview.markdown-preview table {
+  display: inline-block !important;
+  font-size: 12px;
+  width: auto;
+  max-width: 100%;
+  overflow: auto;
+  /* border: 1px solid #bbb;
+          border-radius: 5%; */
+}
+.markdown-preview.markdown-preview thead {
+  background: #f6f6f6;
+  color: #000;
+  text-align: center;
+}
+.markdown-preview.markdown-preview tr:nth-child(2n) {
+  background-color: rgba(0, 140, 140, 0.05);
+}
+.markdown-preview.markdown-preview td,
+.markdown-preview.markdown-preview th {
+  border: 1px solid #fff;
+}
+.markdown-preview.markdown-preview a {
+  color: #008c8c;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview pre.language- code {
+  font-size: 14px !important;
+}
+.markdown-preview.markdown-preview pre[data-role="codeBlock"] {
+  position: relative;
+}
+.markdown-preview.markdown-preview pre[data-role="codeBlock"] > span#copy {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 2px;
+  padding: 0 10px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+.markdown-preview.markdown-preview .markdown-preview.markdown-preview pre[data-role="codeBlock"]:hover > span#copy {
+  display: block;
+}
+.markdown-preview.markdown-preview .markdown-preview.markdown-preview pre[data-role="codeBlock"] > span.copyed#copy {
+  background: #67c23a;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <div><h1 class="mume-header" id="2-7-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">2-7. &#x8FD0;&#x884C;&#x73AF;&#x5883;&#x914D;&#x7F6E;</h1>
+
+<p>&#x6211;&#x4EEC;&#x4E66;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x4E00;&#x822C;&#x6709;&#x4E09;&#x79CD;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF1A;</p>
+<ol>
+<li>&#x5F00;&#x53D1;&#x73AF;&#x5883;</li>
+<li>&#x751F;&#x4EA7;&#x73AF;&#x5883;</li>
+<li>&#x6D4B;&#x8BD5;&#x73AF;&#x5883;</li>
+</ol>
+<p>&#x6709;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5728; node &#x4EE3;&#x7801;&#x4E2D;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x73AF;&#x5883;&#x505A;&#x51FA;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x5982;&#x4F55;&#x4F18;&#x96C5;&#x7684;&#x8BA9; node &#x77E5;&#x9053;&#x5904;&#x4E8E;&#x4EC0;&#x4E48;&#x73AF;&#x5883;&#xFF0C;&#x662F;&#x6781;&#x5176;&#x91CD;&#x8981;&#x7684;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<p>node&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF; global (&#x53EF;&#x4EE5;&#x7C7B;&#x6BD4;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#x7684;window)&#xFF0C;&#x8BE5;&#x53D8;&#x91CF;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x5747;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;</p>
+<p>global&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x662F;process&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x5F53;&#x524D;&#x8FD0;&#x884C;node&#x7A0B;&#x5E8F;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x5F88;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4FE1;&#x606F;&#x662F;env&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF; NODE_ENV &#x7684;&#x503C;&#xFF0C;&#x6765;&#x5224;&#x5B9A;node&#x7A0B;&#x5E8F;&#x5904;&#x4E8E;&#x4F55;&#x79CD;&#x73AF;&#x5883;&#x3002;</p>
+<blockquote>
+<p>&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x63D0;&#x524D;&#x8BBE;&#x7F6E;&#x597D;&#x3002;<br>
+&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x5199; development&#x3001;&#x751F;&#x6210;&#x73AF;&#x5883;&#x5199;production&#x3001;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x5199;test&#x3002;<br>
+&#x8FD9;&#x662F;&#x7EA6;&#x5B9A;&#x4FD7;&#x6210;&#x7684;&#x5199;&#x6CD5;&#xFF0C;key &#x662F; NODE_ENV&#xFF0C;value &#x662F; development&#x3001;production&#x3001;test&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x3002;</p>
+</blockquote>
+<p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8BBE;&#x7F6E; NODE_ENV &#x7684;&#x503C;&#xFF1A;</p>
+<ol>
+<li>&#x6C38;&#x4E45;&#x8BBE;&#x7F6E;</li>
+<li>&#x4E34;&#x65F6;&#x8BBE;&#x7F6E;</li>
+</ol>
+<p>&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x4E34;&#x65F6;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x914D;&#x7F6E; scripts &#x811A;&#x672C;&#xFF0C;&#x5728;&#x8BBE;&#x7F6E;&#x597D;&#x4E86; NODE_ENV &#x540E;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#x3002;</p>
+<blockquote>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x4E0D;&#x540C;&#x7CFB;&#x7EDF;&#x7684;&#x8BBE;&#x7F6E;&#x65B9;&#x5F0F;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x5E93; <code>cross-env</code> &#x5BF9;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x3002;</p>
+</blockquote>
+<p><strong>&#x5C0F;&#x7ED3;</strong></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked> &#x5982;&#x4F55;&#x8BA9; node &#x77E5;&#x9053;&#x5F53;&#x524D;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</li>
+</ul>
+<p>&#x901A;&#x8FC7;&#x8BFB;&#x53D6;&#x7684;&#x7CFB;&#x7EDF;&#x53D8;&#x91CF; NODE_ENV &#x7684;&#x503C;&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x3002;</p>
+<p><code>&#x53F3;&#x952E; &#x6211;&#x7684;&#x7535;&#x8111; -&gt; &#x9009;&#x62E9; &#x9AD8;&#x7EA7;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E; -&gt; &#x9009;&#x62E9; &#x73AF;&#x5883;&#x53D8;&#x91CF; -&gt; &#x9009;&#x62E9; &#x65B0;&#x589E; -&gt; &#x53D8;&#x91CF;&#x540D;&#xFF1A;NODE_ENV &#x53D8;&#x91CF;&#x503C;&#xFF1A;development -&gt; &#x9009;&#x62E9; &#x786E;&#x5B9A; -&gt; &#x9009;&#x62E9; &#x786E;&#x5B9A;</code></p>
+<ul>
+<li>&#x6C38;&#x4E45;&#x8BBE;&#x7F6E; NODE_ENV &#x7684;&#x503C;&#xFF1A;</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210606154325.png" alt="20210606154325"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210606154334.png" alt="20210606154334"></p>
+<ul>
+<li>&#x4E34;&#x65F6;&#x8BBE;&#x7F6E; NODE_ENV &#x7684;&#x503C;&#xFF1A;</li>
+</ul>
+<p>script &#x811A;&#x672C;&#x4E0B;&#x7684; start &#x5B57;&#x6BB5;&#xFF1A;<code>&quot;start&quot;: &quot;set NODE_ENV=development&amp;&amp;node index.js&quot;</code></p>
+<p>&#x3010;&#x6CE8;&#x89E3;&#x3011;&#x5728; windows &#x73AF;&#x5883;&#x4E0B;&#xFF0C;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x547D;&#x4EE4;&#x662F; <code>set NODE_ENV=development</code>&#xFF0C;&#x7136;&#x540E; <code>&amp;&amp;</code>&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x6267;&#x884C;&#x5B8C;&#x540E;&#xFF0C;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x540E;&#x7EED;&#x547D;&#x4EE4;<code>node index.js</code>&#x3002;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x662F; mac &#x7535;&#x8111;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x8981;&#x5C06; set &#x6539;&#x4E3A; export&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x5E93; cross-env &#x6765;&#x89E3;&#x51B3;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x3002;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;chapter2&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;main&quot;</span><span class="token operator">:</span> <span class="token string">&quot;index.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;nodemon&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.0.7&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;devDependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;set NODE_ENV=development&amp;&amp;node index.js&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;set NODE_ENV=production&amp;&amp;node index.js&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;set NODE_ENV=test&amp;&amp;node index.js&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;license&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ISC&quot;</span>
+<span class="token punctuation">}</span>
+</pre><p>index.js &#x6587;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> node_env <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>node_env<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>node_env <span class="token operator">===</span> <span class="token string">&apos;development&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x5F00;&#x53D1;&#x73AF;&#x5883;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node_env <span class="token operator">===</span> <span class="token string">&apos;production&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x751F;&#x4EA7;&#x73AF;&#x5883;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>node_env <span class="token operator">===</span> <span class="token string">&apos;test&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210606161605.png" alt="20210606161605"></p>
+<ul>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> &#x5982;&#x4F55;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x5E93; <code>cross-env</code> &#x6765;&#x89E3;&#x51B3; &#x7C7B;&#x4F3C;&#x4E8E;&#xFF1A; <code>&quot;start&quot;: &quot;set NODE_ENV=development&amp;&amp;node index.js&quot;</code>&#xFF08;windows&#x3001;Mac&#x5199;&#x6CD5;&#x4E0D;&#x540C;&#xFF09; &#x8FD9;&#x6837;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#xFF1F;</p>
+</li>
+<li>
+<p>&#x5B89;&#x88C5; cross-env</p>
+</li>
+</ul>
+<p><code>npm i -D cross-env</code></p>
+<blockquote>
+<p>&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x4F9D;&#x8D56;&#x3002;</p>
+</blockquote>
+<ul>
+<li>&#x91CD;&#x5199; package.json &#x6587;&#x4EF6;&#x4E0B;&#x7684; script &#x5B57;&#x6BB5;&#xFF1A;</li>
+</ul>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross_env NODE_ENV=development node index.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross_env NODE_ENV=production node index.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross_env NODE_ENV=test node index.js&quot;</span>
+<span class="token punctuation">}</span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x4E34;&#x65F6;&#x8BBE;&#x7F6E; NODE_ENV &#x7684;&#x503C;&#xFF0C;&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#xFF1F;</li>
+</ul>
+<p>&#x5C31;&#x662F;&#x5728;&#x542F;&#x52A8; node &#x4E4B;&#x524D;&#xFF0C;&#x5728;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x4E34;&#x65F6;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#xFF0C;&#x5F53; node &#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x5C06;&#x5176;&#x5220;&#x9664;&#x3002;</p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x4E3A;&#x4EC0;&#x4E48;&#x66F4;&#x52A0;&#x63A8;&#x8350;&#x4E34;&#x65F6;&#x5730;&#x8BBE;&#x7F6E;&#xFF1F;</li>
+</ul>
+<p>&#x56E0;&#x4E3A;&#x6C38;&#x4E45;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x4FEE;&#x6539;&#x8D77;&#x6765;&#x5F88;&#x4E0D;&#x65B9;&#x4FBF;&#x3002;</p>
+<h2 class="mume-header" id="%E5%9C%A8node%E4%B8%AD%E8%AF%BB%E5%8F%96packagejson">&#x5728;node&#x4E2D;&#x8BFB;&#x53D6;package.json</h2>
+
+<p>&#x6709;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x5728; package.json &#x4E2D;&#x914D;&#x7F6E;&#x4E00;&#x4E9B;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x8FD9;&#x4E9B;&#x5B57;&#x6BB5;&#x9700;&#x8981;&#x5728; node &#x4E2D;&#x8BFB;&#x53D6;&#x3002;</p>
+<p>&#x5728; node &#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BFC;&#x5165;&#x4E00;&#x4E2A; json &#x683C;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x5176;&#x8F6C;&#x6362;&#x4E3A; js &#x5BF9;&#x8C61;&#x3002;</p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x6D4B;&#x8BD5;</li>
+</ul>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> packageConfig <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;./package.json&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>packageConfig<span class="token punctuation">.</span>version<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>packageConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210606162808.png" alt="20210606162808"></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> &#x5C1D;&#x8BD5;&#x5728; package.json &#x4E2D;&#x968F;&#x610F;&#x5730;&#x914D;&#x7F6E;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x5B57;&#x6BB5;&#xFF0C;&#x7136;&#x540E;&#x8BFB;&#x53D6;&#x8FD9;&#x4E9B;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;chapter2&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;main&quot;</span><span class="token operator">:</span> <span class="token string">&quot;index.js&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;cross-env&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.0.3&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;nodemon&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.0.7&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;devDependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross_env NODE_ENV=development node index.js&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross_env NODE_ENV=production node index.js&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cross_env NODE_ENV=test node index.js&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;license&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ISC&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;a&quot;</span><span class="token operator">:</span> <span class="token string">&quot;aaa&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;b&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bbb&quot;</span>
+<span class="token punctuation">}</span>
+</pre><p>index.js &#x6587;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> packageConfig <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;./package.json&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>packageConfig<span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>packageConfig<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20210606163101.png" alt="20210606163101"></p>
+</div>
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#2-7-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">2-7. &#x8FD0;&#x884C;&#x73AF;&#x5883;&#x914D;&#x7F6E;</a>
+<ul>
+<li><a href="#%E5%9C%A8node%E4%B8%AD%E8%AF%BB%E5%8F%96packagejson">&#x5728;node&#x4E2D;&#x8BFB;&#x53D6;package.json</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

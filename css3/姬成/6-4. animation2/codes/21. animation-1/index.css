@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+/* 地平线 天色变化 */
+@keyframes space-change {
+    from {
+        /* 早晨 6点左右 */
+        opacity: .3;
+    }
+
+    25% {
+        /* 正午 12点左右 */
+        opacity: 1;
+    }
+
+    50% {
+        /* 傍晚 6点左右 */
+        opacity: .3;
+    }
+
+    75% {
+        /* 月亮升 */
+        opacity: .1;
+    }
+
+    to {
+        opacity: .3;
+    }
+}
+
+/* 日生日落 */
+@keyframes sunrise {
+    from {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .5;
+        transform: scale(.7, .7) translatex(0) translatey(0);
+    }
+
+    30% {
+        /* 正午 1 点左右 太阳升到最高 看起来最小 */
+        transform: scale(.5, .5) translatex(0) translatey(-500px);
+        opacity: 1;
+    }
+
+    50% {
+        /* 傍晚 6 点左右 太阳已经完全落下 不可见了 此时月亮开始升起 */
+        opacity: 0;
+        transform: scale(.7, .7) translatex(400px) translatey(0);
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* 月升月落 */
+@keyframes moonrise {
+    from {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0;
+        transform: translatey(0);
+    }
+
+    50% {
+        /* 傍晚 6 点左右 太阳已经完全落下 不可见了 此时月亮开始升起 */
+        opacity: 0;
+    }
+
+    70% {
+        transform: translatey(-300px);
+        opacity: 1;
+    }
+
+    80% {
+        /* 70% ~ 80% 让月亮在天上挂一会儿 */
+        transform: translatey(-300px);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    to {
+        transform: translatey(0);
+        opacity: 0;
+    }
+}
+
+/* 地平线 */
+.space {
+    height: 500px;
+    /* 因为 background-image 不支持动画 所以我们无法通过改变其颜色来模拟天黑天亮 */
+    background-image: linear-gradient(to bottom, #0383fd, #fff);
+    animation: space-change 5s cubic-bezier(.5, 0, .5, 1) infinite;
+    /* cubic-bezier(.5, 0, .5, 1) 先慢后快再慢 */
+}
+
+/* 太阳 */
+.sun {
+    position: absolute;
+    left: calc(50% - 15px);
+    top: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 100px 50px #fff,
+        0px 0px 250px 125px #ff0;
+    animation: sunrise 5s infinite;
+}
+
+/* 月亮 */
+.moon {
+    position: absolute;
+    left: calc(50% + 400px);
+    top: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px #fff,
+        inset 0px 0px 8px #000;
+    animation: moonrise 5s cubic-bezier(0, 0, 1, 1) infinite;
+    /* cubic-bezier(0, 0, 1, 1) 匀速 */
+}
+
+.moon::after {
+    position: absolute;
+    content: "";
+    width: 90px;
+    height: 90px;
+    background-color: #000;
+    border-radius: 50%;
+    left: -10px;
+    top: -10px;
+
+    /* animation: space-change 5s cubic-bezier(.5, 0, .5, 1) infinite; */
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- test.html -->
+  <script>
+    var x = 20;
+    switch (x) {
+      case 1:
+        console.log("1");
+        break;
+      case 20:
+        console.log("20");
+        break;
+      case 30:
+        console.log("30");
+        break;
+      default:
+        console.log("default");
+        break;
+    }
+
+    // switch的语法始终可以使用if结构替代。 ==> 开发中很少使用 switch 语句 (甚至有的公司禁止使用)
+
+    // 1. 计算表达式的返回值， 依次和case后面的数据进行严格相等的比较， 如果某个相等， 停止比较， 然后运行其内部的代码块， 再然后， 依次运行之后的所有代码块。
+    // 2. 在case分支内部， 使用break语句， 可以立即停止switch结构。
+    // 3. default表示前面的所有case都不匹配时运行。 可以省略 ==> 相当于 if-else 里面的 else
+
+    // [补充] JavaScript中的switch语句和其他编程语言的switch语句有蛮大差别的, 传入的参数形式多样
+  </script>
+
+</body>
+
+</html>

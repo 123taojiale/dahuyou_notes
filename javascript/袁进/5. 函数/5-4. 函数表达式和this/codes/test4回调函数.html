@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //call:传递一个函数进来
+       function test(callback){             //把函数当作参数传进去,回调函数
+           console.log("test运行");
+           callback();
+       }
+
+       var func = function(){
+           console.log("abc");
+       }
+       test(func);
+
+    //    function func(){
+    //     console.log("abc");
+    //    }
+
+    // test(function(){
+    //     console.log("abc");
+    // });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>应该保证每个组件的数据是相互独立的</title>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    const MyButton = {
+      data() {
+        return {
+          count: 0
+        }
+      }, 
+      template: `<button @click="count++">当前共点击了{{count}}次</button>`
+    }
+
+    // 全局注册
+    // Vue.component('MyButton', MyButton);
+
+    const vm = new Vue({
+      components: {
+        // 局部注册组件
+        MyButton
+      },
+      template: `<div>
+     <MyButton></MyButton>
+     <MyButton />
+     <my-button></my-button>
+     <my-button />
+   </div>`
+    });
+
+    vm.$mount('#app');
+  </script>
+</body>
+
+</html>

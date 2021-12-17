@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+  <!-- 模板字符串.html -->
+  <script>
+    var user = {
+      age: 18,
+      name: "成哥",
+      gender: "男"
+    };
+
+    // 输出： 我叫xxx，今年xxx岁了，性别是xxx，目前已成年（未成年）
+    console.log("我叫" + user.name +
+      "，今年" + user.age +
+      "岁了，性别是" + user.gender +
+      "，目前" + (user.age >= 18 ? "已成年" : "未成年")); // 我叫成哥，今年18岁了，性别是男，目前已成年
+    // 运算符处可以换行
+
+    console.log(`我叫${user.name}，今年${user.age}岁了，性别是${user.gender}，目前${user.age>=18?"已成年":"未成年"}`);
+    // 我叫成哥，今年18岁了，性别是男，目前已成年
+  </script>
+
+  <!-- 类型转换.html -->
+  <script>
+    // 类型转换不会影响原本的数据
+    var x = '1';
+    var y = x * 2;
+    console.log(y, typeof y); // 2 "number"
+    console.log(x, typeof x); // 1 "string"
+  </script>
+
+  <!-- 复合的赋值运算符.html -->
+  <script>
+    var x = 2;
+    x += 3; // 等同于 x = x + 3;
+    console.log(x); // 5
+  </script>
+
+  <script>
+    var x = 2;
+    x *= 1 + 2; // 等同于 x = x * (1 + 2);
+    console.log(x); // 6
+  </script>
+
+  <script>
+    var x = 2;
+    x *= x++ + 2; // 等同于 x = x * (x++ + 2);
+    console.log(x); // 8
+  </script>
+
+  <!-- 将复合赋值运算符用于字符串的拼接 -->
+  <script>
+    var user = {
+      age: 18,
+      name: "成哥",
+      gender: "男"
+    };
+
+    // 输出： 我叫xxx，今年xxx岁了，性别是xxx，目前已成年（未成年）
+    var result = "我叫";
+    result += user.name;
+    result += "，今年";
+    result += user.age;
+    // ....
+
+    console.log(result); // 我叫成哥，今年18
+  </script>
+
+  <!-- 逗号运算符.html -->
+  <!-- [注] 逗号运算符的优先级比赋值更低 -->
+  <script>
+    var x = 1;
+    x = (x++ * 2, x++ * 2, x++ * 2); // 需加小括号
+    // 逗号运算符 ==> 返回最后一个表达式的值
+    console.log(x); // 6
+  </script>
+
+
+</body>
+
+</html>

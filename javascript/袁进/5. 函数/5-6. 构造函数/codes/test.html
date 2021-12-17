@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月17日</title>
+</head>
+
+<body>
+
+  <!-- 创建一个用户 -->
+
+  <!-- test1.html -->
+  <script>
+    function createUser(name, age, gender) {
+      return {
+        name, // name: name,
+        age, // age: age,
+        gender, // gender: gender,
+        sayHello() { // sayHello: function() {...},
+          console.log(`我叫${this.name}，年龄${this.age}岁，性别${this.gender}`);
+        }
+      };
+    }
+
+    var u1 = createUser("张三", 18, "男");
+    u1.sayHello(); // 我叫张三，年龄18岁，性别男
+    var u2 = createUser("姬成", 20, "男");
+    u2.sayHello(); // 我叫姬成，年龄20岁，性别男
+    console.log(u1 === u2); // false
+  </script>
+
+  <!-- test2.html -->
+  <script>
+    function User(name, age, gender) {
+      // 自动生成 this ==> 指向当前构造函数
+      this.name = name;
+      this.age = age;
+      this.gender = gender;
+      this.sayHello = function () {
+        console.log(`我叫${this.name}，年龄${this.age}岁，性别${this.gender}`);
+      }
+      // return this;
+    }
+
+    var u1 = new User("张三", 18, "男");
+    u1.sayHello(); // 我叫张三，年龄18岁，性别男
+    var u2 = new User("姬成", 20, "男");
+    u2.sayHello(); // 我叫姬成，年龄20岁，性别男
+
+    console.log(u1 === u2); // false
+  </script>
+
+
+
+  <!-- test3.html -->
+  <script>
+    var arr = new Array(3, 4, 5);
+  </script>
+
+  <script>
+    arr = [3, 5, 7, 2]; // 语法糖
+
+    // 相当于
+
+    var arr = new Array(3, 5, 7, 2);
+  </script>
+
+  <script>
+    var obj = {
+      name: "asdf",
+      age: 234,
+      gender: "男"
+    };
+
+    // 相当于
+
+    var obj = new Object();
+    obj.name = "asdf";
+    obj.age = 234;
+    obj.gender = "男";
+  </script>
+
+
+
+  <!-- test4.html -->
+  <script>
+    // 创建一个用户
+    function User(name, age, gender) {
+      var temp = function () {
+        console.log(`我叫${this.name}，年龄${this.age}岁，性别${this.gender}`);
+      };
+      // 正常的构造函数调用
+      if (new.target === User) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.sayHello = temp;
+      } else {
+        // 构造函数当做普通函数调用 (兼容处理)
+        return {
+          name,
+          age,
+          gender,
+          sayHello: temp
+        }
+      }
+    }
+    // 正常的构造函数调用
+    var u1 = new User("ss", 18, "女");
+    console.log(u1);
+    // 将构造函数当做普通函数调用
+    var u2 = User('sss', 108, '女');
+    console.log(u2);
+
+    // new Array(10);
+    // Array(10);
+    // 得到的结果是相同的 处理方式和这个User类似 加了一个 if-else 判断
+  </script>
+</body>
+
+</html>

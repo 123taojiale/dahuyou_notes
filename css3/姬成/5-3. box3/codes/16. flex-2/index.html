@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex 实现可动态增加的导航栏</title>
+    <style>
+        .btn-wrapper {
+            text-align: center;
+        }
+
+        .item-list {
+            display: flex;
+            margin: 100px auto;
+            border: 1px solid #999;
+
+            width: 400px;
+            height: 100px;
+        }
+
+        .item-list .item {
+            flex: 1 1 auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: #fff;
+            background-color: #f40;
+
+            cursor: pointer;
+        }
+
+        .item-list .item+.item {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn-wrapper">
+        <button class="btn" data-item_num="2">2</button>
+        <button class="btn" data-item_num="3">3</button>
+        <button class="btn" data-item_num="4">4</button>
+    </div>
+
+    <div class="item-list">
+        <div class="item">淘宝</div>
+        <div class="item">天猫</div>
+        <div class="item">聚划算</div>
+        <!-- <div class="item">京东</div> -->
+    </div>
+
+    <script>
+        const list = document.querySelector('.item-list');
+        document.querySelector('.btn-wrapper').onclick = function (e) {
+            if (e.target.tagName === 'BUTTON') {
+                const item_num = e.target.dataset.item_num; // 获取需要展示的导航项的个数
+                if (item_num == '2') {
+                    list.innerHTML = `
+                    <div class="item">淘宝</div>
+                    <div class="item">天猫</div>`;
+                } else if (item_num == '3') {
+                    list.innerHTML = `
+                    <div class="item">淘宝</div>
+                    <div class="item">天猫</div>
+                    <div class="item">聚划算</div>`;
+                } else if (item_num == '4') {
+                    list.innerHTML = `
+                    <div class="item">淘宝</div>
+                    <div class="item">天猫</div>
+                    <div class="item">聚划算</div>
+                    <div class="item">京东</div>`;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月13日</title>
+</head>
+
+<body>
+  <!-- 斐波拉契数列.html -->
+  <script>
+    //求斐波拉契数列第n位的值
+    //1  1  2  3  5  8  13  21  ...
+    //f(n) = f(n-1) + f(n-2)
+
+    //斐波拉契数列的第n位
+    function f(n) {
+      if (n === 1 || n === 2) {
+        return 1;
+      }
+      return f(n - 1) + f(n - 2);
+    }
+
+    console.log(f(5));
+    // f(5) = f(4) + f(3)
+
+    /* 下面开始求f(4) */
+    // f(4) = f(3) + f(2)
+    // f(3) = f(2) + f(1)
+    // f(3) = 1 + f(1)
+    // f(3) = 1 + 1
+    // f(4) = 2 + f(2)
+    // f(4) = 2 + 1
+    // f(5) = 3 + f(3)
+
+    /* 下面开始求f(3) */
+    // f(3) = f(2) + f(1)
+    // f(3) = 1 + f(1)
+    // f(3) = 1 + 1
+    // f(5) = 3 + 2
+    // f(5) = 5
+  </script>
+
+  <!-- 执行栈.html -->
+  <!-- 执行栈 call stack -->
+  <script>
+    // 一旦遇到函数调用 就会创建一个执行环境 结束后就销毁
+    function A() {
+      console.log("A begin"); // 2
+      B();
+      console.log("A over"); // 7
+    }
+
+    function B() {
+      console.log("B begin"); // 3
+      C();
+      console.log("B over"); // 6
+    }
+
+    function C() {
+      console.log("C begin"); // 4
+      console.log("C over"); // 5
+    }
+
+    console.log("global begin"); // 1
+    A();
+    console.log("global over"); // 8
+  </script>
+
+  <!-- 阶乘.html -->
+  <script>
+    // 5! = 5*4*3*2*1
+    // f(n)
+    // f(1) = 1
+    // f(2) = 2*f(1)
+    // f(3) = 3*f(2)
+    // n的阶乘 n!
+    function fhelper(n, total) {
+      if (n === 1) {
+        return total;
+      }
+      // 注意递归的终止条件 若无限递归 则会溢出执行栈
+      // Uncaught RangeError: Maximum call stack size exceeded
+      return fhelper(n - 1, n * total);
+    }
+
+    function f(n) {
+      return fhelper(n, 1);
+    }
+
+    console.log(f(5));
+
+    // fhelper(5, 1) === fhelper(4, 5)
+    // fhelper(4, 5) === fhelper(3, 20)
+    // fhelper(3, 20) === fhelper(2, 60)
+    // fhelper(2, 60) === fhelper(1, 120)
+    // fhelper(1, 120) === 120
+    // 尾递归优化: 最后一步直接返回结果
+    // [but] 在浏览器中不会优化... 但在nodejs里面有
+  </script>
+
+  <!-- 无限循环和无限递归.html -->
+  <script>
+    // 死循环不会报错，也不会导致栈溢出 [会卡死 不会报错]
+    function A() {
+      while (true) {
+        console.log("1");
+      }
+    }
+    A();
+  </script>
+
+  <script>
+    // 无限递归会导致栈溢出 [会报错 不会卡死]
+    function A() {
+      A();
+    }
+
+    A();
+  </script>
+
+  <!-- 汉诺塔.html -->
+  <script>
+    function hannuo(no1, no2, no3, n) {
+      if (n === 1) {
+        console.log(`${no1}->${no3}`);
+      } else {
+        hannuo(no1, no3, no2, n - 1);
+        console.log(`${no1}->${no3}`);
+        hannuo(no2, no1, no3, n - 1);
+      }
+    }
+
+    hannuo('A', 'B', 'C', 5);
+  </script>
+
+</body>
+
+</html>

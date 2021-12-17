@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#game {
+    position: relative;
+    margin: 100px auto;
+}
+
+#game .rect {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-size: 100% 100%;
+}
+
+/* 墙 */
+#game .rect.wall {
+    background-image: url('../imgs/wall.jpg');
+}
+
+/* 玩家 */
+#game .rect.player {
+    background-image: url('../imgs/player.png');
+}
+
+/* 箱子（处于错误位置的箱子） */
+#game .rect.box {
+    background-image: url('../imgs/box.png');
+}
+
+/* 处于正确位置的箱子 */
+#game .rect.correct_box {
+    background-image: url('../imgs/over_box.png');
+}
+
+/* 处于正确位置的空格 */
+#game .rect.correct_space {
+    border: 1px solid #008c8c;
+    box-sizing: border-box;
+}

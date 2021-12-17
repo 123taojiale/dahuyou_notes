@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/demo.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>扫雷</title>
+    <style>
+        .tip {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .tip span {
+            padding: 5px 15px;
+            border: 1px dashed #ddd;
+            border-radius: 5px;
+            font-size: 20px;
+            color: #008c8c;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tip">
+        <span>try try middle button of mouse</span>
+    </div>
+    <div id="mine">
+        <div class="level">
+            <button class="level-btn active">初级</button>
+            <button class="level-btn">中级</button>
+            <button class="level-btn">高级</button>
+            <button class="restart">重新开始</button>
+        </div>
+        <div class="game-box">
+
+        </div>
+        <div class="info">剩余雷数 : <span class="mine-num"></span></div>
+    </div>
+    <script src="./js/demo.js"></script>
+    <script>
+        alert("试试鼠标中键 很容易就 pass 了 ☺☺☺");
+    </script>
+</body>
+
+</html>

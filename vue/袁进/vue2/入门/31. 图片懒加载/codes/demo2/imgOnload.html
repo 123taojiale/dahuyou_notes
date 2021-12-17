@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onLoad</title>
+</head>
+
+<body>
+  <img src="" alt="">
+  <script>
+    const img = document.querySelector("img");
+    img.src = "https://dahuyou.top/avatar.jpg";
+    console.log('111', img.clientHeight);
+    img.onload = () => {
+      console.log('图片加载完了', img.clientHeight);
+    }
+    console.log('aaa', img.clientHeight);
+
+    /* Console
+      111 0
+      aaa 0
+      图片加载完了 627 */
+  </script>
+</body>
+
+</html>

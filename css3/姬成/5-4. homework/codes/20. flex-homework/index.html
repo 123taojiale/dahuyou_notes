@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex 布局常用场景</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            background-color: #a17e58;
+        }
+
+        .wrapper .img-wrapper {
+            flex: 0 0 25%;
+            padding: 0 10px;
+        }
+
+        .wrapper .img-wrapper img {
+            /* 图片自适应 */
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapper .content-wrapper {
+            flex: 1 1 75%;
+            padding: 50px 40px;
+        }
+
+        .wrapper .content-wrapper .name {
+            font-size: 4em;
+            color: #fff;
+        }
+
+        .wrapper .content-wrapper .des {
+            padding-top: 20px;
+            font-size: 1.5em;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="img-wrapper">
+            <img src="../../resources/images/liudehua.jpg" alt="">
+        </div>
+        <div class="content-wrapper">
+            <p class="name">刘德华</p>
+            <div class="des">
+                <p>演员、歌手、香港“四大天王”之一</p>
+                <p class="birth">1961年09月27日 (57岁)</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

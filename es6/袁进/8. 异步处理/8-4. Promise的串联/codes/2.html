@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>回调地狱 - 3</title>
+</head>
+
+<body>
+  <script src="./utils/ajax.promise.js"></script>
+  <script>
+    const pro = ajaxPromise({
+      url: './data/students.json'
+    });
+
+    // 获取指定学生信息
+    pro.then(stus => {
+      stus.forEach(stu => {
+        if (stu.name === '李华') {
+          console.log(`获取到的李华学生信息如下:`);
+          console.log(stu);
+        }
+      });
+    });
+
+    // 获取所有的女生
+    pro.then(stus => {
+      const newArr = stus.filter(stu => stu.gender === '女');
+      console.log(`获取到的所有女生信息如下:`);
+      console.log(newArr);
+    });
+
+    // 获取所有年龄在 20 岁以下的学生信息
+    pro.then(stus => {
+      const newArr = stus.filter(stu => stu.age < 20);
+      console.log(`获取到的所有年龄在 20岁 以下的学生信息如下:`);
+      console.log(newArr);
+    });
+    /*
+    并列的 promise
+    上面涉及到的是 同一个 promise 的并列操作
+    - 获取指定学生信息
+    - 获取所有的女生
+    - 获取所有年龄在 20 岁以下的学生信息
+    这3个需求 是并列进行的 它们之间并没有什么先后关系
+    即: 后续操作不需要依赖前面操作得到的结果数据
+    */
+  </script>
+</body>
+
+</html>

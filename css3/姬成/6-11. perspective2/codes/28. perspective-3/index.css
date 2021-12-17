@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root,
+body {
+    height: 100%;
+}
+
+body {
+    /* body 默认变为子元素的定位参考元素 */
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+@keyframes round {
+    0% {
+        /* transform 会覆盖 而不会叠加 */
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotateY(360deg);
+    }
+}
+
+button {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transform-style: preserve-3d;
+    /* transform-origin: 100px 400px; */
+    animation: round 8s linear infinite;
+}
+
+.wrapper img {
+    position: absolute;
+    width: 200px;
+}
+
+.wrapper img:nth-of-type(1) {
+    transform: rotateY(45deg) translateZ(400px);
+}
+
+.wrapper img:nth-of-type(2) {
+    transform: rotateY(90deg) translateZ(200px);
+}
+
+.wrapper img:nth-of-type(3) {
+    transform: rotateY(135deg) translateZ(400px);
+}
+
+.wrapper img:nth-of-type(4) {
+    transform: rotateY(180deg) translateZ(400px);
+}
+
+.wrapper img:nth-of-type(5) {
+    transform: rotateY(225deg) translateZ(300px);
+}
+
+.wrapper img:nth-of-type(6) {
+    transform: rotateY(270deg) translateZ(400px);
+}
+
+.wrapper img:nth-of-type(7) {
+    transform: rotateY(315deg) translateZ(400px);
+}
+
+.wrapper img:nth-of-type(8) {
+    transform: rotateY(360deg) translateZ(200px);
+}

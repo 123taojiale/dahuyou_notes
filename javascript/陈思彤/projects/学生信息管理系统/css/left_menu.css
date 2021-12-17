@@ -1,0 +1,55 @@
+/* 左侧菜单栏 */
+.left-menu {
+    /* position: absolute; */
+    position: fixed;
+    top: 70px;
+    left: 0;
+
+    width: 200px;
+    height: calc(100% - 70px);
+    background-color: #4d5e70;
+
+    color: #b3bcc5;
+    line-height: 40px;
+}
+
+/* .left-menu .menu li:first-child {
+    padding-left: 10px;
+}
+
+.left-menu .menu li:not(:first-child) {
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+.left-menu .menu li:not(:first-child):hover {
+    color: #354457;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.left-menu .menu li.active {
+    color: #354457;
+    background-color: #ddd !important;
+} */
+
+.left-menu .menu li:not([data-id]) {
+    padding-left: 10px;
+}
+
+.left-menu .menu li[data-id] {
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+/* 下面这两组选择器 位置不能换 hover 得 在 active 之前定义
+因为它们的权重都一样 并且都是作用于相同的元素
+若样式发生冲突 那么之后定义的会覆盖之前定义的 */
+.left-menu .menu li[data-id]:hover {
+    color: #354457;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.left-menu .menu li[data-id].active {
+    color: #354457;
+    background-color: #ddd;
+}

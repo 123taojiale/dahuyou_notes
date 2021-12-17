@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对比表单元素的 input 事件和 change 事件</title>
+</head>
+
+<body>
+  <form action="#">
+    <div class="form-item">
+      账号：<input type="text" id="input">
+    </div>
+  </form>
+
+  <script>
+    input.oninput = function (e) {
+      // console.log("e.target", e.target); // 事件源 即：input 元素
+      console.log("e.target.value", e.target.value); // 事件源的 value 值
+    }
+  </script>
+</body>
+
+</html>

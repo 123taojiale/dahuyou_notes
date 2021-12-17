@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>3 - peomise</title>
+</head>
+
+<body>
+  <script src="./utils/ajax.promise.js"></script>
+  <script>
+    async function handler() {
+      const stus = await ajaxPromise({ // 获取所有的学生信息
+        url: `./data/students.json?name=李华`
+      });
+      let cid;
+      for (let i = 0; i < stus.length; i++) {
+        const stu = stus[i];
+        if (stu.name === '李华') {
+          cid = stu.classId; // 获取到班级id
+          console.log(`获取到李华所在的班级id: ${cid}`);
+          break;
+        }
+      }
+      const cls = await ajaxPromise({
+        url: `./data/classes.json?class=${cid}`
+      });
+      let tid;
+      for (let i = 0; i < cls.length; i++) {
+        const cl = cls[i];
+        if (cl.id === cid) {
+          tid = cl.teacherId;
+          console.log(`获取到班级id为: ${cid} 的老师id: ${tid}`);
+          break;
+        }
+      }
+      const ts = await ajaxPromise({
+        url: `./data/teachers.json?teacher=${tid}`
+      });
+      let t;
+      for (let i = 0; i < ts.length; i++) {
+        if (ts[i].id === tid) {
+          t = ts[i];
+          console.log(`获取到id为: ${tid} 的老师信息`, t);
+          break;
+        }
+      }
+      console.log('此时已经获取到了李华的老师信息, 下面可以对其进行相关操作');
+      console.log(t);
+    }
+
+    handler();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root,
+body {
+    height: 100%;
+}
+
+body {
+    perspective: 800px;
+    transform-style: preserve-3d;
+    /* 这两条属性 只有设置了其中一个 那么该元素就会被视为定位的参照物元素 (相当于一起设置了 position: relative; )
+    这一注意点 在 demos 28 中会应用到 这里先提一嘴 */
+}
+
+div {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+
+    width: 200px;
+    height: 200px;
+    background-image: url(../../resources/images/dahuyou.jpg);
+    background-size: cover;
+
+    transform: rotateY(45deg);
+    transform-origin: 100px 100px 100px; /* 设置变化中心 */
+}

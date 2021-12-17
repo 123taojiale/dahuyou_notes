@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>内容溢出</title>
+  <style>
+    .box1 {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ddd;
+      margin: 3em auto;
+      /* 可以隐藏溢出内容 */
+      /* overflow: hidden; */
+    }
+
+    .box2 {
+      width: 100%;
+      height: 100%;
+      /* 无法隐藏溢出的内容 */
+      /* overflow: hidden; */
+    }
+
+    .box3 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      color: red;
+      /* 不换行 */
+      white-space: nowrap;
+      filter: blur(.1vw);
+      /* 可以隐藏溢出内容 */
+      /* overflow: hidden; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    <div class="box2">
+      <div class="box3">后九收德目在木者子。</div>
+    </div>
+  </div>
+
+  <!-- 结论：
+  上述情况，溢出的内容需要隐藏，overflow 需要写哪？
+  1. 写自己身上；
+  2. 相对于哪个元素定位，就写在哪个元素身上；
+ -->
+</body>
+
+</html>

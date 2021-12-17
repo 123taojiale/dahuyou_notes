@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    /* Language and Environment */
+    "target": "es5", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    /* Modules */
+    "module": "commonjs", /* Specify what module code is generated. */
+    "rootDir": "./src", /* Specify the root folder within your source files. */
+    /* Emit */
+    "sourceMap": true, /* Create source map files for emitted JavaScript files. */
+    "outDir": "./dist", /* Specify an output folder for all emitted files. */
+    /* Type Checking */
+    "strict": true, /* Enable all strict type-checking options. */
+  }
+}

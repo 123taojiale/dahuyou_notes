@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./index.css">
+    <title>3D 旋转照片墙</title>
+</head>
+
+<body>
+    <button>动态视角</button>
+
+    <div class="wrapper">
+        <img src="../../resources/images/me/1.jpg" alt="">
+        <img src="../../resources/images/me/2.jpg" alt="">
+        <img src="../../resources/images/me/3.jpg" alt="">
+        <img src="../../resources/images/me/4.jpg" alt="">
+        <img src="../../resources/images/me/5.jpg" alt="">
+        <img src="../../resources/images/me/6.jpg" alt="">
+        <img src="../../resources/images/me/7.jpg" alt="">
+        <img src="../../resources/images/me/8.jpg" alt="">
+    </div>
+
+    <script>
+        function round() {
+            document.body.onmousemove = function (e) {
+                this.style.perspectiveOrigin = e.clientX + 'px ' + e.clientY + 'px';
+            }
+        }
+
+        function stop() {
+            document.body.onmousemove = null;
+            document.body.style.perspectiveOrigin = initValue;
+        }
+
+        let flag = 0,
+            initValue = getComputedStyle(document.body).perspectiveOrigin;
+        document.querySelector('button').onclick = function () {
+            // console.log(getComputedStyle(document.body).perspectiveOrigin);
+            // 获取一下初始情况下 perspectiveOrigin 的值 720px 243px
+            // 该值会跟浏览器窗口的缩放比例有关 还会与页面大小有关
+            flag++;
+            if (flag % 2 === 1) {
+                round();
+            } else {
+                stop();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

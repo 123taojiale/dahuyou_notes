@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>自定义指令钩子函数</title>
+</head>
+
+<body>
+  <div class="container" id="app">
+    <!-- 测试组件 -->
+    <app-test v-if="show" :text="text"></app-test>
+    <button @click="create">create</button>
+    <button @click="update">update</button>
+    <button @click="destory">destory</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="./v-test.js"></script>
+  <script>
+    const vm = new Vue({
+      data: {
+        show: true,
+        text: 'hello world',
+      },
+      components: {
+        appTest: {
+          // v-test 就是自定义指令  具体在main.js中看
+          template: '<h1 v-test="123">{{text}}</h1><h1 v-test="123">{{text}}</h1>',
+          props: {
+            text: String
+          }
+        }
+      },
+      methods: {
+        // 创建的方法
+        create() {
+          this.show = true
+        },
+        // 更新组件内容
+        update() {
+          this.text = 'hello'
+        },
+        // 利用内部指令摧毁组件
+        destory() {
+          this.show = false
+        }
+      },
+    }).$mount("#app")
+  </script>
+</body>
+
+</html>

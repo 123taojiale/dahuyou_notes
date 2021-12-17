@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text-shadow</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        div {
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 200px);
+
+
+            width: 400px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+
+            color: #ddd;
+            font-size: 80px;
+            font-weight: bold;
+
+            transition: all 1s;
+        }
+
+        div:hover {
+            text-shadow: 10px 10px 10px #f10,
+                20px 20px 20px #ff0,
+                30px 10px 15px #f0f,
+                10px 30px 20px #0ff,
+                -10px 10px 30px #f10,
+                -20px 20px 5px #ff0,
+                -30px 10px 30px #f0f,
+                -10px 30px 10px #0ff,
+                10px -10px 10px #f10,
+                20px -20px 10px #ff0,
+                30px -10px 30px #f0f,
+                10px -30px 10px #0ff,
+                -10px -10px 10px #f10,
+                -20px -20px 10px #ff0,
+                -30px -10px 15px #f0f,
+                -10px -30px 10px #0ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div>dahuyou</div>
+</body>
+
+</html>

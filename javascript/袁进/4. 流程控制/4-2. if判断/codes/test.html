@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2020年9月16日</title>
+</head>
+
+<body>
+
+    <!-- 被视为false的六个值 -->
+    <script>
+        console.log(!!null); // false
+        console.log(!!undefined); // false
+        console.log(!!false); // false
+        console.log(!!NaN); // false
+        console.log(!!0); // false
+        console.log(!!''); // false
+    </script>
+
+
+    <!-- test1.html -->
+    <script>
+        var score = 95;
+        // A：>=90  B: >=70 <90  C: >=50 <70  D: <50
+        if (score >= 90) {
+            console.log("A");
+        } else if (score >= 70) {
+            console.log("B");
+        } else if (score >= 50) {
+            console.log("C");
+        } else {
+            console.log("D");
+        }
+    </script>
+
+    <script>
+        var score = 66;
+        // 单用if语句
+        if (score >= 90) {
+            console.log("A");
+        }
+        if (score >= 70 && score < 90) {
+            console.log("B");
+        }
+        if (score >= 50 && score < 70) {
+            console.log("C");
+        }
+        if (score < 50) {
+            console.log("D");
+        }
+    </script>
+
+
+
+
+
+    <!-- test2.html [面试题] -->
+    <script>
+        if (!x) {
+            x = 0;
+        }
+        if (x++ >= 1) {
+            var x;
+            x++;
+        } else if (++x >= 2) {
+            x++;
+        } else {
+            x--;
+        }
+        console.log(x); // 3
+    </script>
+
+
+    <!--
+    1. 用户输入: prompt("提示文本")
+
+    该表达式返回结果：null 或 字符串
+
+        1. null：表示用户点击了取消
+        2. 用户输入的字符串：表示用户点击了确定，得到用户输入的结果 -->
+
+
+    <!-- 2. 将字符串转换成数字：+字符串 -->
+
+
+    <!-- test3.html -->
+    <script>
+        // 等待用户操作（确定，取消），将用户操作的结果保存到变量result中
+        // 让用户输入一个数字，如果点击了取消，输出取消，如果点击了确定，根据输入的内容判断输入是否正确
+        var result = prompt("请输入你的年龄");
+        if (result === null) {
+            console.log("点击了取消");
+        } else {
+            result = +result; //转换为数字
+            if (isNaN(result)) { // 如果 result 转换为数字是 NaN 那么执行if语句块的内容
+                // 不是正常的数字
+                console.log("输入有误");
+            } else {
+                console.log(result, typeof result);
+            }
+        }
+    </script>
+
+
+    <!--
+    3. 得到一个随机数
+
+    Math.random() 该表达式返回一个0~1之间的随机数字（无法取到1） -->
+
+    <!-- test4.html -->
+    <script>
+        console.log(Math.random());
+    </script>
+
+
+</body>
+
+</html>

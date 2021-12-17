@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+       var obj = {
+           firstName:"w",
+           lastName:"jf",
+           age:18,
+           sayHello:function(){
+               console.log(`我叫${this.firstName}${this.lastName},今年${this.age}岁`);
+           }
+        };
+
+        obj.sayHello();         //我叫wjf,今年18岁
+
+        var b = obj.sayHello;
+        b();                    //我叫undefinedundefined,今年undefined岁
+
+        obj.firstName = "王";
+        obj.lastName = "二马";
+        obj.age = 1;
+        obj.sayHello();         //我叫王二马,今年1岁
+
+    </script>
+</body>
+
+</html>

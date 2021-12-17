@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年9月16日</title>
+</head>
+
+<body>
+
+  <!-- test1.html -->
+  <script>
+    var obj = {
+      a: 3
+    };
+    console.log(obj["a"] * obj.a); // 9
+  </script>
+
+
+  <!-- test2.html -->
+  <!-- 赋值表达式 ==> 返回赋值的结果 -->
+  <script>
+    var a, b, c, d;
+    a = b = c = d = 1;
+    console.log(a, b, c, d); // 1 1 1 1
+    /*
+        d:1
+        c:1
+        b:1
+        a:1
+     */
+  </script>
+
+
+  <!-- test3.html -->
+  <script>
+    // console.log函数调用的返回结果为undefined
+    console.log(console.log()); // undefined
+  </script>
+
+
+</body>
+
+</html>

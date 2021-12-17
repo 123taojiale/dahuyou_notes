@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>render</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    const vm = new Vue({
+      render: h => h("a", { // a 元素
+        style: {
+          "color": "lightblue"
+        },
+        attrs: {
+          href: "http://dahuyou.top",
+          name: "dahuyou の blog"
+        }
+      }, [
+        "dahuyou の blog" // 内容
+      ])
+    }).$mount("#app");
+
+    /*
+    最终的渲染结果如下：
+    <a href="http://dahuyou.top" name="dahuyou の blog" style="color: lightblue;">
+      dahuyou の blog
+    </a>
+    */
+  </script>
+</body>
+
+</html>

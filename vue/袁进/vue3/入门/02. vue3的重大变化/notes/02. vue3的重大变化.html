@@ -1,0 +1,274 @@
+<!DOCTYPE html><html><head>
+      <title>02. vue3&#x7684;&#x91CD;&#x5927;&#x53D8;&#x5316;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro:300,400,600");
+*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}.markdown-preview code{border-radius:2px;color:#e96900;font-size:12.8px;font-size:.8rem;margin:0 2px;padding:3px 5px;white-space:pre-wrap}.markdown-preview code,.markdown-preview pre{background-color:#f8f8f8;font-family:Roboto Mono,Monaco,courier,monospace}.markdown-preview pre{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;line-height:24px;line-height:1.5rem;margin:1.2em 0;overflow:auto;padding:0 22.4px;padding:0 1.4rem;position:relative;word-wrap:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#8e908c}.token.namespace{opacity:.7}.token.boolean,.token.number{color:#c76b29}.token.punctuation{color:#525252}.token.property{color:#c08b30}.token.tag{color:#2973b7}.token.string{color:#42b983;color:var(--theme-color, #42b983)}.token.selector{color:#6679cc}.token.attr-name{color:#2973b7}.language-css .token.string,.style .token.string,.token.entity,.token.url{color:#22a2c9}.token.attr-value,.token.control,.token.directive,.token.unit{color:#42b983;color:var(--theme-color, #42b983)}.token.keyword{color:#e96900}.token.atrule,.token.regex,.token.statement{color:#22a2c9}.token.placeholder,.token.variable{color:#3d8fd1}.token.deleted{text-decoration:line-through}.token.inserted{border-bottom:1px dotted #202746;text-decoration:none}.token.italic{font-style:italic}.token.bold,.token.important{font-weight:700}.token.important{color:#c94922}.token.entity{cursor:help}.markdown-preview pre>code,.markdown-preview pre[class*="language"]{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;background-color:#f8f8f8;border-radius:2px;color:#525252;display:block;font-family:Roboto Mono,Monaco,courier,monospace;font-size:12.8px;font-size:.8rem;line-height:2em;max-width:inherit;overflow:inherit;padding:.8em 1.4em;white-space:pre}.markdown-preview pre>code{padding-left:0;padding-right:0}.markdown-preview code:after,.markdown-preview code:before{letter-spacing:.8px;letter-spacing:.05rem}code .token{-moz-osx-font-smoothing:initial;-webkit-font-smoothing:initial;min-height:24px;min-height:1.5rem}pre:after{color:#ccc;content:attr(data-lang);font-size:9.6px;font-size:.6rem;font-weight:600;height:15px;line-height:15px;padding:5px 10px 0;position:absolute;right:0;text-align:right;top:0}pre[data-line]{position:relative;padding:1em 0 1em 3em !important}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:rgba(153,122,102,0.08);background:linear-gradient(to right, rgba(153,122,102,0.1) 70%, rgba(153,122,102,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:rgba(153,122,102,0.4);color:#f5f2f0;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px white}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;src:local('Roboto Mono'),local('RobotoMono-Regular'),url(https://fonts.gstatic.com/s/robotomono/v7/L0x5DF4xlVMF-BfR8bXMIjhLq3o.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:300;src:local('Source Sans Pro Light'),local('SourceSansPro-Light'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdr.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:400;src:local('Source Sans Pro Regular'),local('SourceSansPro-Regular'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7g.ttf) format('truetype')}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:600;src:local('Source Sans Pro SemiBold'),local('SourceSansPro-SemiBold'),url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdr.ttf) format('truetype')}*{-webkit-font-smoothing:antialiased;-webkit-overflow-scrolling:touch;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;-webkit-touch-callout:none;box-sizing:border-box}body:not(.ready){overflow:hidden}body:not(.ready) .app-nav,body:not(.ready)>nav,body:not(.ready) [data-cloak]{display:none}div#app{font-size:30px;font-weight:lighter;margin:40vh auto;text-align:center}div#app:empty:before{content:"Loading..."}.emoji{height:19.2px;height:1.2rem;vertical-align:middle}.progress{background-color:#42b983;background-color:var(--theme-color, #42b983);height:2px;left:0;position:fixed;right:0;top:0;transition:width .2s,opacity .4s;width:0;z-index:5}.search .search-keyword,.search a:hover{color:#42b983;color:var(--theme-color, #42b983)}.search .search-keyword{font-style:normal;font-weight:700}body,html{height:100%}body{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;color:#34495e;font-family:Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:15px;letter-spacing:0;margin:0;overflow-x:hidden}img{max-width:100%}a[disabled]{cursor:not-allowed;opacity:.6}kbd{color:#34495e;border:1px solid #ccc;border-radius:3px;display:inline-block;font-size:12px !important;line-height:12px;margin-bottom:3px;padding:3px 5px;vertical-align:middle}.task-list-item{list-style-type:none}li input[type=checkbox]{margin:0 .2em .25em -1.6em;vertical-align:middle}.app-nav{left:0;margin:25px 60px 0 0;position:absolute;right:0;text-align:right;z-index:2}.app-nav p{margin:0}.app-nav>a{margin:0 16px;margin:0 1rem;padding:5px 0}.app-nav li,.app-nav ul{display:inline-block;list-style:none;margin:0}.app-nav a{color:inherit;font-size:16px;text-decoration:none;transition:color .3s}.app-nav a.active,.app-nav a:hover{color:#42b983;color:var(--theme-color, #42b983)}.app-nav a.active{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983)}.app-nav li{display:inline-block;margin:0 16px;margin:0 1rem;padding:5px 0;position:relative}.app-nav li ul{background-color:#fff;border:1px solid #ddd;border-bottom-color:#ccc;border-radius:4px;box-sizing:border-box;display:none;max-height:calc(100vh - 61px);overflow-y:scroll;padding:10px 0;position:absolute;right:-15px;text-align:left;top:100%;white-space:nowrap}.app-nav li ul li{display:block;font-size:14px;line-height:16px;line-height:1rem;margin:0;margin:8px 14px;white-space:nowrap}.app-nav li ul a{display:block;font-size:inherit;margin:0;padding:0}.app-nav li ul a.active{border-bottom:0}.app-nav li:hover ul{display:block}.app-nav.no-badge{margin-right:25px}.github-corner{border-bottom:0;position:fixed;right:0;text-decoration:none;top:0;z-index:1}.github-corner svg{color:#fff;fill:#42b983;fill:var(--theme-color, #42b983);height:80px;width:80px}.github-corner:hover .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}main{display:block;position:relative;width:100vw;height:100%;z-index:0}.anchor{display:inline-block;text-decoration:none;transition:all .3s}.anchor span{color:#34495e}.anchor:hover{text-decoration:underline}.sidebar{border-right:1px solid rgba(0,0,0,0.07);overflow-y:auto;padding:40px 0 0;top:0;bottom:0;left:0;position:absolute;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out;width:300px;z-index:3}.sidebar>h1{margin:0 auto 16px;margin:0 auto 1rem;font-size:24px;font-size:1.5rem;font-weight:300;text-align:center}.sidebar>h1 a{color:inherit;text-decoration:none}.sidebar>h1 .app-nav{display:block;position:static}.sidebar .sidebar-nav{line-height:2em;padding-bottom:40px}.sidebar ul{margin:0;padding:0}.sidebar li>p{font-weight:700;margin:0}.sidebar ul,.sidebar ul li{list-style:none}.sidebar ul li a{border-bottom:none;display:block}.sidebar ul li ul{padding-left:20px}.sidebar::-webkit-scrollbar{width:4px}.sidebar::-webkit-scrollbar-thumb{background:transparent;border-radius:4px}.sidebar:hover::-webkit-scrollbar-thumb{background:hsla(0,0%,53%,0.4)}.sidebar:hover::-webkit-scrollbar-track{background:hsla(0,0%,53%,0.1)}.sidebar-toggle{background-color:transparent;background-color:hsla(0,0%,100%,0.8);border:0;outline:none;padding:10px;bottom:0;left:0;position:absolute;text-align:center;transition:opacity .3s;width:30px;width:284px;z-index:4}.sidebar-toggle .sidebar-toggle-button:hover{opacity:.4}.sidebar-toggle span{background-color:#42b983;background-color:var(--theme-color, #42b983);display:block;margin-bottom:4px;width:16px;height:2px}body.sticky .sidebar,body.sticky .sidebar-toggle{position:fixed}.content{padding-top:60px;top:0;right:0;bottom:0;left:300px;position:absolute;transition:left .25s ease}.markdown-preview>*{box-sizing:border-box;font-size:inherit}.markdown-preview>:first-child{margin-top:0 !important}.markdown-preview hr{border:none;border-bottom:1px solid #eee;margin:2em 0}.markdown-preview table{border-collapse:collapse;border-spacing:0;display:block;margin-bottom:16px;margin-bottom:1rem;overflow:auto;width:100%}.markdown-preview th{font-weight:700}.markdown-preview td,.markdown-preview th{border:1px solid #ddd;padding:6px 13px}.markdown-preview tr{border-top:1px solid #ccc}.markdown-preview p.tip,.markdown-preview tr:nth-child(2n){background-color:#f8f8f8}.markdown-preview p.tip{border-bottom-right-radius:2px;border-left:4px solid #f66;border-top-right-radius:2px;margin:2em 0;padding:12px 24px 12px 30px;position:relative}.markdown-preview p.tip code{background-color:#efefef}.markdown-preview p.tip em{color:#34495e}.markdown-preview p.tip:before{background-color:#f66;border-radius:100%;color:#fff;content:"!";font-family:Dosis,Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:14px;font-weight:700;left:-12px;line-height:20px;position:absolute;width:20px;height:20px;text-align:center;top:14px}.markdown-preview p.warn{background:rgba(66,185,131,0.1);border-radius:2px;padding:16px;padding:1rem}body.close .sidebar{-webkit-transform:translateX(-300px);transform:translateX(-300px)}body.close .sidebar-toggle{width:auto}body.close .content{left:0}@media print{.app-nav,.github-corner,.sidebar,.sidebar-toggle{display:none}}@media screen and (max-width:768px){.github-corner,.sidebar,.sidebar-toggle{position:fixed}.app-nav{margin-top:16px}.app-nav li ul{top:30px}main{height:auto;overflow-x:hidden}.sidebar{left:-300px;transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.content{left:0;max-width:100vw;position:static;padding-top:20px;transition:-webkit-transform .25s ease;transition:transform .25s ease;transition:transform .25s ease,-webkit-transform .25s ease}.app-nav,.github-corner{transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.sidebar-toggle{background-color:transparent;width:auto;padding:30px 30px 10px 10px}body.close .sidebar{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .sidebar-toggle{background-color:hsla(0,0%,100%,0.8);transition:background-color 1s;width:284px;padding:10px}body.close .content{-webkit-transform:translateX(300px);transform:translateX(300px)}body.close .app-nav,body.close .github-corner{display:none}.github-corner .octo-arm{-webkit-animation:a .56s ease-in-out;animation:a .56s ease-in-out}.github-corner:hover .octo-arm{-webkit-animation:none;animation:none}}@-webkit-keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}@keyframes a{0%,to{-webkit-transform:rotate(0);transform:rotate(0)}20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}}section.cover{-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-position:50%;background-repeat:no-repeat;background-size:cover;height:100vh;display:none}section.cover .cover-main{-webkit-box-flex:1;-ms-flex:1;flex:1;margin:-20px 16px 0;text-align:center;z-index:1}section.cover a{color:inherit}section.cover a,section.cover a:hover{text-decoration:none}section.cover p{line-height:24px;line-height:1.5rem;margin:1em 0}section.cover h1{color:inherit;font-size:40px;font-size:2.5rem;font-weight:300;margin:10px 0 40px;margin:.625rem 0 2.5rem;position:relative;text-align:center}section.cover h1 a{display:block}section.cover h1 small{bottom:-7px;bottom:-0.4375rem;font-size:16px;font-size:1rem;position:absolute}section.cover blockquote{font-size:24px;font-size:1.5rem;text-align:center}section.cover ul{line-height:1.8;list-style-type:none;margin:1em auto;max-width:500px;padding:0}section.cover .cover-main>p:last-child a{border-color:#42b983;border:1px solid var(--theme-color, #42b983);border-radius:2rem;box-sizing:border-box;color:#42b983;color:var(--theme-color, #42b983);display:inline-block;font-size:16.8px;font-size:1.05rem;letter-spacing:1.6px;letter-spacing:.1rem;margin-right:16px;margin-right:1rem;padding:.75em 32px;padding:.75em 2rem;text-decoration:none;transition:all .15s ease}section.cover .cover-main>p:last-child a:last-child{background-color:#42b983;background-color:var(--theme-color, #42b983);color:#fff;margin-right:0}section.cover .cover-main>p:last-child a:last-child:hover{color:inherit;opacity:.8}section.cover .cover-main>p:last-child a:hover{color:inherit}section.cover blockquote>p>a{border-bottom:2px solid #42b983;border-bottom:2px solid var(--theme-color, #42b983);transition:color .3s}section.cover blockquote>p>a:hover{color:#42b983;color:var(--theme-color, #42b983)}section.cover.show{display:-webkit-box;display:-ms-flexbox;display:flex}section.cover.has-mask .mask{background-color:#fff;opacity:.8;position:absolute;width:100%;height:100%}.sidebar,body{background-color:#fff}.sidebar{color:#364149}.sidebar li{margin:6px 0 6px 15px}.sidebar ul li a{color:#505d6b;font-size:14px;font-weight:400;overflow:hidden;text-decoration:none;text-overflow:ellipsis;white-space:nowrap}.sidebar ul li a:hover{text-decoration:underline}.sidebar ul li ul{padding:0}.sidebar ul li.active>a{border-right:2px solid;color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.app-sub-sidebar li:before{content:"-";padding-right:4px;float:left}.markdown-preview h1,.markdown-preview h2,.markdown-preview h3,.markdown-preview h4,.markdown-preview strong{color:#2c3e50;font-weight:600}.markdown-preview a{color:#42b983;color:var(--theme-color, #42b983);font-weight:600}.md-sidebar-toc a{color:#42b983;font-weight:600}.markdown-preview h1{font-size:32px;font-size:2rem;margin:0 0 16px;margin:0 0 1rem}.markdown-preview h2{font-size:28px;font-size:1.75rem;margin:45px 0 12.8px;margin:45px 0 .8rem}.markdown-preview h3{font-size:24px;font-size:1.5rem;margin:40px 0 9.6px;margin:40px 0 .6rem}.markdown-preview h4{font-size:20px;font-size:1.25rem}.markdown-preview h5,.markdown-preview h6{font-size:16px;font-size:1rem}.markdown-preview h6{color:#777}.markdown-preview figure,.markdown-preview p{margin:1.2em 0}.markdown-preview ol,.markdown-preview p,.markdown-preview ul{line-height:25.6px;line-height:1.6rem;word-spacing:.8px;word-spacing:.05rem}.markdown-preview ol,.markdown-preview ul{padding-left:24px;padding-left:1.5rem}.markdown-preview blockquote{border-left:4px solid #42b983;border-left:4px solid var(--theme-color, #42b983);color:#858585;background-color:#f0f0f0;margin:2em 0;padding-left:20px}.markdown-preview blockquote p{font-weight:600;margin-left:0}.markdown-preview iframe{margin:1em 0}.markdown-preview em{color:#7f8c8d}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview body {
+  font-family: 'Consolas', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.markdown-preview.markdown-preview h3 {
+  border-top: 2px dotted #42b98366;
+  padding-top: 1em;
+}
+.markdown-preview.markdown-preview ::selection {
+  color: inherit;
+  background: #d9e9ff;
+}
+.markdown-preview.markdown-preview h4 {
+  color: #7b7b7b;
+}
+.markdown-preview.markdown-preview img {
+  zoom: 50%;
+  box-shadow: 0 6px 15px #aaa;
+}
+.markdown-preview.markdown-preview a {
+  text-decoration: none;
+  font-weight: normal;
+}
+.markdown-preview.markdown-preview .mume > ul {
+  list-style: none;
+  background-color: #8c8c8c;
+}
+.markdown-preview.markdown-preview blockquote {
+  border-left: 4px solid #42b983;
+  padding: 10px 15px;
+  color: #777;
+  background-color: rgba(66, 185, 131, 0.1);
+  margin: 0.8em 0;
+  border-radius: 6px;
+}
+.markdown-preview.markdown-preview blockquote p {
+  margin: 0;
+  color: inherit;
+  font-weight: normal;
+  line-height: 1.6rem;
+  word-spacing: 0.05rem;
+}
+.markdown-preview.markdown-preview table {
+  display: block !important;
+  width: 100%;
+  /* border: 1px solid #bbb;
+            border-radius: 5%; */
+}
+.markdown-preview.markdown-preview [data-role="codeBlock"] {
+  overflow-x: auto;
+  font-family: Consolas, "Courier New", monospace;
+}
+.markdown-preview.markdown-preview code {
+  word-break: break-all;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h2 class="mume-header undefined" id="02-vue3%E7%9A%84%E9%87%8D%E5%A4%A7%E5%8F%98%E5%8C%96">02. vue3&#x7684;&#x91CD;&#x5927;&#x53D8;&#x5316;</h2>
+
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</a></li>
+<li><a href="#vue-%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AF%BC%E5%87%BA">&quot;vue&quot; &#x7684;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;</a></li>
+<li><a href="#vueuse-%E5%92%8C-appuse">Vue.use() &#x548C; app.use()</a></li>
+<li><a href="#this">this</a></li>
+<li><a href="#option-api-composition-api">option api&#x3001;composition api</a></li>
+<li><a href="#setup">setup()</a></li>
+<li><a href="#ref">ref()</a></li>
+</ul>
+<h3 class="mume-header" id="%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</h3>
+
+<ul>
+<li>&#x65F6;&#x957F;&#xFF1A;</li>
+</ul>
+<h3 class="mume-header" id="vue-%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AF%BC%E5%87%BA">&quot;vue&quot; &#x7684;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;</h3>
+
+<ul>
+<li>vue2 &#x4E2D;&#x7684; main.js</li>
+</ul>
+<p>&#x5728; vue2 &#x4E2D;&#xFF0C;&#x751F;&#x6210;&#x7684; main.js &#x7684;&#x9ED8;&#x8BA4;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">Vue</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;vue&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">App</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;./App.vue&apos;</span>
+
+<span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token property-access">config</span><span class="token punctuation">.</span><span class="token property-access">productionTip</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+
+<span class="token keyword keyword-new">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function-variable function">render</span><span class="token operator">:</span> <span class="token parameter">h</span> <span class="token arrow operator">=&gt;</span> <span class="token function">h</span><span class="token punctuation">(</span><span class="token maybe-class-name">App</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">$mount</span><span class="token punctuation">(</span><span class="token string">&apos;#app&apos;</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;</li>
+</ul>
+<p><code>import Vue from &apos;vue&apos;</code></p>
+<p>&#x7531;&#x4E8E;&#xFF0C;&#x5728; <code>&quot;vue&quot;</code>&#xFF08;vue&#x5E93;&#xFF09; &#x4E2D;&#xFF0C;&#x5C06; <code>Vue</code>&#xFF08;Vue&#x5B9E;&#x4F8B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF09; &#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x8BE5;&#x8BED;&#x53E5;&#x5C06;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;&#x7684;&#x6784;&#x9020;&#x5668; <code>Vue</code> &#x5BFC;&#x5165;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x7A0B;&#x4E2D;&#x6765;&#x521B;&#x5EFA; Vue&#x5B9E;&#x4F8B;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5728; vue3 &#x4E2D;&#xFF0C;<code>&quot;vue&quot;</code>&#xFF08;vue&#x5E93;&#xFF09;&#x4E0D;&#x5B58;&#x5728;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x4F7F;&#x7528; vue2 &#x8FD9;&#x6837;&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x5199;&#xFF0C;&#x90A3;&#x4E48;&#x662F;&#x4F1A;&#x62A5;&#x9519;&#x7684;&#xFF08;&#x4E0B;&#x56FE;&#x662F;&#x62A5;&#x9519;&#x4FE1;&#x606F;&#xFF09;&#x3002;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20211013171028.png" alt="20211013171028"></p>
+<blockquote>
+<p><code>Uncaught SyntaxError: The requested module &apos;/@modules/vue.js&apos; does not provide an export named &apos;default&apos;</code><br>
+&#x610F;&#x601D;&#x662F;&#xFF1A;<code>/@modules/vue.js</code> &#x6CA1;&#x6709;&#x7ED9;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;&#x3002;</p>
+</blockquote>
+<ul>
+<li>vue3 &#x7684; main.js</li>
+</ul>
+<p>&#x65E2;&#x7136;&#x4F20;&#x7EDF;&#x7684; vue2 &#x7684; main.js &#x7684;&#x5199;&#x6CD5;&#x5728; vue3 &#x5DE5;&#x7A0B;&#x4E2D;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#xFF0C;&#x90A3;&#x4E48;&#x4F7F;&#x7528; vue3 &#x521B;&#x5EFA;&#x7684;&#x5DE5;&#x7A0B;&#xFF0C;main.js &#x7684;&#x9ED8;&#x8BA4;&#x5185;&#x5BB9;&#x53C8;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;</p>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x662F;&#x4F7F;&#x7528; vue3 &#x642D;&#x5EFA;&#x7684;&#x5DE5;&#x7A0B;&#x7684; main.js &#x7684;&#x9ED8;&#x8BA4;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> createApp <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;vue&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">App</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;./App.vue&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token string">&apos;./index.css&apos;</span>
+
+<span class="token function">createApp</span><span class="token punctuation">(</span><span class="token maybe-class-name">App</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">mount</span><span class="token punctuation">(</span><span class="token string">&apos;#app&apos;</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>&#x57FA;&#x672C;&#x5BFC;&#x51FA; createApp</li>
+</ul>
+<p>&#x4ECE; vue3 &#x5DE5;&#x7A0B;&#x7684; mian.js &#x7684;&#x9ED8;&#x8BA4;&#x5185;&#x5BB9;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE; <code>&quot;/@modules/vue.js&quot;</code>&#xFF08;&#x5C31;&#x662F;<code>&quot;vue&quot;</code>&#xFF09; &#x4E2D;&#x5BFC;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5BFC;&#x51FA;&#x5230; main.js &#x4E2D;&#x3002;&#x8FD9;&#x4E2A;&#x57FA;&#x672C;&#x5BFC;&#x51FA; createApp &#x5C31;&#x662F;&#x6211;&#x4EEC;&#x5728; vue3 &#x4E2D;&#xFF0C;&#x7528;&#x4E8E;&#x521B;&#x5EFA; Vue&#x5B9E;&#x4F8B; &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4F1A;&#x5C06;&#x5DE5;&#x7A0B;&#x7684;&#x6839;&#x7EC4;&#x4EF6; App.vue &#x4F5C;&#x4E3A;&#x8BE5;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x5B83;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x4E0A;&#x8FF0;&#x63D0;&#x5230;&#x7684;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;vue3 &#x662F;&#x6CA1;&#x6709;&#x517C;&#x5BB9; vue2 &#x7684;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x79F0;&#x4E3A;&#x201C;&#x622A;&#x65AD;&#x5F0F;&#x201D;&#xFF08;breaking&#xFF09;&#x7684;&#x66F4;&#x65B0;&#x3002;</p>
+<h3 class="mume-header" id="vueuse-%E5%92%8C-appuse">Vue.use() &#x548C; app.use()</h3>
+
+<ul>
+<li>vue2 &#x7684; Vue.use()</li>
+</ul>
+<p>vue2 &#x5DE5;&#x7A0B;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;&#x67D0;&#x4E2A;&#x63D2;&#x4EF6;&#xFF08;&#x6BD4;&#x5982;&#xFF1A;vue-router&#xFF09;&#xFF0C;&#x5F97;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">Vue</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;vue&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">VueRouter</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;vue-router&apos;</span>
+
+<span class="token maybe-class-name">Vue</span><span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">VueRouter</span><span class="token punctuation">)</span>
+</pre><ul>
+<li>vue3 &#x7684; app.use()</li>
+</ul>
+<p>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x63D0;&#x5230;&#xFF0C;vue3 &#x4E2D;&#x5DF2;&#x7ECF;&#x4E0D;&#x5B58;&#x5728;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA; Vue &#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x5728; vue3 &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x63D2;&#x4EF6;&#xFF0C;&#x5199;&#x6CD5;&#x81EA;&#x7136;&#x4E5F;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x4E0B;&#x9762;&#x662F; vue3 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> createApp <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&quot;vue&quot;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">VueRouter</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;vue-router&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">App</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&quot;./App.vue&quot;</span>
+
+<span class="token keyword keyword-const">const</span> app <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">createApp</span><span class="token punctuation">(</span><span class="token maybe-class-name">App</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+app<span class="token punctuation">.</span><span class="token method function property-access">use</span><span class="token punctuation">(</span><span class="token maybe-class-name">VueRouter</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="this">this</h3>
+
+<p>&#x5728; vue3 &#x4E2D;&#x5199;&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;&#x4F9D;&#x65E7;&#x652F;&#x6301;&#x4F20;&#x7EDF;&#x7684;&#x914D;&#x7F6E;&#x5F0F;&#x5199;&#x6CD5;&#xFF0C;&#x4EE5;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x6848;&#x4F8B;&#x4E3A;&#x4F8B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>increase<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>count&#xFF1A;{{ count }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">{</span>
+      count<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">increase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&apos;this =&gt; &apos;</span><span class="token punctuation">,</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">count</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</pre><p>&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x5728; vue2&#x3001;vue3 &#x4E2D;&#x90FD;&#x662F;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;vue3 &#x517C;&#x5BB9;&#x4E4B;&#x524D;&#x7684; vue2&#x3002;</p>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x4E0D;&#x540C;&#x70B9;&#x5728;&#x4E8E; this &#x7684;&#x6307;&#x5411;&#x3002;</p>
+<ul>
+<li>vue2 &#x4E2D;&#xFF0C;this &#x6307;&#x5411;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#xFF1B;</li>
+<li>vue3 &#x4E2D;&#xFF0C;this &#x6307;&#x5411;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF1B;</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20211013174020.png" alt="20211013174020"></p>
+<blockquote>
+<p>&#x4EE3;&#x7406;&#x3001;&#x53CD;&#x5C04;&#xFF08;proxy&#x3001;reflet&#xFF09;&#x662F; es6 &#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20211013173813.png" alt="20211013173813"></p>
+<h3 class="mume-header" id="option-api-composition-api">option api&#x3001;composition api</h3>
+
+<p>&#x50CF;&#x662F;&#x4E0A;&#x9762;&#x5199;&#x7684;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x4F20;&#x7EDF;&#x7684; option api &#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x4F46;&#x662F;&#xFF0C;vue3 &#x51FA;&#x73B0;&#x540E;&#xFF0C;&#x5B83;&#x4E0D;&#x4EC5;&#x652F;&#x6301;&#x539F;&#x6765; vue2 &#x7684; option api &#x7684;&#x5F62;&#x5F0F;&#x6765;&#x4E66;&#x5199;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD8;&#x652F;&#x6301; composition api &#x7684;&#x5F62;&#x5F0F;&#x6765;&#x4E66;&#x5199;&#x6211;&#x4EEC;&#x7684;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x8FD9;&#x4E24;&#x79CD; api &#x6700;&#x76F4;&#x89C2;&#x7684;&#x5BF9;&#x6BD4;&#xFF1A;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20211013174736.png" alt="20211013174736"><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20211013174751.png" alt="20211013174751"></p>
+<p>&#x8FD9;&#x4E24;&#x5F20;&#x56FE;&#x662F;&#x4F7F;&#x7528; composition api&#x3001;option api &#x6765;&#x5B9E;&#x73B0; TODO MVC &#x7684;&#x6700;&#x7EC8;&#x4EE3;&#x7801;&#x3002;&#x524D;&#x8005;&#x662F; composition api&#xFF0C;&#x540E;&#x8005;&#x662F; option api&#x3002;&#x4E0D;&#x540C;&#x7684;&#x989C;&#x8272;&#x5757;&#xFF0C;&#x8868;&#x793A;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;&#x5757;&#x3002;&#x901A;&#x8FC7;&#x770B;&#x8FD9;&#x4E24;&#x5F20;&#x56FE;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x5F88;&#x76F4;&#x89C2;&#x5F97;&#x770B;&#x51FA; composition api &#x80FD;&#x591F;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x529F;&#x80FD;&#x5757;&#x66F4;&#x52A0;&#x7D27;&#x51D1;&#xFF0C;&#x800C;&#x4F7F;&#x7528;&#x4F20;&#x7EDF;&#x7684; option api &#x5219;&#x4F1A;&#x663E;&#x5F97;&#x6211;&#x4EEC;&#x7684;&#x529F;&#x80FD;&#x5757;&#x5F88;&#x51CC;&#x4E71;&#xFF0C;&#x7ED9;&#x4EBA;&#x4E1C;&#x4E00;&#x5757;&#x897F;&#x4E00;&#x5757;&#x7684;&#x611F;&#x89C9;&#x3002;&#x7EC4;&#x4EF6;&#x7684;&#x529F;&#x80FD;&#x8D8A;&#x662F;&#x590D;&#x6742;&#xFF0C;&#x8FD9;&#x79CD;&#x5BF9;&#x6BD4;&#x5C31;&#x8D8A;&#x662F;&#x660E;&#x663E;&#x3002;</p>
+<blockquote>
+<p>&#x5E76;&#x4E0D;&#x662F;&#x8BF4; composition api &#x51FA;&#x6765;&#x540E;&#xFF0C;&#x5C31;&#x518D;&#x4E5F;&#x4E0D;&#x7528; option api &#x4E86;&#x3002;&#x82E5;&#x7EC4;&#x4EF6;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x529F;&#x80FD;&#x4E5F;&#x5F88;&#x5355;&#x4E00;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x8BB8;&#x8FD8;&#x4F1A;&#x4F7F;&#x7528; option api &#x6765;&#x5199;&#x3002;</p>
+</blockquote>
+<p>&#x901A;&#x8FC7;&#x4E86;&#x89E3;&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x96BE;&#x5F97;&#x77E5;&#xFF0C;vue3 &#x8981;&#x6574;&#x51FA;&#x4E2A; composition api &#x7684;&#x539F;&#x56E0;&#x4E86;&#x3002;</p>
+<p>&#x800C; vue2 &#x5347;&#x7EA7;&#x5230; vue3&#xFF0C;&#x6700;&#x91CD;&#x5927;&#x7684;&#x53D8;&#x5316;&#x4E5F;&#x5C31;&#x662F;&#x8FD9;&#x4E2A; composition api&#x3002;&#x6211;&#x4EEC;&#x540E;&#x8FB9;&#x5B66;&#x4E60;&#x7684;&#x91CD;&#x70B9;&#xFF0C;&#x5C31;&#x5728;&#x4E8E; composition api &#x7684;&#x5B66;&#x4E60;&#x3002;</p>
+<h3 class="mume-header" id="setup">setup()</h3>
+
+<blockquote>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://v3.cn.vuejs.org/guide/composition-api-setup.html">Setup</a><br>
+&#x6709;&#x5173; setup &#x8FD9;&#x4E2A; composition api &#x7684;&#x76F8;&#x5173;&#x8BF4;&#x660E;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x9605;&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF0C;&#x7B14;&#x8BB0;&#x91CC;&#x4EC5;&#x505A;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x4ECB;&#x7ECD;&#x3002;</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token punctuation">{</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// =&gt; &#x51FD;&#x6570;&#x4F53;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><ul>
+<li>&#x4F55;&#x65F6;&#x8C03;&#x7528;</li>
+</ul>
+<p>setup()&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x4F1A;&#x5728;&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#x5B8C;&#x6210;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x5373;&#xFF1A;&#x6240;&#x6709;&#x58F0;&#x660E;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x51FD;&#x6570;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x3002;</p>
+<ul>
+<li>this &#x6307;&#x5411;</li>
+</ul>
+<p>&#x8BE5;&#x51FD;&#x6570;&#x4E2D;&#x662F;&#x4E0D;&#x80FD;&#x4F7F;&#x7528; <code>this.xxx</code> &#x7684;&#xFF0C;&#x56E0;&#x4E3A; this &#x6307;&#x5411; undefined&#x3002;</p>
+<ul>
+<li>&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x503C;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x8EAB;&#x4E0A;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5C06;&#x88AB;&#x6CE8;&#x5165;&#x5230;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x6A21;&#x677F;&#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x3002;</p>
+<h3 class="mume-header" id="ref">ref()</h3>
+
+<blockquote>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://v3.cn.vuejs.org/api/refs-api.html#ref">ref</a></p>
+</blockquote>
+<ul>
+<li>&#x4F5C;&#x7528;</li>
+</ul>
+<p>&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x503C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<strong>&#x54CD;&#x5E94;&#x5F0F;&#x4E14;&#x53EF;&#x53D8;</strong>&#x7684; ref &#x5BF9;&#x8C61;&#x3002;ref &#x5BF9;&#x8C61;&#x5177;&#x6709;&#x6307;&#x5411;&#x5185;&#x90E8;&#x503C;&#x7684;&#x5355;&#x4E2A; property.value&#x3002;&#x8BF4;&#x7B80;&#x5355;&#x70B9;&#xFF0C;&#x5C31;&#x662F;&#x8BA9;&#x6570;&#x636E;&#x53D8;&#x4E3A;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x636E;&#x3002;</p>
+<ul>
+<li>&#x5B9E;&#x73B0;&#x539F;&#x7406;</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20211013182055.png" alt="20211013182055"></p>
+<p>ref &#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x5C31;&#x662F;&#x8D70;&#x4EE3;&#x7406; proxy&#x3002;</p>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</a></li>
+<li><a href="#vue-%E7%9A%84%E9%BB%98%E8%AE%A4%E5%AF%BC%E5%87%BA">&quot;vue&quot; &#x7684;&#x9ED8;&#x8BA4;&#x5BFC;&#x51FA;</a></li>
+<li><a href="#vueuse-%E5%92%8C-appuse">Vue.use() &#x548C; app.use()</a></li>
+<li><a href="#this">this</a></li>
+<li><a href="#option-api-composition-api">option api&#x3001;composition api</a></li>
+<li><a href="#setup">setup()</a></li>
+<li><a href="#ref">ref()</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

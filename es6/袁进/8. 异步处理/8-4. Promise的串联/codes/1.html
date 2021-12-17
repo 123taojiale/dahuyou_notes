@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>回调地狱 - 3</title>
+</head>
+
+<body>
+  <script src="./utils/ajax.promise.js"></script>
+  <script>
+    ajaxPromise({
+      url: './data/students.json'
+    }).then(stus => {
+      for (let i = 0; i < stus.length; i++) {
+        const stu = stus[i];
+        if (stu.name === '李华') {
+          const cid = stu.classId;
+          console.log(`拿到李华所在的班级id: ${cid}`);
+          ajaxPromise({
+            url: './data/classes.json'
+          }).then(cls => {
+            for (let i = 0; i < cls.length; i++) {
+              const cl = cls[i];
+              if (cl.id === cid) {
+                const tid = cl.teacherId;
+                console.log(`拿到班级id为: ${cid} 的老师id: ${tid}`);
+                ajaxPromise({
+                  url: './data/teachers.json'
+                }).then(ts => {
+                  for (let i = 0; i < ts.length; i++) {
+                    const t = ts[i];
+                    if (t.id === tid) {
+                      console.log(`拿到老师id为: ${tid} 的老师信息: `, t);
+                    }
+                  }
+                });
+              }
+            }
+          });
+        }
+      }
+    });
+    /*
+    试着用目前所学到的内容，尝试重新写一遍回调地狱 3 的那个 demo。
+    会发现：即便使用现阶段所学的 Promise 的相关知识点，依旧没有解决 8.1 中提及的“回调地狱”的问题。
+    */
+  </script>
+</body>
+
+</html>

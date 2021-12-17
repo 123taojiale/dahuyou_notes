@@ -1,0 +1,21 @@
+/* 水管 */
+.pipe {
+    position: absolute;
+    left: 400px;
+    width: 52px;
+}
+
+/* 上水管 */
+.pipe.up {
+    background: url('../img/pipeDown.png');
+    top: 0;
+    height: 100px;
+    background-position: bottom;
+}
+
+/* 下水管 */
+.pipe.down {
+    background: url('../img/pipeUp.png');
+    height: 88px;
+    top: 400px;
+}

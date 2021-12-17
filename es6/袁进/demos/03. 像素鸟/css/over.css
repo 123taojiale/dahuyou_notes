@@ -1,0 +1,22 @@
+/* 游戏结束 */
+.over {
+    display: none;
+
+    /* position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; */
+    position: absolute;
+    z-index: 9999;
+
+    height: 100%;
+    width: 100%;
+
+    font-size: 3em;
+    color: #f40;
+    text-align: center;
+    line-height: 600px;
+    background-color: rgba(0, 0, 0, .4);
+}

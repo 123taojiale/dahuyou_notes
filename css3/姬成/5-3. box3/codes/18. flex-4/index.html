@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex 模拟 float</title>
+    <style>
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            margin: 100px auto;
+            border: 1px solid #999;
+
+            width: 400px;
+            height: 400px;
+
+            resize: both;
+            overflow: hidden;
+        }
+
+        .wrapper .content {
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text-shadow</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #0ff;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        li {
+            padding-top: 20px;
+            margin-left: 20px;
+            float: left;
+            color: #008c8c;
+        }
+
+        div {
+            display: none;
+            position: absolute;
+            left: calc(50% - 250px);
+            top: calc(50% - 50px);
+
+            width: 500px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+
+            color: #ddd;
+            font-size: 80px;
+            font-weight: bold;
+
+        }
+
+        /* 浮雕效果 */
+        .text-shadow-one {
+            text-shadow: 1px 1px #000,
+                -1px -1px #fff;
+        }
+
+        /* 镂刻效果 */
+        .text-shadow-two {
+            text-shadow: -1px -1px #000;
+            /* text-shadow: -1px -1px #000,
+                1px 1px #fff; */
+        }
+
+        :target {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="#one">浮雕效果</a>
+        </li>
+        <li>
+            <a href="#two">镂刻效果</a>
+        </li>
+    </ul>
+
+    <!-- 浮雕效果 -->
+    <div id="one" class="text-shadow-one">dahuyou</div>
+
+    <!-- 镂刻效果 -->
+    <div id="two" class="text-shadow-two">dahuyou</div>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+console.log(global.a, global.b); // => undefined undefined

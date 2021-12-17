@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- # 通用函数编写
+
+新建一个js文件，编写以下函数 -->
+
+  <script src="../1. 函数语法/Myfunctions.js"></script>
+  <!-- Mr. Yuan 编写的代码位于 common 文件夹中的 myfunction.js 文件内部 -->
+
+
+
+  <!-- 1. 写一个函数，该函数用于判断某个数是不是奇数
+
+函数名参考：isOdd -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 判奇数
+     * @param {number} num 被判断的数字
+     * @return {boolean} 是奇数返回true 不是奇数返回 false
+     */
+    function isOdd(num) {
+      return num % 2 !== 0;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 判断一个数是不是奇数
+     * @param {number} n 要判断的数字
+     * @returns {boolean}
+     */
+    function isOdd(n) {
+      return n % 2 !== 0;
+    }
+  </script>
+  <script>
+    console.log(isOdd(1)); // true
+    console.log(isOdd(10)); // false
+  </script>
+
+
+
+
+  <!-- 2. 写一个函数，该函数用于判断某个数是不是素数
+
+函数名参考：isPrime -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 判素数
+     * @param {num} num 被判断的数字
+     * @return {boolean} 是素数 ==> true 非素数 ==> false
+     */
+    function isPrime(num) {
+      if (num < 3) {
+        return num > 1;
+      }
+      for (var i = 2; i <= num - 1; i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 判断一个数是不是素数
+     * @param {*} n
+     */
+    function isPrime(n) {
+      if (n < 2) {
+        return false;
+      }
+      for (var i = 2; i < n; i++) {
+        if (n % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+  </script>
+  <script>
+    var arr = [];
+    // 初始化 arr 赋值 1~100
+    for (var i = 0; i < 100; i++) {
+      arr[i] = i + 1;
+    }
+    // 遍历 arr 求素数和
+    var sum = 0;
+    for (var i = 0; i < 100; i++) {
+      if (isPrime(arr[i])) {
+        sum += arr[i];
+      }
+    }
+    console.log(sum); // 1060
+  </script>
+
+
+
+
+  <!-- 3. 写一个函数，该函数用于对数组求和
+
+函数名参考： sumOfArray -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 对数组求和
+     * @param {Array} arr 求和的数组
+     * @return {Number} 返回求和的结果
+     */
+    function sumOfArray(arr) {
+      var sum = 0;
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      return sum;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 对数组求和
+     * @param {*} arr
+     */
+    function sumOfArray(arr) {
+      var sum = 0;
+      for (var i = 0; i < arr.length; i++) {
+        sum += arr[i];
+      }
+      return sum;
+    }
+  </script>
+  <script>
+    var nums = [11, 26, 2, 38, 61];
+    console.log(sumOfArray(nums)); // 138
+  </script>
+
+
+
+
+
+  <!-- 4. 写一个函数，该函数用于得到数组中的最大值
+
+函数名参考：maxOfArray -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 返回数组中的最大值 若数组长度是0 则返回 undefined
+     * @param {Array} arr
+     */
+    function maxOfArray(arr) {
+      if (arr.length === 0) {
+        return;
+      }
+      maxNum = arr[0];
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > maxNum) {
+          maxNum = arr[i];
+        }
+      }
+      return maxNum;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 得到数组中的最大值，如果数组长度为0，则返回undefined
+     * @param {*} arr
+     */
+    function maxOfArray(arr) {
+      if (arr.length === 0) {
+        return;
+      }
+      var max = arr[0];
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+          max = arr[i];
+        }
+      }
+      return max;
+    }
+  </script>
+  <script>
+    var nums = [11, 26, 2, 38, 61];
+    console.log(maxOfArray(nums)); // 61
+  </script>
+
+
+
+
+  <!-- 5. 写一个函数，该函数用于得到数组中的最小值
+
+函数名参考：minOfArray -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 返回数组中的最小值 若数组长度是0 则返回 undefined
+     * @param {Array} arr
+     */
+    function minOfArray(arr) {
+      if (arr.length === 0) {
+        return;
+      }
+      minNum = arr[0];
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < minNum) {
+          minNum = arr[i];
+        }
+      }
+      return minNum;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 得到数组中的最小值，如果数组长度为0，则返回undefined
+     * @param {*} arr
+     */
+    function minOfArray(arr) {
+      if (arr.length === 0) {
+        return;
+      }
+      var min = arr[0];
+      for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+          min = arr[i];
+        }
+      }
+      return min;
+    }
+  </script>
+  <script>
+    var nums = [11, 26, 2, 38, 61];
+    console.log(minOfArray(nums)); // 2
+  </script>
+
+
+
+
+  <!-- 6. 写一个函数，该函数用于判断数组是否是稀松数组
+
+函数名参考：hasEmptyInArray -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 判稀松数组
+     * @param {Array} arr
+     * @return {Boolean} 是稀松数组 ==> true 非稀松数组 ==> false
+     */
+    // 稀疏数组 就是包含从0开始的不连续索引的数组。
+    function hasEmptyInArray(arr) {
+      for (var i = 0; i < arr.length; i++) {
+        if (!(i in arr)) {
+          return true;
+        }
+      }
+      return false;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 判断一个数组是不是稀松数组
+     * @param {*} arr
+     */
+    function hasEmptyInArray(arr) {
+      // 稀松数组的特点：下标连续
+      for (var i = 0; i < arr.length; i++) {
+        if (!(i in arr)) {
+          return true;
+        }
+      }
+      return false;
+    }
+  </script>
+  <script>
+    console.log(hasEmptyInArray(new Array(3))); // true
+    console.log(hasEmptyInArray([3, 4, 2, 6])); // false
+  </script>
+
+
+
+
+  <!-- 7. 写一个函数，判断该某年是否是闰年
+
+函数名参考：isLeap -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 判闰年
+     * @param {number} year 年份
+     */
+    function isLeap(year) {
+      return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 判断某年是不是闰年
+     * @param {*} year
+     */
+    function isLeap(year) {
+      // 4年一闰，百年不闰；400年一闰
+      return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+    }
+  </script>
+  <script>
+    console.log(isLeap(2019));
+    console.log(isLeap(2020));
+  </script>
+
+
+
+  <!-- 8. 写一个函数，得到某年某月的天数
+
+函数名参考：getDays -->
+  <!-- Mr. Tao -->
+  <script>
+    /**
+     * 计算某年某月的天数
+     * @param {number} year 年份
+     * @param {number} month 月份
+     * @return {number} 某年某月的天数
+     */
+    function getDays(year, month) {
+      if (month === 2) {
+        // 闰年 ==> 2月 ==> 29天
+        return isLeap(year) ? 29 : 28;
+      } else {
+        if ((month < 8 && isOdd(month)) || (month >= 8 && !isOdd(month))) {
+          // 大月
+          return 31;
+        } else {
+          // 小月
+          return 30;
+        }
+      }
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+    /**
+     * 得到某年某月的天数
+     * @param {*} year
+     * @param {*} month
+     */
+    function getDays(year, month) {
+      if (month === 2) {
+        return isLeap(year) ? 29 : 28;
+      } else if (month < 8 && isOdd(month) || month >= 8 && !isOdd(month)) {
+        return 31;
+      } else {
+        return 30;
+      }
+    }
+  </script>
+  <script>
+    console.log(getDays(2020, 2)); // 29
+    console.log(getDays(2020, 9)); // 30
+  </script>
+
+
+
+
+
+  <!-- 9. 写一个函数，得到某个数字数组中出现次数最多的数字和频率
+
+函数名参考：getTopFreqInArray -->
+  <!-- Mr. Tao - 1 -->
+  <script>
+    /**
+     * 得到某个数字数组中出现次数最多的数字和频率
+     * @param {Array} arr
+     * @return {Object} key ==> 出现最多的数字 value ==> 出现的次数
+     */
+    function getTopFreqInArray(arr) {
+
+      // 记录对象
+      var obj = {};
+      for (var i = 0; i < arr.length; i++) {
+        if (obj[arr[i]]) {
+          obj[arr[i]]++;
+        } else {
+          obj[arr[i]] = 1;
+        }
+      }
+      // 结果对象
+      // console.log(obj);
+      var maxFre = obj[arr[0]],
+        maxFreIndex = 0;
+      for (var i = 1; i < arr.length; i++) {
+        if (maxFre < obj[arr[i]]) {
+          maxFreIndex = i;
+          maxFre = obj[arr[i]];
+        }
+      }
+      var resultObj = {
+        num: +arr[maxFreIndex],
+        fre: maxFre
+      }
+      return resultObj;
+    }
+  </script>
+  <!-- Mr. Tao - 2 -->
+  <script>
+    function getTopFreqInArray(arr) {
+      var recordObj = {}; // 记录
+      for (var i = 0; i < arr.length; i++) {
+        if (recordObj[arr[i]]) {
+          recordObj[arr[i]]++;
+        } else {
+          recordObj[arr[i]] = 1;
+        }
+      }
+      // console.log(recordObj);
+      var resultObj = {
+        maxNum: arr[0],
+        maxFre: recordObj[arr[0]]
+      }; // 结果
+      console.log();
+      for (prop in recordObj) {
+        if (recordObj[prop] > resultObj.maxFre) {
+          resultObj = {
+            maxNum: prop,
+            maxFre: recordObj[prop]
+          }
+        }
+      }
+      return resultObj;
+    }
+  </script>
+  <!-- Mr. Yuan -->
+  <script>
+/**
+ * 得到数组中出现频率最高的数字和频率
+ * 返回一个对象
+ * @param {*} arr
+ */
+function getTopFreqInArray(arr) {
+  var records = {}; //记录出现频率
+  for (var i = 0; i < arr.length; i++) {
+    var n = arr[i];
+    if (records[n]) {
+      records[n]++;
+    } else {
+      records[n] = 1;
+    }
+  }
+  var result; //记录最终结果的对象
+  for (var prop in records) {
+    if (!result || records[prop] > result.frequency) {
+      result = {
+        number: +prop,
+        frequency: records[prop]
+      };
+    }
+  }
+  return result;
+}
+  </script>
+  <script>
+    var arr = [1, 3, 2, 6, 6, 6, 7, 5, 2, 3];
+    var obj = getTopFreqInArray(arr);
+    console.log(`出现最多的数字是: ${obj.num}\t出现的次数是: ${obj.fre}次`);
+  </script>
+
+
+
+
+  <!-- =============================================== -->
+
+
+  <!-- # 函数使用 -->
+
+
+
+
+  <!-- 1. 利用上面的某些函数，实现哥德巴赫猜想
+
+任一大于2的偶数都可写成两个质数之和，比如：8 = 3 + 5
+
+让用户输入一个大于2的偶数，输出其等于哪两个素数相加 -->
+  <!-- Mr. Tao -->
+  <script>
+    var inputNum = +prompt("请输入一个大于2的偶数: ");
+    if (inputNum > 2) {
+      // 随机生成两个满足条件的素数
+      while (true) {
+        var primeNum1 = Math.ceil(Math.random() * inputNum),
+          primeNum2 = inputNum - primeNum1;
+        if (isPrime(primeNum1) && isPrime(primeNum2)) {
+          break;
+        } else {
+          continue;
+        }
+      }
+      console.log(`${inputNum}=${primeNum1}+${primeNum2}`);
+    } else {
+      console.log("输入错误");
+    }
+  </script>
+  <!-- Mr. Yuan 1.html -->
+  <script>
+    function begin() {
+      var num = +prompt("请输入一个大于2的偶数");
+      if (isNaN(num) || num <= 2 || isOdd(num)) {
+        console.log("输入有误");
+        return;
+      }
+      //输入正确
+      for (var i = 2; i <= num - 2; i++) {
+        var j = num - i;
+        //判断两个数字是否都是素数
+        if (isPrime(i) && isPrime(j)) {
+          console.log(`${num} = ${i} + ${j}`);
+        }
+      }
+    }
+
+    begin();
+  </script>
+
+
+  <!-- 2. 让用户输入一个年份，输出该年每个月的天数 -->
+  <!-- Mr. Tao -->
+  <script>
+    var inputYear = +prompt("请输入一个年份: ");
+    var sum = 0; // 统计这一年的总天数
+    for (var i = 1; i <= 12; i++) {
+      console.log(`${inputYear}年的${i}月 ==> ${getDays(inputYear, i)}天`);
+      sum += getDays(inputYear, i);
+    }
+    console.log(`${inputYear}年的总天数 ==> ${sum}天`);
+  </script>
+  <!-- Mr. Yuan 2.html -->
+  <script>
+    // function begin() {
+    //     var year = +prompt("请输入一个年份（1990~2100）");
+    //     if (isNaN(year) || year < 1990 || year > 2100) {
+    //         console.log("输入有误");
+    //         return;
+    //     }
+    //     //输入正确
+    //     for (var m = 1; m <= 12; m++) {
+    //         console.log(`${year}年${m}月：${getDays(year, m)}`);
+    //     }
+    // }
+
+    // begin();
+
+    (function begin() {
+      var year = +prompt("请输入一个年份（1990~2100）");
+      if (isNaN(year) || year < 1990 || year > 2100) {
+        console.log("输入有误");
+        return;
+      }
+      //输入正确
+      for (var m = 1; m <= 12; m++) {
+        console.log(`${year}年${m}月：${getDays(year, m)}`);
+      }
+    }());
+  </script>
+</body>
+
+</html>
