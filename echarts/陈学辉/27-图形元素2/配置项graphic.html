@@ -2,148 +2,148 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title></title>
-	<style>
-		#chart {
-			width: 1500px;
-			height: 1000px;
-		}
-	</style>
-	<script src="js/echarts.js"></script>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #chart {
+      width: 1500px;
+      height: 1000px;
+    }
+  </style>
+  <script src="js/echarts.js"></script>
 </head>
 
 <body>
-	<div id="chart"></div>
-	<button>点击</button>
-	<script>
-		var mychart = echarts.init(document.getElementById('chart'));
+  <div id="chart"></div>
+  <button>点击</button>
+  <script>
+    var mychart = echarts.init(document.getElementById('chart'));
 
-		mychart.setOption({
-			color: ['#8EC9EB'],
-			legend: {},
-			tooltip: {
-				trigger: 'axis',
-				formatter: 'formatter: "Temperature : <br/>{b}km : {c}°C"'
-			},
-			grid: {
-				left: '3%',
-				right: '4%',
-				bottom: '3%',
-				containLabel: true
-			},
-			xAxis: {
-				axisLabel: {
-					formatter: '{value} °C'
-				},
-				splitLine: {
-					show: false,
-				}
-			},
-			yAxis: {
-				data: ['0', '10', '20', '30', '40', '50', '60', '70', '80'],
-				axisLabel: {
-					formatter: '{value} km'
-				},
-				axisLine: {
-					onZero: false,
-				}
-			},
-			series: {
-				name: '高度(km)与气温(°C)变化关系',
-				type: 'bar',
-				data: [15, -50, -56.5, -46.5, -22.1, -2.5, -27.7, -55.7, -76.5]
-			},
-			graphic: [
-				{
-					type: 'image',
-					id: 'favicon',
-					position: [0, 0],
-					//rotation: Math.PI / 180 * 90,	//Math.PI / 180 是把角度转成弧度
-					origin: [75, 75],
-					scale: [1, 1],
-					left: 1250,
-					//top:200,
-					info: 'Hello Kaivon!',
-					silent: false,
-					invisible: false,
-					ignore: false,
-					cursor: 'crosshair',
-					draggable: true,
+    mychart.setOption({
+      color: ['#8EC9EB'],
+      legend: {},
+      tooltip: {
+        trigger: 'axis',
+        formatter: 'formatter: "Temperature : <br/>{b}km : {c}°C"'
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        axisLabel: {
+          formatter: '{value} °C'
+        },
+        splitLine: {
+          show: false,
+        }
+      },
+      yAxis: {
+        data: ['0', '10', '20', '30', '40', '50', '60', '70', '80'],
+        axisLabel: {
+          formatter: '{value} km'
+        },
+        axisLine: {
+          onZero: false,
+        }
+      },
+      series: {
+        name: '高度(km)与气温(°C)变化关系',
+        type: 'bar',
+        data: [15, -50, -56.5, -46.5, -22.1, -2.5, -27.7, -55.7, -76.5]
+      },
+      graphic: [
+        {
+          type: 'image',
+          id: 'favicon',
+          position: [0, 0],
+          //rotation: Math.PI / 180 * 90,  //Math.PI / 180 是把角度转成弧度
+          origin: [75, 75],
+          scale: [1, 1],
+          left: 1250,
+          //top:200,
+          info: 'Hello Kaivon!',
+          silent: false,
+          invisible: false,
+          ignore: false,
+          cursor: 'crosshair',
+          draggable: true,
 
-					style: {
-						image: 'http://echarts.baidu.com/images/favicon.png',
-						width: 150,
-						height: 150,
-						x: 200,
-						y: 200,
-						fill: 'blue',
+          style: {
+            image: 'http://echarts.baidu.com/images/favicon.png',
+            width: 150,
+            height: 150,
+            x: 200,
+            y: 200,
+            fill: 'blue',
 
-						shadowBlur: 10,
-						shadowOffsetX: 10,
-						shadowOffsetY: 10,
-						shadowColor: '#000'
-					},
+            shadowBlur: 10,
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+            shadowColor: '#000'
+          },
 
-					onclick: function () {
-						console.log(1);
-					},
+          onclick: function () {
+            console.log(1);
+          },
 
-					ondrag: function () {
-						console.log('拖拽按下并拖动了！');
-					},
-					ondragstart: function () {
-						console.log('拖拽开始了（鼠标按下）！');
-					},
-					ondragend: function () {
-						console.log('拖拽结束了（鼠标抬起）！');
-					},
-					ondragenter: function () {
-						console.log('碰到我了！');
-					},
-					ondragleave: function () {
-						console.log('碰撞离开了！');
-					},
-					ondragover: function () {
-						console.log('ondragover');	//这个事件是有问题的
-					},
-					ondrop: function () {
-						console.log('拖拽元素拖到我身上了，并在我身上抬起了鼠标！')
-					}
-				},
-				{
-					type: 'image',
-					draggable: true,
-					style: {
-						image: 'http://echarts.baidu.com/images/favicon.png',
-						width: 50,
-						height: 50,
-					},
-				},
-				{
-					//文本块
-					type: 'text',
-					left: 'center',
-					top: 'center',
-					style: {
-						text: '横轴表示温度，单位是°C\n纵轴表示高度，单位是km\n右上角有一个图片做的水印\n这个文本块可以放在图中各\n种位置',
-						font: 'bold 16px Microsoft YaHei',
-						fill: 'red',
+          ondrag: function () {
+            console.log('拖拽按下并拖动了！');
+          },
+          ondragstart: function () {
+            console.log('拖拽开始了（鼠标按下）！');
+          },
+          ondragend: function () {
+            console.log('拖拽结束了（鼠标抬起）！');
+          },
+          ondragenter: function () {
+            console.log('碰到我了！');
+          },
+          ondragleave: function () {
+            console.log('碰撞离开了！');
+          },
+          ondragover: function () {
+            console.log('ondragover');  //这个事件是有问题的
+          },
+          ondrop: function () {
+            console.log('拖拽元素拖到我身上了，并在我身上抬起了鼠标！')
+          }
+        },
+        {
+          type: 'image',
+          draggable: true,
+          style: {
+            image: 'http://echarts.baidu.com/images/favicon.png',
+            width: 50,
+            height: 50,
+          },
+        },
+        {
+          //文本块
+          type: 'text',
+          left: 'center',
+          top: 'center',
+          style: {
+            text: '横轴表示温度，单位是°C\n纵轴表示高度，单位是km\n右上角有一个图片做的水印\n这个文本块可以放在图中各\n种位置',
+            font: 'bold 16px Microsoft YaHei',
+            fill: 'red',
 
-						stroke: 'blue',
-						lineWidth: 5,
-						shadowBlur: 10,
-						shadowOffsetX: 10,
-						shadowOffsetY: 10,
-						shadowColor: '#000',
-					}
-				},
-				{
-					//矩形
-					type: 'rect',
-					shape: {
-						width: 100,
-						height: 100,
+            stroke: 'blue',
+            lineWidth: 5,
+            shadowBlur: 10,
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+            shadowColor: '#000',
+          }
+        },
+        {
+          //矩形
+          type: 'rect',
+          shape: {
+            width: 100,
+        		height: 100,
 						x: 100,
 						y: 200,
 					},

@@ -1,7 +1,7 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.echarts = {})));
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.echarts = {})));
 }(this, (function (exports) { 'use strict';
 
 /*
@@ -907,45 +907,45 @@ function noop() {}
 
 
 var zrUtil = (Object.freeze || Object)({
-	$override: $override,
-	clone: clone,
-	merge: merge,
-	mergeAll: mergeAll,
-	extend: extend,
-	defaults: defaults,
-	createCanvas: createCanvas,
-	getContext: getContext,
-	indexOf: indexOf,
-	inherits: inherits,
-	mixin: mixin,
-	isArrayLike: isArrayLike,
-	each: each$1,
-	map: map,
-	reduce: reduce,
-	filter: filter,
-	find: find,
-	bind: bind,
-	curry: curry,
-	isArray: isArray,
-	isFunction: isFunction$1,
-	isString: isString,
-	isObject: isObject$1,
-	isBuiltInObject: isBuiltInObject,
-	isTypedArray: isTypedArray,
-	isDom: isDom,
-	eqNaN: eqNaN,
-	retrieve: retrieve,
-	retrieve2: retrieve2,
-	retrieve3: retrieve3,
-	slice: slice,
-	normalizeCssArray: normalizeCssArray,
-	assert: assert$1,
-	trim: trim,
-	setAsPrimitive: setAsPrimitive,
-	isPrimitive: isPrimitive,
-	createHashMap: createHashMap,
-	concatArray: concatArray,
-	noop: noop
+  $override: $override,
+  clone: clone,
+  merge: merge,
+  mergeAll: mergeAll,
+  extend: extend,
+  defaults: defaults,
+  createCanvas: createCanvas,
+  getContext: getContext,
+  indexOf: indexOf,
+  inherits: inherits,
+  mixin: mixin,
+  isArrayLike: isArrayLike,
+  each: each$1,
+  map: map,
+  reduce: reduce,
+  filter: filter,
+  find: find,
+  bind: bind,
+  curry: curry,
+  isArray: isArray,
+  isFunction: isFunction$1,
+  isString: isString,
+  isObject: isObject$1,
+  isBuiltInObject: isBuiltInObject,
+  isTypedArray: isTypedArray,
+  isDom: isDom,
+  eqNaN: eqNaN,
+  retrieve: retrieve,
+  retrieve2: retrieve2,
+  retrieve3: retrieve3,
+  slice: slice,
+  normalizeCssArray: normalizeCssArray,
+  assert: assert$1,
+  trim: trim,
+  setAsPrimitive: setAsPrimitive,
+  isPrimitive: isPrimitive,
+  createHashMap: createHashMap,
+  concatArray: concatArray,
+  noop: noop
 });
 
 var ArrayCtor = typeof Float32Array === 'undefined'
@@ -1219,31 +1219,31 @@ function max(out, v1, v2) {
 
 
 var vector = (Object.freeze || Object)({
-	create: create,
-	copy: copy,
-	clone: clone$1,
-	set: set,
-	add: add,
-	scaleAndAdd: scaleAndAdd,
-	sub: sub,
-	len: len,
-	length: length,
-	lenSquare: lenSquare,
-	lengthSquare: lengthSquare,
-	mul: mul,
-	div: div,
-	dot: dot,
-	scale: scale,
-	normalize: normalize,
-	distance: distance,
-	dist: dist,
-	distanceSquare: distanceSquare,
-	distSquare: distSquare,
-	negate: negate,
-	lerp: lerp,
-	applyTransform: applyTransform,
-	min: min,
-	max: max
+  create: create,
+  copy: copy,
+  clone: clone$1,
+  set: set,
+  add: add,
+  scaleAndAdd: scaleAndAdd,
+  sub: sub,
+  len: len,
+  length: length,
+  lenSquare: lenSquare,
+  lengthSquare: lengthSquare,
+  mul: mul,
+  div: div,
+  dot: dot,
+  scale: scale,
+  normalize: normalize,
+  distance: distance,
+  dist: dist,
+  distanceSquare: distanceSquare,
+  distSquare: distSquare,
+  negate: negate,
+  lerp: lerp,
+  applyTransform: applyTransform,
+  min: min,
+  max: max
 });
 
 // TODO Draggable for group
@@ -2460,15 +2460,15 @@ function clone$2(a) {
 }
 
 var matrix = (Object.freeze || Object)({
-	create: create$1,
-	identity: identity,
-	copy: copy$1,
-	mul: mul$1,
-	translate: translate,
-	rotate: rotate,
-	scale: scale$1,
-	invert: invert,
-	clone: clone$2
+  create: create$1,
+  identity: identity,
+  copy: copy$1,
+  mul: mul$1,
+  translate: translate,
+  rotate: rotate,
+  scale: scale$1,
+  invert: invert,
+  clone: clone$2
 });
 
 /**
@@ -3956,16 +3956,16 @@ function stringify(arrColor, type) {
 
 
 var color = (Object.freeze || Object)({
-	parse: parse,
-	lift: lift,
-	toHex: toHex,
-	fastLerp: fastLerp,
-	fastMapToColor: fastMapToColor,
-	lerp: lerp$1,
-	mapToColor: mapToColor,
-	modifyHSL: modifyHSL,
-	modifyAlpha: modifyAlpha,
-	stringify: stringify
+  parse: parse,
+  lift: lift,
+  toHex: toHex,
+  fastLerp: fastLerp,
+  fastMapToColor: fastMapToColor,
+  lerp: lerp$1,
+  mapToColor: mapToColor,
+  modifyHSL: modifyHSL,
+  modifyAlpha: modifyAlpha,
+  stringify: stringify
 });
 
 /**
@@ -11306,11 +11306,11 @@ ZRender.prototype = {
 
 
 var zrender = (Object.freeze || Object)({
-	version: version$1,
-	init: init$1,
-	dispose: dispose$1,
-	getInstance: getInstance,
-	registerPainter: registerPainter
+  version: version$1,
+  init: init$1,
+  dispose: dispose$1,
+  getInstance: getInstance,
+  registerPainter: registerPainter
 });
 
 /*
@@ -17669,50 +17669,50 @@ function createIcon(iconStr, opt, rect) {
 
 
 var graphic = (Object.freeze || Object)({
-	Z2_EMPHASIS_LIFT: Z2_EMPHASIS_LIFT,
-	extendShape: extendShape,
-	extendPath: extendPath,
-	makePath: makePath,
-	makeImage: makeImage,
-	mergePath: mergePath,
-	resizePath: resizePath,
-	subPixelOptimizeLine: subPixelOptimizeLine,
-	subPixelOptimizeRect: subPixelOptimizeRect,
-	subPixelOptimize: subPixelOptimize,
-	setElementHoverStyle: setElementHoverStyle,
-	isInEmphasis: isInEmphasis,
-	setHoverStyle: setHoverStyle,
-	setAsHoverStyleTrigger: setAsHoverStyleTrigger,
-	setLabelStyle: setLabelStyle,
-	setTextStyle: setTextStyle,
-	setText: setText,
-	getFont: getFont,
-	updateProps: updateProps,
-	initProps: initProps,
-	getTransform: getTransform,
-	applyTransform: applyTransform$1,
-	transformDirection: transformDirection,
-	groupTransition: groupTransition,
-	clipPointsByRect: clipPointsByRect,
-	clipRectByRect: clipRectByRect,
-	createIcon: createIcon,
-	Group: Group,
-	Image: ZImage,
-	Text: Text,
-	Circle: Circle,
-	Sector: Sector,
-	Ring: Ring,
-	Polygon: Polygon,
-	Polyline: Polyline,
-	Rect: Rect,
-	Line: Line,
-	BezierCurve: BezierCurve,
-	Arc: Arc,
-	IncrementalDisplayable: IncrementalDisplayble,
-	CompoundPath: CompoundPath,
-	LinearGradient: LinearGradient,
-	RadialGradient: RadialGradient,
-	BoundingRect: BoundingRect
+  Z2_EMPHASIS_LIFT: Z2_EMPHASIS_LIFT,
+  extendShape: extendShape,
+  extendPath: extendPath,
+  makePath: makePath,
+  makeImage: makeImage,
+  mergePath: mergePath,
+  resizePath: resizePath,
+  subPixelOptimizeLine: subPixelOptimizeLine,
+  subPixelOptimizeRect: subPixelOptimizeRect,
+  subPixelOptimize: subPixelOptimize,
+  setElementHoverStyle: setElementHoverStyle,
+  isInEmphasis: isInEmphasis,
+  setHoverStyle: setHoverStyle,
+  setAsHoverStyleTrigger: setAsHoverStyleTrigger,
+  setLabelStyle: setLabelStyle,
+  setTextStyle: setTextStyle,
+  setText: setText,
+  getFont: getFont,
+  updateProps: updateProps,
+  initProps: initProps,
+  getTransform: getTransform,
+  applyTransform: applyTransform$1,
+  transformDirection: transformDirection,
+  groupTransition: groupTransition,
+  clipPointsByRect: clipPointsByRect,
+  clipRectByRect: clipRectByRect,
+  createIcon: createIcon,
+  Group: Group,
+  Image: ZImage,
+  Text: Text,
+  Circle: Circle,
+  Sector: Sector,
+  Ring: Ring,
+  Polygon: Polygon,
+  Polyline: Polyline,
+  Rect: Rect,
+  Line: Line,
+  BezierCurve: BezierCurve,
+  Arc: Arc,
+  IncrementalDisplayable: IncrementalDisplayble,
+  CompoundPath: CompoundPath,
+  LinearGradient: LinearGradient,
+  RadialGradient: RadialGradient,
+  BoundingRect: BoundingRect
 });
 
 /*
@@ -18774,23 +18774,23 @@ function isNumeric(v) {
 
 
 var number = (Object.freeze || Object)({
-	linearMap: linearMap,
-	parsePercent: parsePercent$1,
-	round: round$2,
-	asc: asc,
-	getPrecision: getPrecision,
-	getPrecisionSafe: getPrecisionSafe,
-	getPixelPrecision: getPixelPrecision,
-	getPercentWithPrecision: getPercentWithPrecision,
-	MAX_SAFE_INTEGER: MAX_SAFE_INTEGER,
-	remRadian: remRadian,
-	isRadianAroundZero: isRadianAroundZero,
-	parseDate: parseDate,
-	quantity: quantity,
-	nice: nice,
-	quantile: quantile,
-	reformIntervals: reformIntervals,
-	isNumeric: isNumeric
+  linearMap: linearMap,
+  parsePercent: parsePercent$1,
+  round: round$2,
+  asc: asc,
+  getPrecision: getPrecision,
+  getPrecisionSafe: getPrecisionSafe,
+  getPixelPrecision: getPixelPrecision,
+  getPercentWithPrecision: getPercentWithPrecision,
+  MAX_SAFE_INTEGER: MAX_SAFE_INTEGER,
+  remRadian: remRadian,
+  isRadianAroundZero: isRadianAroundZero,
+  parseDate: parseDate,
+  quantity: quantity,
+  nice: nice,
+  quantile: quantile,
+  reformIntervals: reformIntervals,
+  isNumeric: isNumeric
 });
 
 /*
@@ -19032,17 +19032,17 @@ var getTextRect = getBoundingRect;
 
 
 var format = (Object.freeze || Object)({
-	addCommas: addCommas,
-	toCamelCase: toCamelCase,
-	normalizeCssArray: normalizeCssArray$1,
-	encodeHTML: encodeHTML,
-	formatTpl: formatTpl,
-	formatTplSimple: formatTplSimple,
-	getTooltipMarker: getTooltipMarker,
-	formatTime: formatTime,
-	capitalFirst: capitalFirst,
-	truncateText: truncateText$1,
-	getTextRect: getTextRect
+  addCommas: addCommas,
+  toCamelCase: toCamelCase,
+  normalizeCssArray: normalizeCssArray$1,
+  encodeHTML: encodeHTML,
+  formatTpl: formatTpl,
+  formatTplSimple: formatTplSimple,
+  getTooltipMarker: getTooltipMarker,
+  formatTime: formatTime,
+  capitalFirst: capitalFirst,
+  truncateText: truncateText$1,
+  getTextRect: getTextRect
 });
 
 /*
@@ -34486,14 +34486,14 @@ function mixinAxisModelCommonMethods(Model$$1) {
 }
 
 var helper = (Object.freeze || Object)({
-	createList: createList,
-	getLayoutRect: getLayoutRect,
-	dataStack: dataStack$1,
-	createScale: createScale,
-	mixinAxisModelCommonMethods: mixinAxisModelCommonMethods,
-	completeDimensions: completeDimensions,
-	createDimensions: createDimensions,
-	createSymbol: createSymbol
+  createList: createList,
+  getLayoutRect: getLayoutRect,
+  dataStack: dataStack$1,
+  createScale: createScale,
+  mixinAxisModelCommonMethods: mixinAxisModelCommonMethods,
+  completeDimensions: completeDimensions,
+  createDimensions: createDimensions,
+  createSymbol: createSymbol
 });
 
 var EPSILON$3 = 1e-8;
@@ -70490,10 +70490,10 @@ var sunburstLayout = function (seriesType, ecModel, api, payload) {
                     ? unitRadian : (value * unitRadian);
                 if (angle < minAngle) {
                     angle = minAngle;
-                    
+
                 }
                 else {
-                    
+
                 }
 
                 endAngle = startAngle + dir * angle;

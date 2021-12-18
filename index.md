@@ -20,6 +20,7 @@
 
 - [nodejs](./nodejs/index.html)
 - [typescript](./typescript/index.html)
+- [echarts](./echarts/index.html)
 
 ## 数据结构和算法
 
