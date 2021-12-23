@@ -2,15 +2,18 @@
 
 ## 前言
 
-- 把官方文档到处都点一点，简单了解一下官方文档的各个组成部分，知道 xxx 在 xxx 位置即可，以便后续查阅。
+- [ ] 了解一个 echart 图表，都由哪些部分组成。
 
-- echarts 的基本使用，使用 echarts 做一个图表。
+  参考链接：『[慕课 ECharts 图表组成](http://www.imooc.com/wiki/echarts/components#ECharts%20%E5%9B%BE%E8%A1%A8%E7%BB%84%E6%88%90)』『[术语速查手册](https://echarts.apache.org/zh/cheat-sheet.html)』。
+  这些图表的组成部分，就是一个个图表组件，也正是我们后续会介绍的重点内容。
+
+- [ ] 学会查阅官方文档。
+
+  1. echarts 全局对象身上的成员 👉 [echarts](https://echarts.apache.org/zh/api.html#echarts)
+  2. echarts 实例对象身上的成员 👉 [echartsInstance](https://echarts.apache.org/zh/api.html#echartsInstance)
+  3. echarts 实例对象的配置项 👉 [option](https://echarts.apache.org/zh/option.html#title)
 
 ## 图表的主要组成部分
-
-参考文章：[慕课 ECharts 图表组成](http://www.imooc.com/wiki/echarts/components#ECharts%20%E5%9B%BE%E8%A1%A8%E7%BB%84%E6%88%90)
-
-为了更好地应用 ECharts 做可视化开发，有必要在深入学习前对图表的组成做一次简单的总览。完整的 ECharts 图表包含如下部分：
 
 <img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211217131556827.png" alt="image-20211217131556827" style="zoom:80%;" />
 
@@ -38,20 +41,20 @@
   dataZoom 组件用于实现图表区域缩放功能，让用户能够自由聚焦在某片数据区域，又或是概览全局数据。
   dataZoom 组件分内置型、滑动条型、框选型三种。
 
-> 慕课上的 Echarts 入门教程，感觉还是比较全面的，在学习完「陈学辉」老师讲解的 echarts 课程后，再去看一下 慕课 [ECharts 入门教程](http://www.imooc.com/wiki/echarts/echarts.html)，查漏补缺。
-
 ## Echarts Enhanced Completion
 
-### 在线链接
+### Echarts Enhanced Completion 是什么？
+
+Echarts Enhanced Completion 是在 vscode 中编辑 echarts 配置项时，提供智能提示的插件。
+
+### 参考链接
 
 - [vscode 插件](https://marketplace.visualstudio.com/items?itemName=ren-wei.echarts-enhanced-completion)
 - [github](https://github.com/ren-wei/echarts-enhanced-completion/blob/HEAD/README_en.md)
 
+### 如何配置
 
-
-Echarts Enhanced Completion 是在 vscode 中编辑 echarts 配置项时，提供智能提示的插件。
-
-### 配置
+#### 方式1. 在 vscode 的图形界面，选择需要的配置项。
 
 - 在 vscode 中搜索插件名 echarts enhanced completion，然后安装即可。
 - 配置
@@ -60,23 +63,28 @@ Echarts Enhanced Completion 是在 vscode 中编辑 echarts 配置项时，提�
 
 <img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211217163657149.png" alt="image-20211217163657149" style="zoom:50%;" />
 
+#### 方式2. 在 settins.json 中编写配置字段。
+
 ```json
 // settings.json
 "echarts-enhanced-completion.language": "中文",
 "echarts-enhanced-completion.init.enabled": true,
 "echarts-enhanced-completion.init.onlyInit": false,
 "echarts-enhanced-completion.init.showPictures": true
-// 也可以在 settings.json 中进行配置
 ```
 
 
 
-## [Download](https://echarts.apache.org/handbook/zh/basics/download)
+## 引入
+
+官方文档中介绍了多种引入 echarts 的方式，详情 👉 [获取 Apache ECharts](https://echarts.apache.org/handbook/zh/basics/download)。
 
 - 从 GitHub 获取
 - 从 npm 获取
 - 从 CDN 获取
 - 在线定制
+
+### 通过 cdn 引入
 
 ```html
 <!-- 通过 cdn 的方式来引入 echarts
@@ -87,10 +95,7 @@ https://www.jsdelivr.com/package/npm/echarts
 
 ![image-20211217104940787](https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211217104940787.png)
 
-## Examples
-
-- [demo cxh](../codes/cxh/02-第一个echarts例子.html)
-- [demo dahuyou](../codes/dahuyou/test.html)
+## 模板
 
 ```html
 <!DOCTYPE html>
@@ -98,54 +103,62 @@ https://www.jsdelivr.com/package/npm/echarts
 
 <head>
   <meta charset="UTF-8">
-  <title>test</title>
+  <title>echart - demo</title>
   <style>
     div {
-      width: 500px;
+      width: 600px;
       height: 400px;
-      float: left;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
 </head>
 
 <body>
-  <div id="chart1"></div>
-  <div id="chart2"></div>
+  <div id="chart"></div>
   <script>
-    // 。。。
+    const chartIns = echarts.init(document.querySelector("#chart")); // 初始化 echart 实例
+    const option = {}; // 编写 echart 配置项
+    chartIns.setOption(potion); // 设置图表实例的配置项以及数据
   </script>
 </body>
 
 </html>
 ```
 
-- 在页面中写俩 div 作为图表的容器，设定好尺寸；
-- 通过 cnd 引入 echarts；
+现阶段，我们核心关注的点就是 option 的编写，option 字段详情 👉 [配置项](https://echarts.apache.org/zh/option.html#title)。
+
+## Examples
+
+### 要求
+
+阅读代码，能够看懂 xxx 部分代码对应页面的 xxx 区域即可，每个配置项的具体内容后续会逐一重点介绍。
+
+### 预览
+
+- [demo cxh](../codes/cxh/02-第一个echarts例子.html)
+- [demo dahuyou](../codes/dahuyou/test.html)
 
 ### 柱状图
 
 ```js
-var myChiart1 = echarts.init(document.getElementById('chart1')); //生成了一个echarts实例
-
-myChiart1.setOption({ //配置图表的参数
+const option = { // 配置图表的参数
   title: {
     text: '柱状图',
   },
-  legend: { //图例
+  legend: { // 图例
     data: ['销量']
   },
-  xAxis: { //x轴的配置
+  xAxis: { // x轴的配置
     data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子'],
   },
-  yAxis: { //y轴的配置
+  yAxis: { // y轴的配置
   },
   series: { // 系列列表
     name: '销量',
     type: 'bar', // 图表的类型
     data: [5, 20, 36, 10, 19, 24] // 图表的数据
   }
-});
+}
 ```
 
 
@@ -155,9 +168,7 @@ myChiart1.setOption({ //配置图表的参数
 ### 饼图
 
 ```js
-var myChiart2 = echarts.init(document.getElementById('chart2')); //生成了一个echarts实例
-
-myChiart2.setOption({ // 配置图表的参数
+const option = { // 配置图表的参数
   title: {
     text: '饼图',
   },
@@ -188,7 +199,7 @@ myChiart2.setOption({ // 配置图表的参数
       },
     ]
   }
-});
+}
 ```
 
 

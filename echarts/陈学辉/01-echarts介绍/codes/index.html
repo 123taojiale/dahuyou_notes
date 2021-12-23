@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图表示例</title>
+  <style>
+    .chart {
+      width: 600px;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chart"></div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+  <script>
+    const chartDom = document.querySelector(".chart");
+    const myChart = echarts.init(chartDom); // 初始化 echarts 实例
+    const option = {
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [{
+        data: [150, 230, 224, 218, 135, 147, 260],
+        type: 'line'
+      }]
+    }; // 官方示例提供的图表配置项
+    option && myChart.setOption(option);
+  </script>
+</body>
+
+</html>

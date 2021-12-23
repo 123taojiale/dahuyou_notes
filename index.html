@@ -1404,13 +1404,14 @@ a.ty-link {
   color: #787878;
 }
 
+/* 笔记 侧边目录区 */
 /* 调整侧边目录的宽度 */
 .typora-export-sidebar {
-  width: 15vw !important;
+  width: 20vw !important;
 }
 
 .typora-export-sidebar .outline-content {
-  width: 15vw !important;
+  width: 19vw !important;
   /* 溢出内容可以滑动，防止目录显示不全。 */
   overflow: auto !important;
 }
@@ -1419,30 +1420,90 @@ a.ty-link {
   white-space: nowrap !important;
 }
 
+/* 菜单展开|未展开图标 */
+.typora-export .outline-expander:hover::before,
+.typora-export .outline-item-open>.outline-item>.outline-expander::before,
+.typora-export .outline-expander:hover::before,
+.typora-export .outline-expander::before {
+  font-size: 20px;
+  padding-right: 10px;
+  color: inherit;
+}
+
+/* 菜单项 鼠标悬停的过渡效果 */
+.typora-export .outline-label {
+  transform: scale(1);
+  transition: all .2s;
+}
+
+.typora-export-show-outline .outline-item-active>.outline-item .outline-label,
+.typora-export .outline-item:hover .outline-label {
+  text-decoration: none;
+  font-weight: 700;
+  transform: scale(1.1);
+  color: var(--blockquote-border-color);
+  transition: all .2s;
+}
+
+/* 让菜单项的展开和收起图标继承字体颜色 */
+.typora-export-show-outline .outline-item-active>.outline-item,
+.typora-export .outline-item:hover {
+  color: var(--blockquote-border-color);
+}
+
+.typora-export .outline-item {
+  color: var(--a-color);
+}
+
+/* 笔记 内容区 */
 /* 将 write 和 write 下的所以一级子元素的宽度都设置为 80vw */
-#write {
+.typora-export #write {
   width: 80vw !important;
 }
 
-#write > * {
+.typora-export #write>* {
   width: 100% !important;
 }
 
-/* 侧边目录 */
-/* .typora-export-sidebar .outline-content {
-  width: 240px !important;
-  overflow: auto !important;
+/* 纯 css 实现加载进度条
+参考：https://www.zhangxinxu.com/wordpress/2019/06/better-css-scroll-indicator/
+*/
+.typora-export {
+  position: relative;
+}
+
+.typora-export .indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to right top, teal 50%, transparent 50%) no-repeat;
+  background-size: 100% calc(100% - 100vh);
   z-index: 2021;
-  background: #66666666;
-} */
+  pointer-events: none;
+  mix-blend-mode: darken;
+}
+
+.typora-export .indicator::after {
+  content: '';
+  position: fixed;
+  top: 5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+  z-index: 1;
+}
 
  @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
 </style><title>index</title>
 </head>
 <body class='typora-export typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
-<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#notes">notes</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端入门">前端入门</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端工程化">前端工程化</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端框架">前端框架</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端进阶">前端进阶</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#数据结构和算法">数据结构和算法</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#英语">英语</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#建桥">建桥</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='notes'><span>notes</span></h1><h2 id='前端入门'><span>前端入门</span></h2><ul><li><a href='./javascript/index.html'><span>javascript</span></a></li><li><a href='./css3/index.html'><span>css3</span></a></li><li><a href='./es6/index.html'><span>es6</span></a></li></ul><h2 id='前端工程化'><span>前端工程化</span></h2><ul><li><a href='./工程化精细版/index.html'><span>工程化精细版</span></a></li><li><a href='./包管理器/index.html'><span>包管理器</span></a></li><li><a href='./模块化/index.html'><span>模块化</span></a></li></ul><h2 id='前端框架'><span>前端框架</span></h2><ul><li><a href='./vue/index.html'><span>vue</span></a></li></ul><h2 id='前端进阶'><span>前端进阶</span></h2><ul><li><a href='./nodejs/index.html'><span>nodejs</span></a></li><li><a href='./typescript/index.html'><span>typescript</span></a></li><li><a href='./echarts/index.html'><span>echarts</span></a></li></ul><h2 id='数据结构和算法'><span>数据结构和算法</span></h2><ul><li><a href='./algorithm/index.html'><span>algorithm</span></a></li><li><a href='./leetcode/index.html'><span>leetcode</span></a></li></ul><h2 id='英语'><span>英语</span></h2><ul><li><a href='./english/index.html'><span>english</span></a></li></ul><h2 id='建桥'><span>建桥</span></h2><ul><li><a href='./gench/index.html'><span>gench</span></a></li></ul></div></div>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#notes">notes</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端入门">前端入门</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端工程化">前端工程化</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端框架">前端框架</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#前端进阶">前端进阶</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#数据结构和算法">数据结构和算法</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#英语">英语</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#建桥">建桥</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='notes'><span>notes</span></h1><h2 id='前端入门'><span>前端入门</span></h2><ul><li><a href='./javascript/index.html'><span>javascript</span></a></li><li><a href='./css3/index.html'><span>css3</span></a></li><li><a href='./es6/index.html'><span>es6</span></a></li></ul><h2 id='前端工程化'><span>前端工程化</span></h2><ul><li><a href='./工程化精细版/index.html'><span>工程化精细版</span></a></li><li><a href='./包管理器/index.html'><span>包管理器</span></a></li><li><a href='./模块化/index.html'><span>模块化</span></a></li></ul><h2 id='前端框架'><span>前端框架</span></h2><ul><li><a href='./vue/index.html'><span>vue</span></a></li></ul><h2 id='前端进阶'><span>前端进阶</span></h2><ul><li><a href='./nodejs/index.html'><span>nodejs</span></a></li><li><a href='./typescript/index.html'><span>typescript</span></a></li><li><a href='./echarts/index.html'><span>echarts</span></a></li></ul><h2 id='数据结构和算法'><span>数据结构和算法</span></h2><ul><li><a href='./algorithm/index.html'><span>algorithm</span></a></li><li><a href='./leetcode/index.html'><span>leetcode</span></a></li></ul><h2 id='英语'><span>英语</span></h2><ul><li><a href='./english/index.html'><span>english</span></a></li></ul><h2 id='建桥'><span>建桥</span></h2><ul><li><a href='./gench/index.html'><span>gench</span></a></li></ul></div></div>
 
-<script>(function (){var t=document.body.parentElement,e=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(t,e,n){document.addEventListener(t,function(t){if(!t.defaultPrevented)for(var i=t.target;i&&i!=this;i=i.parentNode)if(i.matches(e)){!1===n.call(i,t)&&(t.preventDefault(),t.stopPropagation());break}},!1)};function o(){return t.scrollTop}r("click",".outline-expander",function(t){var e=this.closest(".outline-item-wrapper").classList;return e.contains("outline-item-open")?e.remove("outline-item-open"):e.add("outline-item-open"),c(),!1}),r("click",".outline-item",function(t){var e=this.querySelector(".outline-label");if(location.hash="#"+e.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),l(),n.add("outline-item-active")}});var a,s,u=function(){var t=o();n=null;for(var i=0;i<e.length&&e[i][1]-t<60;i++)n=e[i]},l=function(){document.querySelectorAll(".outline-item-active").forEach(t=>t.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(t=>t.classList.remove("outline-item-open"))},c=function(){if(n){l();var t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(t)if(i){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var r=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(t=r).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(t){a&&clearTimeout(a),a=setTimeout(function(){u(),c()},300)});var f=function(){s=setTimeout(function(){!function(){e=[];var t=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");e.push([i,t+n.getBoundingClientRect().y])})}(),u(),c()},300)};window.addEventListener("resize",function(t){s&&clearTimeout(s),f()}),f()})();</script><script>
+<script>(function (){var t=document.body.parentElement,e=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(t,e,n){document.addEventListener(t,function(t){if(!t.defaultPrevented)for(var i=t.target;i&&i!=this;i=i.parentNode)if(i.matches(e)){!1===n.call(i,t)&&(t.preventDefault(),t.stopPropagation());break}},!1)};function o(){return t.scrollTop}r("click",".outline-expander",function(t){var e=this.closest(".outline-item-wrapper").classList;return e.contains("outline-item-open")?e.remove("outline-item-open"):e.add("outline-item-open"),c(),!1}),r("click",".outline-item",function(t){var e=this.querySelector(".outline-label");if(location.hash="#"+e.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),l(),n.add("outline-item-active")}});var a,s,u=function(){var t=o();n=null;for(var i=0;i<e.length&&e[i][1]-t<60;i++)n=e[i]},l=function(){document.querySelectorAll(".outline-item-active").forEach(t=>t.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(t=>t.classList.remove("outline-item-open"))},c=function(){if(n){l();var t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(t)if(i){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var r=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(t=r).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(t){a&&clearTimeout(a),a=setTimeout(function(){u(),c()},300)});var f=function(){s=setTimeout(function(){!function(){e=[];var t=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");e.push([i,t+n.getBoundingClientRect().y])})}(),u(),c()},300)};window.addEventListener("resize",function(t){s&&clearTimeout(s),f()}),f()})();</script><div class="indicator"></div>  
+<script>
     /* 侧边目录
     1. 自定义媒体查询的值
        媒体查询 - 默认情况下，侧边的目录在 800px 以上时出现，但是，手机上横屏展示时，宽度在 800px 以上，会展示出侧边的目录，但是，若展示出来的话，那么内容的空间就很小了。

@@ -305,916 +305,916 @@ span.cm-strikethrough { text-decoration: line-through; }
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- @import url();
-
- :root {
-     --monospace: "JetBrains Mono", HYZhengYuan, "Fira Code", Menlo, "Ubuntu Mono", Consolas;
-     /*code font*/
-     --text-font: Consolas;
-     /*default font*/
-     --title-font: var(--monospace);
-     /*title font*/
-
-     --text-color: #304455;
-     --bg-color: #ffffff;
-     --control-text-color: var(--text-color);
-     --meta-content-color: var(--text-color);
-     --active-file-border-color: var(--drake-accent);
-     --rawblock-edit-panel-bd: var(--code-block-bg-color);
-     --item-hover-bg-color: #E5E5E596;
-     --active-file-bg-color: var(--item-hover-bg-color);
-
-     --blur-text-color: rgba(48, 68, 85, 0.5);
-     --drake-accent: #31a062;
-     --drake-highlight: #d63200;
-     --a-color: var(--drake-accent);
-     --variable-color: var(--drake-highlight);
-     --outline-active-color: var(--a-color);
-     --code-block-bg-color: #f8f8f8;
-     --code-block-color: #525252;
-     --title-color: #273849;
-     --blockquote-border-color: #f66;
-     --blockquote-color: var(--text-color);
-     --blockquote-bg-color: #f8f8f8;
-     --strong-color: var(--title-color);
-     --h2-underline-color: var(--title-color);
-     --horizontal-divider-color: var(--title-color);
-     --height-light-color: var(--drake-highlight);
-     --height-light-border-color: var(--drake-highlight);
-     --yaml-color: #777777;
-     --yaml-bg-color: #f7f7f7;
-     --footnotes-bg-color: #3c3d3e;
-     --footnotes-highlight: #FFD760;
-     --table-border-color: #dfe2e5;
-     --table-header-bg-color: #f8f8f8;
-     --table-bg-color: var(--bg-color);
-     --table-n2-bg-color: #f8f8f8;
-     --input-bg-color: #f2f2f2;
-     --btn-hover-bg-color: #f2f2f2;
-     --checkbox-checked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M425.984 726.016l384-384-59.99-61.995-324.01 324.011-152.021-152.021L213.973 512zm384-598.016q36.01 0 61.013 25.984T896 213.974v596.01q0 34.005-25.003 59.99t-61.013 25.983h-596.01q-36.011 0-61.014-25.984t-25.003-59.989v-596.01q0-34.006 25.003-59.99T213.973 128h596.011z' fill='%2365b73b'/%3E%3C/svg%3E");
-     --checkbox-unchecked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M810.667 213.333v597.334H213.333V213.333h597.334m0-85.333H213.333C166.4 128 128 166.4 128 213.333v597.334C128 857.6 166.4 896 213.333 896h597.334C857.6 896 896 857.6 896 810.667V213.333C896 166.4 857.6 128 810.667 128z' fill='%23333333'/%3E%3C/svg%3E");
- }
-
- html {
-     font-size: 12px;
- }
-
- body {
-     font-family: var(--text-font) !important;
-     color: var(--text-color);
-     -webkit-font-feature-settings: "liga"on, "calt"on;
-     -webkit-font-smoothing: subpixel-antialiased;
-     text-rendering: optimizeLegibility;
-     letter-spacing: 0;
-     margin: 0;
-     overflow-x: hidden;
-     line-height: 1.8rem;
- }
-
- /*code block*/
- .md-fences {
-     font-size: 1rem;
-     padding: 0.5rem !important;
-     border-radius: 2px;
-     word-wrap: normal;
-     background-color: var(--code-block-bg-color);
-     color: var(--code-block-color);
-     border: none;
- }
-
- /*mermaid*/
- .md-diagram-panel-preview text.actor>tspan {
-     /*方块文字*/
-     fill: var(--code-block-color) !important;
-     stroke: none !important;
-     font-family: var(--text-font) !important;
-     font-size: 1rem !important;
- }
-
- .md-diagram-panel-preview .actor {
-     /*方块*/
-     stroke: var(--table-border-color) !important;
-     fill: var(--code-block-bg-color) !important;
- }
-
- .md-diagram-panel-preview .actor-line {
-     /*竖线*/
-     stroke: var(--text-color) !important;
-     stroke-width: 1px;
- }
-
- .md-diagram-panel-preview .messageLine0 {
-     /*横线*/
-     stroke-width: 1.5;
-     stroke-dasharray: none;
-     stroke: var(--text-color) !important;
- }
-
- .md-diagram-panel-preview .messageLine1 {
-     /*虚线*/
-     stroke-width: 1.5 !important;
-     stroke-dasharray: 2, 2 !important;
-     stroke: var(--text-color) !important;
- }
-
- .md-diagram-panel-preview .messageText {
-     /*描述文字*/
-     fill: var(--text-color) !important;
-     font-family: var(--text-font) !important;
-     font-size: 1rem !important;
- }
-
- .md-diagram-panel-preview .activation0 {
-     /*长方形*/
-     fill: rgba(141, 141, 141, 0.22) !important;
-     stroke: var(--text-color) !important;
- }
-
- .md-diagram-panel-preview .labelText,
- .md-diagram-panel-preview .labelText>tspan {
-     /*循环标记*/
-     fill: var(--code-block-color) !important;
-     font-family: var(--text-font) !important;
-     font-size: 1rem !important;
-     dominant-baseline: unset;
-     alignment-baseline: unset;
- }
-
- .md-diagram-panel-preview .labelBox {
-     /*循环标记背景*/
-     stroke: var(--table-border-color) !important;
-     fill: var(--code-block-bg-color) !important;
- }
-
- .md-diagram-panel-preview .loopLine {
-     /*循环标记虚线*/
-     stroke: var(--text-color) !important;
- }
-
- .md-diagram-panel-preview .loopText,
- .md-diagram-panel-preview .loopText>tspan {
-     /*循环名称*/
-     fill: var(--text-color) !important;
-     font-size: 1rem !important;
- }
-
- .md-diagram-panel-preview .sequenceNumber {
-     /*序号*/
-     fill: var(--bg-color) !important;
- }
-
- pre.md-fences-advanced.md-focus .md-fences-adv-panel {
-     border: none;
- }
-
- /*code snippet*/
- #write code,
- tt {
-     margin: 0 2px;
-     color: var(--drake-highlight);
- }
-
- /*variable*/
- var {
-     color: var(--variable-color);
-     font-weight: bold;
- }
-
- /*raw block*/
- .md-rawblock-control:not(.md-rawblock-tooltip) {
-     border-radius: 2px 0 2px 2px;
-     padding: 0.2rem !important;
- }
-
- .md-rawblock:hover>.md-rawblock-container {
-     background: none;
- }
-
- .md-rawblock-input {
-     font-size: 1rem;
- }
-
- .md-rawblock-tooltip-btn:hover {
-     background: none;
- }
-
- .md-rawblock:hover>.md-rawblock-tooltip {
-     border-radius: 2px 2px 0 0;
-     margin-bottom: 2px !important;
- }
-
- .md-rawblock-tooltip.md-rawblock-control {
-     border-radius: 2px 2px 0 0;
-     color: var(--code-block-color);
- }
-
- .md-rawblock-tooltip-name {
-     color: var(--code-block-color);
-     opacity: 1;
- }
-
- /*quote block*/
- blockquote:before {
-     display: block;
-     position: absolute;
-     content: '';
-     width: 4px;
-     left: 0;
-     top: 0;
-     height: 100%;
-     background-color: var(--blockquote-border-color);
-     border-radius: 2px;
- }
-
- blockquote {
-     color: var(--blockquote-color);
-     border-radius: 2px;
-     padding: 10px 16px;
-     background-color: var(--blockquote-bg-color);
-     position: relative;
-     border-left: none;
- }
-
- #write strong {
-     color: var(--strong-color);
-     font-weight: bold;
- }
-
- #write blockquote strong {
-     color: var(--blockquote-color);
- }
-
- /*link*/
- #write a {
-     color: var(--a-color);
-     text-decoration: none;
- }
-
- .on-focus-mode #write a .md-plain,
- .on-focus-mode .md-htmlblock-container a:hover {
-     border-bottom: .1rem solid var(--blur-text-color);
- }
-
- #write a .md-plain,
- .md-htmlblock-container a:hover,
- .on-focus-mode #write .md-focus a .md-plain,
- .md-focus .md-htmlblock-container a:hover {
-     border-bottom: .1rem solid var(--a-color);
- }
-
- /* 去掉下划线 */
- #write a .md-plain {
-    border-bottom: none !important;
- }
-
- [md-inline=link] a {
-     margin: 0 .2rem;
- }
-
- a:any-link {
-     color: var(--a-color);
- }
-
- img {
-     border-left: none;
-     border-right: none;
-     vertical-align: baseline;
-     border-radius: 2px;
-     /* 给 img 添加阴影 */
-     /* box-shadow: 0px 20px 40px 1px rgba(0,0,0,.3); */
-     box-shadow: 0px 5px 10px 1px rgba(0,0,0,.3);
-     /* mac 下截取的图片，默认会带有一丢丢的圆角，加上一个圆角边框，去掉 4 个边角的背景。 */
-     display: inline !important;
-     border-radius: 15px;
- }
-
- #write {
-     max-width: 1200px;
-     margin: 0 auto;
-     padding: 20px 30px 100px;
- }
-
- #typora-source .CodeMirror-lines {
-     max-width: 1200px;
- }
-
- #write p {
-     word-spacing: .05rem;
- }
-
- #write>ul:first-child,
- #write>ol:first-child {
-     margin-top: 30px;
- }
-
- body>*:first-child {
-     margin-top: 0 !important;
- }
-
- body>*:last-child {
-     margin-bottom: 0 !important;
- }
-
- h1,
- h2,
- h3,
- h4,
- h5,
- h6 {
-     font-family: var(--title-font);
-     position: relative;
-     margin-top: 2rem;
-     margin-bottom: 1rem;
-     font-weight: bold;
-     cursor: text;
-     color: var(--title-color);
- }
-
- h3.md-focus:before,
- h4.md-focus:before,
- h5.md-focus:before,
- h6.md-focus:before {
-     visibility: hidden;
- }
-
- h1 {
-     font-size: 2rem;
-     text-align: center;
-     margin-top: 0;
- }
-
- h2.md-end-block.md-heading {
-     font-size: 1.6rem;
-     display: inline-block;
- }
-
- h2.md-end-block.md-heading:after {
-     display: block;
-     content: '';
-     height: 2px;
-     margin-top: 4px;
-     background-color: var(--h2-underline-color);
-     border-radius: 2px;
- }
-
- .on-focus-mode h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
-     background-color: var(--blur-text-color) !important;
- }
-
- h3 {
-     font-size: 1.4rem;
- }
-
- h4 {
-     font-size: 1.2rem;
- }
-
- h5 {
-     font-size: 1rem;
- }
-
- h6 {
-     font-size: 1rem;
- }
-
- h1:hover a.anchor,
- h2:hover a.anchor,
- h3:hover a.anchor,
- h4:hover a.anchor,
- h5:hover a.anchor,
- h6:hover a.anchor {
-     text-decoration: none;
- }
-
- h1 tt,
- h1 code {
-     font-size: inherit !important;
- }
-
- h2 tt,
- h2 code {
-     font-size: inherit !important;
- }
-
- h3 tt,
- h3 code {
-     font-size: inherit !important;
- }
-
- h4 tt,
- h4 code {
-     font-size: inherit !important;
- }
-
- h5 tt,
- h5 code {
-     font-size: inherit !important;
- }
-
- h6 tt,
- h6 code {
-     font-size: inherit !important;
- }
-
- blockquote,
- ul,
- ol,
- dl,
- table {
-     margin: 0.8em 0;
- }
-
- p {
-     margin: 0;
- }
-
- li>ol,
- li>ul {
-     margin: 0 0;
- }
-
- hr {
-     height: 2px;
-     padding: 0;
-     margin: 16px 0;
-     background-color: var(--horizontal-divider-color);
-     border: 0 none;
-     overflow: hidden;
-     box-sizing: content-box;
- }
-
- body>h2:first-child {
-     margin-top: 0;
-     padding-top: 0;
- }
-
- body>h1:first-child {
-     margin-top: 0;
-     padding-top: 0;
- }
-
- body>h1:first-child+h2 {
-     margin-top: 0;
-     padding-top: 0;
- }
-
- body>h3:first-child,
- body>h4:first-child,
- body>h5:first-child,
- body>h6:first-child {
-     margin-top: 0;
-     padding-top: 0;
- }
-
- a:first-child h1,
- a:first-child h2,
- a:first-child h3,
- a:first-child h4,
- a:first-child h5,
- a:first-child h6 {
-     margin-top: 0;
-     padding-top: 0;
- }
-
- h1 p,
- h2 p,
- h3 p,
- h4 p,
- h5 p,
- h6 p {
-     margin-top: 0;
- }
-
- li p.first {
-     display: inline-block;
- }
-
- ul,
- ol {
-     padding-inline-start: 2em;
- }
-
- ul:first-child,
- ol:first-child {
-     margin-top: 0;
- }
-
- ul:last-child,
- ol:last-child {
-     margin-bottom: 0;
- }
-
- table {
-     padding: 0;
-     word-break: initial;
-     background-color: var(--table-bg-color);
- }
-
- table tr {
-     border-top: .1em solid var(--table-border-color);
-     margin: 0;
-     padding: 0;
- }
-
- table th {
-     font-weight: bold;
-     border: .1em solid var(--table-border-color);
-     border-bottom: 0;
-     margin: 0;
-     padding: 6px 13px;
- }
-
- table td {
-     border: .1em solid var(--table-border-color);
-     margin: 0;
-     padding: 6px 13px;
- }
-
- table thead {
-     background-color: var(--table-header-bg-color);
- }
-
- table tr:nth-child(2n) {
-     background-color: var(--table-n2-bg-color);
- }
-
- table tr th:first-child,
- table tr td:first-child {
-     margin-top: 0;
- }
-
- table tr th:last-child,
- table tr td:last-child {
-     margin-bottom: 0;
- }
-
- #write em {
-     padding: 0 5px 0 2px;
- }
-
- #write table thead th {
-     background-color: var(--table-header-bg-color);
- }
-
- /* height light */
- #write mark {
-     border: .1em solid var(--height-light-border-color);
-     color: var(--height-light-color);
-     background-color: transparent;
-     padding: .1rem .5rem;
-     border-radius: 2rem;
-     margin: 0 .2rem;
-     font-size: .95rem;
- }
-
- /*shortcut*/
- kbd {
-     border: .1em solid #5b5b5e;
-     background: transparent;
-     color: var(--text-color);
-     margin: 0 .4rem;
-     font-size: .95rem;
-     padding: .3em .4em;
-     border-radius: .4em;
-     vertical-align: top;
-     box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
- }
-
- #write del {
-     padding: 1px 2px;
- }
-
- .md-task-list-item>input {
-     margin-left: -1.3em;
- }
-
- @media print {
-     html {
-         font-size: 12px;
-     }
-
-     table,
-     pre {
-         page-break-inside: avoid;
-     }
-
-     pre {
-         word-wrap: break-word;
-     }
- }
-
- /*YAML*/
- #write pre.md-meta-block {
-     padding: 1rem;
-     font-size: 1rem;
-     background-color: var(--yaml-bg-color);
-     border: 0;
-     border-radius: 2px;
-     color: var(--yaml-color);
-     margin-top: 0 !important;
- }
-
- .mathjax-block>.code-tooltip {
-     bottom: .375rem;
- }
-
- #write>h3.md-focus:before {
-     left: -1.5625rem;
-     top: .375rem;
- }
-
- #write>h4.md-focus:before {
-     left: -1.5625rem;
-     top: .285714286rem;
- }
-
- #write>h5.md-focus:before {
-     left: -1.5625rem;
-     top: .285714286rem;
- }
-
- #write>h6.md-focus:before {
-     left: -1.5625rem;
-     top: .285714286rem;
- }
-
- .md-image>.md-meta {
-     border-radius: 2px;
-     font-family: initial;
-     padding: 2px 0 0 4px;
-     color: inherit;
- }
-
- .md-tag {
-     color: inherit;
- }
-
- .md-toc {
-     margin-top: 20px;
-     padding-bottom: 20px;
- }
-
- .typora-quick-open-item {
-     font-size: 1rem !important;
-     height: 50px;
-     padding-left: 8px;
-     padding-top: 4px;
-     padding-bottom: 4px;
- }
-
- #typora-quick-open {
-     box-shadow: 0 0 8px #00000045;
-     padding: 0;
- }
-
- .ty-quick-open-category.ty-has-prev .ty-quick-open-category-title {
-     border-top: none;
- }
-
- #typora-quick-open-input {
-     margin: 8px;
-     box-shadow: none;
-     border-radius: 2px;
- }
-
- #typora-quick-open-input input {
-     font-size: 1rem;
-     box-shadow: none;
-     padding-top: 2px;
-     padding-left: 10px;
-     padding-right: 10px;
-     line-height: 32px;
-     max-height: 32px;
-     border: none;
- }
-
- .modal-dialog#typora-quick-open {
-     border-radius: 8px;
- }
-
- .ty-quick-open-category-title {
-     padding-left: 8px;
-     color: #BEBEBE;
-     font-size: 0.8rem;
-     margin-bottom: 4px;
- }
-
- .typora-quick-open-item-path {
-     font-size: 0.8rem;
-     text-overflow: ellipsis;
-     white-space: nowrap;
-     margin-top: 1px;
- }
-
- /*search input*/
- .form-control {
-     border: none;
-     border-radius: 2px;
-     box-shadow: none;
- }
-
- #md-searchpanel .btn {
-     border-radius: 2px;
- }
-
- #search-panel-replaceall-btn {
-     padding-right: 5px !important;
-     text-align: center !important;
- }
-
- #search-panel-replace-btn {
-     text-align: center !important;
- }
-
- #md-searchpanel input {
-     background: var(--input-bg-color);
-     border-radius: 2px;
- }
-
- .searchpanel-search-option-btn {
-     border-radius: 2px;
-     border: none;
-     background: transparent;
-     color: var(--text-color);
- }
-
- .searchpanel-search-option-btn.active {
-     background: var(--text-color);
-     color: var(--bg-color);
- }
-
- .form-control:focus {
-     box-shadow: none;
- }
-
- #md-notification:before {
-     top: 10px;
- }
-
- /** focus mode */
- .on-focus-mode blockquote {
-     border-left-color: rgba(85, 85, 85, 0.12);
- }
-
- header,
- .context-menu,
- .megamenu-content,
- footer {
-     font-family: initial;
- }
-
- /*sidebar*/
- .file-node-content:hover .file-node-icon,
- .file-node-content:hover .file-node-open-state {
-     visibility: visible;
- }
-
- #typora-sidebar {
-     /* 左侧的导航，字体有点偏大了。 */
-     /* font-size: 1.1rem; */
- }
-
- .sidebar-tabs {
-     border-bottom: none;
- }
-
- .file-list-item-summary,
- .file-list-item-parent-loc,
- .file-list-item-time,
- .file-list-item-summary {
-     font-size: 0.9rem !important;
-     font-family: var(--text-font);
- }
-
- .file-list-item-file-ext-part {
-     display: none;
- }
-
- .outline-item {
-     font-size: 1rem;
- }
-
- /*footnotes mark*/
- #write .md-footnote {
-     background-color: inherit;
-     color: var(--drake-highlight);
-     font-size: 0.9rem;
-     border-radius: 0.9rem;
-     padding-left: 0;
- }
-
- #write .md-footnote:before {
-     content: "[";
- }
-
- #write .md-footnote:after {
-     content: "]";
- }
-
- /*footnotes content*/
- .md-hover-tip .code-tooltip-content {
-     border-radius: 2px;
- }
-
- /*footnotes title*/
- span.md-def-name {
-     padding-right: 3ch;
-     padding-left: 0;
-     position: relative;
-     font-weight: normal;
- }
-
- /*footnotes desc*/
- .footnotes {
-     font-size: 1rem;
-     font-weight: normal;
-     color: var(--text-color);
-     position: relative;
- }
-
- /*footnotes tooltip text*/
- .code-tooltip-content .md-plain {
-     font-size: 0.9rem;
-     font-family: inherit;
- }
-
- .code-tooltip-content code {
-     padding: 0 2px;
-     font-family: inherit;
-     color: var(--footnotes-highlight);
-     background-color: inherit;
- }
-
- .code-tooltip-content a {
-     color: var(--footnotes-highlight);
- }
-
- div.code-tooltip-content {
-     box-shadow: 0 0 8px #00000045;
-     background: var(--footnotes-bg-color);
- }
-
- .footnotes {
-     opacity: 1;
- }
-
- .md-def-name:after {
-     content: ". ^";
-     color: var(--text-color);
- }
-
- .md-def-footnote .md-def-name:before {
-     content: "";
-     color: var(--text-color);
-     position: absolute;
- }
-
- .md-def-name:before {
-     content: "";
-     color: var(--text-color);
-     position: absolute;
- }
-
- .md-content.md-url,
- .md-def-content.md-def-url.md-auto-disp {
-     text-decoration: none;
-     border-bottom: .1rem solid var(--text-color);
- }
-
- .CodeMirror-scroll::-webkit-scrollbar {
-     display: none;
- }
-
- .file-list-item-summary {
-     font-size: 1em;
- }
-
- .pin-outline #outline-content .outline-active strong,
- .pin-outline .outline-active {
-     font-weight: 500;
-     color: var(--outline-active-color);
- }
-
- .file-list-item.active {
-     border-left: 4px solid var(--drake-accent);
- }
-
- #md-searchpanel .btn:not(.close-btn):hover {
-     box-shadow: none;
-     background: var(--btn-hover-bg-color);
- }
-
- /*checkbox*/
- #write input[type=checkbox] {
-     opacity: 0;
-     height: 1.6rem;
-     width: 1.6rem;
-     margin-left: -2em;
-     margin-top: 0;
-     top: 0;
- }
-
- /* #write .ul-list li.md-task-list-item.task-list-done::before {
+@import url();
+
+:root {
+  --monospace: "JetBrains Mono", HYZhengYuan, "Fira Code", Menlo, "Ubuntu Mono", Consolas;
+  /*code font*/
+  --text-font: Consolas;
+  /*default font*/
+  --title-font: var(--monospace);
+  /*title font*/
+
+  --text-color: #304455;
+  --bg-color: #ffffff;
+  --control-text-color: var(--text-color);
+  --meta-content-color: var(--text-color);
+  --active-file-border-color: var(--drake-accent);
+  --rawblock-edit-panel-bd: var(--code-block-bg-color);
+  --item-hover-bg-color: #E5E5E596;
+  --active-file-bg-color: var(--item-hover-bg-color);
+
+  --blur-text-color: rgba(48, 68, 85, 0.5);
+  --drake-accent: #31a062;
+  --drake-highlight: #d63200;
+  --a-color: var(--drake-accent);
+  --variable-color: var(--drake-highlight);
+  --outline-active-color: var(--a-color);
+  --code-block-bg-color: #f8f8f8;
+  --code-block-color: #525252;
+  --title-color: #273849;
+  --blockquote-border-color: #f66;
+  --blockquote-color: var(--text-color);
+  --blockquote-bg-color: #f8f8f8;
+  --strong-color: var(--title-color);
+  --h2-underline-color: var(--title-color);
+  --horizontal-divider-color: var(--title-color);
+  --height-light-color: var(--drake-highlight);
+  --height-light-border-color: var(--drake-highlight);
+  --yaml-color: #777777;
+  --yaml-bg-color: #f7f7f7;
+  --footnotes-bg-color: #3c3d3e;
+  --footnotes-highlight: #FFD760;
+  --table-border-color: #dfe2e5;
+  --table-header-bg-color: #f8f8f8;
+  --table-bg-color: var(--bg-color);
+  --table-n2-bg-color: #f8f8f8;
+  --input-bg-color: #f2f2f2;
+  --btn-hover-bg-color: #f2f2f2;
+  --checkbox-checked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M425.984 726.016l384-384-59.99-61.995-324.01 324.011-152.021-152.021L213.973 512zm384-598.016q36.01 0 61.013 25.984T896 213.974v596.01q0 34.005-25.003 59.99t-61.013 25.983h-596.01q-36.011 0-61.014-25.984t-25.003-59.989v-596.01q0-34.006 25.003-59.99T213.973 128h596.011z' fill='%2365b73b'/%3E%3C/svg%3E");
+  --checkbox-unchecked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M810.667 213.333v597.334H213.333V213.333h597.334m0-85.333H213.333C166.4 128 128 166.4 128 213.333v597.334C128 857.6 166.4 896 213.333 896h597.334C857.6 896 896 857.6 896 810.667V213.333C896 166.4 857.6 128 810.667 128z' fill='%23333333'/%3E%3C/svg%3E");
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: var(--text-font) !important;
+  color: var(--text-color);
+  -webkit-font-feature-settings: "liga"on, "calt"on;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.8rem;
+}
+
+/*code block*/
+.md-fences {
+  font-size: 1rem;
+  padding: 0.5rem !important;
+  border-radius: 2px;
+  word-wrap: normal;
+  background-color: var(--code-block-bg-color);
+  color: var(--code-block-color);
+  border: none;
+}
+
+/*mermaid*/
+.md-diagram-panel-preview text.actor>tspan {
+  /*方块文字*/
+  fill: var(--code-block-color) !important;
+  stroke: none !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+}
+
+.md-diagram-panel-preview .actor {
+  /*方块*/
+  stroke: var(--table-border-color) !important;
+  fill: var(--code-block-bg-color) !important;
+}
+
+.md-diagram-panel-preview .actor-line {
+  /*竖线*/
+  stroke: var(--text-color) !important;
+  stroke-width: 1px;
+}
+
+.md-diagram-panel-preview .messageLine0 {
+  /*横线*/
+  stroke-width: 1.5;
+  stroke-dasharray: none;
+  stroke: var(--text-color) !important;
+}
+
+.md-diagram-panel-preview .messageLine1 {
+  /*虚线*/
+  stroke-width: 1.5 !important;
+  stroke-dasharray: 2, 2 !important;
+  stroke: var(--text-color) !important;
+}
+
+.md-diagram-panel-preview .messageText {
+  /*描述文字*/
+  fill: var(--text-color) !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+}
+
+.md-diagram-panel-preview .activation0 {
+  /*长方形*/
+  fill: rgba(141, 141, 141, 0.22) !important;
+  stroke: var(--text-color) !important;
+}
+
+.md-diagram-panel-preview .labelText,
+.md-diagram-panel-preview .labelText>tspan {
+  /*循环标记*/
+  fill: var(--code-block-color) !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+  dominant-baseline: unset;
+  alignment-baseline: unset;
+}
+
+.md-diagram-panel-preview .labelBox {
+  /*循环标记背景*/
+  stroke: var(--table-border-color) !important;
+  fill: var(--code-block-bg-color) !important;
+}
+
+.md-diagram-panel-preview .loopLine {
+  /*循环标记虚线*/
+  stroke: var(--text-color) !important;
+}
+
+.md-diagram-panel-preview .loopText,
+.md-diagram-panel-preview .loopText>tspan {
+  /*循环名称*/
+  fill: var(--text-color) !important;
+  font-size: 1rem !important;
+}
+
+.md-diagram-panel-preview .sequenceNumber {
+  /*序号*/
+  fill: var(--bg-color) !important;
+}
+
+pre.md-fences-advanced.md-focus .md-fences-adv-panel {
+  border: none;
+}
+
+/*code snippet*/
+#write code,
+tt {
+  margin: 0 2px;
+  color: var(--drake-highlight);
+}
+
+/*variable*/
+var {
+  color: var(--variable-color);
+  font-weight: bold;
+}
+
+/*raw block*/
+.md-rawblock-control:not(.md-rawblock-tooltip) {
+  border-radius: 2px 0 2px 2px;
+  padding: 0.2rem !important;
+}
+
+.md-rawblock:hover>.md-rawblock-container {
+  background: none;
+}
+
+.md-rawblock-input {
+  font-size: 1rem;
+}
+
+.md-rawblock-tooltip-btn:hover {
+  background: none;
+}
+
+.md-rawblock:hover>.md-rawblock-tooltip {
+  border-radius: 2px 2px 0 0;
+  margin-bottom: 2px !important;
+}
+
+.md-rawblock-tooltip.md-rawblock-control {
+  border-radius: 2px 2px 0 0;
+  color: var(--code-block-color);
+}
+
+.md-rawblock-tooltip-name {
+  color: var(--code-block-color);
+  opacity: 1;
+}
+
+/*quote block*/
+blockquote:before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 4px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--blockquote-border-color);
+  border-radius: 2px;
+}
+
+blockquote {
+  color: var(--blockquote-color);
+  border-radius: 2px;
+  padding: 10px 16px;
+  background-color: var(--blockquote-bg-color);
+  position: relative;
+  border-left: none;
+}
+
+#write strong {
+  color: var(--strong-color);
+  font-weight: bold;
+}
+
+#write blockquote strong {
+  color: var(--blockquote-color);
+}
+
+/*link*/
+#write a {
+  color: var(--a-color);
+  text-decoration: none;
+}
+
+.on-focus-mode #write a .md-plain,
+.on-focus-mode .md-htmlblock-container a:hover {
+  border-bottom: .1rem solid var(--blur-text-color);
+}
+
+#write a .md-plain,
+.md-htmlblock-container a:hover,
+.on-focus-mode #write .md-focus a .md-plain,
+.md-focus .md-htmlblock-container a:hover {
+  border-bottom: .1rem solid var(--a-color);
+}
+
+/* 去掉下划线 */
+#write a .md-plain {
+  border-bottom: none !important;
+}
+
+[md-inline=link] a {
+  margin: 0 .2rem;
+}
+
+a:any-link {
+  color: var(--a-color);
+}
+
+img {
+  border-left: none;
+  border-right: none;
+  vertical-align: baseline;
+  border-radius: 2px;
+  /* 给 img 添加阴影 */
+  /* box-shadow: 0px 20px 40px 1px rgba(0,0,0,.3); */
+  box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .3);
+  /* mac 下截取的图片，默认会带有一丢丢的圆角，加上一个圆角边框，去掉 4 个边角的背景。 */
+  display: inline !important;
+  border-radius: 15px;
+}
+
+#write {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 30px 100px;
+}
+
+#typora-source .CodeMirror-lines {
+  max-width: 1200px;
+}
+
+#write p {
+  word-spacing: .05rem;
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+  margin-top: 30px;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title-font);
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  cursor: text;
+  color: var(--title-color);
+}
+
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  visibility: hidden;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+h2.md-end-block.md-heading {
+  font-size: 1.6rem;
+  display: inline-block;
+}
+
+h2.md-end-block.md-heading:after {
+  display: block;
+  content: '';
+  height: 2px;
+  margin-top: 4px;
+  background-color: var(--h2-underline-color);
+  border-radius: 2px;
+}
+
+.on-focus-mode h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
+  background-color: var(--blur-text-color) !important;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+  text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+  font-size: inherit !important;
+}
+
+h2 tt,
+h2 code {
+  font-size: inherit !important;
+}
+
+h3 tt,
+h3 code {
+  font-size: inherit !important;
+}
+
+h4 tt,
+h4 code {
+  font-size: inherit !important;
+}
+
+h5 tt,
+h5 code {
+  font-size: inherit !important;
+}
+
+h6 tt,
+h6 code {
+  font-size: inherit !important;
+}
+
+blockquote,
+ul,
+ol,
+dl,
+table {
+  margin: 0.8em 0;
+}
+
+p {
+  margin: 0;
+}
+
+li>ol,
+li>ul {
+  margin: 0 0;
+}
+
+hr {
+  height: 2px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: var(--horizontal-divider-color);
+  border: 0 none;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
+body>h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body>h1:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body>h1:first-child+h2 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body>h3:first-child,
+body>h4:first-child,
+body>h5:first-child,
+body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+  margin-top: 0;
+}
+
+li p.first {
+  display: inline-block;
+}
+
+ul,
+ol {
+  padding-inline-start: 2em;
+}
+
+ul:first-child,
+ol:first-child {
+  margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  padding: 0;
+  word-break: initial;
+  background-color: var(--table-bg-color);
+}
+
+table tr {
+  border-top: .1em solid var(--table-border-color);
+  margin: 0;
+  padding: 0;
+}
+
+table th {
+  font-weight: bold;
+  border: .1em solid var(--table-border-color);
+  border-bottom: 0;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table td {
+  border: .1em solid var(--table-border-color);
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table thead {
+  background-color: var(--table-header-bg-color);
+}
+
+table tr:nth-child(2n) {
+  background-color: var(--table-n2-bg-color);
+}
+
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}
+
+#write em {
+  padding: 0 5px 0 2px;
+}
+
+#write table thead th {
+  background-color: var(--table-header-bg-color);
+}
+
+/* height light */
+#write mark {
+  border: .1em solid var(--height-light-border-color);
+  color: var(--height-light-color);
+  background-color: transparent;
+  padding: .1rem .5rem;
+  border-radius: 2rem;
+  margin: 0 .2rem;
+  font-size: .95rem;
+}
+
+/*shortcut*/
+kbd {
+  border: .1em solid #5b5b5e;
+  background: transparent;
+  color: var(--text-color);
+  margin: 0 .4rem;
+  font-size: .95rem;
+  padding: .3em .4em;
+  border-radius: .4em;
+  vertical-align: top;
+  box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
+}
+
+#write del {
+  padding: 1px 2px;
+}
+
+.md-task-list-item>input {
+  margin-left: -1.3em;
+}
+
+@media print {
+  html {
+    font-size: 12px;
+  }
+
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
+
+  pre {
+    word-wrap: break-word;
+  }
+}
+
+/*YAML*/
+#write pre.md-meta-block {
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: var(--yaml-bg-color);
+  border: 0;
+  border-radius: 2px;
+  color: var(--yaml-color);
+  margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+  bottom: .375rem;
+}
+
+#write>h3.md-focus:before {
+  left: -1.5625rem;
+  top: .375rem;
+}
+
+#write>h4.md-focus:before {
+  left: -1.5625rem;
+  top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+  left: -1.5625rem;
+  top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+  left: -1.5625rem;
+  top: .285714286rem;
+}
+
+.md-image>.md-meta {
+  border-radius: 2px;
+  font-family: initial;
+  padding: 2px 0 0 4px;
+  color: inherit;
+}
+
+.md-tag {
+  color: inherit;
+}
+
+.md-toc {
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.typora-quick-open-item {
+  font-size: 1rem !important;
+  height: 50px;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#typora-quick-open {
+  box-shadow: 0 0 8px #00000045;
+  padding: 0;
+}
+
+.ty-quick-open-category.ty-has-prev .ty-quick-open-category-title {
+  border-top: none;
+}
+
+#typora-quick-open-input {
+  margin: 8px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+#typora-quick-open-input input {
+  font-size: 1rem;
+  box-shadow: none;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 32px;
+  max-height: 32px;
+  border: none;
+}
+
+.modal-dialog#typora-quick-open {
+  border-radius: 8px;
+}
+
+.ty-quick-open-category-title {
+  padding-left: 8px;
+  color: #BEBEBE;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.typora-quick-open-item-path {
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+
+/*search input*/
+.form-control {
+  border: none;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+#md-searchpanel .btn {
+  border-radius: 2px;
+}
+
+#search-panel-replaceall-btn {
+  padding-right: 5px !important;
+  text-align: center !important;
+}
+
+#search-panel-replace-btn {
+  text-align: center !important;
+}
+
+#md-searchpanel input {
+  background: var(--input-bg-color);
+  border-radius: 2px;
+}
+
+.searchpanel-search-option-btn {
+  border-radius: 2px;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+}
+
+.searchpanel-search-option-btn.active {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+#md-notification:before {
+  top: 10px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+  border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+  font-family: initial;
+}
+
+/*sidebar*/
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+  visibility: visible;
+}
+
+#typora-sidebar {
+  /* 左侧的导航，字体有点偏大了。 */
+  /* font-size: 1.1rem; */
+}
+
+.sidebar-tabs {
+  border-bottom: none;
+}
+
+.file-list-item-summary,
+.file-list-item-parent-loc,
+.file-list-item-time,
+.file-list-item-summary {
+  font-size: 0.9rem !important;
+  font-family: var(--text-font);
+}
+
+.file-list-item-file-ext-part {
+  display: none;
+}
+
+.outline-item {
+  font-size: 1rem;
+}
+
+/*footnotes mark*/
+#write .md-footnote {
+  background-color: inherit;
+  color: var(--drake-highlight);
+  font-size: 0.9rem;
+  border-radius: 0.9rem;
+  padding-left: 0;
+}
+
+#write .md-footnote:before {
+  content: "[";
+}
+
+#write .md-footnote:after {
+  content: "]";
+}
+
+/*footnotes content*/
+.md-hover-tip .code-tooltip-content {
+  border-radius: 2px;
+}
+
+/*footnotes title*/
+span.md-def-name {
+  padding-right: 3ch;
+  padding-left: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+/*footnotes desc*/
+.footnotes {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--text-color);
+  position: relative;
+}
+
+/*footnotes tooltip text*/
+.code-tooltip-content .md-plain {
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.code-tooltip-content code {
+  padding: 0 2px;
+  font-family: inherit;
+  color: var(--footnotes-highlight);
+  background-color: inherit;
+}
+
+.code-tooltip-content a {
+  color: var(--footnotes-highlight);
+}
+
+div.code-tooltip-content {
+  box-shadow: 0 0 8px #00000045;
+  background: var(--footnotes-bg-color);
+}
+
+.footnotes {
+  opacity: 1;
+}
+
+.md-def-name:after {
+  content: ". ^";
+  color: var(--text-color);
+}
+
+.md-def-footnote .md-def-name:before {
+  content: "";
+  color: var(--text-color);
+  position: absolute;
+}
+
+.md-def-name:before {
+  content: "";
+  color: var(--text-color);
+  position: absolute;
+}
+
+.md-content.md-url,
+.md-def-content.md-def-url.md-auto-disp {
+  text-decoration: none;
+  border-bottom: .1rem solid var(--text-color);
+}
+
+.CodeMirror-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.file-list-item-summary {
+  font-size: 1em;
+}
+
+.pin-outline #outline-content .outline-active strong,
+.pin-outline .outline-active {
+  font-weight: 500;
+  color: var(--outline-active-color);
+}
+
+.file-list-item.active {
+  border-left: 4px solid var(--drake-accent);
+}
+
+#md-searchpanel .btn:not(.close-btn):hover {
+  box-shadow: none;
+  background: var(--btn-hover-bg-color);
+}
+
+/*checkbox*/
+#write input[type=checkbox] {
+  opacity: 0;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-left: -2em;
+  margin-top: 0;
+  top: 0;
+}
+
+/* #write .ul-list li.md-task-list-item.task-list-done::before {
      content: "";
      background: var(--checkbox-checked) 0 0 no-repeat;
      background-size: 100%;
@@ -1225,336 +1225,448 @@ span.cm-strikethrough { text-decoration: line-through; }
      margin-left: -2em;
  } */
 
- #write ul li.md-task-list-item.task-list-done::before {
-    content: "";
-    background: var(--checkbox-checked) 0 0 no-repeat;
-    background-size: 100%;
-    display: inline-block;
-    position: absolute;
-    height: 1.6rem;
-    width: 1.6rem;
-    margin-left: -2em;
+#write ul li.md-task-list-item.task-list-done::before {
+  content: "";
+  background: var(--checkbox-checked) 0 0 no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-left: -2em;
 }
 
- #write ul li.md-task-list-item.task-list-not-done::before {
-     content: "";
-     background: var(--checkbox-unchecked) 0 0 no-repeat;
-     background-size: 100%;
-     display: inline-block;
-     position: absolute;
-     height: 1.6rem;
-     width: 1.6rem;
-     margin-left: -2em;
- }
+#write ul li.md-task-list-item.task-list-not-done::before {
+  content: "";
+  background: var(--checkbox-unchecked) 0 0 no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-left: -2em;
+}
 
- /*insert table*/
- .btn {
-     border-radius: 2px;
- }
+/*insert table*/
+.btn {
+  border-radius: 2px;
+}
 
- .modal-content {
-     border-radius: 8px;
- }
+.modal-content {
+  border-radius: 8px;
+}
 
- .btn-primary:hover,
- .btn-primary:active {
-     background-color: var(--btn-hover-bg-color);
-     color: var(--drake-highlight);
- }
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--drake-highlight);
+}
 
- .btn-primary {
-     background-color: transparent;
-     color: var(--drake-highlight);
- }
+.btn-primary {
+  background-color: transparent;
+  color: var(--drake-highlight);
+}
 
- .btn-default {
-     background-color: transparent;
- }
+.btn-default {
+  background-color: transparent;
+}
 
- .btn:active {
-     box-shadow: none;
-     border-color: transparent;
- }
+.btn:active {
+  box-shadow: none;
+  border-color: transparent;
+}
 
- .modal-footer {
-     border-top: none;
- }
+.modal-footer {
+  border-top: none;
+}
 
- #table-insert-col,
- #table-insert-row {
-     background: var(--input-bg-color);
-     border-radius: 2px;
- }
+#table-insert-col,
+#table-insert-row {
+  background: var(--input-bg-color);
+  border-radius: 2px;
+}
 
- /*preference panel*/
- #megamenu-content {
-     background-image: none !important;
-     background-color: var(--bg-color);
- }
+/*preference panel*/
+#megamenu-content {
+  background-image: none !important;
+  background-color: var(--bg-color);
+}
 
- #top-titlebar {
-     height: inherit;
-     background-color: var(--bg-color);
- }
+#top-titlebar {
+  height: inherit;
+  background-color: var(--bg-color);
+}
 
- #megamenu-menu-sidebar {
-     background-color: var(--bg-color);
-     color: var(--text-color);
- }
+#megamenu-menu-sidebar {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 
- .long-btn {
-     width: inherit;
-     min-width: 300px;
-     border: 1px solid var(--text-color);
-     border-radius: 6px;
- }
+.long-btn {
+  width: inherit;
+  min-width: 300px;
+  border: 1px solid var(--text-color);
+  border-radius: 6px;
+}
 
- .megamenu-menu-panel h1 {
-     margin-bottom: 3rem;
-     text-align: left;
- }
+.megamenu-menu-panel h1 {
+  margin-bottom: 3rem;
+  text-align: left;
+}
 
- .megamenu-menu-panel h1,
- .megamenu-menu-panel h2 {
-     font-weight: normal;
- }
+.megamenu-menu-panel h1,
+.megamenu-menu-panel h2 {
+  font-weight: normal;
+}
 
- #recent-file-panel-search-input {
-     height: 45px;
-     border: none;
-     border-bottom: 1px solid var(--text-color);
-     padding-left: 8px;
- }
+#recent-file-panel-search-input {
+  height: 45px;
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  padding-left: 8px;
+}
 
- #recent-file-panel-search-input::placeholder {
-     color: var(--text-color);
-     opacity: .5;
- }
+#recent-file-panel-search-input::placeholder {
+  color: var(--text-color);
+  opacity: .5;
+}
 
- .megamenu-menu-header {
-     border-bottom: none;
- }
+.megamenu-menu-header {
+  border-bottom: none;
+}
 
- #recent-file-panel-action-btn {
-     background: none;
-     border: none;
- }
+#recent-file-panel-action-btn {
+  background: none;
+  border: none;
+}
 
- #recent-file-panel-action-btn-container {
-     float: none;
-     display: inline-block;
- }
+#recent-file-panel-action-btn-container {
+  float: none;
+  display: inline-block;
+}
 
- #top-titlebar .toolbar-icon.btn.hover,
- #top-titlebar .toolbar-icon.btn:hover {
-     background-color: var(--btn-hover-bg-color);
-     color: var(--text-color);
- }
+#top-titlebar .toolbar-icon.btn.hover,
+#top-titlebar .toolbar-icon.btn:hover {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--text-color);
+}
 
- .megamenu-menu-panel .btn:hover {
-     background-color: var(--btn-hover-bg-color) !important;
-     color: var(--text-color);
- }
+.megamenu-menu-panel .btn:hover {
+  background-color: var(--btn-hover-bg-color) !important;
+  color: var(--text-color);
+}
 
- #recent-file-panel tbody tr:nth-child(2n-1),
- .megamenu-menu-panel table thead,
- .megamenu-menu-panel table tr {
-     background-color: transparent;
- }
+#recent-file-panel tbody tr:nth-child(2n-1),
+.megamenu-menu-panel table thead,
+.megamenu-menu-panel table tr {
+  background-color: transparent;
+}
 
- .megamenu-menu-panel table {
-     font-weight: normal;
- }
+.megamenu-menu-panel table {
+  font-weight: normal;
+}
 
- #megamenu-back-btn {
-     color: var(--text-color);
-     border: 1px solid var(--text-color);
- }
+#megamenu-back-btn {
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+}
 
- .megamenu-menu-header #megamenu-menu-header-title {
-     color: var(--text-color);
- }
+.megamenu-menu-header #megamenu-menu-header-title {
+  color: var(--text-color);
+}
 
- header,
- .context-menu,
- .megamenu-content,
- footer {
-     font-family: var(--text-font);
- }
+header,
+.context-menu,
+.megamenu-content,
+footer {
+  font-family: var(--text-font);
+}
 
- .ty-preferences select {
-     padding-left: 2px;
- }
+.ty-preferences select {
+  padding-left: 2px;
+}
 
- .preference-item-hint {
-     font-size: 14px;
- }
+.preference-item-hint {
+  font-size: 14px;
+}
 
- a.ty-link {
-     color: var(--a-color);
-     margin: 0 .2rem;
- }
+a.ty-link {
+  color: var(--a-color);
+  margin: 0 .2rem;
+}
 
- /**
+/**
      code render
      Name: IntelliJ IDEA light theme
      From IntelliJ IDEA by JetBrains
   */
- .cm-s-inner span.cm-number {
-     color: #a32eff;
- }
+.cm-s-inner span.cm-number {
+  color: #a32eff;
+}
 
- .cm-s-inner span.cm-atom {
-     color: #a32eff;
- }
+.cm-s-inner span.cm-atom {
+  color: #a32eff;
+}
 
- .cm-s-inner span.cm-def {
-     color: var(--code-block-color);
- }
+.cm-s-inner span.cm-def {
+  color: var(--code-block-color);
+}
 
- .cm-s-inner span.cm-variable {
-     color: var(--code-block-color);
- }
+.cm-s-inner span.cm-variable {
+  color: var(--code-block-color);
+}
 
- .cm-s-inner span.cm-variable-2 {
-     color: #00627A;
- }
+.cm-s-inner span.cm-variable-2 {
+  color: #00627A;
+}
 
- .cm-s-inner span.cm-variable-3,
- .cm-s-inner span.cm-type {
-     color: #00627A;
- }
+.cm-s-inner span.cm-variable-3,
+.cm-s-inner span.cm-type {
+  color: #00627A;
+}
 
- .cm-s-inner span.cm-property {
-     color: var(--code-block-color);
- }
+.cm-s-inner span.cm-property {
+  color: var(--code-block-color);
+}
 
- .cm-s-inner span.cm-keyword {
-     color: #d63200;
- }
+.cm-s-inner span.cm-keyword {
+  color: #d63200;
+}
 
- .cm-s-inner span.cm-operator {
-     color: var(--code-block-color);
- }
+.cm-s-inner span.cm-operator {
+  color: var(--code-block-color);
+}
 
- .cm-s-inner span.cm-comment {
-     color: #787878;
- }
+.cm-s-inner span.cm-comment {
+  color: #787878;
+}
 
- .cm-s-inner span.cm-string {
-     color: #31a062;
- }
+.cm-s-inner span.cm-string {
+  color: #31a062;
+}
 
- .cm-s-inner span.cm-string-2 {
-     color: #31a062;
- }
+.cm-s-inner span.cm-string-2 {
+  color: #31a062;
+}
 
- .cm-s-inner span.cm-qualifier {
-     color: var(--code-block-color);
- }
+.cm-s-inner span.cm-qualifier {
+  color: var(--code-block-color);
+}
 
- .cm-s-inner span.cm-error {
-     color: red;
- }
+.cm-s-inner span.cm-error {
+  color: red;
+}
 
- .cm-s-inner span.cm-attribute {
-     color: #2973b7;
- }
+.cm-s-inner span.cm-attribute {
+  color: #2973b7;
+}
 
- .cm-s-inner span.cm-tag {
-     color: #2973b7;
- }
+.cm-s-inner span.cm-tag {
+  color: #2973b7;
+}
 
- .cm-s-inner span.cm-link {
-     color: #4A86E8;
- }
+.cm-s-inner span.cm-link {
+  color: #4A86E8;
+}
 
- .cm-s-inner span.cm-builtin {
-     color: var(--code-block-color);
- }
+.cm-s-inner span.cm-builtin {
+  color: var(--code-block-color);
+}
 
- .cm-s-inner span.cm-bracket {
-     color: #2973b7;
- }
+.cm-s-inner span.cm-bracket {
+  color: #2973b7;
+}
 
- .cm-s-inner .CodeMirror-gutters {
-     border-right: 1px solid rgba(120, 120, 120, 0.3);
- }
+.cm-s-inner .CodeMirror-gutters {
+  border-right: 1px solid rgba(120, 120, 120, 0.3);
+}
 
- .cm-s-inner .CodeMirror-linenumber {
-     color: #787878;
- }
+.cm-s-inner .CodeMirror-linenumber {
+  color: #787878;
+}
 
- /* 侧边目录 */
- .typora-export-sidebar .outline-content {
-     width: 240px !important;
-     overflow: auto !important;
- }
+/* 笔记 侧边目录区 */
+/* 调整侧边目录的宽度 */
+.typora-export-sidebar {
+  width: 20vw !important;
+}
+
+.typora-export-sidebar .outline-content {
+  width: 19vw !important;
+  /* 溢出内容可以滑动，防止目录显示不全。 */
+  overflow: auto !important;
+}
+
+.typora-export .outline-item {
+  white-space: nowrap !important;
+}
+
+/* 菜单展开|未展开图标 */
+.typora-export .outline-expander:hover::before,
+.typora-export .outline-item-open>.outline-item>.outline-expander::before,
+.typora-export .outline-expander:hover::before,
+.typora-export .outline-expander::before {
+  font-size: 20px;
+  padding-right: 10px;
+  color: inherit;
+}
+
+/* 菜单项 鼠标悬停的过渡效果 */
+.typora-export .outline-label {
+  transform: scale(1);
+  transition: all .2s;
+}
+
+.typora-export-show-outline .outline-item-active>.outline-item .outline-label,
+.typora-export .outline-item:hover .outline-label {
+  text-decoration: none;
+  font-weight: 700;
+  transform: scale(1.1);
+  color: var(--blockquote-border-color);
+  transition: all .2s;
+}
+
+/* 让菜单项的展开和收起图标继承字体颜色 */
+.typora-export-show-outline .outline-item-active>.outline-item,
+.typora-export .outline-item:hover {
+  color: var(--blockquote-border-color);
+}
+
+.typora-export .outline-item {
+  color: var(--a-color);
+}
+
+/* 笔记 内容区 */
+/* 将 write 和 write 下的所以一级子元素的宽度都设置为 80vw */
+.typora-export #write {
+  width: 80vw !important;
+}
+
+.typora-export #write>* {
+  width: 100% !important;
+}
+
+/* 纯 css 实现加载进度条
+参考：https://www.zhangxinxu.com/wordpress/2019/06/better-css-scroll-indicator/
+*/
+.typora-export {
+  position: relative;
+}
+
+.typora-export .indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to right top, teal 50%, transparent 50%) no-repeat;
+  background-size: 100% calc(100% - 100vh);
+  z-index: 2021;
+  pointer-events: none;
+  mix-blend-mode: darken;
+}
+
+.typora-export .indicator::after {
+  content: '';
+  position: fixed;
+  top: 5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+  z-index: 1;
+}
 
  @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
 </style><title>201~300</title>
 </head>
 <body class='typora-export typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
-<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#203-移除链表元素">203. 移除链表元素</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法1遍历">方法1：遍历</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法2递归">方法2：递归</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#测试示例">测试示例</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#bug"><strong>bug</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#206-反转链表">206. 反转链表</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法1-递归算法">方法1 「递归算法」</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#278-第一个错误的版本">278. 第一个错误的版本</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1-暴力解法">1. 暴力解法</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2-二分查找">2. 二分查找</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#小结">小结</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#283-移动零">283. 移动零</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法1-双指针">方法1 「双指针」</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#"> </a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><h1 id='203-移除链表元素'><span>203. 移除链表元素</span></h1><h2 id='方法1遍历'><span>方法1：遍历</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {number} val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">removeElements</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>, <span class="cm-def">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">root</span> <span class="cm-operator">=</span> <span class="cm-variable">cur</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">0</span>, <span class="cm-variable-2">head</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable">cur</span>.<span class="cm-property">next</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">val</span> <span class="cm-operator">===</span> <span class="cm-variable-2">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">cur</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">cur</span> <span class="cm-operator">=</span> <span class="cm-variable">cur</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">root</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 448px;"></div><div class="CodeMirror-gutters" style="display: none; height: 448px;"></div></div></div></pre><p><span>【解题思路】</span></p><ul><li><p><span>遍历链表</span></p><ul><li><span>若链表当前节点的下一个节点的值与 val 相等，那么将下一个节点重新赋值为当前节点的 下下 个节点（即“删除链表上，当前节点的下一个节点。）</span></li><li><span>否则，直接赋值为下一个节点</span></li></ul></li></ul><p><span>【注意点】</span></p><ul><li><p><span>在链表的表头添加一个根节点 root，令 root.next === head</span></p></li><li><p><span>定义一个变量 cur，初始值为 root，表示当前节点。</span></p></li><li><p><span>最后返回的是 root.next 而非 cur.next。</span></p><ul><li><span>cur 用于实现功能，它的指向会变，但是 root 的指向始终不变，所以最终返回的是 root.next</span></li></ul></li></ul><p><span>【思考】</span></p><p><span>为什么要使用当前节点的下一个节点的 val 值去判断，不直接使用当前节点的 val 去判断？</span></p><p><span>试想一下，如果使用当前节点来做判断的话，若当前节点的 val 不满足要求，也就是与传入的 val 值不相等（cur.val !== val），那么，这种情况下是没问题的，直接令 cur = cur.next; 继续判断下一个节点就好。</span></p><p><span>但是，如果当前节点的值满足要求的话（cur.val === val），会出现无法找到当前节点的上一个节点的问题，进而导致当前节点无法被删除。因为我们需要将上一个节点（cur.pre）的 next 指向当前节点的下一个节点 cur.next，以此来删除当前这个需要被删除的节点。</span></p><h2 id='方法2递归'><span>方法2：递归</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {number} val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">removeElements</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>, <span class="cm-def">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span>(<span class="cm-variable-2">head</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">removeElements</span>(<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>, <span class="cm-variable-2">val</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>.<span class="cm-property">val</span> <span class="cm-operator">===</span> <span class="cm-variable-2">val</span> <span class="cm-operator">?</span> <span class="cm-variable-2">head</span>.<span class="cm-property">next</span> : <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 336px;"></div><div class="CodeMirror-gutters" style="display: none; height: 336px;"></div></div></div></pre><p><span>【解题思路】</span></p><p><span>先找出口：若当前节点是 null，那么意味着 “递” 到了最后一个节点，此时可以开始 “归” 了。</span></p><ul><li><p><span>递</span></p><ul><li><span>递的过程，啥也不做，就是将当前指针 “递” 到最后一个节点</span></li></ul></li><li><p><span>归</span></p><ul><li><p><span>归的过程，是在 “递” 的过程结束之后，意味着：“归” 也是从最后一个节点开始的；</span></p></li><li><p><span>归的过程，好比从后往前依次遍历各节点，对于遍历到的节点，需要判断是归并当前节点还是当前节点的下一个节点。</span></p><ul><li><span>若发现当前节点的 val 值与传入的 val 值相同，那么将当前节点的下一个节点归并；（意味着删除当前这个节点）</span></li><li><span>若发现当前节点的 val 值与传入的 val 值不同，那么直接将当前节点归并；</span></li></ul></li></ul></li></ul><h2 id='测试示例'><span>测试示例</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">ListNode</span>(<span class="cm-def">val</span>, <span class="cm-def">next</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">this</span>.<span class="cm-property">val</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">val</span> <span class="cm-operator">===</span> <span class="cm-atom">undefined</span> <span class="cm-operator">?</span> <span class="cm-number">0</span> : <span class="cm-variable-2">val</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">this</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">next</span> <span class="cm-operator">===</span> <span class="cm-atom">undefined</span> <span class="cm-operator">?</span> <span class="cm-atom">null</span> : <span class="cm-variable-2">next</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#203-移除链表元素">203. 移除链表元素</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法1遍历">方法1：遍历</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法2递归">方法2：递归</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#测试示例">测试示例</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#bug"><strong>bug</strong></a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#206-反转链表">206. 反转链表</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法1-递归算法">方法1 「递归算法」</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法2-循环">方法2 「循环」</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#278-第一个错误的版本">278. 第一个错误的版本</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#1-暴力解法">1. 暴力解法</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#2-二分查找">2. 二分查找</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#小结">小结</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#283-移动零">283. 移动零</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#方法1-双指针">方法1 「双指针」</a></div><ul class="outline-children"></ul></li></ul></li><li class="outline-item-wrapper outline-h1 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#"> </a></div><ul class="outline-children"></ul></li></div></div><div id='write'  class=''><h1 id='203-移除链表元素'><span>203. 移除链表元素</span></h1><h2 id='方法1遍历'><span>方法1：遍历</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {number} val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">removeElements</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>, <span class="cm-def">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">root</span> <span class="cm-operator">=</span> <span class="cm-variable">cur</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">0</span>, <span class="cm-variable-2">head</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable">cur</span>.<span class="cm-property">next</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">val</span> <span class="cm-operator">===</span> <span class="cm-variable-2">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">cur</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">cur</span> <span class="cm-operator">=</span> <span class="cm-variable">cur</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">root</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 448px;"></div><div class="CodeMirror-gutters" style="display: none; height: 448px;"></div></div></div></pre><p><span>【解题思路】</span></p><ul><li><p><span>遍历链表</span></p><ul><li><span>若链表当前节点的下一个节点的值与 val 相等，那么将下一个节点重新赋值为当前节点的 下下 个节点（即“删除链表上，当前节点的下一个节点。）</span></li><li><span>否则，直接赋值为下一个节点</span></li></ul></li></ul><p><span>【注意点】</span></p><ul><li><p><span>在链表的表头添加一个根节点 root，令 root.next === head</span></p></li><li><p><span>定义一个变量 cur，初始值为 root，表示当前节点。</span></p></li><li><p><span>最后返回的是 root.next 而非 cur.next。</span></p><ul><li><span>cur 用于实现功能，它的指向会变，但是 root 的指向始终不变，所以最终返回的是 root.next</span></li></ul></li></ul><p><span>【思考】</span></p><p><span>为什么要使用当前节点的下一个节点的 val 值去判断，不直接使用当前节点的 val 去判断？</span></p><p><span>试想一下，如果使用当前节点来做判断的话，若当前节点的 val 不满足要求，也就是与传入的 val 值不相等（cur.val !== val），那么，这种情况下是没问题的，直接令 cur = cur.next; 继续判断下一个节点就好。</span></p><p><span>但是，如果当前节点的值满足要求的话（cur.val === val），会出现无法找到当前节点的上一个节点的问题，进而导致当前节点无法被删除。因为我们需要将上一个节点（cur.pre）的 next 指向当前节点的下一个节点 cur.next，以此来删除当前这个需要被删除的节点。</span></p><h2 id='方法2递归'><span>方法2：递归</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {number} val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">removeElements</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>, <span class="cm-def">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span>(<span class="cm-variable-2">head</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>){</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">removeElements</span>(<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>, <span class="cm-variable-2">val</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>.<span class="cm-property">val</span> <span class="cm-operator">===</span> <span class="cm-variable-2">val</span> <span class="cm-operator">?</span> <span class="cm-variable-2">head</span>.<span class="cm-property">next</span> : <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 336px;"></div><div class="CodeMirror-gutters" style="display: none; height: 336px;"></div></div></div></pre><p><span>【解题思路】</span></p><p><span>先找出口：若当前节点是 null，那么意味着 “递” 到了最后一个节点，此时可以开始 “归” 了。</span></p><ul><li><p><span>递</span></p><ul><li><span>递的过程，啥也不做，就是将当前指针 “递” 到最后一个节点</span></li></ul></li><li><p><span>归</span></p><ul><li><p><span>归的过程，是在 “递” 的过程结束之后，意味着：“归” 也是从最后一个节点开始的；</span></p></li><li><p><span>归的过程，好比从后往前依次遍历各节点，对于遍历到的节点，需要判断是归并当前节点还是当前节点的下一个节点。</span></p><ul><li><span>若发现当前节点的 val 值与传入的 val 值相同，那么将当前节点的下一个节点归并；（意味着删除当前这个节点）</span></li><li><span>若发现当前节点的 val 值与传入的 val 值不同，那么直接将当前节点归并；</span></li></ul></li></ul></li></ul><h2 id='测试示例'><span>测试示例</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">ListNode</span>(<span class="cm-def">val</span>, <span class="cm-def">next</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">this</span>.<span class="cm-property">val</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">val</span> <span class="cm-operator">===</span> <span class="cm-atom">undefined</span> <span class="cm-operator">?</span> <span class="cm-number">0</span> : <span class="cm-variable-2">val</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">this</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> (<span class="cm-variable-2">next</span> <span class="cm-operator">===</span> <span class="cm-atom">undefined</span> <span class="cm-operator">?</span> <span class="cm-atom">null</span> : <span class="cm-variable-2">next</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
 </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">node1</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">1</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">node2</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">2</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">node3</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">6</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">node4</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">3</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">node5</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">4</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">node6</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">5</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">node7</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">6</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
 </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">node1</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">node2</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">node2</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">node3</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">node3</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">node4</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">node4</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">node5</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">node5</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">node6</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">node6</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">node7</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
 </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">bianliNodeList</span>(<span class="cm-def">node</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">node</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable-2">node</span>.<span class="cm-property">val</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">bianliNodeList</span>(<span class="cm-variable-2">node</span>.<span class="cm-property">next</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
 </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// bianliNodeList(node1);</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
 </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {number} val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">removeElements</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>, <span class="cm-def">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// ...</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
-</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">root</span> <span class="cm-operator">=</span> <span class="cm-variable">removeElements</span>(<span class="cm-variable">node1</span>, <span class="cm-number">6</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">bianliNodeList</span>(<span class="cm-variable">root</span>); <span class="cm-comment">// 1 2 3 4 5</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 1148px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1148px;"></div></div></div></pre><h2 id='bug'><strong><span>bug</span></strong></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {number} val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">removeElements</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>, <span class="cm-def">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">cur</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">0</span>, <span class="cm-variable-2">head</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">val</span> <span class="cm-operator">===</span> <span class="cm-variable-2">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">cur</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">continue</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">cur</span> <span class="cm-operator">=</span> <span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 476px;"></div><div class="CodeMirror-gutters" style="display: none; height: 476px;"></div></div></div></pre><p><span>由于表头 head 也是有可能会变的，即：它也有可能是需要被删除的。所以，这么写的话，就会存在一个隐患，像下面这样的测试示例会通不过，因为表头 head 也需要被删掉。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="text"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="text"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输入：[7, 7, 7, 7] 7</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输出：[]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">实际输出：7 7 7 7</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 84px;"></div><div class="CodeMirror-gutters" style="display: none; height: 84px;"></div></div></div></pre><p><span>程序执行完后： </span><code>0 ==&gt; null</code></p><h1 id='206-反转链表'><span>206. 反转链表</span></h1><h2 id='方法1-递归算法'><span>方法1 「递归算法」</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * Definition for singly-linked list.</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * function ListNode(val, next) {</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * &nbsp; &nbsp; this.val = (val===undefined ? 0 : val)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * &nbsp; &nbsp; this.next = (next===undefined ? null : next)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * }</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">reverseList</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 链表的长度为0或1 直接返回</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">head</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span> <span class="cm-operator">||</span> <span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">lastNode</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">lastNode</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">newHead</span> <span class="cm-operator">=</span> <span class="cm-variable">reverseList</span>(<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">newHead</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 700px;"></div><div class="CodeMirror-gutters" style="display: none; height: 700px;"></div></div></div></pre><p><strong><span>注解</span></strong></p><ul><li><p><span>若链表为空，或者只有一个成员，那么直接将原链表返回；</span></p></li><li><p><span>递</span></p><ul><li><p><span>找原链表的倒数第二个节点；</span></p><ul><li><span>借助倒数第二个节点找到尾节点，并将原链表的尾节点返回，作为新链表的表头节点；</span></li><li><span>将尾节点的指针指向倒数第二个节点（尾节点的指针指向前一个节点），将倒数第二个节点的指针指向空；</span></li></ul></li></ul></li><li><p><span>归</span></p><ul><li><span>接收到原链表的尾节点，赋值给 newHead，newHead 将作为最终返回的新链表的表头节点；</span></li><li><span>将当前节点的下一个节点的指向指向自身，同时将当前节点指向空；（不断地重复，直到原链表的首节点）</span></li></ul></li></ul><p>&nbsp;</p><h1 id='278-第一个错误的版本'><span>278. 第一个错误的版本</span></h1><h2 id='1-暴力解法'><span>1. 暴力解法</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">solution</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">isBadVersion</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">function</span> (<span class="cm-def">n</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">i</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>; <span class="cm-variable-2">i</span> <span class="cm-operator">&lt;=</span> <span class="cm-variable-2">n</span>; <span class="cm-variable-2">i</span> <span class="cm-operator">++</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">isBadVersion</span>(<span class="cm-variable-2">i</span>)) <span class="cm-keyword">return</span> <span class="cm-variable-2">i</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 196px;"></div><div class="CodeMirror-gutters" style="display: none; height: 196px;"></div></div></div></pre><p><span>直接将所有成员都遍历一遍来查找，从最小的开始。</span></p><h2 id='2-二分查找'><span>2. 二分查找</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">solution</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">isBadVersion</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">function</span> (<span class="cm-def">n</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">left</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-def">right</span> <span class="cm-operator">=</span> <span class="cm-variable-2">n</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-def">mid</span> <span class="cm-operator">=</span> <span class="cm-variable-2">left</span> <span class="cm-operator">+</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>((<span class="cm-variable-2">right</span> <span class="cm-operator">-</span> <span class="cm-variable-2">left</span>) <span class="cm-operator">/</span> <span class="cm-number">2</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable-2">left</span> <span class="cm-operator">&lt;=</span> <span class="cm-variable-2">right</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">isBadVersion</span>(<span class="cm-variable-2">mid</span>)) { <span class="cm-comment">// 当前版本有错</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">right</span> <span class="cm-operator">=</span> <span class="cm-variable-2">mid</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable-2">isBadVersion</span>(<span class="cm-variable-2">right</span>)) { <span class="cm-comment">// 并且，当前版本的前一个版本没错</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">mid</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  } <span class="cm-keyword">else</span> { <span class="cm-comment">// 当前版本没错</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">left</span> <span class="cm-operator">=</span> <span class="cm-variable-2">mid</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">mid</span> <span class="cm-operator">=</span> <span class="cm-variable-2">left</span> <span class="cm-operator">+</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>((<span class="cm-variable-2">right</span> <span class="cm-operator">-</span> <span class="cm-variable-2">left</span>) <span class="cm-operator">/</span> <span class="cm-number">2</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 504px;"></div><div class="CodeMirror-gutters" style="display: none; height: 504px;"></div></div></div></pre><p><span>解题思路：同 </span><code>704. 二分查找</code><span>，不过得加一个判断，当找到错误的成员之后，必须确保该错误成员的左侧（前一个）成员必须是正确的，这样才能确保当前找到的这个错误成员是第一个出错的成员。</span></p><h2 id='小结'><span>小结</span></h2><p><span>本题是 </span><code>学习计划 [算法]</code><span> 第一天的第二题，在通过第一题 </span><code>704. 二分查找</code><span> 之后，再来写这道题，感觉简单多了。</span></p><h1 id='283-移动零'><span>283. 移动零</span></h1><h2 id='方法1-双指针'><span>方法1 「双指针」</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">moveZeroes</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">nums</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable-2">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable-2">nums</span>.<span class="cm-property">length</span>; <span class="cm-variable-2">i</span><span class="cm-operator">++</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>] <span class="cm-operator">!==</span> <span class="cm-number">0</span>) <span class="cm-keyword">continue</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">j</span> <span class="cm-operator">=</span> <span class="cm-variable-2">i</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>; <span class="cm-variable-2">j</span> <span class="cm-operator">&lt;</span> <span class="cm-variable-2">nums</span>.<span class="cm-property">length</span>; <span class="cm-variable-2">j</span><span class="cm-operator">++</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">j</span>] <span class="cm-operator">===</span> <span class="cm-number">0</span>) <span class="cm-keyword">continue</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  [<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>], <span class="cm-variable-2">nums</span>[<span class="cm-variable-2">j</span>]] <span class="cm-operator">=</span> [<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">j</span>], <span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>]];</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">break</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 280px;"></div><div class="CodeMirror-gutters" style="display: none; height: 280px;"></div></div></div></pre><h1 ><span> </span></h1></div></div>
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">root</span> <span class="cm-operator">=</span> <span class="cm-variable">removeElements</span>(<span class="cm-variable">node1</span>, <span class="cm-number">6</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">bianliNodeList</span>(<span class="cm-variable">root</span>); <span class="cm-comment">// 1 2 3 4 5</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 1148px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1148px;"></div></div></div></pre><h2 id='bug'><strong><span>bug</span></strong></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">/**</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {ListNode} head</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @param {number} val</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> * @return {ListNode}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"> */</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">removeElements</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>, <span class="cm-def">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">cur</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ListNode</span>(<span class="cm-number">0</span>, <span class="cm-variable-2">head</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">val</span> <span class="cm-operator">===</span> <span class="cm-variable-2">val</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">cur</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">continue</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  } <span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">cur</span> <span class="cm-operator">=</span> <span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 476px;"></div><div class="CodeMirror-gutters" style="display: none; height: 476px;"></div></div></div></pre><p><span>由于表头 head 也是有可能会变的，即：它也有可能是需要被删除的。所以，这么写的话，就会存在一个隐患，像下面这样的测试示例会通不过，因为表头 head 也需要被删掉。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="text"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="text"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输入：[7, 7, 7, 7] 7</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">输出：[]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">实际输出：7 7 7 7</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 84px;"></div><div class="CodeMirror-gutters" style="display: none; height: 84px;"></div></div></div></pre><p><span>程序执行完后： </span><code>0 ==&gt; null</code></p><h1 id='206-反转链表'><span>206. 反转链表</span></h1><h2 id='方法1-递归算法'><span>方法1 「递归算法」</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="javascript" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">reverseList</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 链表的长度为0或1 直接返回</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">head</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span> <span class="cm-operator">||</span> <span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>) <span class="cm-keyword">return</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">lastNode</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">lastNode</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">newHead</span> <span class="cm-operator">=</span> <span class="cm-variable">reverseList</span>(<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">head</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">newHead</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 392px;"></div><div class="CodeMirror-gutters" style="display: none; height: 392px;"></div></div></div></pre><p><strong><span>注解</span></strong></p><p><span>当链表的长度小于2时，直接将表头节点返回。否则，走以下逻辑，核心其实就俩字：“递”、“归”。</span></p><ul><li><span>递</span></li></ul><p><span>递的过程，其实就是指针后移的过程。用代码来表示就是 reverseList 不断调用自身，每次调用都传入当前节点的下一个节点，直到找到倒数第二个节点为止。其实，找到倒数第二个节点，也就意味着找到了最后一个节点，然后每次 return 都将最后一个节点给返回，这样就能确保我们最终返回的必然是原链表的尾节点，即：新链表的表头节点。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">reverseList</span> <span class="cm-operator">=</span> (<span class="cm-def">head</span>) <span class="cm-operator">=&gt;</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">===</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">lastNode</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// 归</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">lastNode</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">lastNode</span> <span class="cm-operator">=</span> <span class="cm-variable">reverseList</span>(<span class="cm-variable-2">head</span>.<span class="cm-property">next</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// 归</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">lastNode</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 280px;"></div><div class="CodeMirror-gutters" style="display: none; height: 280px;"></div></div></div></pre><blockquote><p><span>递，我们找到了最后一个节点，并且将指针移到了倒数第二个节点的位置。</span></p></blockquote><ul><li><span>归</span></li></ul><p><span>归的过程，其实就是指针回指的过程。在回指的过程中，还得干下面两件事儿。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 1. 当前指针所指节点 head 的下一个节点 head.next 的指向 head.next.next，改为指向当前节点 head。</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">head</span>.<span class="cm-property">next</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// 2. 当前节点 head 指向 head.next 空 null。</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">head</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 112px;"></div><div class="CodeMirror-gutters" style="display: none; height: 112px;"></div></div></div></pre><blockquote><p><span>不断回归，直到指针回指到头。</span></p></blockquote><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211220210513015.png" alt="image-20211220210513015" style="zoom:50%;" /></p><h2 id='方法2-循环'><span>方法2 「循环」</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">reverseList</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">head</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">pre</span> <span class="cm-operator">=</span> <span class="cm-atom">null</span>, <span class="cm-def">cur</span> <span class="cm-operator">=</span> <span class="cm-variable-2">head</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable-2">cur</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">const</span> <span class="cm-def">nextNode</span> <span class="cm-operator">=</span> <span class="cm-variable-2">cur</span>.<span class="cm-property">next</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-2">cur</span>.<span class="cm-property">next</span> <span class="cm-operator">=</span> <span class="cm-variable-2">pre</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-2">pre</span> <span class="cm-operator">=</span> <span class="cm-variable-2">cur</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable-2">cur</span> <span class="cm-operator">=</span> <span class="cm-variable-2">nextNode</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">pre</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 280px;"></div><div class="CodeMirror-gutters" style="display: none; height: 280px;"></div></div></div></pre><p><strong><span>注解</span></strong></p><p><span>提前准备好一个空节点 「pre」，它的位置始终在当前遍历到的节点「cur」之前。从头到尾依次遍历各个节点，每遍历到一个节点，就将该节点回指，然后同时向后移动 pre 和 cur。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211220210154668.png" alt="image-20211220210154668" style="zoom:50%;" /></p><p>&nbsp;</p><h1 id='278-第一个错误的版本'><span>278. 第一个错误的版本</span></h1><h2 id='1-暴力解法'><span>1. 暴力解法</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">solution</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">isBadVersion</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">function</span> (<span class="cm-def">n</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">i</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>; <span class="cm-variable-2">i</span> <span class="cm-operator">&lt;=</span> <span class="cm-variable-2">n</span>; <span class="cm-variable-2">i</span> <span class="cm-operator">++</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">isBadVersion</span>(<span class="cm-variable-2">i</span>)) <span class="cm-keyword">return</span> <span class="cm-variable-2">i</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 196px;"></div><div class="CodeMirror-gutters" style="display: none; height: 196px;"></div></div></div></pre><p><span>直接将所有成员都遍历一遍来查找，从最小的开始。</span></p><h2 id='2-二分查找'><span>2. 二分查找</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">solution</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">isBadVersion</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">function</span> (<span class="cm-def">n</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">left</span> <span class="cm-operator">=</span> <span class="cm-number">1</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-def">right</span> <span class="cm-operator">=</span> <span class="cm-variable-2">n</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-def">mid</span> <span class="cm-operator">=</span> <span class="cm-variable-2">left</span> <span class="cm-operator">+</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>((<span class="cm-variable-2">right</span> <span class="cm-operator">-</span> <span class="cm-variable-2">left</span>) <span class="cm-operator">/</span> <span class="cm-number">2</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">while</span> (<span class="cm-variable-2">left</span> <span class="cm-operator">&lt;=</span> <span class="cm-variable-2">right</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">isBadVersion</span>(<span class="cm-variable-2">mid</span>)) { <span class="cm-comment">// 当前版本有错</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">right</span> <span class="cm-operator">=</span> <span class="cm-variable-2">mid</span> <span class="cm-operator">-</span> <span class="cm-number">1</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-variable-2">isBadVersion</span>(<span class="cm-variable-2">right</span>)) { <span class="cm-comment">// 并且，当前版本的前一个版本没错</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">mid</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  } <span class="cm-keyword">else</span> { <span class="cm-comment">// 当前版本没错</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">left</span> <span class="cm-operator">=</span> <span class="cm-variable-2">mid</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">mid</span> <span class="cm-operator">=</span> <span class="cm-variable-2">left</span> <span class="cm-operator">+</span> <span class="cm-variable">Math</span>.<span class="cm-property">floor</span>((<span class="cm-variable-2">right</span> <span class="cm-operator">-</span> <span class="cm-variable-2">left</span>) <span class="cm-operator">/</span> <span class="cm-number">2</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 504px;"></div><div class="CodeMirror-gutters" style="display: none; height: 504px;"></div></div></div></pre><p><span>解题思路：同 </span><code>704. 二分查找</code><span>，不过得加一个判断，当找到错误的成员之后，必须确保该错误成员的左侧（前一个）成员必须是正确的，这样才能确保当前找到的这个错误成员是第一个出错的成员。</span></p><h2 id='小结'><span>小结</span></h2><p><span>本题是 </span><code>学习计划 [算法]</code><span> 第一天的第二题，在通过第一题 </span><code>704. 二分查找</code><span> 之后，再来写这道题，感觉简单多了。</span></p><h1 id='283-移动零'><span>283. 移动零</span></h1><h2 id='方法1-双指针'><span>方法1 「双指针」</span></h2><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">var</span> <span class="cm-def">moveZeroes</span> <span class="cm-operator">=</span> <span class="cm-keyword">function</span> (<span class="cm-def">nums</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>; <span class="cm-variable-2">i</span> <span class="cm-operator">&lt;</span> <span class="cm-variable-2">nums</span>.<span class="cm-property">length</span>; <span class="cm-variable-2">i</span><span class="cm-operator">++</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>] <span class="cm-operator">!==</span> <span class="cm-number">0</span>) <span class="cm-keyword">continue</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> (<span class="cm-keyword">let</span> <span class="cm-def">j</span> <span class="cm-operator">=</span> <span class="cm-variable-2">i</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>; <span class="cm-variable-2">j</span> <span class="cm-operator">&lt;</span> <span class="cm-variable-2">nums</span>.<span class="cm-property">length</span>; <span class="cm-variable-2">j</span><span class="cm-operator">++</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">j</span>] <span class="cm-operator">===</span> <span class="cm-number">0</span>) <span class="cm-keyword">continue</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  [<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>], <span class="cm-variable-2">nums</span>[<span class="cm-variable-2">j</span>]] <span class="cm-operator">=</span> [<span class="cm-variable-2">nums</span>[<span class="cm-variable-2">j</span>], <span class="cm-variable-2">nums</span>[<span class="cm-variable-2">i</span>]];</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">break</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">};</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 280px;"></div><div class="CodeMirror-gutters" style="display: none; height: 280px;"></div></div></div></pre><h1 ><span> </span></h1></div></div>
 
-<script>(function (){var t=document.body.parentElement,e=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(t,e,n){document.addEventListener(t,function(t){if(!t.defaultPrevented)for(var i=t.target;i&&i!=this;i=i.parentNode)if(i.matches(e)){!1===n.call(i,t)&&(t.preventDefault(),t.stopPropagation());break}},!1)};function o(){return t.scrollTop}r("click",".outline-expander",function(t){var e=this.closest(".outline-item-wrapper").classList;return e.contains("outline-item-open")?e.remove("outline-item-open"):e.add("outline-item-open"),c(),!1}),r("click",".outline-item",function(t){var e=this.querySelector(".outline-label");if(location.hash="#"+e.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),l(),n.add("outline-item-active")}});var a,s,u=function(){var t=o();n=null;for(var i=0;i<e.length&&e[i][1]-t<60;i++)n=e[i]},l=function(){document.querySelectorAll(".outline-item-active").forEach(t=>t.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(t=>t.classList.remove("outline-item-open"))},c=function(){if(n){l();var t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(t)if(i){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var r=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(t=r).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(t){a&&clearTimeout(a),a=setTimeout(function(){u(),c()},300)});var f=function(){s=setTimeout(function(){!function(){e=[];var t=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");e.push([i,t+n.getBoundingClientRect().y])})}(),u(),c()},300)};window.addEventListener("resize",function(t){s&&clearTimeout(s),f()}),f()})();</script><script>
-// 媒体查询 - 默认情况下，侧边的目录在 800px 以上时出现，但是，手机上横屏展示时，宽度在 800px 以上，会展示出侧边的目录，但是，若展示出来的话，那么内容的空间就很小了。所以不希望它展示出来，下面这段脚本的作用就是将其媒体查询的值改为 1000px
-function myFunction(x) {
-    if (x.matches) { // 媒体查询
+<script>(function (){var t=document.body.parentElement,e=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(t,e,n){document.addEventListener(t,function(t){if(!t.defaultPrevented)for(var i=t.target;i&&i!=this;i=i.parentNode)if(i.matches(e)){!1===n.call(i,t)&&(t.preventDefault(),t.stopPropagation());break}},!1)};function o(){return t.scrollTop}r("click",".outline-expander",function(t){var e=this.closest(".outline-item-wrapper").classList;return e.contains("outline-item-open")?e.remove("outline-item-open"):e.add("outline-item-open"),c(),!1}),r("click",".outline-item",function(t){var e=this.querySelector(".outline-label");if(location.hash="#"+e.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),l(),n.add("outline-item-active")}});var a,s,u=function(){var t=o();n=null;for(var i=0;i<e.length&&e[i][1]-t<60;i++)n=e[i]},l=function(){document.querySelectorAll(".outline-item-active").forEach(t=>t.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(t=>t.classList.remove("outline-item-open"))},c=function(){if(n){l();var t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(t)if(i){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var r=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(t=r).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(t){a&&clearTimeout(a),a=setTimeout(function(){u(),c()},300)});var f=function(){s=setTimeout(function(){!function(){e=[];var t=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");e.push([i,t+n.getBoundingClientRect().y])})}(),u(),c()},300)};window.addEventListener("resize",function(t){s&&clearTimeout(s),f()}),f()})();</script><div class="indicator"></div>  
+<script>
+    /* 侧边目录
+    1. 自定义媒体查询的值
+       媒体查询 - 默认情况下，侧边的目录在 800px 以上时出现，但是，手机上横屏展示时，宽度在 800px 以上，会展示出侧边的目录，但是，若展示出来的话，那么内容的空间就很小了。
+       所以不希望它展示出来，下面这段脚本的作用就是将其媒体查询的值改为 1000px
+    2. 自定义侧边目录的宽度
+       将侧边目录栏的宽度由原来的 300px，改为视口宽度的 15%
+    */
+    const sidebar = document.querySelector('.typora-export-sidebar');
+    // const outlineContent = document.querySelector('.typora-export-sidebar .outline-content');
+    // const outlineLables = document.querySelectorAll('.typora-export .outline-item');
+    // const write = document.querySelector('#write');
+    // const allP = document.querySelectorAll('#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre'); // 所有的标题和段落，如果设置了 #write 为 80vw，那么它们的宽度将溢出。
+
+    // sidebar.style.width = '15vw';
+    // outlineContent.style.width = '15vw';
+    // outlineContent.style.overflow = 'auto'; //
+    // write.style.width = "80vw"; // 若不设置这个，那么在窗口尺寸偏小的时候，目录会挤到内容区域。
+    // outlineLables.forEach(outlineLable => outlineLable.style.whiteSpace = 'nowrap');
+    // allP.forEach(p => p.style.width = '100%');
+    function myFunction(x) {
+      if (x.matches) { // 媒体查询
         sidebar.style.display = "none";
-    } else {
+      } else {
         sidebar.style.display = "block";
-        sidebar.style.width = "240px";
+        // sidebar.style.width = "240px";
+      }
     }
-}
-const sidebar = document.querySelector('.typora-export-sidebar');
-var x = window.matchMedia("(max-width: 1000px)")
-myFunction(x) // 执行时调用的监听函数
-x.addListener(myFunction) // 状态改变时添加监听器
-// 左下角的展开菜单
-const showCatalog = document.createElement("div");
-showCatalog.style.position = "fixed";
-showCatalog.style.bottom = '1rem';
-showCatalog.style.left = '1rem';
-showCatalog.style.backgroundColor = 'rgba(0, 140, 140, 0.4)';
-showCatalog.style.width = '1.5rem';
-showCatalog.style.height = '1.5rem';
-showCatalog.style.borderRadius = '50%';
-showCatalog.onclick = () => {
-  if (sidebar.style.display === "block") {
-    sidebar.style.display = "none";
-  } else {
-    sidebar.style.display = "block";
-  }
-}
-// 右下角的回到顶部
-const toTop = document.createElement("div");
-toTop.style.position = "fixed";
-toTop.style.bottom = '1rem';
-toTop.style.right = '1rem';
-toTop.style.backgroundColor = 'rgba(140, 0, 140, 0.4)';
-toTop.style.width = '1.5rem';
-toTop.style.height = '1.5rem';
-toTop.style.borderRadius = '50%';
-toTop.onclick = () => {
-  document.documentElement.style.scrollBehavior = "smooth";
-  document.documentElement.scrollTop = 0;
-}
+    var x = window.matchMedia("(max-width: 1000px)")
+    myFunction(x) // 执行时调用的监听函数
+    x.addListener(myFunction) // 状态改变时添加监听器
+    // 左下角的展开菜单
+    const showCatalog = document.createElement("div");
+    showCatalog.style.position = "fixed";
+    showCatalog.style.zIndex = "2021";
+    showCatalog.style.bottom = '1rem';
+    showCatalog.style.left = '1rem';
+    showCatalog.style.backgroundColor = 'rgba(0, 140, 140, 0.4)';
+    showCatalog.style.width = '1.5rem';
+    showCatalog.style.height = '1.5rem';
+    showCatalog.style.borderRadius = '50%';
+    showCatalog.onclick = () => {
+      if (sidebar.style.display === "block") {
+        sidebar.style.display = "none";
+      } else {
+        sidebar.style.display = "block";
+      }
+    }
+    // 右下角的回到顶部
+    const toTop = document.createElement("div");
+    toTop.style.position = "fixed";
+    toTop.style.zIndex = "2021";
+    toTop.style.bottom = '1rem';
+    toTop.style.right = '1rem';
+    toTop.style.backgroundColor = 'rgba(140, 0, 140, 0.4)';
+    toTop.style.width = '1.5rem';
+    toTop.style.height = '1.5rem';
+    toTop.style.borderRadius = '50%';
+    document.documentElement.style.scrollBehavior = "smooth";
+    toTop.onclick = () => {
+      document.documentElement.scrollTop = 0;
+    }
 
-document.body.appendChild(showCatalog);
-document.body.appendChild(toTop);
-// 解决 checkbox 无法选中的问题
-document.querySelectorAll(".task-list-item").forEach(li => li.onclick = function() { const inp = this.querySelector("input[type='checkbox']"); inp.checked = !inp.checked; this.classList.remove('task-list-not-done');this.classList.remove('task-list-done'); this.classList.add(inp.checked === true?'task-list-done':'task-list-not-done')})
-// 超链接在新页面打开
-document.querySelectorAll('a').forEach(a => a.target = '_blank')
-// 防止导航的超链接跳转到新页面
-document.querySelector('.outline-content').querySelectorAll('a').forEach(a => a.target = "");
-document.querySelector('.md-toc').querySelectorAll('a').forEach(a => a.target = "")
-</script></body>
+    document.body.appendChild(showCatalog);
+    document.body.appendChild(toTop);
+    // 解决 checkbox 无法选中的问题
+    document.querySelectorAll(".task-list-item").forEach(li => li.onclick = function () {
+      const inp = this.querySelector("input[type='checkbox']");
+      inp.checked = !inp.checked;
+      this.classList.remove('task-list-not-done');
+      this.classList.remove('task-list-done');
+      this.classList.add(inp.checked === true ? 'task-list-done' : 'task-list-not-done')
+    })
+    // 超链接在新页面打开
+    document.querySelectorAll('a').forEach(a => a.target = '_blank')
+    // 防止导航的超链接跳转到新页面
+    document.querySelector('.outline-content').querySelectorAll('a').forEach(a => a.target = "");
+    document.querySelector('.md-toc').querySelectorAll('a').forEach(a => a.target = "")
+  </script></body>
 </html>

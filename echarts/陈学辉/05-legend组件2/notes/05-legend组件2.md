@@ -167,6 +167,8 @@ const options = {
 
 - [官方实例](https://echarts.apache.org/v4/examples/zh/editor.html?c=pie-legend)
 
+> 入门阶段，在写类似 getData 的函数，获取 echarts 图表的某些字段的数据时，一定要注意这些字段的数据结构，可以在编辑函数之前，先在旁边写好需要的数据结构，然后再参照着写。
+
 ## 不易理解的配置项
 
 ### [legend.pageIconSize](https://echarts.apache.org/v4/zh/option.html#legend.pageIconSize)
