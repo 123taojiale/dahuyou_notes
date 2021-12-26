@@ -34,7 +34,7 @@
   - [ ] [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)
   - [ ] [216. 组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/)
 - 分割问题：一个字符串按一定规则有几种切割方式
-  - [ ] [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/)
+  - [ ] 131. 分割回文串
   - [ ] [93. 复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses/)
 - 子集问题：一个 N 个数的集合里有多少符合条件的子集
   - [ ] [78. 子集](https://leetcode-cn.com/problems/subsets/)
