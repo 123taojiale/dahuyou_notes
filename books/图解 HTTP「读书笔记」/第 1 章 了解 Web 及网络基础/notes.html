@@ -308,296 +308,313 @@ span.cm-strikethrough { text-decoration: line-through; }
 @import url();
 
 :root {
-    --monospace: "JetBrains Mono", HYZhengYuan, "Fira Code", Menlo, "Ubuntu Mono", Consolas; /*code font*/
-    --text-font: var(--monospace); /*default font*/
-    --title-font: var(--monospace); /*title font*/
+  --monospace: "JetBrains Mono", HYZhengYuan, "Fira Code", Menlo, "Ubuntu Mono", Consolas;
+  /*code font*/
+  --text-font: Consolas;
+  /*default font*/
+  --title-font: var(--monospace);
+  /*title font*/
 
-    --text-color: #333333;
-    --bg-color: #ffffff;
-    --control-text-color: var(--text-color);
-    --meta-content-color: var(--text-color);
-    --active-file-border-color: var(--drake-accent);
-    --rawblock-edit-panel-bd: var(--code-block-bg-color);
-    --item-hover-bg-color: #E5E5E596;
-    --active-file-bg-color: var(--item-hover-bg-color);
+  --text-color: #304455;
+  --bg-color: #ffffff;
+  --control-text-color: var(--text-color);
+  --meta-content-color: var(--text-color);
+  --active-file-border-color: var(--drake-accent);
+  --rawblock-edit-panel-bd: var(--code-block-bg-color);
+  --item-hover-bg-color: #E5E5E596;
+  --active-file-bg-color: var(--item-hover-bg-color);
 
-    --blur-text-color: rgba(51, 51, 51, 0.5);
-    --drake-accent: #e95f59;
-    --drake-highlight: #d63200;
-    --a-color: #036aca;
-    --variable-color: var(--drake-highlight);
-    --outline-active-color: var(--a-color);
-    --code-block-bg-color: #2b2b2b;
-    --code-block-color: #A9B7C6;
-    --title-color: #135ce0;
-    --blockquote-border-color: #b2aec5;
-    --blockquote-color: #595959;
-    --blockquote-bg-color: #fff9f9;
-    --strong-color: var(--title-color);
-    --h2-underline-color: var(--title-color);
-    --horizontal-divider-color: var(--title-color);
-    --height-light-color: var(--drake-highlight);
-    --height-light-border-color: var(--drake-highlight);
-    --yaml-color: #777777;
-    --yaml-bg-color: #f7f7f7;
-    --footnotes-bg-color: #3c3d3e;
-    --footnotes-highlight: #FFD760;
-    --table-border-color: #dfe2e5;
-    --table-header-bg-color: #f6f8fa;
-    --table-bg-color: var(--bg-color);
-    --table-n2-bg-color: #f6f8fa;
-    --input-bg-color: var(--item-hover-bg-color);
-    --btn-hover-bg-color: var(--item-hover-bg-color);
-    --checkbox-checked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M425.984 726.016l384-384-59.99-61.995-324.01 324.011-152.021-152.021L213.973 512zm384-598.016q36.01 0 61.013 25.984T896 213.974v596.01q0 34.005-25.003 59.99t-61.013 25.983h-596.01q-36.011 0-61.014-25.984t-25.003-59.989v-596.01q0-34.006 25.003-59.99T213.973 128h596.011z' fill='%2365b73b'/%3E%3C/svg%3E");
-    --checkbox-unchecked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M810.667 213.333v597.334H213.333V213.333h597.334m0-85.333H213.333C166.4 128 128 166.4 128 213.333v597.334C128 857.6 166.4 896 213.333 896h597.334C857.6 896 896 857.6 896 810.667V213.333C896 166.4 857.6 128 810.667 128z' fill='%23333333'/%3E%3C/svg%3E");
+  --blur-text-color: rgba(48, 68, 85, 0.5);
+  --drake-accent: #31a062;
+  --drake-highlight: #d63200;
+  --a-color: var(--drake-accent);
+  --variable-color: var(--drake-highlight);
+  --outline-active-color: var(--a-color);
+  --code-block-bg-color: #f8f8f8;
+  --code-block-color: #525252;
+  --title-color: #273849;
+  --blockquote-border-color: #f66;
+  --blockquote-color: var(--text-color);
+  --blockquote-bg-color: #f8f8f8;
+  --strong-color: var(--title-color);
+  --h2-underline-color: var(--title-color);
+  --horizontal-divider-color: var(--title-color);
+  --height-light-color: var(--drake-highlight);
+  --height-light-border-color: var(--drake-highlight);
+  --yaml-color: #777777;
+  --yaml-bg-color: #f7f7f7;
+  --footnotes-bg-color: #3c3d3e;
+  --footnotes-highlight: #FFD760;
+  --table-border-color: #dfe2e5;
+  --table-header-bg-color: #f8f8f8;
+  --table-bg-color: var(--bg-color);
+  --table-n2-bg-color: #f8f8f8;
+  --input-bg-color: #f2f2f2;
+  --btn-hover-bg-color: #f2f2f2;
+  --checkbox-checked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M425.984 726.016l384-384-59.99-61.995-324.01 324.011-152.021-152.021L213.973 512zm384-598.016q36.01 0 61.013 25.984T896 213.974v596.01q0 34.005-25.003 59.99t-61.013 25.983h-596.01q-36.011 0-61.014-25.984t-25.003-59.989v-596.01q0-34.006 25.003-59.99T213.973 128h596.011z' fill='%2365b73b'/%3E%3C/svg%3E");
+  --checkbox-unchecked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M810.667 213.333v597.334H213.333V213.333h597.334m0-85.333H213.333C166.4 128 128 166.4 128 213.333v597.334C128 857.6 166.4 896 213.333 896h597.334C857.6 896 896 857.6 896 810.667V213.333C896 166.4 857.6 128 810.667 128z' fill='%23333333'/%3E%3C/svg%3E");
 }
 
 html {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 body {
-    font-family: var(--text-font) !important;
-    color: var(--text-color);
-    -webkit-font-feature-settings: "liga" on, "calt" on;
-    -webkit-font-smoothing: subpixel-antialiased;
-    text-rendering: optimizeLegibility;
-    letter-spacing: 0;
-    margin: 0;
-    overflow-x: hidden;
-    line-height: 1.8rem;
-}
-
-#write {
-    background-image: linear-gradient(
-            90deg
-            ,rgba(60,10,30,.04) 3%,transparent 0),linear-gradient(
-            1turn
-            ,rgba(60,10,30,.04) 3%,transparent 0);
-    background-size: 20px 20px;
-    background-position: 50%;
+  font-family: var(--text-font) !important;
+  color: var(--text-color);
+  -webkit-font-feature-settings: "liga"on, "calt"on;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.8rem;
 }
 
 /*code block*/
 .md-fences {
-    font-size: 1rem;
-    padding: 0.5rem !important;
-    border-radius: 2px;
-    word-wrap: normal;
-    background-color: var(--code-block-bg-color);
-    color: var(--code-block-color);
-    border: none;
-}
-.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) *,
-.on-focus-mode .md-fences.md-focus .CodeMirror-code > :not(.CodeMirror-activeline) *,
-.on-focus-mode .md-htmlblock.md-focus .CodeMirror-code > :not(.CodeMirror-activeline) * {
-    color: #909090 !important
+  font-size: 1rem;
+  padding: 0.5rem !important;
+  border-radius: 2px;
+  word-wrap: normal;
+  background-color: var(--code-block-bg-color);
+  color: var(--code-block-color);
+  border: none;
 }
 
 /*mermaid*/
-.md-diagram-panel-preview text.actor > tspan { /*方块文字*/
-    fill: var(--code-block-color) !important;
-    stroke: none !important;
-    font-family: var(--text-font) !important;
-    font-size: 1rem !important;
+.md-diagram-panel-preview text.actor>tspan {
+  /*方块文字*/
+  fill: var(--code-block-color) !important;
+  stroke: none !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
 }
-.md-diagram-panel-preview .actor { /*方块*/
-    stroke: var(--table-border-color) !important;
-    fill: var(--code-block-bg-color) !important;
+
+.md-diagram-panel-preview .actor {
+  /*方块*/
+  stroke: var(--table-border-color) !important;
+  fill: var(--code-block-bg-color) !important;
 }
-.md-diagram-panel-preview .actor-line { /*竖线*/
-    stroke: var(--text-color) !important;
-    stroke-width: 1px;
+
+.md-diagram-panel-preview .actor-line {
+  /*竖线*/
+  stroke: var(--text-color) !important;
+  stroke-width: 1px;
 }
-.md-diagram-panel-preview .messageLine0 { /*横线*/
-    stroke-width: 1.5;
-    stroke-dasharray: none;
-    stroke: var(--text-color) !important;
+
+.md-diagram-panel-preview .messageLine0 {
+  /*横线*/
+  stroke-width: 1.5;
+  stroke-dasharray: none;
+  stroke: var(--text-color) !important;
 }
-.md-diagram-panel-preview .messageLine1 { /*虚线*/
-    stroke-width: 1.5 !important;
-    stroke-dasharray: 2, 2 !important;
-    stroke: var(--text-color) !important;
+
+.md-diagram-panel-preview .messageLine1 {
+  /*虚线*/
+  stroke-width: 1.5 !important;
+  stroke-dasharray: 2, 2 !important;
+  stroke: var(--text-color) !important;
 }
-.md-diagram-panel-preview .messageText { /*描述文字*/
-    fill: var(--text-color) !important;
-    font-family: var(--text-font) !important;
-    font-size: 1rem !important;
+
+.md-diagram-panel-preview .messageText {
+  /*描述文字*/
+  fill: var(--text-color) !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
 }
-.md-diagram-panel-preview .activation0 { /*长方形*/
-    fill: rgba(141, 141, 141, 0.22) !important;
-    stroke: var(--text-color) !important;
+
+.md-diagram-panel-preview .activation0 {
+  /*长方形*/
+  fill: rgba(141, 141, 141, 0.22) !important;
+  stroke: var(--text-color) !important;
 }
-.md-diagram-panel-preview .labelText, .md-diagram-panel-preview .labelText > tspan { /*循环标记*/
-    fill: var(--code-block-color) !important;
-    font-family: var(--text-font) !important;
-    font-size: 1rem !important;
-    dominant-baseline: unset;
-    alignment-baseline: unset;
+
+.md-diagram-panel-preview .labelText,
+.md-diagram-panel-preview .labelText>tspan {
+  /*循环标记*/
+  fill: var(--code-block-color) !important;
+  font-family: var(--text-font) !important;
+  font-size: 1rem !important;
+  dominant-baseline: unset;
+  alignment-baseline: unset;
 }
-.md-diagram-panel-preview .labelBox { /*循环标记背景*/
-    stroke: var(--table-border-color) !important;
-    fill: var(--code-block-bg-color) !important;
+
+.md-diagram-panel-preview .labelBox {
+  /*循环标记背景*/
+  stroke: var(--table-border-color) !important;
+  fill: var(--code-block-bg-color) !important;
 }
-.md-diagram-panel-preview .loopLine { /*循环标记虚线*/
-    stroke: var(--text-color) !important;
+
+.md-diagram-panel-preview .loopLine {
+  /*循环标记虚线*/
+  stroke: var(--text-color) !important;
 }
-.md-diagram-panel-preview .loopText, .md-diagram-panel-preview .loopText > tspan { /*循环名称*/
-    fill: var(--text-color) !important;
-    font-size: 1rem !important;
+
+.md-diagram-panel-preview .loopText,
+.md-diagram-panel-preview .loopText>tspan {
+  /*循环名称*/
+  fill: var(--text-color) !important;
+  font-size: 1rem !important;
 }
-.md-diagram-panel-preview .sequenceNumber { /*序号*/
-    fill: var(--bg-color) !important;
+
+.md-diagram-panel-preview .sequenceNumber {
+  /*序号*/
+  fill: var(--bg-color) !important;
 }
+
 pre.md-fences-advanced.md-focus .md-fences-adv-panel {
-    border: none;
-}
-.md-diagram-panel-preview .edgePath .path { /*箭头*/
-    stroke: var(--text-color) !important;
-}
-.md-diagram-panel-preview .edgeLabel rect { /*条件文字背景*/
-    fill: var(--bg-color) !important;
-}
-.md-diagram-panel-preview .edgeLabel span { /*条件文字*/
-    color: var(--text-color);
-}
-.md-diagram-panel-preview .node rect,
-.md-diagram-panel-preview .node circle,
-.md-diagram-panel-preview .node ellipse,
-.md-diagram-panel-preview .node polygon,
-.md-diagram-panel-preview .node path { /*形状*/
-    stroke: var(--table-border-color) !important;
-    fill: var(--code-block-bg-color) !important;
-}
-#write .md-diagram-panel .md-diagram-panel-preview div { /*形状内文字*/
-    color: var(--code-block-color) !important;
-    font-family: var(--text-font) !important;
-    font-size: 1rem !important;
+  border: none;
 }
 
 /*code snippet*/
-#write code, tt {
-    margin: 0 2px;
-    border-radius: 2px;
-    color: var(--drake-highlight);
-    background-color: #fff5f5;
-    padding: .065em .4em;
+#write code,
+tt {
+  margin: 0 2px;
+  color: var(--drake-highlight);
 }
 
 /*variable*/
 var {
-    color: var(--variable-color);
-    font-weight: bold;
+  color: var(--variable-color);
+  font-weight: bold;
 }
 
 /*raw block*/
 .md-rawblock-control:not(.md-rawblock-tooltip) {
-    border-radius: 2px 0 2px 2px;
-    padding: 0.2rem !important;
+  border-radius: 2px 0 2px 2px;
+  padding: 0.2rem !important;
 }
-.md-rawblock:hover > .md-rawblock-container {
-    background: none;
+
+.md-rawblock:hover>.md-rawblock-container {
+  background: none;
 }
+
 .md-rawblock-input {
-    font-size: 1rem;
+  font-size: 1rem;
 }
+
 .md-rawblock-tooltip-btn:hover {
-    background: none;
+  background: none;
 }
-.md-rawblock:hover > .md-rawblock-tooltip {
-    border-radius: 2px 2px 0 0;
-    margin-bottom: 2px !important;
+
+.md-rawblock:hover>.md-rawblock-tooltip {
+  border-radius: 2px 2px 0 0;
+  margin-bottom: 2px !important;
 }
+
 .md-rawblock-tooltip.md-rawblock-control {
-    border-radius: 2px 2px 0 0;
-    color: var(--code-block-color);
+  border-radius: 2px 2px 0 0;
+  color: var(--code-block-color);
 }
+
 .md-rawblock-tooltip-name {
-    color: var(--code-block-color);
-    opacity: 1;
+  color: var(--code-block-color);
+  opacity: 1;
 }
 
 /*quote block*/
 blockquote:before {
-    display: block;
-    position: absolute;
-    content: '';
-    width: 4px;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background-color: var(--blockquote-border-color);
-    border-radius: 2px;
+  display: block;
+  position: absolute;
+  content: '';
+  width: 4px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--blockquote-border-color);
+  border-radius: 2px;
 }
 
 blockquote {
-    color: var(--blockquote-color);
-    border-radius: 2px;
-    padding: 10px 16px;
-    background-color: var(--blockquote-bg-color);
-    position: relative;
-    border-left: none;
+  color: var(--blockquote-color);
+  border-radius: 2px;
+  padding: 10px 16px;
+  background-color: var(--blockquote-bg-color);
+  position: relative;
+  border-left: none;
 }
 
 #write strong {
-    color: var(--strong-color);
-    font-weight: bold;
+  color: var(--strong-color);
+  font-weight: bold;
 }
+
 #write blockquote strong {
-    color: var(--blockquote-color);
+  color: var(--blockquote-color);
 }
 
 /*link*/
 #write a {
-    color: var(--a-color);
-    text-decoration: none;
+  color: var(--a-color);
+  text-decoration: none;
 }
-.on-focus-mode #write a .md-plain, .on-focus-mode .md-htmlblock-container a:hover {
-    border-bottom: .1rem solid var(--blur-text-color);
+
+.on-focus-mode #write a .md-plain,
+.on-focus-mode .md-htmlblock-container a:hover {
+  border-bottom: .1rem solid var(--blur-text-color);
 }
-#write a .md-plain, .md-htmlblock-container a:hover,
-.on-focus-mode #write .md-focus a .md-plain, .md-focus .md-htmlblock-container a:hover {
-    border-bottom: .1rem solid var(--a-color);
+
+#write a .md-plain,
+.md-htmlblock-container a:hover,
+.on-focus-mode #write .md-focus a .md-plain,
+.md-focus .md-htmlblock-container a:hover {
+  border-bottom: .1rem solid var(--a-color);
 }
+
+/* 去掉下划线 */
+#write a .md-plain {
+  border-bottom: none !important;
+}
+
 [md-inline=link] a {
-    margin: 0 .2rem;
+  margin: 0 .2rem;
 }
+
 a:any-link {
-    color: var(--a-color);
+  color: var(--a-color);
 }
 
 img {
-    border-left: none;
-    border-right: none;
-    vertical-align: baseline;
-    border-radius: 2px;
-    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .3);
+  border-left: none;
+  border-right: none;
+  vertical-align: baseline;
+  border-radius: 2px;
+  /* 给 img 添加阴影 */
+  /* box-shadow: 0px 20px 40px 1px rgba(0,0,0,.3); */
+  /* box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, .3); */
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  /* mac 下截取的图片，默认会带有一丢丢的圆角，加上一个圆角边框，去掉 4 个边角的背景。 */
+  /* display: inline !important; */
+  border-radius: 15px;
+  padding: 1em 0;
 }
 
 #write {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 30px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 30px 100px;
 }
+
 #typora-source .CodeMirror-lines {
-    max-width: 1200px;
+  max-width: 1200px;
 }
 
 #write p {
-    word-spacing: .05rem;
+  word-spacing: .05rem;
 }
 
-#write > ul:first-child,
-#write > ol:first-child {
-    margin-top: 30px;
+#write>ul:first-child,
+#write>ol:first-child {
+  margin-top: 30px;
 }
 
-body > *:first-child {
-    margin-top: 0 !important;
+body>*:first-child {
+  margin-top: 0 !important;
 }
 
-body > *:last-child {
-    margin-bottom: 0 !important;
+body>*:last-child {
+  margin-bottom: 0 !important;
 }
 
 h1,
@@ -606,56 +623,60 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--title-font);
-    position: relative;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    cursor: text;
-    color: var(--title-color);
+  font-family: var(--title-font);
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  cursor: text;
+  color: var(--title-color);
 }
 
-h3.md-focus:before, h4.md-focus:before, h5.md-focus:before, h6.md-focus:before {
-    visibility: hidden;
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  visibility: hidden;
 }
 
 h1 {
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 0;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
 }
 
 h2.md-end-block.md-heading {
-    font-size: 1.6rem;
-    display: inline-block;
+  font-size: 1.6rem;
+  display: inline-block;
 }
 
 h2.md-end-block.md-heading:after {
-    display: block;
-    content: '';
-    height: 2px;
-    margin-top: 4px;
-    background-color: var(--h2-underline-color);
-    border-radius: 2px;
+  display: block;
+  content: '';
+  height: 2px;
+  margin-top: 4px;
+  background-color: var(--h2-underline-color);
+  border-radius: 2px;
 }
+
 .on-focus-mode h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
-    background-color: var(--blur-text-color) !important;
+  background-color: var(--blur-text-color) !important;
 }
 
 h3 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 h4 {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 h5 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 h6 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 h1:hover a.anchor,
@@ -664,37 +685,37 @@ h3:hover a.anchor,
 h4:hover a.anchor,
 h5:hover a.anchor,
 h6:hover a.anchor {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 h1 tt,
 h1 code {
-    font-size: inherit !important;
+  font-size: inherit !important;
 }
 
 h2 tt,
 h2 code {
-    font-size: inherit !important;
+  font-size: inherit !important;
 }
 
 h3 tt,
 h3 code {
-    font-size: inherit !important;
+  font-size: inherit !important;
 }
 
 h4 tt,
 h4 code {
-    font-size: inherit !important;
+  font-size: inherit !important;
 }
 
 h5 tt,
 h5 code {
-    font-size: inherit !important;
+  font-size: inherit !important;
 }
 
 h6 tt,
 h6 code {
-    font-size: inherit !important;
+  font-size: inherit !important;
 }
 
 blockquote,
@@ -702,48 +723,49 @@ ul,
 ol,
 dl,
 table {
-    margin: 0.8em 0;
-}
-p {
-    margin: 0;
+  margin: 0.8em 0;
 }
 
-li > ol,
-li > ul {
-    margin: 0 0;
+p {
+  margin: 0;
+}
+
+li>ol,
+li>ul {
+  margin: 0 0;
 }
 
 hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: var(--horizontal-divider-color);
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
+  height: 2px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: var(--horizontal-divider-color);
+  border: 0 none;
+  overflow: hidden;
+  box-sizing: content-box;
 }
 
-body > h2:first-child {
-    margin-top: 0;
-    padding-top: 0;
+body>h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
 }
 
-body > h1:first-child {
-    margin-top: 0;
-    padding-top: 0;
+body>h1:first-child {
+  margin-top: 0;
+  padding-top: 0;
 }
 
-body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0;
+body>h1:first-child+h2 {
+  margin-top: 0;
+  padding-top: 0;
 }
 
-body > h3:first-child,
-body > h4:first-child,
-body > h5:first-child,
-body > h6:first-child {
-    margin-top: 0;
-    padding-top: 0;
+body>h3:first-child,
+body>h4:first-child,
+body>h5:first-child,
+body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 a:first-child h1,
@@ -752,8 +774,8 @@ a:first-child h3,
 a:first-child h4,
 a:first-child h5,
 a:first-child h6 {
-    margin-top: 0;
-    padding-top: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 h1 p,
@@ -762,675 +784,799 @@ h3 p,
 h4 p,
 h5 p,
 h6 p {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 li p.first {
-    display: inline-block;
+  display: inline-block;
 }
 
-ul, ol {
-    padding-inline-start: 2em;
+ul,
+ol {
+  padding-inline-start: 2em;
 }
 
 ul:first-child,
 ol:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 ul:last-child,
 ol:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 table {
-    padding: 0;
-    word-break: initial;
-    background-color: var(--table-bg-color);
+  padding: 0;
+  word-break: initial;
+  background-color: var(--table-bg-color);
 }
+
 table tr {
-    border-top: .1em solid var(--table-border-color);
-    margin: 0;
-    padding: 0;
+  border-top: .1em solid var(--table-border-color);
+  margin: 0;
+  padding: 0;
 }
+
 table th {
-    font-weight: bold;
-    border: .1em solid var(--table-border-color);
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
+  font-weight: bold;
+  border: .1em solid var(--table-border-color);
+  border-bottom: 0;
+  margin: 0;
+  padding: 6px 13px;
 }
+
 table td {
-    border: .1em solid var(--table-border-color);
-    margin: 0;
-    padding: 6px 13px;
+  border: .1em solid var(--table-border-color);
+  margin: 0;
+  padding: 6px 13px;
 }
+
 table thead {
-    background-color: var(--table-header-bg-color);
+  background-color: var(--table-header-bg-color);
 }
+
 table tr:nth-child(2n) {
-    background-color: var(--table-n2-bg-color);
+  background-color: var(--table-n2-bg-color);
 }
+
 table tr th:first-child,
 table tr td:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
+
 table tr th:last-child,
 table tr td:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #write em {
-    padding: 0 5px 0 2px;
+  padding: 0 5px 0 2px;
+}
+
+#write table thead th {
+  background-color: var(--table-header-bg-color);
 }
 
 /* height light */
 #write mark {
-    border: .1em solid var(--height-light-border-color);
-    color: var(--height-light-color);
-    background-color: transparent;
-    padding: .1rem .5rem;
-    border-radius: 2rem;
-    margin: 0 .2rem;
-    font-size: .95rem;
+  border: .1em solid var(--height-light-border-color);
+  color: var(--height-light-color);
+  background-color: transparent;
+  padding: .1rem .5rem;
+  border-radius: 2rem;
+  margin: 0 .2rem;
+  font-size: .95rem;
 }
 
 /*shortcut*/
 kbd {
-    border: .1em solid #5b5b5e;
-    background: transparent;
-    color: var(--text-color);
-    margin: 0 .4rem;
-    font-size: .95rem;
-    padding: .3em .4em;
-    border-radius: .4em;
-    vertical-align: top;
-    box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
+  border: .1em solid #5b5b5e;
+  background: transparent;
+  color: var(--text-color);
+  margin: 0 .4rem;
+  font-size: .95rem;
+  padding: .3em .4em;
+  border-radius: .4em;
+  vertical-align: top;
+  box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
 }
 
 #write del {
-    padding: 1px 2px;
+  padding: 1px 2px;
 }
 
-.md-task-list-item > input {
-    margin-left: -1.3em;
+.md-task-list-item>input {
+  margin-left: -1.3em;
 }
 
 @media print {
-    html {
-        font-size: 12px;
-    }
+  html {
+    font-size: 12px;
+  }
 
-    table,
-    pre {
-        page-break-inside: avoid;
-    }
+  table,
+  pre {
+    page-break-inside: avoid;
+  }
 
-    pre {
-        word-wrap: break-word;
-    }
+  pre {
+    word-wrap: break-word;
+  }
 }
 
 /*YAML*/
 #write pre.md-meta-block {
-    padding: 1rem;
-    font-size: 1rem;
-    background-color: var(--yaml-bg-color);
-    border: 0;
-    border-radius: 2px;
-    color: var(--yaml-color);
-    margin-top: 0 !important;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: var(--yaml-bg-color);
+  border: 0;
+  border-radius: 2px;
+  color: var(--yaml-color);
+  margin-top: 0 !important;
 }
 
-.mathjax-block > .code-tooltip {
-    bottom: .375rem;
+.mathjax-block>.code-tooltip {
+  bottom: .375rem;
 }
 
-#write > h3.md-focus:before {
-    left: -1.5625rem;
-    top: .375rem;
+#write>h3.md-focus:before {
+  left: -1.5625rem;
+  top: .375rem;
 }
 
-#write > h4.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h4.md-focus:before {
+  left: -1.5625rem;
+  top: .285714286rem;
 }
 
-#write > h5.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h5.md-focus:before {
+  left: -1.5625rem;
+  top: .285714286rem;
 }
 
-#write > h6.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h6.md-focus:before {
+  left: -1.5625rem;
+  top: .285714286rem;
 }
 
-.md-image > .md-meta {
-    border-radius: 2px;
-    font-family: initial;
-    padding: 2px 0 0 4px;
-    color: inherit;
+.md-image>.md-meta {
+  border-radius: 2px;
+  font-family: initial;
+  padding: 2px 0 0 4px;
+  color: inherit;
 }
 
 .md-tag {
-    color: inherit;
+  color: inherit;
 }
 
 .md-toc {
-    margin-top: 20px;
-    padding-bottom: 20px;
+  margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 .typora-quick-open-item {
-    font-size: 1rem !important;
-    height: 50px;
-    padding-left: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+  font-size: 1rem !important;
+  height: 50px;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #typora-quick-open {
-    box-shadow: 0 0 8px #00000045;
-    padding: 0;
+  box-shadow: 0 0 8px #00000045;
+  padding: 0;
 }
 
 .ty-quick-open-category.ty-has-prev .ty-quick-open-category-title {
-    border-top: none;
+  border-top: none;
 }
 
 #typora-quick-open-input {
-    margin: 8px;
-    box-shadow: none;
-    border-radius: 2px;
+  margin: 8px;
+  box-shadow: none;
+  border-radius: 2px;
 }
 
 #typora-quick-open-input input {
-    font-size: 1rem;
-    box-shadow: none;
-    padding-top: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    line-height: 32px;
-    max-height: 32px;
-    border: none;
+  font-size: 1rem;
+  box-shadow: none;
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 32px;
+  max-height: 32px;
+  border: none;
 }
 
 .modal-dialog#typora-quick-open {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 .ty-quick-open-category-title {
-    padding-left: 8px;
-    color: #BEBEBE;
-    font-size: 0.8rem;
-    margin-bottom: 4px;
+  padding-left: 8px;
+  color: #BEBEBE;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
 }
 
 .typora-quick-open-item-path {
-    font-size: 0.8rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-top: 1px;
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 1px;
 }
 
 /*search input*/
 .form-control {
-    border: none;
-    border-radius: 2px;
-    box-shadow: none;
+  border: none;
+  border-radius: 2px;
+  box-shadow: none;
 }
 
 #md-searchpanel .btn {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 #search-panel-replaceall-btn {
-    padding-right: 5px !important;
-    text-align: center !important;
+  padding-right: 5px !important;
+  text-align: center !important;
 }
 
 #search-panel-replace-btn {
-    text-align: center !important;
+  text-align: center !important;
 }
 
 #md-searchpanel input {
-    background: var(--input-bg-color);
-    border-radius: 2px;
+  background: var(--input-bg-color);
+  border-radius: 2px;
 }
 
 .searchpanel-search-option-btn {
-    border-radius: 2px;
-    border: none;
-    background: transparent;
-    color: var(--text-color);
+  border-radius: 2px;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
 }
 
 .searchpanel-search-option-btn.active {
-    background: var(--text-color);
-    color: var(--bg-color);
+  background: var(--text-color);
+  color: var(--bg-color);
 }
 
 .form-control:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 #md-notification:before {
-    top: 10px;
+  top: 10px;
 }
 
 /** focus mode */
 .on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
+  border-left-color: rgba(85, 85, 85, 0.12);
 }
 
 header,
 .context-menu,
 .megamenu-content,
 footer {
-    font-family: initial;
+  font-family: initial;
 }
 
 /*sidebar*/
 .file-node-content:hover .file-node-icon,
 .file-node-content:hover .file-node-open-state {
-    visibility: visible;
+  visibility: visible;
 }
 
 #typora-sidebar {
-    font-size: 1.1rem;
+  /* 左侧的导航，字体有点偏大了。 */
+  /* font-size: 1.1rem; */
 }
 
 .sidebar-tabs {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-.file-list-item-summary, .file-list-item-parent-loc, .file-list-item-time, .file-list-item-summary {
-    font-size: 0.9rem !important;
-    font-family: var(--text-font);
+.file-list-item-summary,
+.file-list-item-parent-loc,
+.file-list-item-time,
+.file-list-item-summary {
+  font-size: 0.9rem !important;
+  font-family: var(--text-font);
 }
 
 .file-list-item-file-ext-part {
-    display: none;
+  display: none;
 }
 
 .outline-item {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 /*footnotes mark*/
 #write .md-footnote {
-    background-color: inherit;
-    color: var(--drake-highlight);
-    font-size: 0.9rem;
-    border-radius: 0.9rem;
-    padding-left: 0;
+  background-color: inherit;
+  color: var(--drake-highlight);
+  font-size: 0.9rem;
+  border-radius: 0.9rem;
+  padding-left: 0;
 }
 
 #write .md-footnote:before {
-    content: "[";
+  content: "[";
 }
 
 #write .md-footnote:after {
-    content: "]";
+  content: "]";
 }
 
 /*footnotes content*/
 .md-hover-tip .code-tooltip-content {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 /*footnotes title*/
 span.md-def-name {
-    padding-right: 3ch;
-    padding-left: 0;
-    position: relative;
-    font-weight: normal;
+  padding-right: 3ch;
+  padding-left: 0;
+  position: relative;
+  font-weight: normal;
 }
 
 /*footnotes desc*/
 .footnotes {
-    font-size: 1rem;
-    font-weight: normal;
-    color: var(--text-color);
-    position: relative;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--text-color);
+  position: relative;
 }
 
 /*footnotes tooltip text*/
 .code-tooltip-content .md-plain {
-    font-size: 0.9rem;
-    font-family: inherit;
+  font-size: 0.9rem;
+  font-family: inherit;
 }
 
 .code-tooltip-content code {
-    padding: 0 2px;
-    font-family: inherit;
-    color: var(--footnotes-highlight);
-    background-color: inherit;
+  padding: 0 2px;
+  font-family: inherit;
+  color: var(--footnotes-highlight);
+  background-color: inherit;
 }
 
 .code-tooltip-content a {
-    color: var(--footnotes-highlight);
+  color: var(--footnotes-highlight);
 }
 
 div.code-tooltip-content {
-    box-shadow: 0 0 8px #00000045;
-    background: var(--footnotes-bg-color);
+  box-shadow: 0 0 8px #00000045;
+  background: var(--footnotes-bg-color);
 }
 
 .footnotes {
-    opacity: 1;
+  opacity: 1;
 }
 
 .md-def-name:after {
-    content: ". ^";
-    color: var(--text-color);
+  content: ". ^";
+  color: var(--text-color);
 }
 
 .md-def-footnote .md-def-name:before {
-    content: "";
-    color: var(--text-color);
-    position: absolute;
+  content: "";
+  color: var(--text-color);
+  position: absolute;
 }
 
 .md-def-name:before {
-    content: "";
-    color: var(--text-color);
-    position: absolute;
+  content: "";
+  color: var(--text-color);
+  position: absolute;
 }
 
-.md-content.md-url, .md-def-content.md-def-url.md-auto-disp {
-    text-decoration: none;
-    border-bottom: .1rem solid var(--text-color);
+.md-content.md-url,
+.md-def-content.md-def-url.md-auto-disp {
+  text-decoration: none;
+  border-bottom: .1rem solid var(--text-color);
 }
 
 .CodeMirror-scroll::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .file-list-item-summary {
-    font-size: 1em;
+  font-size: 1em;
 }
 
-.pin-outline #outline-content .outline-active strong, .pin-outline .outline-active {
-    font-weight: 500;
-    color: var(--outline-active-color);
+.pin-outline #outline-content .outline-active strong,
+.pin-outline .outline-active {
+  font-weight: 500;
+  color: var(--outline-active-color);
 }
 
 .file-list-item.active {
-    border-left: 4px solid var(--drake-accent);
+  border-left: 4px solid var(--drake-accent);
 }
 
 #md-searchpanel .btn:not(.close-btn):hover {
-    box-shadow: none;
-    background: var(--btn-hover-bg-color);
+  box-shadow: none;
+  background: var(--btn-hover-bg-color);
 }
 
 /*checkbox*/
 #write input[type=checkbox] {
-    opacity: 0;
-    height: 1.6rem;
-    width: 1.6rem;
-    margin-left: -2em;
-    margin-top: 0;
-    top: 0;
+  opacity: 0;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-left: -2em;
+  margin-top: 0;
+  top: 0;
 }
 
-#write .ul-list li.md-task-list-item.task-list-done::before {
-    content: "";
-    background: var(--checkbox-checked) 0 0 no-repeat;
-    background-size: 100%;
-    display: inline-block;
-    position: absolute;
-    height: 1.6rem;
-    width: 1.6rem;
-    margin-left: -2em;
+/* #write .ul-list li.md-task-list-item.task-list-done::before {
+     content: "";
+     background: var(--checkbox-checked) 0 0 no-repeat;
+     background-size: 100%;
+     display: inline-block;
+     position: absolute;
+     height: 1.6rem;
+     width: 1.6rem;
+     margin-left: -2em;
+ } */
+
+#write ul li.md-task-list-item.task-list-done::before {
+  content: "";
+  background: var(--checkbox-checked) 0 0 no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-left: -2em;
 }
 
-#write .ul-list li.md-task-list-item.task-list-not-done::before {
-    content: "";
-    background: var(--checkbox-unchecked) 0 0 no-repeat;
-    background-size: 100%;
-    display: inline-block;
-    position: absolute;
-    height: 1.6rem;
-    width: 1.6rem;
-    margin-left: -2em;
+#write ul li.md-task-list-item.task-list-not-done::before {
+  content: "";
+  background: var(--checkbox-unchecked) 0 0 no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  position: absolute;
+  height: 1.6rem;
+  width: 1.6rem;
+  margin-left: -2em;
 }
 
 /*insert table*/
 .btn {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 .modal-content {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
-.btn-primary:hover, .btn-primary:active {
-    background-color: var(--btn-hover-bg-color);
-    color: var(--drake-highlight);
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--drake-highlight);
 }
 
 .btn-primary {
-    background-color: transparent;
-    color: var(--drake-highlight);
+  background-color: transparent;
+  color: var(--drake-highlight);
 }
 
 .btn-default {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .btn:active {
-    box-shadow: none;
-    border-color: transparent;
+  box-shadow: none;
+  border-color: transparent;
 }
 
 .modal-footer {
-    border-top: none;
+  border-top: none;
 }
 
-#table-insert-col, #table-insert-row {
-    background: var(--input-bg-color);
-    border-radius: 2px;
+#table-insert-col,
+#table-insert-row {
+  background: var(--input-bg-color);
+  border-radius: 2px;
 }
 
 /*preference panel*/
 #megamenu-content {
-    background-image: none !important;
-    background-color: var(--bg-color);
+  background-image: none !important;
+  background-color: var(--bg-color);
 }
+
 #top-titlebar {
-    height: inherit;
-    background-color: var(--bg-color);
+  height: inherit;
+  background-color: var(--bg-color);
 }
+
 #megamenu-menu-sidebar {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
+
 .long-btn {
-    width: inherit;
-    min-width: 300px;
-    border: 1px solid var(--text-color);
-    border-radius: 6px;
+  width: inherit;
+  min-width: 300px;
+  border: 1px solid var(--text-color);
+  border-radius: 6px;
 }
+
 .megamenu-menu-panel h1 {
-    margin-bottom: 3rem;
-    text-align: left;
+  margin-bottom: 3rem;
+  text-align: left;
 }
-.megamenu-menu-panel h1, .megamenu-menu-panel h2 {
-    font-weight: normal;
+
+.megamenu-menu-panel h1,
+.megamenu-menu-panel h2 {
+  font-weight: normal;
 }
+
 #recent-file-panel-search-input {
-    height: 45px;
-    border: none;
-    border-bottom: 1px solid var(--text-color);
-    padding-left: 8px;
+  height: 45px;
+  border: none;
+  border-bottom: 1px solid var(--text-color);
+  padding-left: 8px;
 }
+
 #recent-file-panel-search-input::placeholder {
-    color: var(--text-color);
-    opacity: .5;
+  color: var(--text-color);
+  opacity: .5;
 }
+
 .megamenu-menu-header {
-    border-bottom: none;
+  border-bottom: none;
 }
+
 #recent-file-panel-action-btn {
-    background: none;
-    border: none;
+  background: none;
+  border: none;
 }
+
 #recent-file-panel-action-btn-container {
-    float: none;
-    display: inline-block;
+  float: none;
+  display: inline-block;
 }
-#top-titlebar .toolbar-icon.btn.hover, #top-titlebar .toolbar-icon.btn:hover {
-    background-color: var(--btn-hover-bg-color);
-    color: var(--text-color);
+
+#top-titlebar .toolbar-icon.btn.hover,
+#top-titlebar .toolbar-icon.btn:hover {
+  background-color: var(--btn-hover-bg-color);
+  color: var(--text-color);
 }
+
 .megamenu-menu-panel .btn:hover {
-    background-color: var(--btn-hover-bg-color) !important;
-    color: var(--text-color);
+  background-color: var(--btn-hover-bg-color) !important;
+  color: var(--text-color);
 }
+
 #recent-file-panel tbody tr:nth-child(2n-1),
 .megamenu-menu-panel table thead,
 .megamenu-menu-panel table tr {
-    background-color: transparent;
+  background-color: transparent;
 }
+
 .megamenu-menu-panel table {
-    font-weight: normal;
+  font-weight: normal;
 }
+
 #megamenu-back-btn {
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
 }
+
 .megamenu-menu-header #megamenu-menu-header-title {
-    color: var(--text-color);
+  color: var(--text-color);
 }
-header, .context-menu, .megamenu-content, footer {
-    font-family: var(--text-font);
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+  font-family: var(--text-font);
 }
+
 .ty-preferences select {
-    padding-left: 2px;
+  padding-left: 2px;
 }
+
 .preference-item-hint {
-    font-size: 14px;
+  font-size: 14px;
 }
+
 a.ty-link {
-    color: var(--a-color);
-    margin: 0 .2rem;
+  color: var(--a-color);
+  margin: 0 .2rem;
 }
 
 /**
-    code render
-    Name: IntelliJ IDEA darcula theme
-    From IntelliJ IDEA by JetBrains
- */
-.cm-s-inner.CodeMirror {
-    background: none;
-    color: var(--code-block-color);
-}
-.cm-s-inner span.cm-meta {
-    color: #BBB529;
-}
+     code render
+     Name: IntelliJ IDEA light theme
+     From IntelliJ IDEA by JetBrains
+  */
 .cm-s-inner span.cm-number {
-    color: #6897BB;
+  color: #a32eff;
 }
-.cm-s-inner span.cm-keyword {
-    color: #CC7832;
-}
-.cm-s-inner span.cm-def {
-    color: #FFD760;
-}
-.cm-s-inner span.cm-variable {
-    color: var(--code-block-color);
-}
-.cm-s-inner span.cm-variable-2 {
-    color: var(--code-block-color);
-}
-.cm-s-inner span.cm-variable-3 {
-    color: #9876AA;
-}
-.cm-s-inner span.cm-type {
-    color: #AABBCC;
-}
-.cm-s-inner span.cm-property {
-    color: #FFC66D;
-}
-.cm-s-inner span.cm-operator {
-    color: var(--code-block-color);
-}
-.cm-s-inner span.cm-string {
-    color: #6A8759;
-}
-.cm-s-inner span.cm-string-2 {
-    color: #6A8759;
-}
-.cm-s-inner span.cm-comment {
-    color: #787878;
-}
-.cm-s-inner span.cm-link {
-    color: #CC7832;
-}
+
 .cm-s-inner span.cm-atom {
-    color: #CC7832;
+  color: #a32eff;
 }
-.cm-s-inner span.cm-error {
-    color: #BC3F3C;
+
+.cm-s-inner span.cm-def {
+  color: var(--code-block-color);
 }
-.cm-s-inner span.cm-tag {
-    color: #E8BF6A;
+
+.cm-s-inner span.cm-variable {
+  color: var(--code-block-color);
 }
-.cm-s-inner span.cm-quote {
-    color: #a6e22e;
+
+.cm-s-inner span.cm-variable-2 {
+  color: #00627A;
 }
-.cm-s-inner span.cm-attribute {
-    color: #9876AA;
+
+.cm-s-inner span.cm-variable-3,
+.cm-s-inner span.cm-type {
+  color: #00627A;
 }
+
+.cm-s-inner span.cm-property {
+  color: var(--code-block-color);
+}
+
+.cm-s-inner span.cm-keyword {
+  color: #d63200;
+}
+
+.cm-s-inner span.cm-operator {
+  color: var(--code-block-color);
+}
+
+.cm-s-inner span.cm-comment {
+  color: #787878;
+}
+
+.cm-s-inner span.cm-string {
+  color: #31a062;
+}
+
+.cm-s-inner span.cm-string-2 {
+  color: #31a062;
+}
+
 .cm-s-inner span.cm-qualifier {
-    color: #6A8759;
+  color: var(--code-block-color);
 }
-.cm-s-inner span.cm-bracket {
-    color: #E8BF6A;
+
+.cm-s-inner span.cm-error {
+  color: red;
 }
+
+.cm-s-inner span.cm-attribute {
+  color: #2973b7;
+}
+
+.cm-s-inner span.cm-tag {
+  color: #2973b7;
+}
+
+.cm-s-inner span.cm-link {
+  color: #4A86E8;
+}
+
 .cm-s-inner span.cm-builtin {
-    color: #FF9E59;
+  color: var(--code-block-color);
 }
-.cm-s-inner span.cm-special {
-    color: #FF9E59;
+
+.cm-s-inner span.cm-bracket {
+  color: #2973b7;
 }
-.cm-s-inner span.cm-matchhighlight {
-    color: #FFFFFF;
-    background-color: rgba(50, 89, 48, .7);
-    font-weight: normal;
-}
-.cm-s-inner span.cm-searching {
-    color: #FFFFFF;
-    background-color: rgba(61, 115, 59, .7);
-    font-weight: normal;
-}
+
 .cm-s-inner .CodeMirror-gutters {
-    border-right: 1px solid rgba(120, 120, 120, 0.3);
+  border-right: 1px solid rgba(120, 120, 120, 0.3);
 }
+
 .cm-s-inner .CodeMirror-linenumber {
-    color: #585b5d;
+  color: #787878;
 }
-.cm-s-inner .CodeMirror-matchingbracket {
-    background-color: #3B514D;
-    color: #FFEF28 !important;
+
+/* 笔记 侧边目录区 */
+/* 调整侧边目录的宽度 */
+.typora-export-sidebar {
+  width: 20vw !important;
 }
-.cm-s-inner .CodeMirror-selected {
-    background: #214283 !important;
+
+.typora-export-sidebar .outline-content {
+  width: 19vw !important;
+  /* 溢出内容可以滑动，防止目录显示不全。 */
+  overflow: auto !important;
 }
-.cm-s-inner .CodeMirror-selectedtext {
-    background: #214283 !important;
+
+.typora-export .outline-item {
+  white-space: nowrap !important;
 }
-.cm-s-typora-default .CodeMirror-selectedtext {
-    background: var(--select-text-bg-color) !important;
+
+/* 菜单展开|未展开图标 */
+.typora-export .outline-expander:hover::before,
+.typora-export .outline-item-open>.outline-item>.outline-expander::before,
+.typora-export .outline-expander:hover::before,
+.typora-export .outline-expander::before {
+  font-size: 20px;
+  padding-right: 10px;
+  color: inherit;
 }
-.cm-overlay.CodeMirror-selectedtext {
-    background: var(--select-text-bg-color) !important;
+
+/* 菜单项 鼠标悬停的过渡效果 */
+.typora-export .outline-label {
+  transform: scale(1);
+  transition: all .2s;
 }
-.cm-s-inner div.CodeMirror-cursor {
-    border-left: 1px solid var(--code-block-color);
+
+.typora-export-show-outline .outline-item-active>.outline-item .outline-label,
+.typora-export .outline-item:hover .outline-label {
+  text-decoration: none;
+  font-weight: 700;
+  transform: scale(1.1);
+  color: var(--blockquote-border-color);
+  transition: all .2s;
+}
+
+/* 让菜单项的展开和收起图标继承字体颜色 */
+.typora-export-show-outline .outline-item-active>.outline-item,
+.typora-export .outline-item:hover {
+  color: var(--blockquote-border-color);
+}
+
+.typora-export .outline-item {
+  color: var(--a-color);
+}
+
+/* 笔记 内容区 */
+/* 将 write 和 write 下的所以一级子元素的宽度都设置为 80vw */
+.typora-export #write {
+  width: 80vw !important;
+}
+
+.typora-export #write>* {
+  width: 100% !important;
+}
+
+/* 纯 css 实现加载进度条
+参考：https://www.zhangxinxu.com/wordpress/2019/06/better-css-scroll-indicator/
+*/
+.typora-export {
+  position: relative;
+}
+
+.typora-export .indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to right top, teal 50%, transparent 50%) no-repeat;
+  background-size: 100% calc(100% - 100vh);
+  z-index: 2021;
+  pointer-events: none;
+  mix-blend-mode: darken;
+}
+
+.typora-export .indicator::after {
+  content: '';
+  position: fixed;
+  top: 5px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+  z-index: 1;
 }
 
  @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
@@ -1447,7 +1593,7 @@ a.ty-link {
 <a href='http://www.w3.org/MarkUp/draft-ietf-iiir-html-01.txt' target='_blank' class='url'>http://www.w3.org/MarkUp/draft-ietf-iiir-html-01.txt</a></li></ul><p><span>1993 年 1 月，现代浏览器的祖先 NCSA 研发的 Mosaic 问世了。它以 in-line（内联）等形式显示 HTML 的图像，在图像方面出色的表现使它迅速在世界范围内流行开来。</span></p><p><span>同年秋天，Mosaic 的 Windows 版和 Macintosh 版面世。使用 CGI 技 术的 NCSA Web 服务器、NCSA HTTPd 1.0 也差不多是在这个时期出现的。</span></p><ul><li><span>NCSA Mosaic bounce page</span>
 <a href='http://archive.ncsa.illinois.edu/mosaic.html' target='_blank' class='url'>http://archive.ncsa.illinois.edu/mosaic.html</a></li><li><span>The NCSA HTTPd Home Page（存档）</span>
 <a href='http://web.archive.org/web/20090426182129/http://hoohoo.ncsa.illinois.edu/' target='_blank' class='url'>http://web.archive.org/web/20090426182129/http://hoohoo.ncsa.illinois.edu/</a><span> （原址已失效）</span></li></ul><p><span>1994 年 的 12 月，网景通信公司发布了 Netscape Navigator 1.0，1995 年微软公司发布 Internet Explorer 1.0 和 2.0。紧随其后的是现在已然成为 Web 服务器标准之一的 Apache，当时它以 Apache 0.2 的姿态出现在世人眼前。而 HTML 也发布了 2.0 版本。那一年，Web 技术的发展突飞猛进。时光流转，从 1995 年左右起，微软公司与网景通信公司之间爆发的浏览器大战愈演愈烈。两家公司都各自对 HTML 做了扩展，于是导致在写 HTML 页面时，必须考虑兼容他们两家公司的浏览器。时至今日，这个问题仍令那些写前端页面的工程师感到棘手。在这场浏览器供应商之间的竞争中，他们不仅对当时发展中的各种 Web 标准化视而不见，还屡次出现新增功能没有对应说明文档的情况。2000 年前后，这场浏览器战争随着网景通信公司的衰落而暂告一段落。但就在 2004 年，Mozilla 基金会发布了 Firefox 浏览器，第二次浏览器大战随即爆发。Internet Explorer 浏览器的版本从 6 升到 7 前后花费了 5 年时间。之后接连不断地发布了 8、9、10 版本。另外，Chrome、Opera、Safari 等 浏览器也纷纷抢占市场份额。</span></p><blockquote><ul><li><span>NCSA，National Center for Supercomputer Applications，美国国家超级计算机应用中心</span></li><li><span>两次浏览器大战，自行百度</span></li></ul></blockquote><h3 id='123-驻足不前的-http'><span>1.2.3 驻足不前的 HTTP</span></h3><h4 id='http09'><span>HTTP/0.9</span></h4><p><span>HTTP 于 1990 年问世。那时的 HTTP 并没有作为正式的标准被建立。现在的 HTTP 其实含有 HTTP1.0 之前版本的意思，因此被称为 HTTP/0.9。</span></p><h4 id='http10'><span>HTTP/1.0</span></h4><p><span>HTTP 正式作为标准被公布是在 1996 年的 5 月，版本被命名为 HTTP/1.0，并记载于 RFC1945。虽说是初期标准，但该协议标准至今仍被广泛使用在服务器端。</span></p><ul><li><span>RFC1945 - Hypertext Transfer Protocol -- HTTP/1.0</span>
-<a href='http://www.ietf.org/rfc/rfc1945.txt' target='_blank' class='url'>http://www.ietf.org/rfc/rfc1945.txt</a></li></ul><h4 id='http11'><span>HTTP/1.1</span></h4><p><span>1997 年 1 月公布的 HTTP/1.1 是目前主流的 HTTP 协议版本。当初的标准是 RFC2068，之后发布的修订版 RFC2616 就是当前的最新版本。</span></p><ul><li><p><span>RFC2616 - Hypertext Transfer Protocol -- HTTP/1.1</span></p><p><a href='http://www.ietf.org/rfc/rfc2616.txt' target='_blank' class='url'>http://www.ietf.org/rfc/rfc2616.txt</a></p></li></ul><p><span>可见，作为 Web 文档传输协议的 HTTP，它的版本几乎没有更新。新一代 HTTP/2.0 正在制订中，但要达到较高的使用覆盖率，仍需假以时日。</span></p><p><span>当年 HTTP 协议的出现主要是为了解决文本传输的难题。由于协议本身非常简单，于是在此基础上设想了很多应用方法并投入了实际使用。</span><strong><span>现在 HTTP 协议已经超出了 Web 这个框架的局限，被运用到了各种场景里</span></strong><span>。</span></p><h2 id='13-网络基础-tcpip'><span>1.3 网络基础 TCP/IP</span></h2><p><span>TCP/IP 为了理解 HTTP，我们有必要事先了解一下 TCP/IP 协议族。</span><strong><span>通常使用的网络（包括互联网）是在 TCP/IP 协议族的基础上运作的</span></strong><span>。而 </span><strong><span>HTTP 属于它内部的一个子集</span></strong><span>。接下来，我们仅介绍理解 HTTP 所需掌握的 TCP/IP 协议族的概要。若想进一步学习有关 TCP/IP 的知识，请参考其他讲解 TCP/IP 的专业书籍。</span></p><blockquote><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229112946957.png" alt="image-20211229112946957" style="zoom:150%;" /></p><ul><li><span>TCP/IP 是互联网相关的各类协议族的总称。</span></li><li><span>TCP/IP 是一个协议族，也就是一个协议的集合，HTTP 协议和它之间的关系如上图所示：HTTP 协议是 TCP/IP 协议族中的一员，它是其内部的一个子集。</span></li><li><span>HTTP 协议是基于 TCP/IP 实现的，很多其他的网络通讯协议也都是基于 TCP/IP 实现的。</span></li></ul></blockquote><h3 id='131-tcpip-协议族'><span>1.3.1 TCP/IP 协议族</span></h3><h4 id='protocol-是什么'><span>protocol 是什么？</span></h4><p><span>计算机与网络设备要相互通信，双方就必须基于相同的方法。比如，如何探测到通信目标、由哪一边先发起通信、使用哪种语言进行通信、怎样结束通信等规则都需要事先确定。不同的硬件、操作系统之间的通信，所有的这一切都需要一种规则。而我们就把这种</span><strong><span>规则</span></strong><span>称为协议（protocol）。</span></p><blockquote><p><span>protocol，协议，可以将其理解为一种规则、约定。</span></p></blockquote><h4 id='tcpip-协议族'><span>TCP/IP 协议族</span></h4><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229113533129.png" referrerpolicy="no-referrer" alt="image-20211229113533129"></p><p><span>协议中存在各式各样的内容。从电缆的规格（最底层的硬件）到 IP 地址的选定方法、寻找异地用户的方法、双方建立通信的顺序，以及 Web 页面显示需要处理的步骤，等等。</span></p><p><span>像这样</span><strong><span>把与互联网相关联的协议集合起来总称为 TCP/IP</span></strong><span>。也有说法认为，</span><strong><span>TCP/IP 是指 TCP 和 IP 这两种协议</span></strong><span>。还有一种说法认为，</span><strong><span>TCP/ IP 是在 IP 协议的通信过程中，使用到的协议族的统称</span></strong><span>。</span></p><h3 id='132-tcpip-的分层管理'><span>1.3.2 TCP/IP 的分层管理</span></h3><p><span>TCP/IP 协议族里重要的一点就是分层。TCP/IP 协议族按层次分别分为以下 4 层：应用层、传输层、网络层和数据链路层。分层管理有以下优势。</span></p><ul><li><span>有助于维护</span></li></ul><p><span>把 TCP/IP 层次化是有好处的。比如，如果互联网只由一个协议统筹，某个地方需要改变设计时，就必须把所有部分整体替换掉。而分层之后只需把变动的层替换掉即可。把各层之间的接口部分规划好之后，每个层次内部的设计就能够自由改动了。</span></p><ul><li><span>有助于分工</span></li></ul><p><span>值得一提的是，层次化之后，设计也变得相对简单了。处于应用层上的应用可以只考虑分派给自己的任务，而不需要弄清对方在地球上哪个地方、对方的传输路线是怎样的、是否能确保传输送达等问题。</span></p><p>&nbsp;</p><p><span>TCP/IP 协议族各层的作用如下。</span></p><h4 id='应用层'><span>应用层</span></h4><p><strong><span>应用层决定了向用户提供应用服务时通信的活动。</span></strong><span>TCP/IP 协议族内预存了各类通用的应用服务。比如，FTP 和 DNS 服务就是其中两类。 HTTP 协议也处于该层。</span></p><blockquote><ul><li><span>FTP，File Transfer Protocol，文件传输协议</span></li><li><span>DNS，Domain Name System，域名系统</span></li></ul></blockquote><h4 id='传输层'><span>传输层</span></h4><p><strong><span>传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。</span></strong><span>在传输层有两个性质不同的协议：TCP 和 UDP。</span></p><blockquote><ul><li><span>TCP，Transmission Control Protocol，传输控制协议</span></li><li><span>UDP，User Data Protocol，用户数据报协议</span></li></ul></blockquote><h4 id='网络层又名网络互连层）'><span>网络层（又名网络互连层）</span></h4><p><strong><span>网络层用来处理在网络上流动的数据包。</span></strong><span>数据包是网络传输的最小数据单位。该层规定了通过怎样的路径（所谓的传输路线）到达对方计算机，并把数据包传送给对方。与对方计算机之间通过多台计算机或网络设备进行传输时，网络层所起的作用就是</span><strong><span>在众多的选项内选择一条传输路线</span></strong><span>。</span></p><h4 id='链路层又名数据链路层网络接口层）'><span>链路层（又名数据链路层，网络接口层）</span></h4><p><strong><span>用来处理连接网络的硬件部分。</span></strong><span>包括控制操作系统、硬件的设备驱动、NIC 及光纤等物理可见部分（还包括连接器等一切传输媒介）。</span><strong><span>硬件</span></strong><span>上的范畴均在链路层的作用范围之内。</span></p><blockquote><ul><li><span>NIC，Network Interface Card，网络适配器，即网卡</span></li></ul></blockquote><h3 id='133-tcpip-通信传输流'><span>1.3.3 TCP/IP 通信传输流</span></h3><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229115635468.png" alt="image-20211229115635468" style="zoom:80%;" /></p><p><span>利用 TCP/IP 协议族进行网络通信时，会通过分层顺序与对方进行通信。</span><strong><span>发送端从应用层往下走，接收端则往应用层往上走。</span></strong><span>我们用 HTTP 举例来说明。</span></p><ul><li><span>首先作为发送端的客户端在应用层（HTTP 协议）发出一个想看某个 Web 页面的 HTTP 请求。</span></li><li><span>接着，为了传输方便，在传输层（TCP 协议）把从应用层处收到的数据（HTTP 请求报文）进行分割，并在各个报文上打上标记序号及端口号后转发给网络层。</span></li><li><span>在网络层（IP 协议），增加作为通信目的地的 MAC 地址后转发给链路层。这样一来，发往网络的通信请求就准备齐全了。</span></li><li><span>接收端的服务器在链路层接收到数据，按序往上层发送，一直到应用层。当传输到应用层，才能算真正接收到由客户端发送过来的 HTTP 请求。</span></li></ul><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229120114597.png" alt="image-20211229120114597" style="zoom:80%;" /></p><p><span>发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。这种把数据信息包装起来的做法称为封装。</span></p><blockquote><ul><li><span>封装，encapsulate</span></li><li><span>发送数据，从上到下逐层封装</span></li><li><span>接收数据，从下到上逐层解封</span></li></ul></blockquote><h2 id='14-与-http-关系密切的协议iptcp-和-dns'><span>1.4 与 HTTP 关系密切的协议：IP、TCP 和 DNS</span></h2><p><span>下面我们分别针对在 TCP/IP 协议族中与 HTTP 密不可分的 3 个协议 （IP、TCP 和 DNS）进行说明。</span></p><h3 id='141-负责传输的-ip-协议'><span>1.4.1 负责传输的 IP 协议</span></h3><h4 id='ip-协议是什么'><span>IP 协议是什么</span></h4><p><strong><span>按层次分，IP（Internet Protocol）网际协议位于网络层</span></strong><span>。Internet Protocol 这个名称可能听起来有点夸张，但事实正是如此，因为几乎所有使用网络的系统都会用到 IP 协议。TCP/IP 协议族中的 IP 指的就是网际协议，在协议名称中，它占据了一半的位置，其重要性可见一斑。可能有人会把 “IP” 和 “IP 地址” 搞混，“IP” 其实是一种协议的名称。</span></p><h4 id='ip-协议的作用'><span>IP 协议的作用</span></h4><p><strong><span>IP 协议的作用是把各种数据包传送给对方</span></strong><span>。若想要保证确实传送到对方那里，则需要满足各类条件。其中两个重要的条件是 IP 地址和 MAC 地址。IP 地址指明了节点被分配到的地址，MAC 地址是指网卡所属的固定地址。IP 地址可以和 MAC 地址进行配对。IP 地址可变换，但 MAC 地址基本上不会更改。</span></p><blockquote><ul><li><span>IP 地址，它是动态分配的，是可变的。</span></li><li><span>MAC 地址，Media Access Control Address，媒体查询地址，它是设备的硬件地址，是不可变的。</span></li></ul><p><span>IP 协议的作用就是借助 IP 地址和 MAC 地址，将各种数据包传送给对方。</span></p></blockquote><ul><li><span>使用 ARP 协议凭借 MAC 地址进行通信</span></li></ul><p><span>IP 间的通信依赖 MAC 地址。在网络上，通信的双方在同一局域网内的情况是很少的，通常是经过多台计算机和网络设备中转才能连接到对方。而在进行中转时，会利用下一站中转设备的 MAC 地址来搜索下一个中转目标。这时，会采用 ARP 协议。ARP 是一种用以解析地址的协议，根据通信方的 IP 地址就可以反查出对应的 MAC 地址。</span></p><blockquote><ul><li><p><span>LAN，Local Area Network，局域网</span></p></li><li><p><span>ARP，Address Resolution Protocol，地址解析协议</span></p><ul><li><a href='https://zhuanlan.zhihu.com/p/59066874'><span>知乎 ARP协议原理</span></a></li></ul></li></ul></blockquote><ul><li><span>没有人能够全面掌握互联网中的传输状况</span></li></ul><p><span>在到达通信目标前的中转过程中，那些计算机和路由器等网络设备只能获悉很粗略的传输路线。</span></p><p><span>这种机制称为路由选择（routing），有点像快递公司的送货过程。想要寄快递的人，只要将自己的货物送到集散中心，就可以知道快递公司是否肯收件发货，该快递公司的集散中心检查货物的送达地址，明确下站该送往哪个区域的集散中心。接着，那个区域的集散中心自会判断是否能送到对方的家中。</span></p><p><span>我们是想通过这个比喻说明，无论哪台计算机、哪台网络设备，它们都无法全面掌握互联网中的细节。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230103613421.png" alt="image-20211230103613421" style="zoom:80%;" /></p><h3 id='142-确保可靠性的-tcp-协议'><span>1.4.2 确保可靠性的 TCP 协议</span></h3><h4 id='tcp-协议的作用'><span>TCP 协议的作用</span></h4><p><span>按层次分，TCP 位于传输层，</span><strong><span>提供可靠的字节流服务</span></strong><span>。</span></p><ul><li><span>什么是「可靠的字节流服务」？</span></li></ul><p><span>所谓的字节流服务是指，为了方便传输，将大块数据分割成以报文段为单位的数据包进行管理。</span></p><p><span>而可靠的传输服务是指，能够把数据准确可靠地传给对方。一言以蔽之，</span><strong><span>TCP 协议为了更容易传送大数据才把数据分割</span></strong><span>，而且 </span><strong><span>TCP 协议能够确认数据最终是否送达到对方</span></strong><span>。</span></p><ul><li><span>如何确保数据能到达目标？</span></li></ul><p><span>为了准确无误地将数据送达目标处，TCP 协议采用了</span><strong><span>三次握手策略</span></strong><span>。用 TCP 协议把数据包送出去后，TCP 不会对传送后的情况置之不理，它一定会</span><strong><span>向对方确认是否成功送达</span></strong><span>。握手过程中使用了 TCP 的标志（flag）—— SYN 和 ACK。发送端首先发送一个带 SYN 标志的数据包给对方。接收端收到后，回传一个带有 SYN/ACK 标志的数据包以示传达确认信息。最后，发送端再回传一个带 ACK 标志的数据包，代表“握手”结束。若在握手过程中某个阶段莫名中断，TCP 协议会再次以相同的顺序发送相同的数据包。 </span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230110012671.png" referrerpolicy="no-referrer" alt="image-20211230110012671"></p><p><span>除了上述三次握手，TCP 协议还有其他各种手段来保证通信的可靠性。</span></p><blockquote><ul><li><span>Byte Stream Service，字节流服务，将一个大块数据切分为若干个小块数据</span></li><li><span>segment，报文段</span></li><li><span>three-way handshaking，三次握手</span></li><li><span>SYN，synchronize，同步</span></li><li><span>ACK，acknowledgement，确认</span></li></ul></blockquote><h2 id='15-负责域名解析的-dns-服务'><span>1.5 负责域名解析的 DNS 服务</span></h2><p><span>DNS 服务是和 HTTP 协议一样位于应用层的协议。它提供域名到 IP 地址之间的解析服务。计算机即可以被赋予 IP 地址，也可以被赋予主机名和域名。比如：「</span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span>」，它的 IP 地址是：「180.97.33.108」。用户通常使用主机名或域名来访问对方的计算机，而不是直接通过 IP 地址访问。因为与 IP 地址的一组纯数字相比，用字母配合数字的表示形式来指定计算机名更符合人类的记忆习惯。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230110609783.png" referrerpolicy="no-referrer" alt="image-20211230110609783"></p><blockquote><p><span>DNS 是比较好理解的，就拿 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 来举例，我们在浏览器的地址栏中输入 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 或 180.97.33.108 都可以跳转到百度首页。其实定位到百度首页是通过 IP 地址来定位到的。但是，相较而言，前者显然比后者更容易被我们记住，所以，就有了 DNS 服务这一玩意儿。</span></p><p><span>若将 DNS 服务比作电话普，那么，180.97.33.108 就是你电话普中一个联系人的电话，而 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 就是你给它的备注。</span></p></blockquote><h2 id='16-各种协议与-http-协议的关系'><span>1.6 各种协议与 HTTP 协议的关系</span></h2><p><span>学习了和 HTTP 协议密不可分的 TCP/IP 协议族中的各种协议后，我们再通过这张图来了解下 UP 协议、TCP 协议和 DNS 服务在使用 HTTP 协议的通信过程中各自发挥了哪些作用。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230111854078.png" referrerpolicy="no-referrer" alt="image-20211230111854078"></p><h2 id='17-uri-和-url'><span>1.7 URI 和 URL</span></h2><p><span>与 URI 相比，我们更熟悉 URL。URL 正是使用 Web 浏览器等访问 Web 页面时需要输入的</span><strong><span>网页地址</span></strong><span>。比如，下图的 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 就是 URL。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230113459450.png" alt="image-20211230113459450" style="zoom:50%;" /></p><blockquote><ul><li><span>URI，Uniform Resource Identifier，统一资源标识符</span></li><li><span>URL，Uniform Resource Locator，统一资源定位符</span></li></ul></blockquote><h3 id='171-统一资源标识符'><span>1.7.1 统一资源标识符</span></h3><p><span>URI 是 UniformResourceIdentifier 的缩写。</span><a href='https://www.ietf.org/rfc/rfc2396.txt'><span>RFC2396</span></a><span> 分别对这 3 个单词进行了如下定义。</span></p><hr /><h4 id='uniform'><span>Uniform </span></h4><p><span>规定</span><strong><span>统一的格式</span></strong><span>可方便处理多种不同类型的资源，而不用根据上下文环境来识别资源指定的访问方式。另外，加入新增的协议方案（如 http: 或 ftp:）也更容易。</span></p><h4 id='resource'><span>Resource </span></h4><p><span>资源的定义是“可标识的任何东西”。除了文档文件、图像或服务（例如当天的天气预报）等能够区别于其他类型的，全都可作为资源。另外，资源不仅可以是单一的，也可以是多数的集合体。</span></p><h4 id='identifier'><span>Identifier</span></h4><p><span>表示可标识的对象。也称为标识符。</span></p><hr /><p><span>综上所述，URI 就是由某个</span><strong><span>协议方案</span></strong><span>表示的</span><strong><span>资源的定位标识符</span></strong><span>。协议方案是指</span><u><span>访问资源所使用的协议类型名称</span></u><span>。采用 HTTP 协议时，协议方案就是 http。除此之外，还有 ftp、mailto、telnet、file 等。标准的 URI 协议方案有 30 种左右，由隶属于国际互联网资源管理的非营利社团 ICANN 的 IANA 管理颁布。</span></p><p>&nbsp;</p><p><span>URI 用字符串标识某一互联网资源，而 URL 表示资源的地点（互联网上所处的位置）。可见 </span><strong><span>URL 是 URI 的子集</span></strong><span>。</span></p><p>&nbsp;</p><p><span>“RFC3986：统一资源标识符（URI）通用语法”中列举了几种 URI 例子，如下所示。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="yaml"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="yaml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ftp://ftp.is.co.za/rfc/rfc1808.txt </span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">http://www.ietf.org/rfc/rfc2396.txt </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ldap://<span class="cm-meta">[</span>2001:db8::7<span class="cm-meta">]</span>/c=GB?objectClass?one </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">mailto:John.Doe@example.com </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">news:comp.infosystems.www.servers.unix </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">tel:+1-816-555-1212 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">telnet://192.0.2.16:80/</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">urn:oasis:names:specification:docbook:dtd:xml:4.1.2</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 224px;"></div><div class="CodeMirror-gutters" style="display: none; height: 224px;"></div></div></div></pre><p><span>本书接下来的章节中会频繁出现URI这个术语，在充分理解的基础上，也可用URL替换URI。</span></p><blockquote><ul><li><p><span>ICANN，Internet Corporationfor Assigned Namesand Numbers，互联网名称与数字地址分配机构</span></p></li><li><p><span>IANA，Internet Assigned Numbers Authority，互联网号码分配局</span></p><ul><li><a href='http://www.iana.org/assignments/uri-schemes'><span>IANA-UniformResourceIdentifier(URI)SCHEMES（统一资源标识符方案）</span></a></li></ul></li><li><p><span>为什么说 URL 是 URI 的子集？</span></p><ul><li><a href='https://www.zhihu.com/question/21950864'><span>知乎 HTTP 协议中 URI 和 URL 有什么区别？</span></a></li><li><span>URI 标识唯一的资源，标识唯一的资源有多种方式，URL 是其中一种，它通过描述该资源的位置来标识它，所以说 URL 是 URI 的子集。</span></li></ul></li></ul></blockquote><h3 id='172-uri-格式'><span>1.7.2 URI 格式</span></h3><p><span>表示指定的 URI，要使用涵盖全部必要信息的绝对 URI、绝对 URL 以及相对 URL。相对 URL，是指从浏览器中基本 URI 处指定的 URL，形如 /image/logo.gif。</span></p><p>&nbsp;</p><p><span>让我们先来了解一下绝对 URI 的格式。</span></p><p>&nbsp;</p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230115838454.png" referrerpolicy="no-referrer" alt="image-20211230115838454"></p><p>&nbsp;</p><p><span>使用 http: 或 https: 等协议方案名获取访问资源时要</span><strong><span>指定协议类型</span></strong><span>。</span><strong><span>不区分字母大小写，最后附一个冒号</span><code>:</code></strong><span>。也可使用 data: 或 javascript: 这类指定数据或脚本程序的方案名。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="tex"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="tex"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  hierarchical part</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ┌───────────────────┴─────────────────────┐</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  authority &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; path</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ┌───────────────┴───────────────┐┌───┴────┐</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  abc://username:password@example.com:123/path/data?key=value&amp;key2=value2#fragid1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  └┬┘ &nbsp; └───────┬───────┘ └────┬────┘ └┬┘ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └─────────┬─────────┘ └──┬──┘</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">scheme  user information &nbsp; &nbsp; host &nbsp; &nbsp; port &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  query &nbsp; &nbsp; &nbsp; &nbsp; fragment</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+<a href='http://www.ietf.org/rfc/rfc1945.txt' target='_blank' class='url'>http://www.ietf.org/rfc/rfc1945.txt</a></li></ul><h4 id='http11'><span>HTTP/1.1</span></h4><p><span>1997 年 1 月公布的 HTTP/1.1 是目前主流的 HTTP 协议版本。当初的标准是 RFC2068，之后发布的修订版 RFC2616 就是当前的最新版本。</span></p><ul><li><p><span>RFC2616 - Hypertext Transfer Protocol -- HTTP/1.1</span></p><p><a href='http://www.ietf.org/rfc/rfc2616.txt' target='_blank' class='url'>http://www.ietf.org/rfc/rfc2616.txt</a></p></li></ul><p><span>可见，作为 Web 文档传输协议的 HTTP，它的版本几乎没有更新。新一代 HTTP/2.0 正在制订中，但要达到较高的使用覆盖率，仍需假以时日。</span></p><p><span>当年 HTTP 协议的出现主要是为了解决文本传输的难题。由于协议本身非常简单，于是在此基础上设想了很多应用方法并投入了实际使用。</span><strong><span>现在 HTTP 协议已经超出了 Web 这个框架的局限，被运用到了各种场景里</span></strong><span>。</span></p><h2 id='13-网络基础-tcpip'><span>1.3 网络基础 TCP/IP</span></h2><p><span>TCP/IP 为了理解 HTTP，我们有必要事先了解一下 TCP/IP 协议族。</span><strong><span>通常使用的网络（包括互联网）是在 TCP/IP 协议族的基础上运作的</span></strong><span>。而 </span><strong><span>HTTP 属于它内部的一个子集</span></strong><span>。接下来，我们仅介绍理解 HTTP 所需掌握的 TCP/IP 协议族的概要。若想进一步学习有关 TCP/IP 的知识，请参考其他讲解 TCP/IP 的专业书籍。</span></p><blockquote><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229112946957.png" alt="image-20211229112946957" style="zoom:150%;" /></p><ul><li><span>TCP/IP 是互联网相关的各类协议族的总称。</span></li><li><span>TCP/IP 是一个协议族，也就是一个协议的集合，HTTP 协议和它之间的关系如上图所示：HTTP 协议是 TCP/IP 协议族中的一员，它是其内部的一个子集。</span></li><li><span>HTTP 协议是基于 TCP/IP 实现的，很多其他的网络通讯协议也都是基于 TCP/IP 实现的。</span></li></ul></blockquote><h3 id='131-tcpip-协议族'><span>1.3.1 TCP/IP 协议族</span></h3><h4 id='protocol-是什么'><span>protocol 是什么？</span></h4><p><span>计算机与网络设备要相互通信，双方就必须基于相同的方法。比如，如何探测到通信目标、由哪一边先发起通信、使用哪种语言进行通信、怎样结束通信等规则都需要事先确定。不同的硬件、操作系统之间的通信，所有的这一切都需要一种规则。而我们就把这种</span><strong><span>规则</span></strong><span>称为协议（protocol）。</span></p><blockquote><p><span>protocol，协议，可以将其理解为一种规则、约定。</span></p></blockquote><h4 id='tcpip-协议族'><span>TCP/IP 协议族</span></h4><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229113533129.png" referrerpolicy="no-referrer" alt="image-20211229113533129"></p><p><span>协议中存在各式各样的内容。从电缆的规格（最底层的硬件）到 IP 地址的选定方法、寻找异地用户的方法、双方建立通信的顺序，以及 Web 页面显示需要处理的步骤，等等。</span></p><p><span>像这样</span><strong><span>把与互联网相关联的协议集合起来总称为 TCP/IP</span></strong><span>。也有说法认为，</span><strong><span>TCP/IP 是指 TCP 和 IP 这两种协议</span></strong><span>。还有一种说法认为，</span><strong><span>TCP/ IP 是在 IP 协议的通信过程中，使用到的协议族的统称</span></strong><span>。</span></p><h3 id='132-tcpip-的分层管理'><span>1.3.2 TCP/IP 的分层管理</span></h3><p><span>TCP/IP 协议族里重要的一点就是分层。TCP/IP 协议族按层次分别分为以下 4 层：应用层、传输层、网络层和数据链路层。分层管理有以下优势。</span></p><ul><li><span>有助于维护</span></li></ul><p><span>把 TCP/IP 层次化是有好处的。比如，如果互联网只由一个协议统筹，某个地方需要改变设计时，就必须把所有部分整体替换掉。而分层之后只需把变动的层替换掉即可。把各层之间的接口部分规划好之后，每个层次内部的设计就能够自由改动了。</span></p><ul><li><span>有助于分工</span></li></ul><p><span>值得一提的是，层次化之后，设计也变得相对简单了。处于应用层上的应用可以只考虑分派给自己的任务，而不需要弄清对方在地球上哪个地方、对方的传输路线是怎样的、是否能确保传输送达等问题。</span></p><p>&nbsp;</p><p><span>TCP/IP 协议族各层的作用如下。</span></p><h4 id='应用层'><span>应用层</span></h4><p><strong><span>应用层决定了向用户提供应用服务时通信的活动。</span></strong><span>TCP/IP 协议族内预存了各类通用的应用服务。比如，FTP 和 DNS 服务就是其中两类。 HTTP 协议也处于该层。</span></p><blockquote><ul><li><span>FTP，File Transfer Protocol，文件传输协议</span></li><li><span>DNS，Domain Name System，域名系统</span></li></ul></blockquote><h4 id='传输层'><span>传输层</span></h4><p><strong><span>传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。</span></strong><span>在传输层有两个性质不同的协议：TCP 和 UDP。</span></p><blockquote><ul><li><span>TCP，Transmission Control Protocol，传输控制协议</span></li><li><span>UDP，User Data Protocol，用户数据报协议</span></li></ul></blockquote><h4 id='网络层又名网络互连层）'><span>网络层（又名网络互连层）</span></h4><p><strong><span>网络层用来处理在网络上流动的数据包。</span></strong><span>数据包是网络传输的最小数据单位。该层规定了通过怎样的路径（所谓的传输路线）到达对方计算机，并把数据包传送给对方。与对方计算机之间通过多台计算机或网络设备进行传输时，网络层所起的作用就是</span><strong><span>在众多的选项内选择一条传输路线</span></strong><span>。</span></p><h4 id='链路层又名数据链路层网络接口层）'><span>链路层（又名数据链路层，网络接口层）</span></h4><p><strong><span>用来处理连接网络的硬件部分。</span></strong><span>包括控制操作系统、硬件的设备驱动、NIC 及光纤等物理可见部分（还包括连接器等一切传输媒介）。</span><strong><span>硬件</span></strong><span>上的范畴均在链路层的作用范围之内。</span></p><blockquote><ul><li><span>NIC，Network Interface Card，网络适配器，即网卡</span></li></ul></blockquote><h3 id='133-tcpip-通信传输流'><span>1.3.3 TCP/IP 通信传输流</span></h3><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229115635468.png" alt="image-20211229115635468" style="zoom:80%;" /></p><p><span>利用 TCP/IP 协议族进行网络通信时，会通过分层顺序与对方进行通信。</span><strong><span>发送端从应用层往下走，接收端则往应用层往上走。</span></strong><span>我们用 HTTP 举例来说明。</span></p><ul><li><span>首先作为发送端的客户端在应用层（HTTP 协议）发出一个想看某个 Web 页面的 HTTP 请求。</span></li><li><span>接着，为了传输方便，在传输层（TCP 协议）把从应用层处收到的数据（HTTP 请求报文）进行分割，并在各个报文上打上标记序号及端口号后转发给网络层。</span></li><li><span>在网络层（IP 协议），增加作为通信目的地的 MAC 地址后转发给链路层。这样一来，发往网络的通信请求就准备齐全了。</span></li><li><span>接收端的服务器在链路层接收到数据，按序往上层发送，一直到应用层。当传输到应用层，才能算真正接收到由客户端发送过来的 HTTP 请求。</span></li></ul><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211229120114597.png" alt="image-20211229120114597" style="zoom:80%;" /></p><p><span>发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。这种把数据信息包装起来的做法称为封装。</span></p><blockquote><ul><li><span>封装，encapsulate</span></li><li><span>发送数据，从上到下逐层封装</span></li><li><span>接收数据，从下到上逐层解封</span></li></ul></blockquote><h2 id='14-与-http-关系密切的协议iptcp-和-dns'><span>1.4 与 HTTP 关系密切的协议：IP、TCP 和 DNS</span></h2><p><span>下面我们分别针对在 TCP/IP 协议族中与 HTTP 密不可分的 3 个协议 （IP、TCP 和 DNS）进行说明。</span></p><h3 id='141-负责传输的-ip-协议'><span>1.4.1 负责传输的 IP 协议</span></h3><h4 id='ip-协议是什么'><span>IP 协议是什么</span></h4><p><strong><span>按层次分，IP（Internet Protocol）网际协议位于网络层</span></strong><span>。Internet Protocol 这个名称可能听起来有点夸张，但事实正是如此，因为几乎所有使用网络的系统都会用到 IP 协议。TCP/IP 协议族中的 IP 指的就是网际协议，在协议名称中，它占据了一半的位置，其重要性可见一斑。可能有人会把 “IP” 和 “IP 地址” 搞混，“IP” 其实是一种协议的名称。</span></p><h4 id='ip-协议的作用'><span>IP 协议的作用</span></h4><p><strong><span>IP 协议的作用是把各种数据包传送给对方</span></strong><span>。若想要保证确实传送到对方那里，则需要满足各类条件。其中两个重要的条件是 IP 地址和 MAC 地址。IP 地址指明了节点被分配到的地址，MAC 地址是指网卡所属的固定地址。IP 地址可以和 MAC 地址进行配对。IP 地址可变换，但 MAC 地址基本上不会更改。</span></p><blockquote><ul><li><span>IP 地址，它是动态分配的，是可变的。</span></li><li><span>MAC 地址，Media Access Control Address，媒体查询地址，它是设备的硬件地址，是不可变的。</span></li></ul><p><span>IP 协议的作用就是借助 IP 地址和 MAC 地址，将各种数据包传送给对方。</span></p></blockquote><ul><li><span>使用 ARP 协议凭借 MAC 地址进行通信</span></li></ul><p><span>IP 间的通信依赖 MAC 地址。在网络上，通信的双方在同一局域网内的情况是很少的，通常是经过多台计算机和网络设备中转才能连接到对方。而在进行中转时，会利用下一站中转设备的 MAC 地址来搜索下一个中转目标。这时，会采用 ARP 协议。ARP 是一种用以解析地址的协议，根据通信方的 IP 地址就可以反查出对应的 MAC 地址。</span></p><blockquote><ul><li><p><span>LAN，Local Area Network，局域网</span></p></li><li><p><span>ARP，Address Resolution Protocol，地址解析协议</span></p><ul><li><a href='https://zhuanlan.zhihu.com/p/59066874'><span>知乎 ARP协议原理</span></a></li></ul></li></ul></blockquote><ul><li><span>没有人能够全面掌握互联网中的传输状况</span></li></ul><p><span>在到达通信目标前的中转过程中，那些计算机和路由器等网络设备只能获悉很粗略的传输路线。</span></p><p><span>这种机制称为路由选择（routing），有点像快递公司的送货过程。想要寄快递的人，只要将自己的货物送到集散中心，就可以知道快递公司是否肯收件发货，该快递公司的集散中心检查货物的送达地址，明确下站该送往哪个区域的集散中心。接着，那个区域的集散中心自会判断是否能送到对方的家中。</span></p><p><span>我们是想通过这个比喻说明，无论哪台计算机、哪台网络设备，它们都无法全面掌握互联网中的细节。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230103613421.png" alt="image-20211230103613421" style="zoom:80%;" /></p><h3 id='142-确保可靠性的-tcp-协议'><span>1.4.2 确保可靠性的 TCP 协议</span></h3><h4 id='tcp-协议的作用'><span>TCP 协议的作用</span></h4><p><span>按层次分，TCP 位于传输层，</span><strong><span>提供可靠的字节流服务</span></strong><span>。</span></p><ul><li><span>什么是「可靠的字节流服务」？</span></li></ul><p><span>所谓的字节流服务是指，为了方便传输，将大块数据分割成以报文段为单位的数据包进行管理。</span></p><p><span>而可靠的传输服务是指，能够把数据准确可靠地传给对方。一言以蔽之，</span><strong><span>TCP 协议为了更容易传送大数据才把数据分割</span></strong><span>，而且 </span><strong><span>TCP 协议能够确认数据最终是否送达到对方</span></strong><span>。</span></p><ul><li><span>如何确保数据能到达目标？</span></li></ul><p><span>为了准确无误地将数据送达目标处，TCP 协议采用了</span><strong><span>三次握手策略</span></strong><span>。用 TCP 协议把数据包送出去后，TCP 不会对传送后的情况置之不理，它一定会</span><strong><span>向对方确认是否成功送达</span></strong><span>。握手过程中使用了 TCP 的标志（flag）—— SYN 和 ACK。发送端首先发送一个带 SYN 标志的数据包给对方。接收端收到后，回传一个带有 SYN/ACK 标志的数据包以示传达确认信息。最后，发送端再回传一个带 ACK 标志的数据包，代表“握手”结束。若在握手过程中某个阶段莫名中断，TCP 协议会再次以相同的顺序发送相同的数据包。 </span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230110012671.png" referrerpolicy="no-referrer" alt="image-20211230110012671"></p><p><span>除了上述三次握手，TCP 协议还有其他各种手段来保证通信的可靠性。</span></p><blockquote><ul><li><span>Byte Stream Service，字节流服务，将一个大块数据切分为若干个小块数据</span></li><li><span>segment，报文段</span></li><li><span>three-way handshaking，三次握手</span></li><li><span>SYN，synchronize，同步</span></li><li><span>ACK，acknowledgement，确认</span></li></ul></blockquote><h2 id='15-负责域名解析的-dns-服务'><span>1.5 负责域名解析的 DNS 服务</span></h2><p><span>DNS 服务是和 HTTP 协议一样位于应用层的协议。它提供域名到 IP 地址之间的解析服务。计算机即可以被赋予 IP 地址，也可以被赋予主机名和域名。比如：「</span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span>」，它的 IP 地址是：「180.97.33.108」。用户通常使用主机名或域名来访问对方的计算机，而不是直接通过 IP 地址访问。因为与 IP 地址的一组纯数字相比，用字母配合数字的表示形式来指定计算机名更符合人类的记忆习惯。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230110609783.png" referrerpolicy="no-referrer" alt="image-20211230110609783"></p><blockquote><p><span>DNS 是比较好理解的，就拿 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 来举例，我们在浏览器的地址栏中输入 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 或 180.97.33.108 都可以跳转到百度首页。其实定位到百度首页是通过 IP 地址来定位到的。但是，相较而言，前者显然比后者更容易被我们记住，所以，就有了 DNS 服务这一玩意儿。</span></p><p><span>若将 DNS 服务比作电话普，那么，180.97.33.108 就是你电话普中一个联系人的电话，而 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 就是你给它的备注。</span></p></blockquote><h2 id='16-各种协议与-http-协议的关系'><span>1.6 各种协议与 HTTP 协议的关系</span></h2><p><span>学习了和 HTTP 协议密不可分的 TCP/IP 协议族中的各种协议后，我们再通过这张图来了解下 UP 协议、TCP 协议和 DNS 服务在使用 HTTP 协议的通信过程中各自发挥了哪些作用。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230111854078.png" referrerpolicy="no-referrer" alt="image-20211230111854078"></p><h2 id='17-uri-和-url'><span>1.7 URI 和 URL</span></h2><p><span>与 URI 相比，我们更熟悉 URL。URL 正是使用 Web 浏览器等访问 Web 页面时需要输入的</span><strong><span>网页地址</span></strong><span>。比如，下图的 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 就是 URL。</span></p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230113459450.png" alt="image-20211230113459450" style="zoom:50%;" /></p><blockquote><ul><li><span>URI，Uniform Resource Identifier，统一资源标识符</span></li><li><span>URL，Uniform Resource Locator，统一资源定位符</span></li></ul></blockquote><h3 id='171-统一资源标识符'><span>1.7.1 统一资源标识符</span></h3><p><span>URI 是 UniformResourceIdentifier 的缩写。</span><a href='https://www.ietf.org/rfc/rfc2396.txt'><span>RFC2396</span></a><span> 分别对这 3 个单词进行了如下定义。</span></p><hr /><h4 id='uniform'><span>Uniform </span></h4><p><span>规定</span><strong><span>统一的格式</span></strong><span>可方便处理多种不同类型的资源，而不用根据上下文环境来识别资源指定的访问方式。另外，加入新增的协议方案（如 http: 或 ftp:）也更容易。</span></p><h4 id='resource'><span>Resource </span></h4><p><span>资源的定义是“可标识的任何东西”。除了文档文件、图像或服务（例如当天的天气预报）等能够区别于其他类型的，全都可作为资源。另外，资源不仅可以是单一的，也可以是多数的集合体。</span></p><h4 id='identifier'><span>Identifier</span></h4><p><span>表示可标识的对象。也称为标识符。</span></p><hr /><p><span>综上所述，URI 就是由某个</span><strong><span>协议方案</span></strong><span>表示的</span><strong><span>资源的定位标识符</span></strong><span>。协议方案是指</span><u><span>访问资源所使用的协议类型名称</span></u><span>。采用 HTTP 协议时，协议方案就是 http。除此之外，还有 ftp、mailto、telnet、file 等。标准的 URI 协议方案有 30 种左右，由隶属于国际互联网资源管理的非营利社团 ICANN 的 IANA 管理颁布。</span></p><p>&nbsp;</p><p><span>URI 用字符串标识某一互联网资源，而 URL 表示资源的地点（互联网上所处的位置）。可见 </span><strong><span>URL 是 URI 的子集</span></strong><span>。</span></p><p>&nbsp;</p><p><span>“RFC3986：统一资源标识符（URI）通用语法”中列举了几种 URI 例子，如下所示。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="yaml"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="yaml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ftp://ftp.is.co.za/rfc/rfc1808.txt </span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">http://www.ietf.org/rfc/rfc2396.txt </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">ldap://<span class="cm-meta">[</span>2001:db8::7<span class="cm-meta">]</span>/c=GB?objectClass?one </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">mailto:John.Doe@example.com </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">news:comp.infosystems.www.servers.unix </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">tel:+1-816-555-1212 </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">telnet://192.0.2.16:80/</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">urn:oasis:names:specification:docbook:dtd:xml:4.1.2</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 224px;"></div><div class="CodeMirror-gutters" style="display: none; height: 224px;"></div></div></div></pre><p><span>本书接下来的章节中会频繁出现URI这个术语，在充分理解的基础上，也可用URL替换URI。</span></p><blockquote><ul><li><p><span>ICANN，Internet Corporationfor Assigned Namesand Numbers，互联网名称与数字地址分配机构</span></p></li><li><p><span>IANA，Internet Assigned Numbers Authority，互联网号码分配局</span></p><ul><li><a href='http://www.iana.org/assignments/uri-schemes'><span>IANA-UniformResourceIdentifier(URI)SCHEMES（统一资源标识符方案）</span></a></li></ul></li><li><p><span>为什么说 URL 是 URI 的子集？</span></p><ul><li><a href='https://www.zhihu.com/question/21950864'><span>知乎 HTTP 协议中 URI 和 URL 有什么区别？</span></a></li><li><span>URI 标识唯一的资源，标识唯一的资源有多种方式，URL 是其中一种，它通过描述该资源的位置来标识它，所以说 URL 是 URI 的子集。</span></li></ul></li></ul></blockquote><h3 id='172-uri-格式'><span>1.7.2 URI 格式</span></h3><p><span>表示指定的 URI，要使用涵盖全部必要信息的绝对 URI、绝对 URL 以及相对 URL。相对 URL，是指从浏览器中基本 URI 处指定的 URL，形如 /image/logo.gif。</span></p><p>&nbsp;</p><p><span>让我们先来了解一下绝对 URI 的格式。</span></p><p>&nbsp;</p><p><img src="https://gitee.com/dahuyou_top/pic-bed/raw/master/uPic/image-20211230115838454.png" referrerpolicy="no-referrer" alt="image-20211230115838454"></p><p>&nbsp;</p><p><span>使用 http: 或 https: 等协议方案名获取访问资源时要</span><strong><span>指定协议类型</span></strong><span>。</span><strong><span>不区分字母大小写，最后附一个冒号</span><code>:</code></strong><span>。也可使用 data: 或 javascript: 这类指定数据或脚本程序的方案名。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="tex"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="tex"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 12px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  hierarchical part</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ┌───────────────────┴─────────────────────┐</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  authority &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; path</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ┌───────────────┴───────────────┐┌───┴────┐</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  abc://username:password@example.com:123/path/data?key=value&amp;key2=value2#fragid1</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  └┬┘ &nbsp; └───────┬───────┘ └────┬────┘ └┬┘ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; └─────────┬─────────┘ └──┬──┘</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">scheme  user information &nbsp; &nbsp; host &nbsp; &nbsp; port &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  query &nbsp; &nbsp; &nbsp; &nbsp; fragment</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
 </span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  urn:example:mammal:monotreme:echidna</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  └┬┘ └──────────────┬───────────────┘</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">scheme &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  path</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 308px;"></div><div class="CodeMirror-gutters" style="display: none; height: 308px;"></div></div></div></pre><blockquote><p><code>[协议名]://[用户名]:[密码]@[服务器地址]:[服务器端口号]/[路径]?[查询字符串]#[片段ID]</code></p></blockquote><h4 id='登录信息认证）'><span>登录信息（认证）</span></h4><p><span>指定用户名和密码作为从服务端获取资源时必要的登录信息（身份认证）。此项是</span><strong><span>可选项</span></strong><span>。</span></p><h4 id='服务器地址'><span>服务器地址</span></h4><p><span>使用绝对 URI 必须指定待访问的服务器地址。地址可以是类似 </span><a href='http://www.baidu.com' target='_blank' class='url'>www.baidu.com</a><span> 这种 DNS 可解析的名称，或是 180.97.33.108 这类 IPv4 地址名，还可以是 [0:0:0:0:0:0:0:1] 这样用方括号括起来的 IPv6 地址名。</span></p><h4 id='服务器端口号'><span>服务器端口号</span></h4><p><span>指定服务器连接的网络端口号。此项也是</span><strong><span>可选项</span></strong><span>，若用户省略则自动使用</span><strong><span>默认端口号</span></strong><span>。（HTTP 服务默认端口是 80）</span></p><h4 id='带层次的文件路径'><span>带层次的文件路径</span></h4><p><strong><span>指定服务器上的文件路径</span></strong><span>来定位特指的资源。这与 UNIX 系统的文件目录结构相似。</span></p><h4 id='查询字符串'><span>查询字符串</span></h4><p><span>针对已指定的文件路径内的资源，可以使用查询字符串传入任意参数。此项</span><strong><span>可选</span></strong><span>。</span></p><h4 id='片段标识符'><span>片段标识符</span></h4><p><span>使用片段标识符通常可标记出已获取资源中的子资源（文档内的某个位置）。但在 RFC 中并没有明确规定其使用方法。该项也为可选项。</span></p><blockquote><p><span>上面提到的是 URI 的格式，而 URL 的格式主要由以下 3 部分组成</span></p><ul><li><span>scheme，协议（或称为服务方式）</span></li><li><span>hostname，存有该资源的主机IP地址（有时也包括端口号）</span></li><li><span>path，机资源的具体地址</span></li></ul></blockquote><h4 id='补充'><span>补充</span></h4><p><span>并不是所有的应用程序都符合 RFC，有一些用来制定 HTTP 协议技术标准的文档，它们被称为 RFC（Request for Comments，征求修正意见书）。</span></p><p>&nbsp;</p><p><span>通常，应用程序会遵照由 RFC 确定的标准实现。可以说，</span><strong><span>RFC 是互联网的设计文档</span></strong><span>，要是不按照 RFC 标准执行，就有可能导致无法通信的状况。比如，有一台 Web 服务器内的应用服务没有遵照 RFC 的标准实现，那 Web 浏览器就很可能无法访问这台服务器了。</span></p><p>&nbsp;</p><p><span>由于不遵照 RFC 标准实现就无法进行 HTTP 协议通信，所以基本上客户端和服务器端都会以 RFC 为标准来实现 HTTP 协议。但也存在某些应用程序因客户端或服务器端的不同，而未遵照 RFC 标准，反而将自成一套的“标准”扩展的情况。</span></p><p>&nbsp;</p><p><span>不按 RFC 标准来实现，当然也不必劳心费力让自己的“标准”符合其他所有的客户端和服务器端。但设想一下，如果这款应用程序的使用者非常多，那会发生什么情况？不难想象，其他的客户端或服务器端必然都不得不去配合它。</span></p><p>&nbsp;</p><p><span>实际在互联网上，已经实现了 HTTP 协议的一些服务器端和客户端里就存在上述情况。说不定它们会与本书介绍的 HTTP 协议的实现情况不一样。</span></p><p>&nbsp;</p><p><span>本书接下来要介绍的 HTTP 协议内容，除去部分例外，基本上都以 RFC 的标准为准。</span></p><p>&nbsp;</p></div></div>
 
 <script>(function (){var t=document.body.parentElement,e=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(t,e,n){document.addEventListener(t,function(t){if(!t.defaultPrevented)for(var i=t.target;i&&i!=this;i=i.parentNode)if(i.matches(e)){!1===n.call(i,t)&&(t.preventDefault(),t.stopPropagation());break}},!1)};function o(){return t.scrollTop}r("click",".outline-expander",function(t){var e=this.closest(".outline-item-wrapper").classList;return e.contains("outline-item-open")?e.remove("outline-item-open"):e.add("outline-item-open"),c(),!1}),r("click",".outline-item",function(t){var e=this.querySelector(".outline-label");if(location.hash="#"+e.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),l(),n.add("outline-item-active")}});var a,s,u=function(){var t=o();n=null;for(var i=0;i<e.length&&e[i][1]-t<60;i++)n=e[i]},l=function(){document.querySelectorAll(".outline-item-active").forEach(t=>t.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(t=>t.classList.remove("outline-item-open"))},c=function(){if(n){l();var t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(t)if(i){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var r=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(t=r).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(t){a&&clearTimeout(a),a=setTimeout(function(){u(),c()},300)});var f=function(){s=setTimeout(function(){!function(){e=[];var t=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");e.push([i,t+n.getBoundingClientRect().y])})}(),u(),c()},300)};window.addEventListener("resize",function(t){s&&clearTimeout(s),f()}),f()})();</script><div class="indicator"></div>  
