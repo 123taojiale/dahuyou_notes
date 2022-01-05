@@ -283,8 +283,6 @@ DNS 服务是和 HTTP 协议一样位于应用层的协议。它提供域名到 
 
 URI 是 UniformResourceIdentifier 的缩写。[RFC2396](https://www.ietf.org/rfc/rfc2396.txt) 分别对这 3 个单词进行了如下定义。
 
----
-
 #### Uniform 
 
 规定**统一的格式**可方便处理多种不同类型的资源，而不用根据上下文环境来识别资源指定的访问方式。另外，加入新增的协议方案（如 http: 或 ftp:）也更容易。
@@ -297,9 +295,9 @@ URI 是 UniformResourceIdentifier 的缩写。[RFC2396](https://www.ietf.org/rfc
 
 表示可标识的对象。也称为标识符。
 
----
 
-综上所述，URI 就是由某个**协议方案**表示的**资源的定位标识符**。协议方案是指<u>访问资源所使用的协议类型名称</u>。采用 HTTP 协议时，协议方案就是 http。除此之外，还有 ftp、mailto、telnet、file 等。标准的 URI 协议方案有 30 种左右，由隶属于国际互联网资源管理的非营利社团 ICANN 的 IANA 管理颁布。
+
+综上所述，URI 就是由某个协议方案表示的**资源的定位标识符**。协议方案是指访问资源所使用的协议类型名称。采用 HTTP 协议时，协议方案就是 http。除此之外，还有 ftp、mailto、telnet、file 等。标准的 URI 协议方案有 30 种左右，由隶属于国际互联网资源管理的非营利社团 ICANN 的 IANA 管理颁布。
 
 
 
@@ -394,7 +392,7 @@ scheme              path
 
 #### 补充
 
-并不是所有的应用程序都符合 RFC，有一些用来制定 HTTP 协议技术标准的文档，它们被称为 RFC（Request for Comments，征求修正意见书）。
+并不是所有的应用程序都符合 RFC，有一些用来制定 HTTP 协议技术标准的文档，它们被称为 RFC。
 
 
 
@@ -416,3 +414,6 @@ scheme              path
 
 本书接下来要介绍的 HTTP 协议内容，除去部分例外，基本上都以 RFC 的标准为准。
 
+
+
+> - Request for Comments，征求修正意见书
