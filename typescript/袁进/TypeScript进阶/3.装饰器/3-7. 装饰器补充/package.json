@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "@types/node": "^17.0.23"
+  },
+  "scripts": {
+    "dev": "nodemon --watch src -e ts --exec ts-node ./src/index.ts",
+    "build": "rm -rf dist && tsc"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
