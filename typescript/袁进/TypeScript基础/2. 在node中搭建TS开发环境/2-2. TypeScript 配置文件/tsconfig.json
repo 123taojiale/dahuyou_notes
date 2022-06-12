@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    // 配置编译结果的 es 版本为 es2016（也就是 es7）
+    "module": "commonjs",
+    // 配置 ts 中所使用的的模块化规范为 commonjs
+    "lib": [ // 配置当前 ts 的环境库
+      "es2016"
+      // "node" // 注意没有 lib 的可选值中，没有 node，如果要添加 node 环境，得通过 @types 库来添加，npm i @types/node
+    ],
+    "outDir": "./dist"
+    // 配置编译结果存放的位置
+  },
+  "include": [
+    "./src"
+    // 配置编译目标所在的位置
+  ]
+}
