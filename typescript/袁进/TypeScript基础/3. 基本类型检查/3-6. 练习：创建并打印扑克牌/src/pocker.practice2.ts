@@ -67,6 +67,9 @@ const printDeck = () => {
 
   let printInfo = "";
   deck.forEach((item, i) => {
+    printInfo += item.color
+      ? `${item.color}${item.number}  `
+      : `${item.number}  `;
     const no = i + 1; // 第几张牌
     if (no % 17 === 0) {
       console.log(`玩家${no / 17}：${printInfo}\n`);
@@ -74,10 +77,6 @@ const printDeck = () => {
     } else if (no === 54) {
       console.log(`底牌：${printInfo}\n`);
       printInfo = "";
-    } else {
-      printInfo += item.color
-        ? `${item.color}${item.number}  `
-        : `${item.number}  `;
     }
   });
 };
