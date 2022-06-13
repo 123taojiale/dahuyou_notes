@@ -1,18 +1,3 @@
-使用枚举，优化代码。
-
-**优化步骤：**
-
-1. 使用枚举列出扑克牌花色的所有可能
-2. 使用枚举列出扑克牌的数字范围
-3. 修改后续相关逻辑
-
-**最终结果**
-
-![20220613142440](https://cdn.jsdelivr.net/gh/123taojiale/dahuyou_picture@main/blogs/20220613142440.png)
-
-```ts
-// 参考
-
 export default 1;
 
 // 一张牌的花色
@@ -97,4 +82,3 @@ const printDeck = () => {
 };
 
 printDeck();
-```
