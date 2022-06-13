@@ -3,7 +3,7 @@ type Colors = "❤" | "♠" | "♣" | "◇";
 type Poker = {
   // 一张牌
   number: number | string,
-  color?: Colors,
+  color?: Colors, // 大小王没有花色
 };
 
 type Deck = Poker[]; // 一副牌
@@ -13,25 +13,25 @@ function createDeck() {
   const deck: Poker[] = [];
   // 插入 A ~ K
   for (let i = 1; i <= 13; i++) {
-    let number: number | string;
+    let number: number | string = i;
     if (i === 1) number = "A";
     if (i === 11) number = "J";
     if (i === 12) number = "Q";
     if (i === 13) number = "K";
     deck.push({
-      number: i,
+      number,
       color: "❤",
     });
     deck.push({
-      number: i,
+      number,
       color: "♠",
     });
     deck.push({
-      number: i,
+      number,
       color: "♣",
     });
     deck.push({
-      number: i,
+      number,
       color: "◇",
     });
   }
@@ -65,3 +65,5 @@ function printDeck(deck: Deck) {
 const deck = createDeck();
 
 printDeck(deck);
+
+export {};
