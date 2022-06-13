@@ -1,5 +1,5 @@
-let data:any = "123";
-let num:number = data;
+let data: any = "123";
+let num: number = data;
 /*
 any 类型：any 类型可以绕过类型检查，因此，any 类型的数据可以赋值给任意类型；
 上述代码不会报错，但是，我们往往不希望有这样的行为，所以 any 类型，非必要的情况下，最好不要使用。

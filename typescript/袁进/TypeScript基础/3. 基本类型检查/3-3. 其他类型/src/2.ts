@@ -1,18 +1,18 @@
-let foo: string | number[];
+function test(x: number[] | string) {
+  let result: string;
+  x; // => (parameter) x: string | number[]
 
-// foo; // => string | number[]
+  // 类型保护
+  if (typeof x === "string") {
+    x; // => (parameter) x: string
+    result = x.toUpperCase();
+  } else {
+    x; // => (parameter) x: number[]
+    result = x.toString();
+  }
 
-foo = [1, 2, 3];
-
-// 类型保护
-if (typeof foo === "string") {
-  // foo; // => string
-  // foo = foo.toUpperCase();
-} else {
-  foo; // => number[]
-  foo.forEach((v) => console.log(v));
+  return result;
 }
-/*
-联合类型配合类型保护，可以明确变量 foo 具体是什么类型。
-当 ts 能够明确某个变量具体是什么类型时，我们在调用它身上的一些方法时，都会有精准的智能提示。
-*/
+
+console.log(test("abc")); // => ABC
+console.log(test([1, 2, 3])); // => 1,2,3
