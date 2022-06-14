@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es6", // 被编译的目标文件所使用的模块化规范（ts 文件）
+    // "module": "es6",
+    "module": "commonjs", // 编译所生成的编译结果文件所使用的模块化规范（js 文件）
     "lib": [
       "es2016"
     ],
     "outDir": "./dist",
     "strictNullChecks": true,
-    "removeComments": true,
-    "noImplicitUseStrict": true
+    "removeComments": true, // 将编译结果中的注释给移除掉
+    "noImplicitUseStrict": true // 将编译结果中的严格模式给移除掉
   },
   "include": [
     "./src"
