@@ -1,9 +1,10 @@
-import { Colors, Nums } from "./enums";
+import { Color, Number } from "./enums";
 
+// 一张牌
 export type Poker = {
-  // 一张牌
-  number: Nums | "JOKER" | "joker";
-  color?: Colors;
+  number: Number | "Joker" | "joker";
+  color?: Color;
 };
 
-export type Deck = Poker[]; // 一副牌
+// 一副牌
+export type Deck = Poker[];

@@ -1,43 +1,49 @@
-import { Colors, Nums } from "./enums";
+import { Color, Number } from "./enums";
 import { Deck } from "./types";
 
-// 创建一副牌
-export function createDeck() {
+
+// 初始化一副牌
+export const initDeck = (): Deck => {
   const deck: Deck = [];
-  // 插入大小王
+  // 处理大小王
   deck.push({
-    number: "joker",
+    number: "Joker", // 大王
   });
-  // 插入大王
   deck.push({
-    number: "JOKER",
+    number: "joker", // 小王
   });
-  // 插入 A ~ K
-  const colorKeys = Object.keys(Colors);
-  const numKeys = Object.keys(Nums);
-  for (let i = 0; i < colorKeys.length; i++) {
-    for (let j = 0; j < numKeys.length; j++) {
+  // 初始 A ~ K
+  const colorKeys = Object.keys(Color)
+  const numberKeys = Object.keys(Number)
+  for (let i = 0; i < numberKeys.length; i++) {
+    for (let j = 0; j < colorKeys.length; j++) {
       deck.push({
-        number: Nums[numKeys[j]],
-        color: Colors[colorKeys[i]]
-      });
+        number: Number[numberKeys[i]],
+        color: Color[colorKeys[j]]
+      })
     }
   }
-  deck.sort(() => Math.random() - 0.5); // 打乱牌序
   return deck;
-}
+};
 
-// 打印一副扑克
-export function printDeck(deck: Deck) {
-  let result = "底牌：";
-  const desk = deck.splice(0, 3); // 底牌
-  desk.forEach((poker, i) => {
-    result += poker.color ? ` ${poker.color}${poker.number}` : ` ${poker.number}`;
+// const deck = initDeck();
+
+// console.log('查看一下初始化的一副扑克的内容：', deck);
+
+// 发牌
+export const printDeck = (deck) => {
+  let printInfo = "";
+  deck.forEach((item, i) => {
+    printInfo += item.color
+      ? `${item.color}${item.number}  `
+      : `${item.number}  `;
+    const no = i + 1; // 第几张牌
+    if (no % 17 === 0) {
+      console.log(`玩家${no / 17}：${printInfo}\n`);
+      printInfo = "";
+    } else if (no === 54) {
+      console.log(`底牌：${printInfo}\n`);
+      printInfo = "";
+    }
   });
-  result += '\n用户1：'
-  deck.forEach((poker, i) => {
-    if(i % 17 === 0 && i !== 0) result += `\n用户${i / 17 + 1}：`;
-    result += poker.color ? ` ${poker.color}${poker.number}` : ` ${poker.number}`;
-  });
-  console.log(result);
-}
+};

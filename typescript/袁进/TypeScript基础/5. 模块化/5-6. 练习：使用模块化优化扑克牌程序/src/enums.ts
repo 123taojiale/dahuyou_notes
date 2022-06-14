@@ -1,14 +1,13 @@
-// 黑桃（Spade）、红桃（Heart）、方块（Diamond）、梅花（Club）
-export enum Colors { // 花色
-  Heart = "❤",
-  Spade = "♠",
-  Club = "♣",
-  Diamond = "◇",
+// 一张牌的花色
+export enum Color {
+  heart = "♥",
+  spade = "♠",
+  club = "♣",
+  diamond = "♦",
 }
 
-// one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen
-// 牌编号
-export enum Nums {
+// 每张牌的编号
+export enum Number {
   one = "A",
   two = "2",
   three = "3",
