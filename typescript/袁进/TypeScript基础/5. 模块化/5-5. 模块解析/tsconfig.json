@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    // 配置模块解析策略为 node
+  }
+}
