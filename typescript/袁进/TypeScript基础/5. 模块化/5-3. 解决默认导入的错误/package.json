@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@types/node": "^17.0.23"
+    "@types/node": "^17.0.42"
   },
   "scripts": {
     "dev": "nodemon --watch src -e ts --exec ts-node ./src/index.ts"
