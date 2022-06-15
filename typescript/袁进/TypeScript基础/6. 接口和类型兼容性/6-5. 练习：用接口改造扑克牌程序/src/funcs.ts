@@ -1,50 +1,55 @@
-import { Colors, Nums } from "./enums";
-import { Deck, JokerPoker, NormalPoker } from "./types";
+import { Color, Number } from "./enums";
+import { Deck, NormalPoker } from "./interfaces";
 
-// 创建一副牌
-export function createDeck() {
+// 初始化一副牌
+export const initDeck = (): Deck => {
   const deck: Deck = [];
-  // 插入大小王
-  let jo: JokerPoker = {
-      type: "small",
-      getString() {
-        return "joker";
-      },
+  // 处理大小王
+  deck.push({
+    type: "big" as "big", // 大小王
+    getString() {
+      return "Joker";
     },
-    JO: JokerPoker = {
-      type: "big",
-      getString() {
-        return "JOKER";
-      },
-    };
-  deck.push(jo, JO);
-  // 插入 A ~ K
-  const colorKeys = Object.keys(Colors);
-  const numKeys = Object.keys(Nums);
-  for (let i = 0; i < colorKeys.length; i++) {
-    for (let j = 0; j < numKeys.length; j++) {
+  });
+  deck.push({
+    type: "small" as "small",
+    getString() {
+      return "joker"; // 小王
+    },
+  });
+  // 初始 A ~ K
+  const colorKeys = Object.keys(Color);
+  const numberKeys = Object.keys(Number);
+  for (let i = 0; i < numberKeys.length; i++) {
+    for (let j = 0; j < colorKeys.length; j++) {
       deck.push({
-        number: Nums[numKeys[j]],
-        color: Colors[colorKeys[i]],
+        number: Number[numberKeys[i]],
+        color: Color[colorKeys[j]],
         getString() {
           return `${this.color}${this.number}`;
-        }
+        },
       } as NormalPoker);
     }
   }
-  deck.sort(() => Math.random() - 0.5); // 打乱牌序
   return deck;
-}
+};
 
-// 打印一副扑克
-export function printDeck(deck: Deck) {
-  let result = "底牌：";
-  const desk = deck.splice(0, 3); // 底牌
-  desk.forEach(poker => result += poker.getString() + "  ");
-  result += "\n用户1：";
-  deck.forEach((poker, i) => {
-    if (i % 17 === 0 && i !== 0) result += `\n用户${i / 17 + 1}：`;
-    result += poker.getString() + "  ";
+// const deck = initDeck();
+
+// console.log('查看一下初始化的一副扑克的内容：', deck);
+
+// 发牌
+export const printDeck = (deck) => {
+  let printInfo = "";
+  deck.forEach((item, i) => {
+    printInfo += item.getString() + "  ";
+    const no = i + 1; // 第几张牌
+    if (no % 17 === 0) {
+      console.log(`玩家${no / 17}：${printInfo}\n`);
+      printInfo = "";
+    } else if (no === 54) {
+      console.log(`底牌：${printInfo}\n`);
+      printInfo = "";
+    }
   });
-  console.log(result);
-}
+};

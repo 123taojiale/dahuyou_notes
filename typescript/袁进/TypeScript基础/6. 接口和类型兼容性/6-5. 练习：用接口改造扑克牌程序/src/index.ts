@@ -1,5 +1,5 @@
-import {createDeck, printDeck} from "./funcs"
+import { initDeck, printDeck } from "./funcs";
 
-const deck = createDeck();
+const deck = initDeck().sort(() => Math.random() - 0.5); // 洗牌
 
 printDeck(deck);
