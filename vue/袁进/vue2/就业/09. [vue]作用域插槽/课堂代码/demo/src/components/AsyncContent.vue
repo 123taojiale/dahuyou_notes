@@ -8,7 +8,9 @@
 </template>
 
 <script>
+// 由 AsyncContent 组件来识别当前的请求状态，决定显示哪块插槽
 export default {
+  name: "AsyncContent",
   props: {
     contentPromise: Promise,
   },
@@ -26,6 +28,7 @@ export default {
     } catch (err) {
       this.content = null;
       this.error = err;
+      // ⚠️ error 对象没法成为一个响应式数据
     } finally {
       this.isLoading = false;
     }

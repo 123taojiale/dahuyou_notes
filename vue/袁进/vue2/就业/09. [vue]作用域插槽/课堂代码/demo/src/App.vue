@@ -3,6 +3,9 @@
     <async-content :contentPromise="fetchProducts()">
       <template #loading>加载中...</template>
       <template v-slot:default="{ content }">
+        <!-- 这个 content 是子组件中的数据
+        子组件中通过 v-bind:content="xxx" 将 xxx 数据传递给父组件
+        这样在父组件的作用域中就可以访问到子组件作用域中的数据了 -->
         <ul>
           <li v-for="item in content" :key="item.id">
             商品名：{{ item.name }} 库存：{{ item.stock }}
@@ -31,7 +34,7 @@ function getProducts() {
       } else {
         reject(new Error("not found"));
       }
-    }, 1000);
+    }, 500);
   });
 }
 
