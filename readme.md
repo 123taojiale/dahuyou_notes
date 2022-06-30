@@ -1,29 +1,49 @@
 # dahuyou_notes
 
-该仓库主要用于存放个人学习笔记，包括：
+
+
+该仓库主要用于存放个人学习笔记，主要包括：
+
 1. assets
-2. notes
-3. codes
+2. codes
+
+
 
 ## assets
 
-该文件夹下边存放的是一些本套教程所对应的一些资源
+该文件夹下边存放的是一些本套教程所对应的一些资源，比如 `0054 - 《图解 HTTP》` 中的 assets 存放的就是《图解 HTTP》的 pdf 文件。
 
-## notes
 
-笔记内容是在「[分秒帧](https://www.mediatrack.cn/)」上看完视频后，将批注导出并归纳整理而成的。
 
-对于视频教程，仓库中存放的笔记，主要以「视频某一帧的截图」+「相应的描述信息」这种方式来记录，主要是简单的记录一下都介绍了。
+视频资源：
 
-对于笔记的详细内容，都丢到了「[语雀](https://www.yuque.com/taojiale-dahuyou?tab=books)」知识库中。
+视频资源体积过大，就没放上边，单独丢到百度网盘中了。有一些视频是线上就可以访问的，比如 B站 上的诸多教程，会将访问链接 🔗 直接丢到对应的知识库的 readme.md 文件中。
+
+
 
 ## codes
 
-每一部分的练习、测试 demo
+codes 存放的是学习过程中，写过的一些 demos。
+
+
+
+## notes
+
+notes 统统都记录在语雀上，在线访问地址：https://www.yuque.com/taojiale-dahuyou/xxxx
+
+
+
+结尾的 xxxx 编号，比如 https://www.yuque.com/taojiale-dahuyou/0001 访问的就是编号为 0001 知识库的笔记。
+
+
+
+![image-20220630171914589](https://raw.githubusercontent.com/123taojiale/dahuyou_picture/main/blogs/202206301719842.png)
+
+
 
 ## 补充
 
 编号：没特别意义，随便编的
 
-000 目录下边存放的内容，主要是待整理的笔记，通常每周周末会整理掉
+0000 目录下边存放的内容，主要是待整理的玩意儿，通常每周周末会整理掉
 
