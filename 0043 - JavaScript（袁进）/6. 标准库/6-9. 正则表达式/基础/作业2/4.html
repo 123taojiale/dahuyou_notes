@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- (h2{第$章}+p*5>lorem5)*10
+  这里使用 emmet 语法快速生成一段 html -->
+  <div class="main">
+    <h2>第1章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Distinctio, a nobis! Deleniti, vitae.</p>
+    <p>Dolorum ab eligendi eius quas.</p>
+    <p>Amet eveniet quia voluptatibus odit.</p>
+    <p>Iste eveniet expedita rem veniam?</p>
+    <h2>第2章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Numquam molestias itaque aliquid dignissimos?</p>
+    <p>Libero assumenda ab facere consequuntur!</p>
+    <p>Laborum, aspernatur animi. Magni, voluptatibus!</p>
+    <p>Consequuntur culpa dolorem amet natus!</p>
+    <h2>第3章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Repellendus deserunt alias asperiores impedit?</p>
+    <p>Voluptas eligendi a obcaecati dicta.</p>
+    <p>Corrupti cumque rem distinctio illum!</p>
+    <p>Sequi tempora cumque porro quibusdam?</p>
+    <h2>第4章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Veniam assumenda laudantium molestiae veritatis.</p>
+    <p>Illo, dolor id! Fugiat, harum.</p>
+    <p>Asperiores obcaecati accusantium illo nam.</p>
+    <p>Error doloremque ullam veritatis provident.</p>
+    <h2>第5章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Placeat tempora impedit quod voluptatibus.</p>
+    <p>Ratione nisi delectus in excepturi.</p>
+    <p>Dolore facilis voluptate ad iure!</p>
+    <p>Quisquam, rerum. Eligendi, alias est?</p>
+    <h2>第6章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Deserunt at ipsum officia ullam.</p>
+    <p>Error quam laboriosam sint quos.</p>
+    <p>Unde molestias repudiandae dicta natus!</p>
+    <p>Aspernatur, maxime! Eius, ad pariatur?</p>
+    <h2>第7章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Veniam ipsum voluptatem error reiciendis.</p>
+    <p>Obcaecati numquam alias commodi incidunt!</p>
+    <p>Nostrum unde totam est sapiente!</p>
+    <p>Aspernatur, dolor nulla! Sunt, cum.</p>
+    <h2>第8章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Veniam voluptates sint maiores explicabo.</p>
+    <p>Alias vel culpa vitae nemo.</p>
+    <p>Blanditiis enim deleniti praesentium eaque.</p>
+    <p>Labore laudantium quaerat ab quae.</p>
+    <h2>第9章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>In aspernatur velit nostrum sed!</p>
+    <p>Soluta modi in eveniet eaque?</p>
+    <p>Dolorum error dolorem eius. Quisquam.</p>
+    <p>Minus officiis impedit amet? Quae!</p>
+    <h2>第10章</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Incidunt nihil nostrum quos vel.</p>
+    <p>Accusamus recusandae eligendi quam consectetur?</p>
+    <p>Voluptatem molestias praesentium laudantium fuga!</p>
+    <p>Quis obcaecati adipisci nobis tempora!</p>
+  </div>
+  <script>
+    /*
+    得到一个 html 字符串中出现的章节数量
+    (h2{第$章}+p*5>lorem5)*10
+    内容过多，这里用 emmet 语法来表示。
+    */
+    var html = document.getElementsByClassName('main')[0].innerHTML;
+    // console.log(typeof html);
+    var reg = /<h2>第\d+章<\/h2>/g;
+    var result = html.match(reg);
+    if (result) {
+      console.log(result.length); // => 10
+    } else {
+      console.log(0);
+    }
+    console.log(result); // => ["<h2>第1章</h2>", "<h2>第2章</h2>", "<h2>第3章</h2>", "<h2>第4章</h2>", "<h2>第5章</h2>", "<h2>第6章</h2>", "<h2>第7章</h2>", "<h2>第8章</h2>", "<h2>第9章</h2>", "<h2>第10章</h2>"]
+  </script>
+</body>
+
+</html>
