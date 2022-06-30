@@ -1,0 +1,9 @@
+.moveContainer {
+  width: 500px;
+  height: 500px;
+  background-color: lightblue;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}

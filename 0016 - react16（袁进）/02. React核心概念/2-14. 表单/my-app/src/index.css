@@ -1,0 +1,15 @@
+.Test-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  border: 2px solid #f40;
+  padding: 2em;
+}
+
+.right {
+  border: 2px solid #008c8c;
+  padding: 2em;
+  flex: 1;
+}

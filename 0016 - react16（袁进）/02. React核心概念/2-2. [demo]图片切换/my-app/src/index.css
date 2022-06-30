@@ -1,0 +1,12 @@
+#root {
+  width: 590px;
+  height: 470px;
+  border: 2px solid;
+  margin: 0 auto;
+}
+
+#root img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

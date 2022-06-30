@@ -1,0 +1,7 @@
+@import url(./globalColors.css);
+
+html,
+body {
+  color: var(--words);
+  font-size: 14px;
+}

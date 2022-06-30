@@ -1,0 +1,5 @@
+# combineReducers
+
+组装reducers，返回一个reducer，数据使用一个对象表示，对象的属性名与传递的参数对象保持一致
+
+# 截图

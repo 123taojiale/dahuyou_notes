@@ -1,0 +1,16 @@
+.three-leyout-container {
+  display: flex;
+}
+
+.main-area {
+  order: 2;
+  flex: 1 1 auto;
+}
+
+.left-aside {
+  order: 1;
+}
+
+.right-aside {
+  order: 3;
+}

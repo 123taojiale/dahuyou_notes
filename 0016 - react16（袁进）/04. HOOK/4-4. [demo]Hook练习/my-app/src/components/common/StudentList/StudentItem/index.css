@@ -1,0 +1,23 @@
+.stu-card {
+  display: flex;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 2em;
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+}
+
+.stu-card + .stu-card {
+  margin-top: 1em;
+}
+
+.stu-card .left,
+.stu-card .right {
+  width: 50%;
+}
+
+.stu-card .left .label,
+.stu-card .right .label {
+  display: inline-block;
+  min-width: 100px;
+}

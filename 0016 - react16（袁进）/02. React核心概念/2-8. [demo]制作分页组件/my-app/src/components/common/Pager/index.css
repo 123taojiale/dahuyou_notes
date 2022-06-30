@@ -1,0 +1,25 @@
+.Pager-container{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.item {
+  cursor: pointer;
+  color: var(--primary);
+  padding: 0 .5em;
+}
+
+.item.disabled {
+  cursor: not-allowed;
+  color: var(--gray);
+}
+
+.item.selected {
+  cursor: text;
+  color: var(--words);
+}

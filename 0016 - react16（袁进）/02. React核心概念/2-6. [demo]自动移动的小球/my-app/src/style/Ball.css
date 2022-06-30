@@ -1,0 +1,7 @@
+.ball {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  position: fixed;
+  background-color: #f40; /* 默认背景色 */
+}
