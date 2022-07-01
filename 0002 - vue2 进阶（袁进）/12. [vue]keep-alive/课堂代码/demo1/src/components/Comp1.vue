@@ -24,6 +24,9 @@ export default {
     console.log('comp1 deactivated');
   },
 };
+/*
+🤔 activated、deactivated 这两个钩子又是啥？在介绍生命周期钩子的时候没介绍过它们呀！！
+*/
 </script>
 
 <style></style>

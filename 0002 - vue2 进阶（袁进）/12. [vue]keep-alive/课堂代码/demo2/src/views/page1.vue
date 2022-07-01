@@ -13,7 +13,7 @@
 <script>
 //该页面难以改动
 export default {
-  name: 'page1',
+  name: 'page1', // page1 和 page2、page3 内容都是一样的，唯一的不同在于 name 字段
   data() {
     return {
       count: 0,

@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/page1',
-    name: page1.name,
+    name: page1.name, // 读取组件实例 page1 中的 name 字段的值 - 组件名称
     component: page1,
   },
   {
