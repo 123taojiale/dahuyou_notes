@@ -53,7 +53,7 @@
 
 <script>
 import { todosRef } from "./composition/useTodoList";
-import { newTodoRef, addNewTodo } from "./composition/useNewTodo";
+import useNewTodo from "./composition/useNewTodo";
 
 export default {
   name: "App",
@@ -61,8 +61,7 @@ export default {
     // window.todosRef = todosRef;
     return {
       todosRef,
-      newTodoRef,
-      addNewTodo: addNewTodo(todosRef)
+      ...useNewTodo(todosRef)
     };
   },
 };
