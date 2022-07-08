@@ -20,7 +20,13 @@
     </header>
     <!-- This section should be hidden by default and shown when there are todos -->
     <section class="main" v-show="todoListRef.length > 0">
-      <input id="toggle-all" class="toggle-all" type="checkbox" :checked="handleSelectAll('get')" @change="handleSelectAll('set', $event.target.checked)" />
+      <input
+        id="toggle-all"
+        class="toggle-all"
+        type="checkbox"
+        :checked="handleSelectAll('get')"
+        @change="handleSelectAll('set', $event.target.checked)"
+      />
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list" v-for="item in filteredList" :key="item.id">
         <li
@@ -89,7 +95,11 @@
         </li>
       </ul>
       <!-- Hidden if no completed items are left ↓ -->
-      <button class="clear-completed" v-show="completedNum > 0" @click="removeAllCompleted">
+      <button
+        class="clear-completed"
+        v-show="completedNum > 0"
+        @click="removeAllCompleted"
+      >
         Clear completed
       </button>
     </footer>
