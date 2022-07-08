@@ -12,18 +12,25 @@
       line-height: 60px;
       /* width: 20%; */
       display: inline-block;
-      position: relative;
       margin: 0 auto;
       border: 1px solid #ddd;
       box-sizing: border-box;
       border-radius: 5px;
+
+      /* 居中 */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .toggle {
       width: 40px;
 
       position: absolute;
-      /* 下面这些 写 or 不写，影响不大。*/
+      /* 下面这些 写 or 不写，影响不大
+      因为在控制台中查看盒模型时，发现 .toggle 的高度是 0，不过并没有影响交互（因为 label 占满了）
+      如果想要将高度给撑满，可以给 top、bottom 设置为 0，纵向拉满高度即可 */
       /*
       top: 0;
       bottom: 0;

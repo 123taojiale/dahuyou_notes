@@ -11,16 +11,20 @@ export default (todosRef) => {
     // console.log(123);
     // 去掉首尾空白，连续空白字符视作一个空格
     let inputValue = newTodoRef.value.trim().replace(/\s+/g, " ");
-    console.log(inputValue);
+    // console.log(inputValue);
     // 校验是否为空
-    if (!inputValue) return;
+    if (!inputValue) {
+      alert('任务内容不能为空');
+      newTodoRef.value = "";
+      return;
+    }
     // 创建任务对象
     const todoObj = {
       id: generateId(), // 任务 id
       completed: false, // 任务是否完成
       title: inputValue, // 任务的内容
     }
-    todosRef.value.push(todoObj);
+    todosRef.value.unshift(todoObj);
     newTodoRef.value = "";
   }
 

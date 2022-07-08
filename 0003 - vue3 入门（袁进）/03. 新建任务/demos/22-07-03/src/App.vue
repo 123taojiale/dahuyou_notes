@@ -11,7 +11,7 @@
       <ul class="todo-list">
         <!-- These are here just to show the structure of the list items -->
         <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-        <li class="completed">
+        <!-- <li class="completed">
           <div class="view">
             <input class="toggle" type="checkbox" checked />
             <label>Taste JavaScript</label>
@@ -23,6 +23,14 @@
           <div class="view">
             <input class="toggle" type="checkbox" />
             <label>Buy a unicorn</label>
+            <button class="destroy"></button>
+          </div>
+          <input class="edit" value="Rule the web" />
+        </li> -->
+        <li v-for="item in todosRef" :key="item.id">
+          <div class="view">
+            <input class="toggle" type="checkbox" />
+            <label>{{ item.title }}</label>
             <button class="destroy"></button>
           </div>
           <input class="edit" value="Rule the web" />
