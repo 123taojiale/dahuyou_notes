@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>番茄钟完整版 - 练手</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 300px;
+    }
+
+    #progressBar-container {
+      width: 250px;
+    }
+
+    button {
+      border: none;
+      outline: none;
+
+      background: #f40;
+      font-weight: 700;
+      color: #fff;
+      border-radius: 15px;
+      cursor: pointer;
+      width: 150px;
+      padding: 1em 2em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 展示 progress 进度条的区域 -->
+  <div class="wrapper">
+    <div id="progressBar-container"></div>
+    <button id="switchBtn">开始工作</button>
+  </div>
+  <script src="./renderer.js"></script>
+  <!--
+    0 开始工作
+    1 停止工作
+    2 开始休息
+    3 停止休息
+   -->
+</body>
+
+</html>
