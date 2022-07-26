@@ -1,0 +1,18 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "再次练习番茄钟「简单版」",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.3.3"
+  },
+  "dependencies": {
+    "timer.js": "^1.0.4"
+  }
+}

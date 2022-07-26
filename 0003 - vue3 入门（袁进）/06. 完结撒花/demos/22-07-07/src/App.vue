@@ -1,5 +1,5 @@
 <template>
-  <pre style="position: absolute; top: 1rem; left: 1rem">
+  <pre style="position: absolute; top: 1rem; left: 1rem; border: 1px solid #ddd; padding: 1rem; border-radius: 10px;">
 <div>todoListRef 长度：{{todoListRef.length}}</div>
 <div>filteredList 长度：{{filteredList.length}}</div>
 <div>activeNum：{{activeNum}}</div>

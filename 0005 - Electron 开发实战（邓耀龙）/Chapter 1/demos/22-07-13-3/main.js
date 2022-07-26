@@ -13,7 +13,7 @@ function createMainWindow() {
     width: 1000,
     height: 680,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: true, // 实现和 node 的交互
       contextIsolation: false, // Electron 官方出于应用的安全考虑，在 v12 之后，把 webPreferences.contextIsolation 的默认值由 false 改为了 true，如果想要引入我们自己的脚本，得把 contextIsolation 设置为 false 才行，否则会报错 Uncaught ReferenceError: require is not defined
     }
   })

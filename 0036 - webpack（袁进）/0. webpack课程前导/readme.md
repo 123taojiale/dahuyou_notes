@@ -5,6 +5,3 @@
 3. 版本问题
 
 详细内容，直接看语雀上的笔记即可
-
-语雀笔记：https://www.yuque.com/taojiale-dahuyou/0036
-
