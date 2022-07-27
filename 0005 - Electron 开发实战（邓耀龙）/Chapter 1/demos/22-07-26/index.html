@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍅</title>
+  <style>
+    #timer-container {
+      margin: 1em 0;
+    }
+
+    .btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toggle-btn {
+      border: none;
+      outline: none;
+      background-color: lightblue;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: .5rem 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 渲染倒计时 -->
+  <div id="timer-container"></div>
+  <!-- 切换状态的按钮 -->
+  <div class="btn-container">
+    <button class="toggle-btn"></button>
+  </div>
+  <!-- 渲染进程 -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
