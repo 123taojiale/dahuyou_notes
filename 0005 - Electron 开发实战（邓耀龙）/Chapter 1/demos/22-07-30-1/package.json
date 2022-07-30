@@ -1,0 +1,9 @@
+{
+  "name": "22-07-30",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^19.0.10"
+  }
+}
