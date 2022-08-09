@@ -1,0 +1,44 @@
+{
+  "id": "3570588",
+  "name": "Electron 学习素材",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1299763",
+      "name": "Minimize-2",
+      "font_class": "2zuixiaohua-2",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "18366420",
+      "name": "window-restore",
+      "font_class": "window-restore",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "2674473",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "22965766",
+      "name": "最小化",
+      "font_class": "zuixiaohua",
+      "unicode": "e6b9",
+      "unicode_decimal": 59065
+    },
+    {
+      "icon_id": "22965767",
+      "name": "最大化",
+      "font_class": "zuidahua",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    }
+  ]
+}

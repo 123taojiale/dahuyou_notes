@@ -5,7 +5,8 @@ let win = null
 app.on('ready', () => {
   win = new BrowserWindow({
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false
     }
   })
   win.loadFile('index.html')

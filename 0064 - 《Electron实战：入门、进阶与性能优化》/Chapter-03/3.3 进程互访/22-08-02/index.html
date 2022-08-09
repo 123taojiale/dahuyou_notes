@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title>窗口标题</title>
+</head>
+
+<body>
+  <div style="padding: 60px; font-size: 38px; font-weight: bold; text-align: center;">Hello Worlk</div>
+  <button id="makeNewWindowBtn2">创建一个新窗口</button>
+  <script>
+    let remote = require('@electron/remote')
+    let mainModel = remote.require('./mainModel')
+    let win2
+    makeNewWindowBtn2.addEventListener('click', () => {
+      win2 = mainModel.makeWin()
+      win2.loadFile('index.html')
+    })
+  </script>
+  <!-- 3.3.2
+    <button id="makeNewWindowBtn">创建一个新窗口</button>
+  <script>
+    const { BrowserWindow } = require('@electron/remote')
+    let win
+    makeNewWindowBtn.addEventListener('click', () => {
+      win = new BrowserWindow({
+        webPreferences: { nodeIntegration: true }
+      })
+      win.loadFile('index.html')
+    })
+  </script> -->
+  <!-- 3.3.1
+    <button id="openDevToolsBtn">打开开发者调试工具</button>
+  <script>
+    let { getCurrentWebContents } = require('@electron/remote')
+    openDevToolsBtn.addEventListener('click', () => getCurrentWebContents().openDevTools())
+  </script> -->
+  <!-- <script src="./ObjRender.js"></script>
+  <script>
+    alert(window.objRender.key)
+    let ObjRender2 = require('./ObjRender2')
+    console.log('ObjRender2 => ', ObjRender2)
+    alert(ObjRender2.key)
+  </script> -->
+</body>
+
+</html>

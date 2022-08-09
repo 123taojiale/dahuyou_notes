@@ -1,0 +1,3 @@
+window.objRender = {
+  key: 'value'
+}

@@ -1,0 +1,16 @@
+{
+  "name": "22-07-29",
+  "version": "1.0.0",
+  "description": "chapter2",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^19.0.10"
+  },
+  "scripts": {
+    "start": "electron ./index.js"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.8"
+  }
+}

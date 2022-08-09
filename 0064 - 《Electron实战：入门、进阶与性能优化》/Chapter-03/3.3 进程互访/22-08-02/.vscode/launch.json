@@ -1,0 +1,21 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "调试主进程", // 配置名称，此名称将会显示在调试界面的启动调试按钮旁边
+      "type": "node", // 配置调试环境，此处调试环境是 Node.js 环境
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", // 指向的是批处理文件，该批处理文件用于启动 Electron
+      // ${workspaceRoot} 是正在进行调试的程序所在工作目录的绝对路径
+      "windows": {
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+      },
+      "args": ["."], // 是启动参数（此处的值 . 相当于是主进程程序路径的简写形式，填写 "./index.js" 亦可）
+      "outputCapture": "std"
+    }
+  ]
+}
