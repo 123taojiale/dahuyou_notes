@@ -50,7 +50,7 @@ export default {
     }
   },
   mounted() {
-    ipcRenderer.receive('fmWindowControl', res => this.isMaxSize = res)
+    ipcRenderer.receive('fmWindowControl', res => this.isMaxSize = res) 
   },
 }
 </script>

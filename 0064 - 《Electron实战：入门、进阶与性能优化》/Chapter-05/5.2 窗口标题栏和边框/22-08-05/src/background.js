@@ -102,20 +102,21 @@ if (isDevelopment) {
 
 function handleIPC() {
   ipcMain.on('tmWindowControl', (e, op) => {
-    let isMax = res = win.isMaximized()
+    let isMax = win.isMaximized()
+    let res = isMax
     if (op === 'restore' || op === 'maximize') {
       if (isMax) {
+        console.log('调用 win.restore 退出窗口最大化')
         win.restore()
         res = false
-      }
-      else {
+      } else {
+        console.log('调用 win.maximize 使窗口进入最大化')
         win.maximize()
         res = true
       }
     }
     if (op === 'minimize') win.minimize()
     if (op === 'close') win.close()
-    console.log('res => ', res)
     win.webContents.send('fmWindowControl', res)
   })
 

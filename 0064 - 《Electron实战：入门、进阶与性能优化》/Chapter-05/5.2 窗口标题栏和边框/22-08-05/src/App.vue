@@ -1,11 +1,13 @@
 <template>
   <!-- 标题栏 -->
   <TitleBar />
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div class="content">
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
 <script>
@@ -18,6 +20,11 @@ export default {
 </script>
 
 <style lang="less">
+.content {
+  margin-top: 39px;
+  overflow-y: auto;
+}
+
 nav {
   padding: 30px;
 
