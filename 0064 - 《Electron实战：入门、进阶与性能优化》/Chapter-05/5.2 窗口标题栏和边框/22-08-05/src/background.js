@@ -52,6 +52,10 @@ async function createWindow() {
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
+
+  // 监听窗口进入|退出最大化
+  win.addListener('maximize', handleMaximize)
+  win.addListener('unmaximize', handleUnMaximize)
 }
 
 // Quit when all windows are closed.
@@ -101,7 +105,7 @@ if (isDevelopment) {
 }
 
 function handleIPC() {
-  ipcMain.on('tmWindowControl', (e, op) => {
+  ipcMain.on('toMain', (e, op) => {
     let isMax = win.isMaximized()
     let res = isMax
     if (op === 'restore' || op === 'maximize') {
@@ -117,7 +121,22 @@ function handleIPC() {
     }
     if (op === 'minimize') win.minimize()
     if (op === 'close') win.close()
-    win.webContents.send('fmWindowControl', res)
+    win.webContents.send('fromMain', res)
   })
+}
 
+/**
+ * 窗口进入最大化时的回调
+ */
+function handleMaximize() {
+  console.log('窗口最大化了')
+  win.webContents.send('fromMain', true)
+}
+
+/**
+ * 窗口退出最大化时的回调
+ */
+function handleUnMaximize() {
+  console.log('窗口退出最大化了')
+  win.webContents.send('fromMain', false)
 }

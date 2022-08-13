@@ -46,11 +46,11 @@ export default {
   methods: {
     windowControl(op = '') {
       if (!op) return
-      ipcRenderer.send('tmWindowControl', op)
+      ipcRenderer.send('toMain', op)
     }
   },
   mounted() {
-    ipcRenderer.receive('fmWindowControl', res => this.isMaxSize = res) 
+    ipcRenderer.receive('fromMain', res => this.isMaxSize = res)
   },
 }
 </script>
