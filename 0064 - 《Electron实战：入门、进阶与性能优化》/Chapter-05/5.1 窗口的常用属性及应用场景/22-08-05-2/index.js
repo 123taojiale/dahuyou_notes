@@ -36,6 +36,6 @@ function createWindow() {
   })
 
   win3.loadFile('./index3.html')
-  win3.setAspectRatio(1)
+  win3.setAspectRatio(1960 / 1080) // 无法约束初始尺寸
 }
 // width、height 设置的是窗口尺寸的初始值，如果不设置，那么默认宽度是 800 高度是 600
