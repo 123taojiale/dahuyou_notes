@@ -3,8 +3,7 @@
 import {
   app,
   protocol,
-  BrowserWindow,
-  ipcMain
+  BrowserWindow
 } from 'electron'
 import {
   createProtocol
@@ -14,6 +13,7 @@ import installExtension, {
 } from 'electron-devtools-installer'
 // require('@electron/remote/main').initialize()
 import path from "path"
+import winStateControl from './utils/winStateControl'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 // Scheme must be registered before the app is ready
@@ -33,6 +33,7 @@ async function createWindow() {
     width: 800,
     height: 600,
     frame: false,
+    show: false,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
@@ -53,9 +54,7 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 
-  // 监听窗口进入|退出最大化
-  win.addListener('maximize', handleMaximize)
-  win.addListener('unmaximize', handleUnMaximize)
+  winStateControl(win)
 }
 
 // Quit when all windows are closed.
@@ -86,7 +85,6 @@ app.on('ready', async () => {
     }
   }
   createWindow()
-  handleIPC()
 })
 
 // Exit cleanly on request from parent process in development mode.
@@ -102,41 +100,4 @@ if (isDevelopment) {
       app.quit()
     })
   }
-}
-
-function handleIPC() {
-  ipcMain.on('toMain', (e, op) => {
-    let isMax = win.isMaximized()
-    let res = isMax
-    if (op === 'restore' || op === 'maximize') {
-      if (isMax) {
-        console.log('调用 win.restore 退出窗口最大化')
-        win.restore()
-        res = false
-      } else {
-        console.log('调用 win.maximize 使窗口进入最大化')
-        win.maximize()
-        res = true
-      }
-    }
-    if (op === 'minimize') win.minimize()
-    if (op === 'close') win.close()
-    win.webContents.send('fromMain', res)
-  })
-}
-
-/**
- * 窗口进入最大化时的回调
- */
-function handleMaximize() {
-  console.log('窗口最大化了')
-  win.webContents.send('fromMain', true)
-}
-
-/**
- * 窗口退出最大化时的回调
- */
-function handleUnMaximize() {
-  console.log('窗口退出最大化了')
-  win.webContents.send('fromMain', false)
 }

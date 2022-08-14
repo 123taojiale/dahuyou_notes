@@ -46,11 +46,16 @@ export default {
   methods: {
     windowControl(op = '') {
       if (!op) return
-      ipcRenderer.send('toMain', op)
+      ipcRenderer.send('tmWinControl', op)
     }
   },
   mounted() {
-    ipcRenderer.receive('fromMain', res => this.isMaxSize = res)
+    // 不等待一会儿再执行的话，事件还没注册好，首次渲染时无效
+    setTimeout(() => {
+      ipcRenderer.send('tmRestoreWinState') // 恢复窗口的状态
+      ipcRenderer.send('tmMonitorWinState') // 监听窗口的状态
+    }, 100)
+    // ipcRenderer.receive('fmWinControl', res => this.isMaxSize = res)
   },
 }
 </script>
