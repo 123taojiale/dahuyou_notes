@@ -70,5 +70,9 @@ var canConstruct = function(ransomNote, magazine) {
   }
   return true
 };
+
+console.log('canConstruct("a", "ab") => ', canConstruct("a", "ab"))
+console.log('canConstruct("aa", "ab") => ', canConstruct("aa", "ab"))
+console.log('canConstruct("aa", "aba") => ', canConstruct("aa", "aba"))
 // @lc code=end
 

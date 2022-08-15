@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>窗口</title>
+  <style>
+    .title-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      background-color: #008c8c;
+      height: 2em;
+      cursor: pointer;
+      -webkit-app-region: drag;
+    }
+  </style>
+</head>
+<body>
+  <div class="title-bar"></div>
+  <div style="margin-top: 2em;"></div>
+  <p>1. frame: false 配置无边框窗口</p>
+  <p>2. 自定义标题栏</p>
+  <p>3. 添加 -webkit-app-region: drag 样式，实现标题栏的拖拽效果</p>
+</body>
+</html>
