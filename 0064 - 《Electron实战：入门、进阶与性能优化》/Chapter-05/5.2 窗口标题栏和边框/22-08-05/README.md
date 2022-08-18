@@ -50,6 +50,8 @@
 
 错误原因：缺少结尾的分号 `;`
 
+> 很多情况下，只要是语法上的错误，通常都会有这么一个特点：错误语法出现的地方，后边的代码颜色会很奇怪。比如，现在 @import 语句结尾少了分号，导致语法上通不过，后边的 `</style>` 颜色都变了。了解一下该特点，可以作为语法出错的一个提示信号！
+
 ## 拖拽问题
 
 网上搜索到的现成的最简单的解决方案：
@@ -62,6 +64,10 @@
 
 ![](https://raw.githubusercontent.com/123taojiale/dahuyou_picture/main/blogs/202208061043157.png)
 
+打开控制台查看一下最终样式是否有作用上去，结果是添加上去了，但是确实不起作用呀。。。
+
+![](https://raw.githubusercontent.com/123taojiale/dahuyou_picture/main/blogs/202208180912875.png)
+
 正确的写法如下 👇🏻：
 
 ![](https://raw.githubusercontent.com/123taojiale/dahuyou_picture/main/blogs/202208061044408.png)
@@ -70,7 +76,7 @@
 
 ### 细节
 
-`-webkit-user-select: none; user-select: none;` 如果加上这一部分，那么内容（比如：标题的文字，左侧的 logo）将无法被选中。但是，这一部分不是必然要有的，即便去掉，功能依旧正常。
+`-webkit-user-select: none;` `user-select: none;` 如果加上这一部分，那么内容（比如：标题的文字，左侧的 logo）将无法被选中。但是，这一部分不是必然要有的，即便去掉，功能依旧正常。
 
 不过，感觉还是有必要加上它们，打开 **Electron Fiddle** 快速测试了一下，在主进程中创建窗口时，加上 `frame: false`，给渲染进程的 `h1` 加上 `-webkit-app-region: drag;` 之后，启动应用。
 
@@ -78,7 +84,7 @@
 1. 如果鼠标是悬停在 Hello World！ 文字上来拖拽的话，依旧可以拖拽，但是鼠标的光标样式会变为 `I`（此时没法选中 Hello World！ 文字，一旦拖动鼠标，窗口也就）
 2. 给 `h1` 设置上 `-webkit-app-region: drag;` 之后，虽然没法直接选中 `h1` 中的内容，还是还是有办法选中的，选中后续内容之后，然后往上拖动，就能选中 Hello World！了
 
-如果需要解决这俩问题，那么只要将 `-webkit-user-select: none; user-select: none;` 给加上就好。
+如果需要解决这俩问题，那么只要将 `-webkit-user-select: none;` `user-select: none;` 给加上就好。
 
 ![](https://raw.githubusercontent.com/123taojiale/dahuyou_picture/main/blogs/202208061052406.png)
 

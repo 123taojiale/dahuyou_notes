@@ -63,12 +63,12 @@ export default (winIns) => {
         } = JSON.parse(winState)
         if (isMaxSize) winIns.maximize()
         else {
-          winIns.show()
           winIns.setBounds(rect)
         }
       })
       .catch((err) => console.log('winState.json 读取文件出错 err => ', err))
-  }
+      winIns.show()
+    }
 
   /**
    * 恢复窗口状态

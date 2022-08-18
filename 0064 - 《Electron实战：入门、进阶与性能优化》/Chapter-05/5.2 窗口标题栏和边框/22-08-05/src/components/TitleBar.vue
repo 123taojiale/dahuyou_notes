@@ -1,5 +1,5 @@
 <template>
-  <div class="titleBar" style="-webkit-app-region: drag;-webkit-user-select: none;user-select: none;">
+  <div class="titleBar">
     <div class="title" ref="title">
       <div class="logo" ref="logo">
         <img src="@/assets/dahuyou.jpeg" alt="logo">
@@ -79,6 +79,9 @@ export default {
   --webkit-app-region: drag;
   -webkit-user-select: none;
   user-select: none; */
+  --webkit-app-region: drag;
+  -webkit-user-select: none;
+  user-select: none;
   .title {
     flex: 1;
     display: flex;
