@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.4.3 渲染进程之间消息传递</title>
+</head>
+
+<body>
+  <h1>窗口1</h1>
+  <button id="btn">给窗口2发送消息</button>
+  <script>
+    console.log('窗口1')
+    window.$bus.a = 123
+    btn.onclick = () => {
+      console.log('触发 test 事件')
+      window.$bus.$emit('test')
+    }
+
+    window.$bus.$on('test', () => { console.log('窗口1 test called') })
+  </script>
+</body>
+
+</html>
