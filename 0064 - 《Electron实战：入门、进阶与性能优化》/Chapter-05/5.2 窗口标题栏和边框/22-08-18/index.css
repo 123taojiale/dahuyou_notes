@@ -1,0 +1,27 @@
+.titleBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  display: flex;
+  height: 30px;
+  justify-content: flex-end;
+
+  background-color: #ddd;
+
+  /* 拖拽 */
+  -webkit-app-region: drag;
+}
+
+.min {
+  color: #999;
+}
+
+.restore, .max {
+  color: #666
+}
+
+.close {
+  color: #333;
+}
