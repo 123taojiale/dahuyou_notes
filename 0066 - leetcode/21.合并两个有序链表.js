@@ -58,8 +58,40 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
+// /**
+//  * 22-08-17 迭代
+//  * @param {ListNode} list1
+//  * @param {ListNode} list2
+//  * @return {ListNode}
+//  */
+//  var mergeTwoLists = function(list1, list2) {
+//   if (!list1) return list2
+//   if (!list2) return list1
+//   let head, cur
+//   if (list1.val >= list2.val) {
+//     head = cur = list2
+//     list2 = list2.next
+//   } else {
+//     head = cur = list1
+//     list1 = list1.next
+//   }
+//   while(list1 && list2) {
+//     if (list1.val >= list2.val) {
+//       cur.next = list2
+//       cur = cur.next
+//       list2 = list2.next
+//     } else {
+//       cur.next = list1
+//       cur = cur.next
+//       list1 = list1.next
+//     }
+//   }
+//   cur.next = list1 ? list1 : list2
+//   return head
+// };
+
 /**
- * 22-08-17
+ * 22-08-18 递归
  * @param {ListNode} list1
  * @param {ListNode} list2
  * @return {ListNode}
@@ -67,27 +99,13 @@
  var mergeTwoLists = function(list1, list2) {
   if (!list1) return list2
   if (!list2) return list1
-  let head, cur
-  if (list1.val >= list2.val) {
-    head = cur = list2
-    list2 = list2.next
+  if (list1.val <= list2.val) {
+    list1.next = mergeTwoLists(list1.next, list2)
+    return list1
   } else {
-    head = cur = list1
-    list1 = list1.next
+    list2.next = mergeTwoLists(list1, list2.next)
+    return list2
   }
-  while(list1 && list2) {
-    if (list1.val >= list2.val) {
-      cur.next = list2
-      cur = cur.next
-      list2 = list2.next
-    } else {
-      cur.next = list1
-      cur = cur.next
-      list1 = list1.next
-    }
-  }
-  cur.next = list1 ? list1 : list2
-  return head
 };
 // @lc code=end
 
