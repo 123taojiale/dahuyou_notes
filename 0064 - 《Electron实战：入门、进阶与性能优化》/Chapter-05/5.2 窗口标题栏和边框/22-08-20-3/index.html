@@ -20,11 +20,8 @@
   <script>
     const { getCurrentWindow } = require('@electron/remote')
     const win = getCurrentWindow()
-    // win.on('maximize', handleWinResized)
-    // win.on('unmaximize', handleWinResized)
-
-    win.addListener('maximize', handleWinResized)
-    win.addListener('unmaximize', handleWinResized)
+    win.on('maximize', handleWinResized)
+    win.on('unmaximize', handleWinResized)
 
     function handleWinResized() {
       if (win.isMaximized()) win.setBackgroundColor('red')
@@ -32,6 +29,11 @@
     }
 
     handleWinResized()
+
+    // 防止页面刷新
+    // window.onkeydown = function (e) {
+    //   if (e.keyCode === 82 && (e.ctrlKey || e.metaKey)) return false
+    // }
   </script>
 </body>
 </html>
