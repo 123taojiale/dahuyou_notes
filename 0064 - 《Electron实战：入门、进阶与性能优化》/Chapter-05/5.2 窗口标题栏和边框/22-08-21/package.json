@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@electron/remote": "github:electron/remote",
+    "electron": "^20.0.3"
+  }
+}

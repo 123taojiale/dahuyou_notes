@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.2.5 记录和恢复窗口状态 + 5.2.6 适时地显示窗口</title>
+</head>
+
+<body>
+  <div class="info"></div>
+  <script>
+    const {
+      getCurrentWindow
+    } = require('@electron/remote')
+
+    const winIns = getCurrentWindow()
+
+    restoreWinState()
+
+    // 一旦 窗口位置变化 或 窗口尺寸变化，就记录下窗口的状态信息
+    winIns.on('moved', setWinState)
+    winIns.on('resized', setWinState)
+
+    // 记录窗口状态
+    function setWinState() {
+      const rect = winIns.getBounds(),
+        isMaxSize = winIns.isMaximized()
+      localStorage.setItem('winState', JSON.stringify({
+        rect,
+        isMaxSize
+      }))
+    }
+
+    // 恢复窗口状态
+    function restoreWinState() {
+      const winState = localStorage.getItem('winState')
+      if (!winState) return
+      const { rect, isMaxSize } = JSON.parse(winState)
+      if (isMaxSize) winIns.maximize()
+      else winIns.setBounds(rect)
+      winIns.show() // 5.2.6 适时地显示窗口
+    }
+  </script>
+</body>
+
+</html>
