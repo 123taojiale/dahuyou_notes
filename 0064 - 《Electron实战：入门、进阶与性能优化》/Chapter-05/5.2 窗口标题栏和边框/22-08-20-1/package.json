@@ -1,0 +1,15 @@
+{
+  "name": "22-08-20-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "electron": "^20.0.3"
+  }
+}

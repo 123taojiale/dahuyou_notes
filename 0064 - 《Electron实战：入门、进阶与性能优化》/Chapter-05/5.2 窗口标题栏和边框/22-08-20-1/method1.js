@@ -1,0 +1,5 @@
+const { getCurrentWindow } = require('@electron/remote')
+const curWin = getCurrentWindow()
+btnMax1.onclick = () => curWin.maximize()
+btnMin1.onclick = () => curWin.minimize()
+btnClose1.onclick = () => curWin.close()
