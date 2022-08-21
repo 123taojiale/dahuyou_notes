@@ -46,14 +46,49 @@
  */
 
 // @lc code=start
+// /**
+//  * 22-08-19
+//  * @param {number[]} nums
+//  * @param {number} k
+//  * @return {number}
+//  */
+// var findKthLargest = function(nums, k) {
+//   return nums.sort((a, b) => a - b)[nums.length - k]
+// };
+
+
+
 /**
- * 22-08-19
+ * 22-08-20
+ * 堆排序（大根堆）
  * @param {number[]} nums
  * @param {number} k
  * @return {number}
  */
-var findKthLargest = function(nums, k) {
-  return nums.sort((a, b) => a - b)[nums.length - k]
-};
+ var findKthLargest = function(nums, k) {
+  let heapSize = nums.length
+  buildMaxHeap(nums, heapSize)
+  for(let i = nums.length - 1; i >= nums.length - k + 1; i--) {
+    [nums[0], nums[i]] = [nums[i], nums[0]]
+    maxHeapify(nums, 0, --heapSize)
+  }
+  return nums[0]
+}
+
+function buildMaxHeap(nums, heapSize) {
+  for(let i = Math.floor(heapSize / 2) - 1; i >= 0; i--) {
+    maxHeapify(nums, i, heapSize)
+  }
+}
+
+function maxHeapify(nums, startIndex, heapSize) {
+  let l = startIndex * 2 + 1, r = startIndex * 2 + 2, largest = startIndex
+  if (l < heapSize && nums[l] > nums[largest]) largest = l
+  if (r < heapSize && nums[r] > nums[largest]) largest = r
+  if (largest !== startIndex) {
+    [nums[startIndex], nums[largest]] = [nums[largest], nums[startIndex]]
+    maxHeapify(nums, largest, heapSize)
+  }
+}
 // @lc code=end
 
