@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.3 不规则窗口</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      pointer-events: none;
+    }
+    .content {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      overflow: hidden;
+      pointer-events: auto;
+      /* 可拖动 */
+      -webkit-app-region: drag;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    窗口
+  </div>
+  <script>
+    const { getCurrentWindow } = require('@electron/remote'),
+     win = getCurrentWindow()
+    window.addEventListener('mousemove', e => {
+      console.log('e.target => ', e.target)
+      console.log('document.documentElement => ', document.documentElement)
+      if (e.target === document.documentElement) win.setIgnoreMouseEvents(true, { forward: true })
+      else win.setIgnoreMouseEvents(false)
+    })
+    win.setIgnoreMouseEvents(true, { forward: true }) // 这行代码不影响功能
+  </script>
+</body>
+</html>
