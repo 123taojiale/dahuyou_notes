@@ -72,14 +72,37 @@
  */
 
 // @lc code=start
+// /**
+//  * @param {number[]} nums
+//  * @return {number}
+//  */
+// var removeDuplicates = function(nums) {
+//   let slow = fast = 0
+//   while(fast < nums.length) {
+//     if (nums[fast] !== nums[slow]) nums[++slow] = nums[fast++]
+//     else fast++
+//   }
+//   return slow + 1
+// };
+
+
 /**
+ * 22-08-27
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
-  let slow = fast = 0
-  while(fast < nums.length) {
-    if (nums[fast] !== nums[slow]) nums[++slow] = nums[fast++]
+ var removeDuplicates = function(nums) {
+  // nums 为非重复数列的情况
+  const len = nums.length
+  if (len === 0 || len === 1) return nums
+  // nums 可能为重复数列的情况
+  let slow = 0, fast = slow + 1
+  while(fast <= len - 1) {
+    if (nums[fast] !== nums[slow]) {
+      // 指向同一个元素不需要赋值
+      if (slow + 1 !== fast) nums[++slow] = nums[fast++]
+      else slow++
+    }
     else fast++
   }
   return slow + 1
