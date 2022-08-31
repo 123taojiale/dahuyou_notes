@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>提供离开提示</title>
+</head>
+<body>
+  <div class="leave-tip-model" id="model">
+    <div class="leave-tip-container">
+      <p class="tip-text" id="text"></p>
+      <div class="btn-container">
+        <button class="cancel" id="cancel">取消</button>
+        <button class="confirm" id="confirm">确定</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const { ipcRenderer } = require('electron')
+    const { getCurrentWindow } = require('@electron/remote')
+    const win = getCurrentWindow()
+    // 有效
+    // alert(123)
+    // confirm(456)
+    window.onbeforeunload = () => {
+      // 无效
+      // alert(123)
+      // confirm(456)
+      createNotification('确定离开？').then(isDestroy => {
+        console.log('isDestroy => ', isDestroy)
+        // if (isDestroy) win.destroy()
+        // if (isDestroy) ipcRenderer.send('descroyWin')
+      })
+      return false
+    }
+
+    async function createNotification(tip = '系统可能不会保存您所做的更改') {
+      const res = new Promise((resolve, reject) => {
+        text = tip
+        model.style.display = 'flex'
+
+        cancel.onclick = () => {
+          console.log('点击了取消')
+          model.style.display = 'none'
+          resolve(false)
+        }
+        confirm.onclick = () => {
+          console.log('点击了确认')
+          model.style.display = 'none'
+          resolve(true)
+        }
+      })
+      return res
+    }
+  </script>
+</body>
+</html>

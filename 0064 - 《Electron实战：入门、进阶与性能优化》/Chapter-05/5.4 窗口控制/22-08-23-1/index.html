@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.4.1 阻止窗口关闭</title>
+</head>
+<body>
+  <script>
+    // 窗口关闭或刷新时，会提供一个警告 ⚠️ 提示
+    window.onbeforeunload = function () {
+      return false
+    }
+    // 也可以写成箭头函数
+    // window.onbeforeunload = () => false
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+.leave-tip-model {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, .4);
+
+  display: none; 
+  justify-content: center;
+  align-items: center;
+}
+
+.leave-tip-container {
+  width: 20vw;
+  height: 20vh;
+  min-width: 150px;
+  min-height: 100px;
+
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  text-align: center;
+}
+
+
+
+.btn-container {
+  text-align: center;
+}
