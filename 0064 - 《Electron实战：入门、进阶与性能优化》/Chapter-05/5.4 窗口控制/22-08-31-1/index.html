@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过 close 事件来阻止窗口的关闭</title>
+</head>
+<body>
+  <script>
+    const { ipcRenderer } = require('electron')
+
+    ipcRenderer.on('close-win', () => {
+      console.log('在窗口关闭前，做一些事儿')
+      const isDestroy = confirm('是否确定离开当前页')
+      if (isDestroy) ipcRenderer.send('destroy-win')
+    })
+  </script>
+</body>
+</html>

@@ -85,27 +85,47 @@
 
 
 
+// /**
+//  * 22-08-30
+//  * @param {number[]} nums
+//  * @return {void} Do not return anything, modify nums in-place instead.
+//  */
+// var sortColors = function (nums) {
+//   const len = nums.length
+
+//   let lt = -1, gt = len, i = 0
+
+//   while (i < gt) {
+//     const item = nums[i]
+//     if (item < 1) {
+//       lt++
+//       [nums[i], nums[lt]] = [nums[lt], nums[i]]
+//       i++
+//     } else if (item > 1) {
+//       gt--
+//       [nums[i], nums[gt]] = [nums[gt], nums[i]]
+//     } else {
+//       i++
+//     }
+//   }
+// };
+
 /**
  * 22-08-30
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var sortColors = function (nums) {
-  const len = nums.length
-
-  let lt = -1, gt = len, i = 0
-
-  while (i < gt) {
-    const item = nums[i]
-    if (item < 1) {
-      lt++
-      [nums[i], nums[lt]] = [nums[lt], nums[i]]
-      i++
-    } else if (item > 1) {
-      gt--
-      [nums[i], nums[gt]] = [nums[gt], nums[i]]
-    } else {
-      i++
+ var sortColors = function (nums) {
+  // 初始化一个辅助数组 arr
+  const arr = [0, 0, 0]
+  for (let i = 0; i < nums.length; i++) arr[nums[i]]++
+  // 依据 arr 来设置 nums
+  let j = 0
+  for (let i = 0; i < 3; i++) {
+    let count = arr[i]
+    while (count > 0) {
+      nums[j++] = i
+      count--
     }
   }
 };
