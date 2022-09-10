@@ -1,0 +1,1 @@
+console.log(process.env) // => 输出系统的环境变量
