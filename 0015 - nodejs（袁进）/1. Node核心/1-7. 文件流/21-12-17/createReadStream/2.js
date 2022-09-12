@@ -20,13 +20,19 @@ rs.on("close", () => {
 });
 
 /*
-使用流的方式，获取指定文件中的所有内容。
+data
+注册该事件，才会读数据
+每读取一块数据，事件就会触发一次，它会反复触发。
 */
-let content = "";
 rs.on("data", (chunk) => {
-  content += chunk;
+  console.log(chunk);
 });
 
+/*
+end
+全部数据读取完毕时触发 end 事件
+end 事件会在文件被关闭之前触发
+*/
 rs.on("end", () => {
-  console.log("have got all content from file, the file content is => ", content);
+  console.log("have got all content from file");
 });
