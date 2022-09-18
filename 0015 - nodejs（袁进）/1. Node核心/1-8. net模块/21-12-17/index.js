@@ -3,7 +3,7 @@ const server = net.createServer();
 const fs = require("fs");
 const path = require("path");
 
-server.listen(9527); // 服务器监听9527端口
+server.listen(9527); // 服务器监听 9527 端口
 
 server.on("listening", () => {
   console.log("server listen 9527");
