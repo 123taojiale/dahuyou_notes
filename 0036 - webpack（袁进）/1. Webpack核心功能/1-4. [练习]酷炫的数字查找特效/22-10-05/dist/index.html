@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>酷炫的数字查找特效</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+      }
+
+      html {
+        min-height: 100%;
+        background: #1d1d1d;
+        color: #fff;
+        padding: 20px;
+        cursor: pointer;
+        box-sizing: border-box;
+      }
+
+      .container span {
+        float: left;
+        min-width: 2em;
+        margin-right: 10px;
+      }
+
+      .center {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        font-size: 8em;
+        color: rgba(255, 255, 255, 0.7);
+        transform: translate(-50%, -50%);
+        /* transition: all 1s ease-in, opacity 0.7s ease-in 0.3s;
+        注解：
+        针对 opactiy，变化函数使用 ease-in，延迟 0.3s 再开始过渡，过渡需要 0.7s 完成
+        针对其他 css 属性，变化函数使用 ease-in，变化总时间 1s
+        */
+        transition: all 1s ease-in, opacity 0.7s ease-in 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="divContainer" class="container"></div>
+    <div id="divCenter" class="center"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
