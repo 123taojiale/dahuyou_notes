@@ -58,37 +58,75 @@
 
 
 
+// /**
+//  * 22-08-20
+//  * 堆排序（大根堆）
+//  * @param {number[]} nums
+//  * @param {number} k
+//  * @return {number}
+//  */
+//  var findKthLargest = function(nums, k) {
+//   let heapSize = nums.length
+//   buildMaxHeap(nums, heapSize)
+//   for(let i = nums.length - 1; i >= nums.length - k + 1; i--) {
+//     [nums[0], nums[i]] = [nums[i], nums[0]]
+//     maxHeapify(nums, 0, --heapSize)
+//   }
+//   return nums[0]
+// }
+
+// function buildMaxHeap(nums, heapSize) {
+//   for(let i = Math.floor(heapSize / 2) - 1; i >= 0; i--) {
+//     maxHeapify(nums, i, heapSize)
+//   }
+// }
+
+// function maxHeapify(nums, startIndex, heapSize) {
+//   let l = startIndex * 2 + 1, r = startIndex * 2 + 2, largest = startIndex
+//   if (l < heapSize && nums[l] > nums[largest]) largest = l
+//   if (r < heapSize && nums[r] > nums[largest]) largest = r
+//   if (largest !== startIndex) {
+//     [nums[startIndex], nums[largest]] = [nums[largest], nums[startIndex]]
+//     maxHeapify(nums, largest, heapSize)
+//   }
+// }
+
+
+
 /**
- * 22-08-20
- * 堆排序（大根堆）
+ * 22-09-03
+ * 快排
  * @param {number[]} nums
  * @param {number} k
  * @return {number}
  */
- var findKthLargest = function(nums, k) {
-  let heapSize = nums.length
-  buildMaxHeap(nums, heapSize)
-  for(let i = nums.length - 1; i >= nums.length - k + 1; i--) {
-    [nums[0], nums[i]] = [nums[i], nums[0]]
-    maxHeapify(nums, 0, --heapSize)
-  }
-  return nums[0]
+var findKthLargest = function(nums, k) {
+  const len = nums.length
+  if (k > len) return
+  const index = quickSort(nums, 0, len - 1, k)
+  return nums[index]
 }
 
-function buildMaxHeap(nums, heapSize) {
-  for(let i = Math.floor(heapSize / 2) - 1; i >= 0; i--) {
-    maxHeapify(nums, i, heapSize)
-  }
+function quickSort(nums, l, r, k) {
+  if (l >= r) return l
+  const p = partition(nums, l, r)
+  if (p + 1 === k) return p
+  if (p + 1 > k) return quickSort(nums, l, p - 1, k)
+  else return quickSort(nums, p + 1, r, k)
 }
 
-function maxHeapify(nums, startIndex, heapSize) {
-  let l = startIndex * 2 + 1, r = startIndex * 2 + 2, largest = startIndex
-  if (l < heapSize && nums[l] > nums[largest]) largest = l
-  if (r < heapSize && nums[r] > nums[largest]) largest = r
-  if (largest !== startIndex) {
-    [nums[startIndex], nums[largest]] = [nums[largest], nums[startIndex]]
-    maxHeapify(nums, largest, heapSize)
+function partition(nums, l, r) {
+  let v = nums[l], j = l, i = l + 1
+  while (i <= r) {
+    if (nums[i] >= v) {
+      [nums[j + 1], nums[i]] = [nums[i], nums[j + 1]]
+      j++
+    }
+    i++
   }
+  console.log('1', nums)
+  [nums[j], nums[l]] = [nums[l], nums[j]]
+  console.log('2', nums)
+  return j
 }
 // @lc code=end
-

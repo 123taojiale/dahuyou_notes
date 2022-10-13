@@ -1,1 +1,1 @@
-import("./a.mjs").then(r => console.log(r));
+import("./a.mjs").then(r => console.log(r)) // => [Module: null prototype] { a: 1, default: 5 }
